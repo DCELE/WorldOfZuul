@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6adddd12-40db-4453-b039-c5cee86c8852" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6adddd12-40db-4453-b039-c5cee86c8852" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,14 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zuul-framework/out/production/zuul-framework" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gorm Krings\Documents\GitHub\WorldOfZuul\zuul-framework\out\production\zuul-framework" />
-      <recent name="C:\Users\Gorm Krings\Documents\GitHub\WorldOfZuul\zuul-framework\out\production\zuul-framework\worldofzuul" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
