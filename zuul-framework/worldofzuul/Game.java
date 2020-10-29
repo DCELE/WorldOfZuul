@@ -1,29 +1,65 @@
 package worldofzuul;
-import worldofzuul.Game;
-public class Game 
+
+public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
 
-    public Game() 
+
+    public Game()
     {
         createRooms();
         parser = new Parser();
-    }
 
+    }
+    // Main-room, Materials, Water, Farm, Factory, Color-Factory
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office, farm;
-      
+        // Room outside, theatre, pub, lab, office, exit;
+        Room mainRoom, materials, water, farm, factory, colorFactory, exit;
+        /*
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
-        farm = new Room("in the farm");
-        
+
+
+         */
+
+
+        mainRoom = new Room("in the main room and can go to the other rooms from here.");
+        materials = new Room("in the material room. Here you can pick a material you want to work with.");
+        water = new Room("in the water reservoir. If you have a bucket then you can pick up some water.");
+        farm = new Room("in the farm. You can plant your chosen seed and grow them here.");
+        factory = new Room("in the factory. You can process your product here.");
+        colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.");
+
+
+
+
+        mainRoom.setExit("materials", materials);
+        mainRoom.setExit("water", water);
+        mainRoom.setExit("farm", farm);
+        mainRoom.setExit("factory", factory);
+
+        materials.setExit("mainroom", mainRoom);
+
+        water.setExit("mainroom", mainRoom);
+
+        farm.setExit("mainroom", mainRoom);
+
+        factory.setExit("mainroom", mainRoom);
+        factory.setExit("colorfactory", colorFactory);
+
+        colorFactory.setExit("factory", factory);
+
+        currentRoom = mainRoom;
+
+
+
+        /*
         outside.setExit("east", theatre);
         outside.setExit("south", lab);
         outside.setExit("west", pub);
@@ -38,13 +74,15 @@ public class Game
         office.setExit("west", lab);
 
         currentRoom = outside;
+
+         */
     }
 
-    public void play() 
-    {            
+    public void play()
+    {
         printWelcome();
 
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -63,7 +101,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private boolean processCommand(Command command) 
+    private boolean processCommand(Command command)
     {
         boolean wantToQuit = false;
 
@@ -86,7 +124,7 @@ public class Game
         return wantToQuit;
     }
 
-    private void printHelp() 
+    private void printHelp()
     {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
@@ -95,7 +133,7 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command) 
+    private void goRoom(Command command)
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -115,7 +153,7 @@ public class Game
         }
     }
 
-    private boolean quit(Command command) 
+    private boolean quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");

@@ -33,6 +33,17 @@ public class Room
 
     private String getExitString()
     {
+
+        /*
+
+        String returnString = "Choose a path:";
+        Set<String> keys = exits.keySet();
+        for(String exit : keys){
+            returnString += " " + exit;
+        }
+        return returnString;
+
+         */
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {

@@ -18,10 +18,11 @@
  */
 
 package worldofzuul;
+// import worldofzuul.CommandWord;
 
 public class Command
 {
-    private CommandWord commandWord;
+    public CommandWord commandWord;
     private String secondWord;
 
     public Command(CommandWord commandWord, String secondWord)
