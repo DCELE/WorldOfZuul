@@ -125,4 +125,11 @@ public class Game
             return true;
         }
     }
+
+        public static void main(String[] args) {
+            Game p1 = new Game();
+            p1.play();
+
+    }
+
 }
