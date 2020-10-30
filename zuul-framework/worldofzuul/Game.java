@@ -10,78 +10,44 @@ public class Game
     {
         createRooms();
         parser = new Parser();
-
     }
-    // Main-room, Materials, Water, Farm, Factory, Color-Factory
 
+
+    //Creation of rooms and exits
     private void createRooms()
     {
-        // Room outside, theatre, pub, lab, office, exit;
-        Room mainRoom, materials, water, farm, factory, colorFactory, exit;
-        /*
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        Room mainRoom, farm, water, textileFactory, colourFactory, materialRoom;
 
+        mainRoom = new Room("in the mainRoom and can go to the other rooms from here.");
+        farm = new Room("in the farm. Here you can plant your chosen seeds and grow them.");
+        water = new Room("at the waterhole. If you have a bucket, you can pick up some water.");
+        textileFactory = new Room("in the textileFactory. Fabrics are made in here.");
+        colourFactory = new Room("in the colourFactory. Here you can color your fabric.");
+        materialRoom = new Room("in the materialRoom. You can pick seeds you want to grow and work with.");
 
-         */
+        mainRoom.setExit("east", farm);
+        mainRoom.setExit("south", textileFactory);
+        mainRoom.setExit("west", water);
+        mainRoom.setExit("north", materialRoom);
 
+        farm.setExit("west", mainRoom);
 
-        mainRoom = new Room("in the main room and can go to the other rooms from here.");
-        materials = new Room("in the material room. Here you can pick a material you want to work with.");
-        water = new Room("in the water reservoir. If you have a bucket then you can pick up some water.");
-        farm = new Room("in the farm. You can plant your chosen seed and grow them here.");
-        factory = new Room("in the factory. You can process your product here.");
-        colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.");
+        water.setExit("east", mainRoom);
 
+        textileFactory.setExit("north", mainRoom);
+        textileFactory.setExit("south", colourFactory);
 
+        colourFactory.setExit("north", textileFactory);
 
-
-        mainRoom.setExit("materials", materials);
-        mainRoom.setExit("water", water);
-        mainRoom.setExit("farm", farm);
-        mainRoom.setExit("factory", factory);
-
-        materials.setExit("mainroom", mainRoom);
-
-        water.setExit("mainroom", mainRoom);
-
-        farm.setExit("mainroom", mainRoom);
-
-        factory.setExit("mainroom", mainRoom);
-        factory.setExit("colorfactory", colorFactory);
-
-        colorFactory.setExit("factory", factory);
+        materialRoom.setExit("south", mainRoom);
 
         currentRoom = mainRoom;
 
-
-
-        /*
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-
-        theatre.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;
-
-         */
     }
 
     public void play()
     {
         printWelcome();
-
 
         boolean finished = false;
         while (! finished) {
