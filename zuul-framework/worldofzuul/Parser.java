@@ -19,6 +19,7 @@ public class Parser
         String word1 = null;
         String word2 = null;
 
+
         System.out.print("> "); 
 
         inputLine = reader.nextLine();

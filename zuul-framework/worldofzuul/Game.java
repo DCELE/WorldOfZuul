@@ -51,7 +51,7 @@ public class Game
         currentRoom = mainRoom;
 
         //Items in the materials
-        materials.setItem(new Item("hemp seeds"));
+        materials.setItem(new Item("hemp"));
         materials.setItem(new Item("flax"));
         materials.setItem(new Item("cotton"));
         materials.setItem(new Item("bamboo"));
@@ -61,6 +61,7 @@ public class Game
         //Items at the waterhole
         water.setItem(new Item("bucket"));
         water.setItem(new Item("water"));
+
 
     }
 
@@ -146,12 +147,22 @@ public class Game
         {
             if (inventory.get(i).getDescription().equals(new Item("bucket")));
 
-
                 System.out.println("You picked up water with the bucket");
         }
-        inventory.add(newItem);
-        currentRoom.removeItem(item);
-        System.out.println("Picked up: " + item);
+        inventory.add(new Item("bucket with water"));
+
+        //Find bucket in ArrayList, and remove using index1 as pointer
+        int index1 = 0;
+        for (int i=0; i<inventory.size(); i++)
+        {
+            if (inventory.get(i).getDescription().equals(new Item("bucket"))) {
+                newItem = inventory.get(i);
+                index1 = i;
+            }
+        }
+        inventory.remove(index1);
+        }
+
 
 /*
         if (newItem == null) {
@@ -162,7 +173,7 @@ public class Game
             currentRoom.removeItem(item);
             System.out.println("Picked up: " + item);
         }*/
-    }
+
 
 
     //Ny dropItem
@@ -228,7 +239,7 @@ public class Game
         System.out.println("You are carrying:");
         System.out.println(" " + output);
     }
-
+    //laves om
     private void printHelp()
     {
         System.out.println("You are lost. You are alone. You wander");
