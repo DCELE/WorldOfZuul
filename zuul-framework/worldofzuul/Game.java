@@ -26,7 +26,7 @@ public class Game
 
         mainRoom = new Room("in the main room and can go to the other rooms from here.");
         materials = new Room("in the material room. Here you can pick a material you want to work with.");
-        water = new Room("in the water reservoir. If you have a bucket then you can pick up some water.");
+        water = new Room("in the water reservoir. If you have a bucket then you can collect some water.");
         farm = new Room("in the farm. You can plant your chosen seed and grow them here.");
         factory = new Room("in the factory. You can process your product here.");
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.");
@@ -51,7 +51,7 @@ public class Game
         currentRoom = mainRoom;
 
         //Items in the materials
-        materials.setItem(new Item("hemp"));
+        materials.setItem(new Item("hemp seeds"));
         materials.setItem(new Item("flax"));
         materials.setItem(new Item("cotton"));
         materials.setItem(new Item("bamboo"));
@@ -135,24 +135,23 @@ public class Game
     private void collectWater(Command command)
     {
         if(!command.hasSecondWord()) {
-            System.out.println("Get what?");
+            System.out.println("Collect what?");
             return;
         }
 
         String item = command.getSecondWord();
         Item newItem = currentRoom.getItem(item);
 
-
-
-
         for (int i=0; i<inventory.size(); i++)
         {
             if (inventory.get(i).getDescription().equals(new Item("bucket")));
-            System.out.println("You picked up water with the bucket");
 
 
+                System.out.println("You picked up water with the bucket");
         }
-
+        inventory.add(newItem);
+        currentRoom.removeItem(item);
+        System.out.println("Picked up: " + item);
 
 /*
         if (newItem == null) {
@@ -227,7 +226,7 @@ public class Game
             output += inventory.get(i).getDescription() + " ";
         }
         System.out.println("You are carrying:");
-        System.out.println(output);
+        System.out.println(" " + output);
     }
 
     private void printHelp()
