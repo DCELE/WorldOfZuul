@@ -1,7 +1,17 @@
 package worldofzuul;
 
 public class Item {
-    int hej = 1;
-    int hello = 2;
-    int hello1 = 3;
+    //Attribut
+    String description;
+
+    //Constructor
+    public Item (String description)
+    {
+        this.description = description;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
 }
