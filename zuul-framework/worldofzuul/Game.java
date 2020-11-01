@@ -1,10 +1,14 @@
 package worldofzuul;
 
+import java.util.ArrayList;
+
 public class Game
 {
     private Parser parser;
     private Room currentRoom;
 
+    //Ny Arraylist
+    ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Game()
     {
@@ -17,7 +21,7 @@ public class Game
     private void createRooms()
     {
 
-        Room mainRoom, materials, water, farm, factory, colorFactory, exit;
+        Room mainRoom, materials, water, farm, factory, colorFactory;
 
 
         mainRoom = new Room("in the main room and can go to the other rooms from here.");
@@ -45,6 +49,18 @@ public class Game
         colorFactory.setExit("factory", factory);
 
         currentRoom = mainRoom;
+
+        //Items in the materials
+        materials.setItem(new Item("hemp"));
+        materials.setItem(new Item("flax"));
+        materials.setItem(new Item("cotton"));
+        materials.setItem(new Item("bamboo"));
+
+        materials.setItem(new Item("polyester"));
+
+        //Items at the waterhole
+        water.setItem(new Item("bucket"));
+        water.setItem(new Item("water"));
 
     }
 
@@ -91,7 +107,127 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
+        //Ny inventory
+        else if (commandWord == CommandWord.INVENTORY)
+        {
+            printInventory();
+        }
+        //Ny getItem
+        else if (commandWord == CommandWord.GET)
+        {
+            getItem(command);
+        }
+        //Ny dropItem
+        else if (commandWord == CommandWord.DROP)
+        {
+            dropItem(command);
+        }
+        //Ny collectWater
+        else if (commandWord == CommandWord.COLLECT)
+        {
+        collectWater(command);
+        }
+
         return wantToQuit;
+    }
+
+    //Ny collectWater
+    private void collectWater(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Get what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+        Item newItem = currentRoom.getItem(item);
+
+
+
+
+        for (int i=0; i<inventory.size(); i++)
+        {
+            if (inventory.get(i).getDescription().equals(new Item("bucket")));
+            System.out.println("You picked up water with the bucket");
+
+
+        }
+
+
+/*
+        if (newItem == null) {
+            System.out.println("That item is not here!");
+        }
+        else {
+            inventory.add(newItem);
+            currentRoom.removeItem(item);
+            System.out.println("Picked up: " + item);
+        }*/
+    }
+
+
+    //Ny dropItem
+    private void dropItem(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Drop what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        Item newItem = null;
+        int index = 0;
+        for (int i=0; i<inventory.size(); i++) {
+            if (inventory.get(i).getDescription().equals(item)) {
+                newItem = inventory.get(i);
+                index = i;
+            }
+        }
+        if (newItem == null) {
+            System.out.println("That item is not in your inventory!");
+        }
+        else {
+            inventory.remove(index);
+            currentRoom.setItem(new Item(item));
+            System.out.println("Dropped: " + item);
+        }
+    }
+
+
+    //Ny getItem
+    private void getItem(Command command)
+    {
+        if(!command.hasSecondWord())
+        {
+            System.out.println("Get what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        Item newItem = currentRoom.getItem(item);
+
+        if (newItem == null) {
+            System.out.println("That item is not here!");
+        }
+        else {
+            inventory.add(newItem);
+            currentRoom.removeItem(item);
+            System.out.println("Picked up: " + item);
+        }
+    }
+
+    //Ny printInventory metode
+    private void printInventory()
+    {
+        String output = "";
+        for (int i=0; i<inventory.size(); i++)
+        {
+            output += inventory.get(i).getDescription() + " ";
+        }
+        System.out.println("You are carrying:");
+        System.out.println(output);
     }
 
     private void printHelp()
