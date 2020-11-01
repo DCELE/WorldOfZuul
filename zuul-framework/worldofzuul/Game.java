@@ -35,9 +35,7 @@ public class Game
         farm = new Room("in the farm. You can plant your chosen seed and grow them here.");
         factory = new Room("in the factory. You can process your product here.");
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.");
-
-
-
+        
 
         mainRoom.setExit("materials", materials);
         mainRoom.setExit("water", water);
