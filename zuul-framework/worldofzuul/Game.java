@@ -128,8 +128,39 @@ public class Game
         {
         collectWater(command);
         }
+        else if (commandWord == CommandWord.PLANT)
+        {
+            plantSeed(command);
+        }
 
         return wantToQuit;
+    }
+
+    private void plantSeed(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Plant what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        Item newItem = null;
+        int index2 = 0;
+        for (int i=0; i<inventory.size(); i++) {
+            if (inventory.get(i).getDescription().equals(item)) {
+                newItem = inventory.get(i);
+                index2 = i;
+            }
+        }
+        if (newItem == null) {
+            System.out.println("That plant is not in your inventory!");
+        }
+        else {
+            inventory.remove(index2);
+            currentRoom.setItem(new Item(item));
+            System.out.println("Planted: " + item);
+        }
     }
 
     //Ny collectWater
