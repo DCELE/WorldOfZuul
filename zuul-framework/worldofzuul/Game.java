@@ -15,50 +15,71 @@ public class Game
 
     private void createRooms()
     {
-        Inventory outsideInventory, theatreInventory, pubInventory, labInventory, officeInventory, wellInventory, myInventory;
+
+        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory, myInventory;
 
         // Creating inventories
-        outsideInventory = new Inventory();
-        theatreInventory = new Inventory();
-        pubInventory = new Inventory();
-        labInventory = new Inventory();
-        officeInventory = new Inventory();
+        mainRoomInventory = new Inventory();
+        materialsInventory = new Inventory();
         wellInventory = new Inventory();
+        farmInventory = new Inventory();
+        factoryInventory = new Inventory();
+        colorFactoryInventory = new Inventory();
         myInventory = new Inventory();
 
         // Creating items
         Item bucket = new Bucket("bucket", 42);
+        Item water = new Materials("water", 6);
 
-        // Creating rooms
-        Room outside, theatre, pub, lab, office, well;
-        outside = new Room("outside the main entrance of the university", outsideInventory);
-        theatre = new Room("in a lecture theatre", theatreInventory);
-        pub = new Room("in the campus pub", pubInventory);
-        lab = new Room("in a computing lab", labInventory);
-        office = new Room("in the computing admin office", officeInventory);
-        well = new Room("outside at the well north of the university", wellInventory);
+        Item hemp = new Materials("hemp", 1);
+        Item linen = new Materials("linen",2);
+        Item bamboo = new Materials("bamboo", 3);
+        Item cotton = new Materials("cotton", 4);
+
+        Item polyester = new Materials("polyester", 5);
+
+
+        Room mainRoom, materials, well, farm, factory, colorFactory, exit;
+
+
+        mainRoom = new Room("in the main room and can go to the other rooms from here.",mainRoomInventory);
+        materials = new Room("in the material room. Here you can pick a material you want to work with.",materialsInventory);
+        well = new Room("in the water reservoir. If you have a bucket then you can pick up some water.",wellInventory);
+        farm = new Room("in the farm. You can plant your chosen seed and grow them here.",farmInventory);
+        factory = new Room("in the factory. You can process your product here.",factoryInventory);
+        colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.",colorFactoryInventory);
 
         // Placing items
+        //Materials room;
+        materialsInventory.addToInventory(hemp);
+        materialsInventory.addToInventory(linen);
+        materialsInventory.addToInventory(bamboo);
+        materialsInventory.addToInventory(cotton);
+        materialsInventory.addToInventory(polyester);
+
         wellInventory.addToInventory(bucket);
+        wellInventory.addToInventory(water);
 
-        // Dealing with directions
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-        outside.setExit("north", well);
 
-        theatre.setExit("west", outside);
 
-        pub.setExit("east", outside);
+        mainRoom.setExit("materials", materials);
+        mainRoom.setExit("water", well);
+        mainRoom.setExit("farm", farm);
+        mainRoom.setExit("factory", factory);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        materials.setExit("mainroom", mainRoom);
 
-        office.setExit("west", lab);
+        well.setExit("mainroom", mainRoom);
 
-        well.setExit("south", outside);
+        farm.setExit("mainroom", mainRoom);
 
-        currentRoom = outside;
+        factory.setExit("mainroom", mainRoom);
+        factory.setExit("colorfactory", colorFactory);
+
+        colorFactory.setExit("factory", factory);
+
+        currentRoom = mainRoom;
+
     }
 
     public void createPlayerInventory() {
@@ -105,13 +126,26 @@ public class Game
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
         }
-        else if (commandWord == CommandWord.COLLECT) {
-
+        else if (commandWord == CommandWord.GET)
+        {
+            getItem(command);
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
+    }
+
+    private void getItem(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Get what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        currentRoom.
     }
 
     private void printHelp() 
