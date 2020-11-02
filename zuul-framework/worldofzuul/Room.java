@@ -47,9 +47,9 @@ public class Room
         return exits.get(direction);
     }
 
-    public void getItem()
+    public Inventory getInventory()
     {
-
+        return this.inventory;
     }
 }
 

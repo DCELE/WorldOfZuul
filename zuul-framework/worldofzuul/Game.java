@@ -28,15 +28,15 @@ public class Game
         myInventory = new Inventory();
 
         // Creating items
-        Item bucket = new Bucket("bucket", 42);
-        Item water = new Materials("water", 6);
+        //Item bucket = new Bucket("bucket", 42);
+        /*Item water = new Materials("water", 6);
 
-        Item hemp = new Materials("hemp", 1);
+        //Item hemp = new Materials("hemp", 1);
         Item linen = new Materials("linen",2);
         Item bamboo = new Materials("bamboo", 3);
         Item cotton = new Materials("cotton", 4);
 
-        Item polyester = new Materials("polyester", 5);
+        Item polyester = new Materials("polyester", 5);*/
 
 
         Room mainRoom, materials, well, farm, factory, colorFactory, exit;
@@ -51,14 +51,14 @@ public class Game
 
         // Placing items
         //Materials room;
-        materialsInventory.addToInventory(hemp);
-        materialsInventory.addToInventory(linen);
-        materialsInventory.addToInventory(bamboo);
-        materialsInventory.addToInventory(cotton);
-        materialsInventory.addToInventory(polyester);
+        materialsInventory.addToInventory(new Materials("hemp",1));
+        materialsInventory.addToInventory(new Materials("linen",2));
+        materialsInventory.addToInventory(new Materials("bamboo",3));
+        materialsInventory.addToInventory(new Materials("cotton",4));
+        materialsInventory.addToInventory(new Materials("polyester",5));
 
-        wellInventory.addToInventory(bucket);
-        wellInventory.addToInventory(water);
+        wellInventory.addToInventory(new Bucket("bucket",7));
+        wellInventory.addToInventory(new Materials("water",6));
 
 
 
@@ -145,7 +145,7 @@ public class Game
 
         String item = command.getSecondWord();
 
-        currentRoom.
+        currentRoom.getInventory().addToInventory(item);
     }
 
     private void printHelp() 
