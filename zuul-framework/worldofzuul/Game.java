@@ -5,7 +5,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Inventory playerInventory;
-        
+
 
     public Game() 
     {
@@ -39,9 +39,8 @@ public class Game
 
         Item polyester = new Materials("polyester", 5);*/
 
-
+        // Declaring rooms
         Room mainRoom, materials, well, farm, factory, colorFactory, exit;
-
 
         mainRoom = new Room("in the main room and can go to the other rooms from here.",mainRoomInventory);
         materials = new Room("in the material room. Here you can pick a material you want to work with.",materialsInventory);
@@ -50,17 +49,19 @@ public class Game
         factory = new Room("in the factory. You can process your product here.",factoryInventory);
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.",colorFactoryInventory);
 
+        // Declaring items
+        Item hemp, linen, bamboo, cotton, polyester, bucket, water;
+
         // Placing items
         //Materials room;
-        materialsInventory.addToInventory(new Materials("hemp",1));
-        materialsInventory.addToInventory(new Materials("linen",2));
-        materialsInventory.addToInventory(new Materials("bamboo",3));
-        materialsInventory.addToInventory(new Materials("cotton",4));
-        materialsInventory.addToInventory(new Materials("polyester",5));
+        materialsInventory.addToInventory(hemp = new Materials("hemp",1));
+        materialsInventory.addToInventory(linen = new Materials("linen",2));
+        materialsInventory.addToInventory(bamboo = new Materials("bamboo",3));
+        materialsInventory.addToInventory(cotton = new Materials("cotton",4));
+        materialsInventory.addToInventory(polyester = new Materials("polyester",5));
 
-        wellInventory.addToInventory(new Bucket("bucket",7));
-        wellInventory.addToInventory(new Materials("water",6));
-
+        wellInventory.addToInventory(bucket = new Bucket("bucket",7));
+        wellInventory.addToInventory(water = new Water());
 
 
         mainRoom.setExit("materials", materials);
@@ -106,7 +107,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private boolean processCommand(Command command) 
+    private boolean processCommand(Command command)
     {
         boolean wantToQuit = false;
 
@@ -126,7 +127,7 @@ public class Game
         else if (commandWord == CommandWord.GET)
         {
             getItem(command);
-        } else if (commandWord == commandWord.INVENTORY)
+        } else if (commandWord == CommandWord.INVENTORY)
         {
             showInventory(command);
         }
@@ -154,13 +155,20 @@ public class Game
             System.out.println("Get what?");
             return;
         }
-
+        // Bucket is broken.
         for (Item item : currentRoom.getInventory().getInventory()) {
             if (command.getSecondWord().equals(item.getName())) {
-                currentRoom.getInventory().removeFromInventory(item);
-                playerInventory.addToInventory(item);
-                System.out.println("You picked up: " + item);
-                break;
+                if (!item.getName().equals("water")) {
+                    currentRoom.getInventory().removeFromInventory(item);
+                    playerInventory.addToInventory(item);
+                    System.out.println("You picked up: " + item);
+                    break;
+                } else if (item.getName().equals("water") && playerInventory.contains("bucket")) {
+                    Bucket bucket = (Bucket) playerInventory.getItemFromInventory("bucket");
+                    System.out.println(bucket.hasWater());
+                } else {
+
+                }
             }
         }
     }

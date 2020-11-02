@@ -4,6 +4,9 @@ public abstract class Item {
     private String name;
     private int id;
 
+    public Item() {
+    }
+
     public Item(String name, int id) {
         this.name = name;
         this.id = id;
@@ -18,14 +21,6 @@ public abstract class Item {
 
     public String getName() {
         return name;
-    }
-
-    public Item getItem(String name) {
-        if (name.equals(this.name)) {
-            return this;
-        } else {
-            return null;
-        }
     }
 
     public void setName(String name) {
