@@ -4,9 +4,8 @@ public class Water extends Item {
     private static String name;
     private static int id;
 
-    Water() {
-        name = "water";
-        id = 6;
+    public Water(String name, int id) {
+        super(name, id);
     }
 
     @Override
