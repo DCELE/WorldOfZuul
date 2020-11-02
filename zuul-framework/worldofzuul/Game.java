@@ -4,57 +4,72 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+        
 
-
-    public Game()
+    public Game() 
     {
         createRooms();
         parser = new Parser();
-
+        createPlayerInventory();
     }
-    // Main-room, Materials, Water, Farm, Factory, Color-Factory
 
     private void createRooms()
     {
+        Inventory outsideInventory, theatreInventory, pubInventory, labInventory, officeInventory, wellInventory, myInventory;
 
-        Room mainRoom, materials, water, farm, factory, colorFactory, exit;
+        // Creating inventories
+        outsideInventory = new Inventory();
+        theatreInventory = new Inventory();
+        pubInventory = new Inventory();
+        labInventory = new Inventory();
+        officeInventory = new Inventory();
+        wellInventory = new Inventory();
+        myInventory = new Inventory();
 
+        // Creating items
+        Item bucket = new Bucket("bucket", 42);
 
-        mainRoom = new Room("in the main room and can go to the other rooms from here.");
-        materials = new Room("in the material room. Here you can pick a material you want to work with.");
-        water = new Room("in the water reservoir. If you have a bucket then you can pick up some water.");
-        farm = new Room("in the farm. You can plant your chosen seed and grow them here.");
-        factory = new Room("in the factory. You can process your product here.");
-        colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.");
+        // Creating rooms
+        Room outside, theatre, pub, lab, office, well;
+        outside = new Room("outside the main entrance of the university", outsideInventory);
+        theatre = new Room("in a lecture theatre", theatreInventory);
+        pub = new Room("in the campus pub", pubInventory);
+        lab = new Room("in a computing lab", labInventory);
+        office = new Room("in the computing admin office", officeInventory);
+        well = new Room("outside at the well north of the university", wellInventory);
 
+        // Placing items
+        wellInventory.addToInventory(bucket);
 
+        // Dealing with directions
+        outside.setExit("east", theatre);
+        outside.setExit("south", lab);
+        outside.setExit("west", pub);
+        outside.setExit("north", well);
 
+        theatre.setExit("west", outside);
 
-        mainRoom.setExit("materials", materials);
-        mainRoom.setExit("water", water);
-        mainRoom.setExit("farm", farm);
-        mainRoom.setExit("factory", factory);
+        pub.setExit("east", outside);
 
-        materials.setExit("mainroom", mainRoom);
+        lab.setExit("north", outside);
+        lab.setExit("east", office);
 
-        water.setExit("mainroom", mainRoom);
+        office.setExit("west", lab);
 
-        farm.setExit("mainroom", mainRoom);
+        well.setExit("south", outside);
 
-        factory.setExit("mainroom", mainRoom);
-        factory.setExit("colorfactory", colorFactory);
-
-        colorFactory.setExit("factory", factory);
-
-        currentRoom = mainRoom;
-
+        currentRoom = outside;
     }
 
-    public void play()
-    {
+    public void createPlayerInventory() {
+        Inventory playerInventory = new Inventory();
+    }
+
+    public void play() 
+    {            
         printWelcome();
 
-
+                
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -66,14 +81,14 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
+        System.out.println("Welcome to the World of Wool!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private boolean processCommand(Command command)
+    private boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
 
@@ -90,13 +105,16 @@ public class Game
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
         }
+        else if (commandWord == CommandWord.COLLECT) {
+
+        }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
     }
 
-    private void printHelp()
+    private void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
@@ -105,7 +123,7 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command)
+    private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -125,7 +143,7 @@ public class Game
         }
     }
 
-    private boolean quit(Command command)
+    private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
