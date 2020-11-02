@@ -145,10 +145,10 @@ public class Game
 
         for (int i=0; i<inventory.size(); i++)
         {
-            if (inventory.get(i).getDescription().equals(new Item("bucket")));
-
+            if (inventory.get(i).getDescription().equals("bucket"))
+            {
                 System.out.println("You picked up water with the bucket");
-        }
+            }}
         inventory.add(new Item("bucket with water"));
 
         //Find bucket in ArrayList, and remove using index1 as pointer
