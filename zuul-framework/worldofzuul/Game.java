@@ -155,11 +155,6 @@ public class Game
             return;
         }
 
-<<<<<<< Updated upstream
-        String item = command.getSecondWord();
-
-        currentRoom.getInventory().addToInventory(item);
-=======
         for (Item item : currentRoom.getInventory().getInventory()) {
             if (command.getSecondWord().equals(item.getName())) {
                 currentRoom.getInventory().removeFromInventory(item);
@@ -168,7 +163,6 @@ public class Game
                 break;
             }
         }
->>>>>>> Stashed changes
     }
 
     private void printHelp() 
