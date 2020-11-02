@@ -4,19 +4,21 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Inventory playerInventory;
         
 
     public Game() 
     {
         createRooms();
         parser = new Parser();
-        createPlayerInventory();
+        playerInventory = new Inventory();
+
     }
 
     private void createRooms()
     {
 
-        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory, myInventory;
+        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory;
 
         // Creating inventories
         mainRoomInventory = new Inventory();
@@ -25,7 +27,6 @@ public class Game
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
         colorFactoryInventory = new Inventory();
-        myInventory = new Inventory();
 
         // Creating items
         //Item bucket = new Bucket("bucket", 42);
@@ -82,10 +83,6 @@ public class Game
 
     }
 
-    public void createPlayerInventory() {
-        Inventory playerInventory = new Inventory();
-    }
-
     public void play() 
     {            
         printWelcome();
@@ -129,11 +126,26 @@ public class Game
         else if (commandWord == CommandWord.GET)
         {
             getItem(command);
+        } else if (commandWord == commandWord.INVENTORY)
+        {
+            showInventory(command);
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
+    }
+
+    private void showInventory(Command command) {
+        if(command.hasSecondWord()) {
+            System.out.println("What?");
+            return;
+        }
+        if (playerInventory.getInventory().size() == 0) {
+            System.out.println("Your inventory is empty");
+        } else {
+            System.out.println("Your inventory: " + playerInventory.getInventory());
+        }
     }
 
     private void getItem(Command command)
@@ -143,9 +155,20 @@ public class Game
             return;
         }
 
+<<<<<<< Updated upstream
         String item = command.getSecondWord();
 
         currentRoom.getInventory().addToInventory(item);
+=======
+        for (Item item : currentRoom.getInventory().getInventory()) {
+            if (command.getSecondWord().equals(item.getName())) {
+                currentRoom.getInventory().removeFromInventory(item);
+                playerInventory.addToInventory(item);
+                System.out.println("You picked up: " + item);
+                break;
+            }
+        }
+>>>>>>> Stashed changes
     }
 
     private void printHelp() 

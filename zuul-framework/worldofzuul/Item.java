@@ -14,18 +14,18 @@ public abstract class Item {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     //public int nextFreeId(){}
 
     public String getName() {
         return name;
+    }
+
+    public Item getItem(String name) {
+        if (name.equals(this.name)) {
+            return this;
+        } else {
+            return null;
+        }
     }
 
     public void setName(String name) {
