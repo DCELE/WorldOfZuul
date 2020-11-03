@@ -128,8 +128,35 @@ public class Game
         {
         collectWater(command);
         }
+        //Ny sprayWater
+        else if (commandWord == CommandWord.SPRAY)
+        {
+            sprayWater(command);
+        }
 
         return wantToQuit;
+    }
+
+    //Spray water
+    private void sprayWater(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Spray what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        for (int i=0; i<inventory.size(); i++)
+        {
+            if (inventory.get(i).getDescription().equals("water"))
+            {
+                System.out.println("You sprayed water");
+            }
+        }
+        inventory.remove(new Item("bucket with water"));
+        inventory.add(new Item("bucket"));
+
     }
 
     //Ny collectWater
