@@ -152,7 +152,8 @@ public class Game
         Item newItem = null;
         int index5 = 0;
         for (int i=0; i<inventory.size(); i++) {
-            if (inventory.get(i).getDescription().equals("bucket with water") /*&& currentRoom.getLoget ngDescription().equals("in the farm. You can plant your chosen seed and grow them here.")*/ ) {
+            if (inventory.get(i).getDescription().equals("bucket with water") && currentRoom.equals(new Room(""))
+            {
                 newItem = inventory.get(i);
                 index5 = i;
                 inventory.remove(index5);
