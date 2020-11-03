@@ -15,19 +15,26 @@ public class Inventory {
 
     @Override
     public String toString() {
-        if (this.inventory.size() == 0){
+        if (this.inventory.size() == 0) {
             return "There are no items in this room";
         }
         return "Items in this room " + this.inventory;
     }
 
     public void addToInventory(Item item) {
-        this.inventory.add(item);
-    }
+            this.inventory.add(item);
+        }
+
 
     public void removeFromInventory(Item item) {
         this.inventory.remove(item);
     }
+
+    public Item waterbucket(){
+        this.inventory.remove("bucket");
+        Item waterbucket;
+        return waterbucket = new Bucket("Waterbucket",9);
+        }
 
     public boolean contains(String name) {
         for (Item item : this.inventory) {
@@ -46,4 +53,6 @@ public class Inventory {
         }
         return null;
     }
+
+
 }

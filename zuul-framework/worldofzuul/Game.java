@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import java.util.ArrayList;
+
 public class Game
 {
     private Parser parser;
@@ -18,7 +20,8 @@ public class Game
     private void createRooms()
     {
 
-        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory;
+        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory, fakeInventory;
+
 
         // Creating inventories
         mainRoomInventory = new Inventory();
@@ -27,20 +30,10 @@ public class Game
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
         colorFactoryInventory = new Inventory();
-
-        // Creating items
-        //Item bucket = new Bucket("bucket", 42);
-        /*Item water = new Materials("water", 6);
-
-        //Item hemp = new Materials("hemp", 1);
-        Item linen = new Materials("linen",2);
-        Item bamboo = new Materials("bamboo", 3);
-        Item cotton = new Materials("cotton", 4);
-
-        Item polyester = new Materials("polyester", 5);*/
+        fakeInventory = new Inventory();
 
         // Declaring rooms
-        Room mainRoom, materials, well, farm, factory, colorFactory, exit;
+        Room mainRoom, materials, well, farm, factory, colorFactory;
 
         mainRoom = new Room("in the main room and can go to the other rooms from here.",mainRoomInventory);
         materials = new Room("in the material room. Here you can pick a material you want to work with.",materialsInventory);
@@ -50,7 +43,7 @@ public class Game
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.",colorFactoryInventory);
 
         // Declaring items
-        Item hemp, linen, bamboo, cotton, polyester, bucket, water;
+        Item hemp, linen, bamboo, cotton, polyester, bucket, waterbucket, water;
 
         // Placing items
         //Materials room;
@@ -62,6 +55,8 @@ public class Game
 
         wellInventory.addToInventory(bucket = new Bucket("bucket",7));
         wellInventory.addToInventory(water = new Water());
+
+        fakeInventory.addToInventory(waterbucket = new Bucket("bucketWithWater",9));
 
 
         mainRoom.setExit("materials", materials);
@@ -149,25 +144,35 @@ public class Game
         }
     }
 
-    private void getItem(Command command)
-    {
-        if(!command.hasSecondWord()) {
+    private void getItem(Command command) {
+        if (!command.hasSecondWord()) {
             System.out.println("Get what?");
             return;
         }
-        // Bucket is broken.
-        for (Item item : currentRoom.getInventory().getInventory()) {
-            if (command.getSecondWord().equals(item.getName())) {
-                if (!item.getName().equals("water")) {
+
+        for (Item item : currentRoom.getInventory().getInventory())
+        {
+            if (command.getSecondWord().equals(item.getName()))
+            {
+                if (!item.getName().equals("water"))
+                {
                     currentRoom.getInventory().removeFromInventory(item);
                     playerInventory.addToInventory(item);
                     System.out.println("You picked up: " + item);
-                    break;
-                } else if (item.getName().equals("water") && playerInventory.contains("bucket")) {
-                    Bucket bucket = (Bucket) playerInventory.getItemFromInventory("bucket");
-                    System.out.println(bucket.hasWater());
-                } else {
-
+                }
+                else if (item.getName().equals("water") && playerInventory.contains("bucket"))
+                {
+                    if (!playerInventory.contains(item.getName()))
+                    {
+                        playerInventory.addToInventory(playerInventory.waterbucket());
+                        playerInventory.removeFromInventory(playerInventory.getItemFromInventory("bucket"));
+                        System.out.println("You filled you bucket with " + item);
+                    }
+                    else System.out.println("You already have water in your bucket");
+                }
+                else if (item.getName().equals("water") != playerInventory.contains("bucket"))
+                {
+                    System.out.println("You can only pick up water with a bucket");
                 }
             }
         }
@@ -175,8 +180,8 @@ public class Game
 
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You have to make a t-shirt. But be careful,");
+        System.out.println("the environment depends on you");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();

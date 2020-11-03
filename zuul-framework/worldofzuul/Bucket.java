@@ -2,14 +2,12 @@ package worldofzuul;
 
 public class Bucket extends Item {
     private boolean hasWater;
+    private boolean full;
 
     public Bucket(String name, int id) {
         super(name, id);
-        hasWater = false;
-    }
+        this.full = full;
 
-    public boolean hasWater() {
-        return hasWater;
     }
 
     public void setHasWater(boolean hasWater) {

@@ -17,8 +17,6 @@ public abstract class Item {
         return name;
     }
 
-    //public int nextFreeId(){}
-
     public String getName() {
         return name;
     }
