@@ -61,7 +61,7 @@ public class Game
         materialsInventory.addToInventory(polyester = new Materials("polyester",5));
 
         wellInventory.addToInventory(bucket = new Bucket("bucket",7));
-        wellInventory.addToInventory(water = new Water("water", 6));
+        wellInventory.addToInventory(water = new Water());
 
 
         mainRoom.setExit("materials", materials);
