@@ -12,7 +12,11 @@ public class Bucket extends Item {
         return hasWater;
     }
 
-    public void setHasWater(boolean hasWater) {
-        this.hasWater = hasWater;
+    public void setHasWater() {
+        if (hasWater) {
+            this.hasWater = false;
+        } else {
+            this.hasWater = true;
+        }
     }
 }

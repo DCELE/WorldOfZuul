@@ -23,6 +23,10 @@ public abstract class Item {
         return name;
     }
 
+    public Item getItem(String name) {
+        return Item.this;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

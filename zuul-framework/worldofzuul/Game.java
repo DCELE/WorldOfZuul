@@ -15,7 +15,7 @@ public class Game
 
     }
 
-    private void createRooms()
+    public void createRooms()
     {
 
         Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory;
@@ -27,17 +27,6 @@ public class Game
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
         colorFactoryInventory = new Inventory();
-
-        // Creating items
-        //Item bucket = new Bucket("bucket", 42);
-        /*Item water = new Materials("water", 6);
-
-        //Item hemp = new Materials("hemp", 1);
-        Item linen = new Materials("linen",2);
-        Item bamboo = new Materials("bamboo", 3);
-        Item cotton = new Materials("cotton", 4);
-
-        Item polyester = new Materials("polyester", 5);*/
 
         // Declaring rooms
         Room mainRoom, materials, well, farm, factory, colorFactory, exit;
@@ -54,14 +43,21 @@ public class Game
 
         // Placing items
         //Materials room;
-        materialsInventory.addToInventory(hemp = new Materials("hemp",1));
-        materialsInventory.addToInventory(linen = new Materials("linen",2));
-        materialsInventory.addToInventory(bamboo = new Materials("bamboo",3));
-        materialsInventory.addToInventory(cotton = new Materials("cotton",4));
-        materialsInventory.addToInventory(polyester = new Materials("polyester",5));
+        hemp = new Materials("hemp",1);
+        linen = new Materials("linen",2);
+        bamboo = new Materials("bamboo",3);
+        cotton = new Materials("cotton",4);
+        polyester = new Materials("polyester",5);
+        materialsInventory.addToInventory(hemp);
+        materialsInventory.addToInventory(linen);
+        materialsInventory.addToInventory(bamboo);
+        materialsInventory.addToInventory(cotton);
+        materialsInventory.addToInventory(polyester);
 
-        wellInventory.addToInventory(bucket = new Bucket("bucket",7));
-        wellInventory.addToInventory(water = new Water());
+        bucket = new Bucket("bucket",7);
+        water = new Water();
+        wellInventory.addToInventory(bucket);
+        wellInventory.addToInventory(water);
 
 
         mainRoom.setExit("materials", materials);
@@ -81,7 +77,6 @@ public class Game
         colorFactory.setExit("factory", factory);
 
         currentRoom = mainRoom;
-
     }
 
     public void play() 
@@ -127,7 +122,10 @@ public class Game
         else if (commandWord == CommandWord.GET)
         {
             getItem(command);
-        } else if (commandWord == CommandWord.INVENTORY)
+        } else if (commandWord == CommandWord.DROP) {
+            dropItem(command);
+        }
+        else if (commandWord == CommandWord.INVENTORY)
         {
             showInventory(command);
         }
@@ -142,13 +140,13 @@ public class Game
             System.out.println("What?");
             return;
         }
-        if (playerInventory.getInventory().size() == 0) {
+        if (playerInventory.getArrayList().size() == 0) {
             System.out.println("Your inventory is empty");
         } else {
-            System.out.println("Your inventory: " + playerInventory.getInventory());
+            System.out.println("Your inventory: " + playerInventory.getArrayList());
         }
     }
-
+    // Pick up item method
     private void getItem(Command command)
     {
         if(!command.hasSecondWord()) {
@@ -156,19 +154,42 @@ public class Game
             return;
         }
         // Bucket is broken.
-        for (Item item : currentRoom.getInventory().getInventory()) {
+        // For each item in the room check if the command is the same as an item in the room
+        for (Item item : currentRoom.getInventory().getArrayList()) {
             if (command.getSecondWord().equals(item.getName())) {
+                // Can't pick up water without bucket
                 if (!item.getName().equals("water")) {
                     currentRoom.getInventory().removeFromInventory(item);
                     playerInventory.addToInventory(item);
                     System.out.println("You picked up: " + item);
                     break;
-                } else if (item.getName().equals("water") && playerInventory.contains("bucket")) {
-                    Bucket bucket = (Bucket) playerInventory.getItemFromInventory("bucket");
-                    System.out.println(bucket.hasWater());
-                } else {
-
+                    // If you try picking up water, then check if player has a bucket
+                } else if (command.getSecondWord().equals("water") && playerInventory.contains("bucket")) {
+                    // Set bucket's hasWater boolean to true.
+                    
+                    System.out.println("You filled your bucket with water");
+                    break;
+                    // If player does not have a bucket and tries to get water
+                } else if (command.getSecondWord().equals("water") && !playerInventory.contains("bucket")) {
+                    System.out.println("You don't have a bucket in your inventory");
+                    break;
                 }
+            }
+        }
+    }
+    // Drop item method
+    private void dropItem(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Get what?");
+            return;
+        }
+        // For each item in player inventory check if the command word is in the inventory.
+        for (Item item : playerInventory.getArrayList()) {
+            if (command.getSecondWord().equals(item.getName())) {
+                currentRoom.getInventory().addToInventory(item);
+                playerInventory.removeFromInventory(item);
+                System.out.println("You dropped: " + item);
+                break;
             }
         }
     }

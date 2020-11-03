@@ -9,7 +9,7 @@ public class Inventory {
         this.inventory = new ArrayList<Item>();
     }
 
-    public ArrayList<Item> getInventory() {
+    public ArrayList<Item> getArrayList() {
         return this.inventory;
     }
 
@@ -38,12 +38,7 @@ public class Inventory {
         return false;
     }
 
-    public Item getItemFromInventory(String name) {
-        for (Item item : this.inventory) {
-            if (item.getName().equals(name)) {
-                return item;
-            }
-        }
+    public Item getItemFromInventory(Item item) {
         return null;
     }
 }
