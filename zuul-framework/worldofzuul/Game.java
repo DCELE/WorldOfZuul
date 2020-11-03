@@ -155,14 +155,14 @@ public class Game
         int index1 = 0;
         for (int i=0; i<inventory.size(); i++)
         {
-            if (inventory.get(i).getDescription().equals(new Item("bucket"))) {
+            if (inventory.get(i).getDescription().equals(new Item("bucket")))
+            {
                 newItem = inventory.get(i);
                 index1 = i;
             }
         }
         inventory.remove(index1);
         }
-
 
 /*
         if (newItem == null) {
@@ -173,8 +173,6 @@ public class Game
             currentRoom.removeItem(item);
             System.out.println("Picked up: " + item);
         }*/
-
-
 
     //Ny dropItem
     private void dropItem(Command command)
