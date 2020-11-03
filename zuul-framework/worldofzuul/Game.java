@@ -126,10 +126,46 @@ public class Game
         //Ny collectWater
         else if (commandWord == CommandWord.COLLECT)
         {
-        collectWater(command);
+            collectWater(command);
+        }
+        //Ny sprayWater
+        else if (commandWord == CommandWord.SPRAY)
+        {
+            sprayWater(command);
         }
 
         return wantToQuit;
+    }
+
+    //Ny sprayWater metode
+    private void sprayWater(Command command)
+    {
+        if(!command.hasSecondWord()) {
+            System.out.println("Spray what?");
+            return;
+        }
+
+        String item = command.getSecondWord();
+
+        Item newItem = null;
+        int index5 = 0;
+        for (int i=0; i<inventory.size(); i++) {
+            if (inventory.get(i).getDescription().equals("bucket with water")) {
+                newItem = inventory.get(i);
+                index5 = i;
+            }
+        }
+        if (newItem == null) {
+            System.out.println("That item is not in your inventory!");
+        }
+        else {
+            inventory.remove(index5);
+            currentRoom.setItem(new Item("water"));
+            System.out.println("Sprayed: " + item);
+            inventory.add(new Item("bucket"));
+        }
+
+
     }
 
     //Ny collectWater
@@ -155,25 +191,12 @@ public class Game
                 inventory.remove(index1);
             }
             else {
-                System.out.println("You're missing a bucket");
+                System.out.println("You already have a bucket with water");
             }
 
-           // inventory.remove(index1);
-        }
+        } }
 
 
-        }
-
-
-/*
-        if (newItem == null) {
-            System.out.println("That item is not here!");
-        }
-        else {
-            inventory.add(newItem);
-            currentRoom.removeItem(item);
-            System.out.println("Picked up: " + item);
-        }*/
 
 
 
