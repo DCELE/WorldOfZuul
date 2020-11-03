@@ -144,29 +144,6 @@ public class Game
         Item newItem = currentRoom.getItem(item);
         int index1 = 0;
 
-       /* for (int i=0; i<inventory.size(); i++)
-        {
-            if (inventory.get(i).getDescription().equals(new Item("bucket"))); //statement virker ikke - prøv at omformulere.
-            {
-                System.out.println("You picked up water with the bucket");
-                inventory.add(new Item("bucket with water"));
-            }
-            break;
-        }
-
-
-        //Find bucket in ArrayList, and remove using index1 as pointer
-        int index2 = 0;
-        for (int i=0; i<inventory.size(); i++)
-        {
-            if (inventory.get(i).getDescription().equals(new Item("bucket"))) {
-                newItem = inventory.get(i);
-                index2 = i;
-            }
-
-            inventory.remove(index1);
-        } */
-
         int index2 = 0;
         for (int i=0; i<inventory.size(); i++)
         {
