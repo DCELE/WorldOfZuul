@@ -31,7 +31,6 @@ public class Inventory {
     }
 
     public Item waterbucket(){
-        this.inventory.remove("bucket");
         Item waterbucket;
         return waterbucket = new Bucket("Waterbucket",9);
         }

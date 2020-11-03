@@ -166,14 +166,18 @@ public class Game
                     {
                         playerInventory.addToInventory(playerInventory.waterbucket());
                         playerInventory.removeFromInventory(playerInventory.getItemFromInventory("bucket"));
-                        System.out.println("You filled you bucket with " + item);
+                        System.out.println("You filled your bucket with " + item);
                     }
-                    else System.out.println("You already have water in your bucket");
                 }
                 else if (item.getName().equals("water") != playerInventory.contains("bucket"))
+                    if (item.getName().equals("water") && playerInventory.contains("Waterbucket"))
                 {
-                    System.out.println("You can only pick up water with a bucket");
+                    System.out.println("You already have water in your bucket");
                 }
+                else
+                    System.out.println("You can only pick up water with a bucket");
+
+
             }
         }
     }
