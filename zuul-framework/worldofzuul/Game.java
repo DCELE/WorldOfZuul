@@ -137,6 +137,7 @@ public class Game
         return wantToQuit;
     }
 
+
     //Ny sprayWater metode
     private void sprayWater(Command command)
     {
@@ -147,23 +148,31 @@ public class Game
 
         String item = command.getSecondWord();
 
+      
         Item newItem = null;
         int index5 = 0;
         for (int i=0; i<inventory.size(); i++) {
-            if (inventory.get(i).getDescription().equals("bucket with water")) {
+            if (inventory.get(i).getDescription().equals("bucket with water") /*&& currentRoom.getLoget ngDescription().equals("in the farm. You can plant your chosen seed and grow them here.")*/ ) {
                 newItem = inventory.get(i);
                 index5 = i;
+                inventory.remove(index5);
+                currentRoom.setItem(new Item("water"));
+                System.out.println("Sprayed: " + item);
+                inventory.add(new Item("bucket"));
+            }
+            else {
+                System.out.println("You can't do that right now"); //gerne lav en else med "du er i forkert rum" og "du har ikke en bucket with water"
             }
         }
-        if (newItem == null) {
+        /* if (!inventory.get(index5).getDescription().equals("bucket with water")) {
             System.out.println("That item is not in your inventory!");
-        }
-        else {
+        } */
+      /*  else {
             inventory.remove(index5);
             currentRoom.setItem(new Item("water"));
             System.out.println("Sprayed: " + item);
             inventory.add(new Item("bucket"));
-        }
+        } */
 
 
     }
