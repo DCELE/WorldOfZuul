@@ -10,12 +10,14 @@ public class Water extends Item {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return name;
     }
 
     @Override
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 }

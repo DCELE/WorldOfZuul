@@ -14,9 +14,13 @@ public class Bucket extends Item {
     }
 
     public void setHasWater() {
-        if (hasWater) {
+        if (hasWater)
+        {
+            this.setName("bucket");
             this.hasWater = false;
-        } else {
+        } else
+            {
+                this.setName("bucket with water");
             this.hasWater = true;
         }
     }
