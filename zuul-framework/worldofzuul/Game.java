@@ -152,7 +152,7 @@ public class Game
         Item newItem = null;
         int index5 = 0;
         for (int i=0; i<inventory.size(); i++) {
-            if (inventory.get(i).getDescription().equals("bucket with water") && currentRoom.equals(new Room(""))
+            if (inventory.get(i).getDescription().equals("bucket with water") && currentRoom.
             {
                 newItem = inventory.get(i);
                 index5 = i;
