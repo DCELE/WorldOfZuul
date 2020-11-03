@@ -1,6 +1,7 @@
 package worldofzuul;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventory {
     private ArrayList<Item> inventory;
@@ -29,9 +30,9 @@ public class Inventory {
         this.inventory.remove(item);
     }
 
-    public boolean contains(String name) {
-        for (Item item : this.inventory) {
-            if (item.getName().equals(name)) {
+    public boolean contains(Item item) {
+        for (Item it : this.inventory) {
+            if (it.getName().equals(item.getName())) {
                 return true;
             }
         }
@@ -39,6 +40,11 @@ public class Inventory {
     }
 
     public Item getItemFromInventory(Item item) {
-        return null;
+        for (Item it : this.inventory) {
+            if (it.getName().equals(item.getName())) {
+                item = it;
+            }
+        }
+        return item;
     }
 }
