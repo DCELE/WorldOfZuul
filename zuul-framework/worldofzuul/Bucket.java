@@ -8,7 +8,8 @@ public class Bucket extends Item {
         hasWater = false;
     }
 
-    public boolean hasWater() {
+    public boolean hasWater()
+    {
         return hasWater;
     }
 
