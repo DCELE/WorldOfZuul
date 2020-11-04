@@ -90,7 +90,7 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     private void printWelcome()
@@ -114,25 +114,32 @@ public class Game
             return false;
         }
 
-        if (commandWord == CommandWord.HELP) {
+        if (commandWord == CommandWord.HELP)
+        {
             printHelp();
         }
-        else if (commandWord == CommandWord.GO) {
+        else if (commandWord == CommandWord.GO)
+        {
             goRoom(command);
         }
         else if (commandWord == CommandWord.GET)
         {
             getItem(command);
-        } else if (commandWord == CommandWord.DROP) {
+        }
+        else if (commandWord == CommandWord.DROP)
+        {
             dropItem(command);
-        } else if (commandWord == CommandWord.PLANT) {
+        }
+        else if (commandWord == CommandWord.PLANT)
+        {
             plantItem(command);
         }
         else if (commandWord == CommandWord.INVENTORY)
         {
             showInventory(command);
         }
-        else if (commandWord == CommandWord.QUIT) {
+        else if (commandWord == CommandWord.QUIT)
+        {
             wantToQuit = quit(command);
         }
         return wantToQuit;
