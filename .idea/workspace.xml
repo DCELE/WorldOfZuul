@@ -21,11 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Bucket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Bucket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/CommandWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/CommandWord.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Materials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Materials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/CommandWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/CommandWord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,46 +118,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604322619500" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604493102746">
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1604504894201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603988026766" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604493102746" />
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604504894201" />
     <state width="1398" height="128" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1604401834432" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604493102746">
+    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1604504894200">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603988026764" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604493102746" />
+    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604504894200" />
     <state width="1398" height="128" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604493102745">
+    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1604504894199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603988026763" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604493102745" />
+    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604504894199" />
     <state width="1398" height="128" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1604401834430" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604493102746">
+    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1604504894200">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603988026765" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604493102746" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604504894200" />
     <state width="1398" height="128" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604408464148">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604501478076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604408464148" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1604408464148">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1604501478076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604408464148" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1604408464148">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1604501478076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604408464148" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1604408464148">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1604501478076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604408464148" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
     <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1604319326678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -164,5 +166,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604405068030" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604501906706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604501906706" />
   </component>
 </project>

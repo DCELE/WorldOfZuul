@@ -27,4 +27,14 @@ public abstract class Item {
         this.name = name;
     }
 
+    public String getOnlyNameLast() {
+        String[] string = this.getName().split(" ");
+        return string[string.length-1];
+    }
+
+    public String getOnlyNameFirst() {
+        String[] string = this.getName().split(" ");
+        return string[0];
+    }
+
 }
