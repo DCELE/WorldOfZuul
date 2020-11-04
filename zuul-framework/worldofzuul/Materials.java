@@ -22,19 +22,23 @@ public class Materials extends Item {
         this.planted = false;
     }
 
-    public void upgradeState() {
+    public void upgradeState()
+    {
         this.state += 1;
     }
 
-    public int getState() {
+    public int getState()
+    {
         return state;
     }
 
-    public Room[] getRoomsToUseItem() {
+    public Room[] getRoomsToUseItem()
+    {
         return this.roomsToUseItem;
     }
 
-    public boolean isPlanted() {
+    public boolean isPlanted()
+    {
         return planted;
     }
 
