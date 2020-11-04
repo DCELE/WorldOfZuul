@@ -174,9 +174,21 @@ public class Game
                 {
                     System.out.println("You already have water in your bucket");
                 }
+<<<<<<< Updated upstream
                 else
                     System.out.println("You can only pick up water with a bucket");
 
+=======
+            }
+        }
+    }
+    // Drop item method
+    private void dropItem(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Drop what?");
+            return;
+        }
+>>>>>>> Stashed changes
 
             }
         }
