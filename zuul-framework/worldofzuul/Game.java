@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import java.util.Arrays;
+
 public class Game
 {
     private Parser parser;
@@ -8,7 +10,7 @@ public class Game
     private Materials hemp, linen, bamboo, cotton, polyester;
     private Water water;
     private Bucket bucket;
-    private Room mainRoom, materials, well, farm, factory, colorFactory;
+    private Room mainRoom, materials, well, farm, factory, colorFactory, processings,sewings;
 
 
 
@@ -23,7 +25,8 @@ public class Game
     private void createRooms()
     {
 
-        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory;
+        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory,
+                colorFactoryInventory, processingsInventory, sewingsInventory;
 
         // Creating inventories
         mainRoomInventory = new Inventory();
@@ -32,8 +35,11 @@ public class Game
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
         colorFactoryInventory = new Inventory();
-        FabricMachines processMachine = new FabricMachines("process-machine", 9);
-        FabricMachines sewingMachine = new FabricMachines("sewing-machine",10);
+        processingsInventory = new Inventory();
+        sewingsInventory = new Inventory();
+
+//        FabricMachines processMachine = new FabricMachines("process-machine", 9);
+//        FabricMachines sewingMachine = new FabricMachines("sewing-machine",10);
 
 
         // Initializing rooms
@@ -41,7 +47,9 @@ public class Game
         materials = new Room("in the material room. Here you can pick a material you want to work with.",materialsInventory);
         well = new Room("in the water reservoir. If you have a bucket then you can pick up some water.",wellInventory);
         farm = new Room("in the farm. You can plant your chosen seed and grow them here.",farmInventory);
-        factory = new Room("in the factory. You can process your product here with the " + processMachine + " and " + sewingMachine,factoryInventory, processMachine, sewingMachine);
+        factory = new Room("in the factory. You can process your product here with the ",factoryInventory);
+        processings = new Room("in processing room, here you can use stuff ",processingsInventory);
+        sewings = new Room("in the sewing room, here you can sew your fabric", sewingsInventory);
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.",colorFactoryInventory);
 
         // Initializing items
@@ -78,8 +86,12 @@ public class Game
 
         factory.setExit("mainroom", mainRoom);
         factory.setExit("colorfactory", colorFactory);
-
+        factory.setExit("processing", processings);
+        factory.setExit("sewing", sewings);
         colorFactory.setExit("factory", factory);
+
+        processings.setExit("factory",factory);
+        sewings.setExit("factory",factory);
 
         currentRoom = mainRoom;
     }
@@ -290,19 +302,31 @@ public class Game
         }
     }
 
-  /*
-    private void produceFabric(Command command)
+    private void processPlant(Command command)
     {
-        if(command.hasSecondWord()) {
-            System.out.println("Use what");
-            return;
-        }
-    private void useMachine (Command command)
-        {
-            if (currentRoom.equals(factory) && )
-
-        }
+        FabricMachines recip = new FabricMachines("bucket, bucket, bucket");
+        Inventory invv = processings.getInventory();
+        System.out.println("Missing " + Arrays.toString(missing_Words(recip, invv )));
     }
-    */
+
+    public static String[] missing_Words(String t, String s) {
+
+        String[] s1 = t.split(" ");
+        String[] s2 = s.split(" ");
+        int sz = s1.length - s2.length;
+        String[] missing_str = new String[sz];
+        int c = 0;
+        for (int i = 0; i < s1.length; i++) {
+            int flag = 0;
+            for (int j = 0; j < s2.length; j++) {
+                if (s1[i].equals(s2[j]))
+                    flag = 1;
+            }
+            if (flag == 0) {
+                missing_str[c++] = s1[i];
+            }
+        }
+        return missing_str;
+    }
 
 }

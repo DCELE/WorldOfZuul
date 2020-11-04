@@ -9,6 +9,7 @@ public class Bucket extends Item {
     }
 
     public boolean hasWater()
+
     {
         return hasWater;
     }
