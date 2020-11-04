@@ -38,15 +38,4 @@ public class Inventory {
         }
         return false;
     }
-
-    /*
-    public Item getItemFromInventory(Item item) {
-        for (Item it : this.inventory) {
-            if (it.getName().equals(item.getName())) {
-                item = it;
-            }
-        }
-        return item;
-    }
-     */
 }

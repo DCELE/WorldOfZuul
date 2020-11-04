@@ -9,6 +9,7 @@ public class Materials extends Item {
     private boolean planted;
     // The rooms in order, where you can use (interact with) the item
     private Room[] roomsToUseItem;
+    private String color;
 
     public Materials(String name, int id)
     {
@@ -22,6 +23,7 @@ public class Materials extends Item {
         this.roomsToUseItem = roomsToUseItem;
         this.planted = false;
         this.waterAmountNeeded = waterAmountNeeded;
+        this.color = "natural";
     }
 
     public Materials(String name, int id, Room[] roomsToUseItem){
@@ -51,13 +53,15 @@ public class Materials extends Item {
     }
 
     public void setPlanted() {
-        if (this.planted) {
-            String[] name = this.getName().split(" ");
-            this.setName(name[1]);
-            this.planted = false;
-        } else {
-            this.setName("planted " + this.getName());
-            this.planted = !planted;
-        }
+        this.planted = !planted;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
 }
