@@ -39,6 +39,7 @@ public class Inventory {
         return false;
     }
 
+    /*
     public Item getItemFromInventory(Item item) {
         for (Item it : this.inventory) {
             if (it.getName().equals(item.getName())) {
@@ -47,4 +48,5 @@ public class Inventory {
         }
         return item;
     }
+     */
 }

@@ -8,7 +8,7 @@ public class Game
     private Materials hemp, linen, bamboo, cotton, polyester;
     private Water water;
     private Bucket bucket;
-    private Room mainRoom, materials, well, farm, factory, colorFactory, exit;
+    private Room mainRoom, materials, well, farm, factory, colorFactory;
 
 
 
@@ -238,6 +238,10 @@ public class Game
                 System.out.println("You dropped: " + item);
                 System.out.println(currentRoom.getInventory());
                 break;
+            } else if (command.getSecondWord().equals(water.getName()) && playerInventory.contains(bucket) && bucket.hasWater()) {
+                bucket.setHasWater();
+                System.out.println("You dropped water");
+                System.out.println(currentRoom.getInventory());
             }
         }
     }
