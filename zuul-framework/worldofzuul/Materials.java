@@ -39,6 +39,12 @@ public class Materials extends Item {
     }
 
     public void setPlanted() {
+        if (this.planted) {
+            String[] name = this.getName().split(" ");
+            this.setName(name[1]);
+            this.planted = false;
+        }
+        this.setName("planted " + this.getName());
         this.planted = !planted;
     }
 }
