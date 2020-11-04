@@ -12,7 +12,7 @@ public class Game
 
 
 
-    public Game() 
+    public Game()
     {
         createRooms();
         parser = new Parser();
@@ -43,10 +43,10 @@ public class Game
 
         // Initializing items
         hemp = new Materials("hemp",1, new Room[] {farm, factory});
-        linen = new Materials("linen",2);
-        bamboo = new Materials("bamboo",3);
-        cotton = new Materials("cotton",4);
-        polyester = new Materials("polyester",5);
+        linen = new Materials("linen", 2, new Room[] {farm, factory});
+        bamboo = new Materials("bamboo",3, new Room[] {farm, factory});
+        cotton = new Materials("cotton",4, new Room[] {farm, factory});
+        polyester = new Materials("polyester",5, new Room[] {factory});
 
         bucket = new Bucket("bucket",7);
         water = new Water();
@@ -80,11 +80,11 @@ public class Game
         currentRoom = mainRoom;
     }
 
-    public void play() 
-    {            
+    public void play()
+    {
         printWelcome();
 
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -129,10 +129,9 @@ public class Game
         else if (commandWord == CommandWord.DROP)
         {
             dropItem(command);
-        }
-        else if (commandWord == CommandWord.PLANT)
+        } else if (commandWord == CommandWord.USE)
         {
-            plantItem(command);
+            useItem(command);
         }
         else if (commandWord == CommandWord.INVENTORY)
         {
@@ -145,41 +144,51 @@ public class Game
         return wantToQuit;
     }
 
-    // Plant materials in farm
-    private void plantItem(Command command) {
+    // Use materials in farm
+    private void useItem(Command command) {
         if(!command.hasSecondWord()) {
-            System.out.println("Plant what?");
+            System.out.println("Use what?");
             return;
         }
         // Creating arrays with Rooms and Materials
         Materials[] materialsArray = {hemp, linen, bamboo, cotton, polyester};
-        Room[] roomArray = {mainRoom, materials, well, farm, factory, colorFactory};
+        //Room[] roomArray = {mainRoom, materials, well, farm, factory, colorFactory};
+        boolean materialPlanted = false;
 
         // If player does have something in inventory (double negative, not nothing)
-        if (!(playerInventory.getArrayList().size() == 0)) {
-            for (Item item : playerInventory.getArrayList()) {
-                // Check if Second command is an item in inventory
-                if (command.getSecondWord().equals(item.getName())) {
-                    // Idk
-                    for (Materials material : materialsArray) {
-                        for (Room room : roomArray) {
-                            if (command.getSecondWord().equals(material.getName()) && material.getState() == 1 && currentRoom == farm) {
-                                System.out.println("You plant " + material);
-                                currentRoom.getInventory().addToInventory(item);
-                                playerInventory.removeFromInventory(item);
-                                System.out.println("Items in this room " + currentRoom.getInventory());
-                            }
+        if (playerInventory.getArrayList().size() != 0)
+        {   // Search through items in inventory
+            for (Item item : playerInventory.getArrayList())
+            {
+                // Going through all materials and rooms
+                for (Materials material : materialsArray) {
+                    // Check if second command is an item in inventory
+                    if (command.getSecondWord().equals(item.getName()))
+                    {
+                        // Check if second command is a material and its state is 1 and current room is farm
+                        if (command.getSecondWord().equals(material.getName()) && material.getState() == 1 && currentRoom == farm)
+                        {
+                            // Plant material
+                            System.out.println("You plant " + material);
+                            currentRoom.getInventory().addToInventory(item);
+                            playerInventory.removeFromInventory(item);
+                            material.setPlanted();
+                            System.out.println(currentRoom.getInventory());
+                            materialPlanted = true;
+                            break;
                         }
+                    } else if (materialPlanted) {
+                        break;
+                    }   else if (!command.getSecondWord().equals(item.getName())) {
+                        System.out.println("You don't have that item in your inventory");
                     }
 
-                } else if (!command.getSecondWord().equals(item.getName())) {
-                    System.out.println("You don't have that item in your inventory");
-                } else {
-                    hemp.getRoomsToUseItem();
-                    System.out.println("You cannot use that item");
                 }
+                if (playerInventory.getArrayList().size() == 0) break;
+
             }
-        } else {
+        }
+        else {
             System.out.println("You have nothing in your inventory to use");
         }
     }
@@ -202,10 +211,9 @@ public class Game
             System.out.println("Get what?");
             return;
         }
-        // Bucket is broken.
         // For each item in the room check if the command is the same as an item in the room
         for (Item item : currentRoom.getInventory().getArrayList()) {
-            if (command.getSecondWord().equals(item.getName())) {
+            if (command.getSecondWord().equals(item.getName()) || command.getSecondWord().equals("bucket")) {
                 // Can't pick up water without bucket
                 if (!item.getName().equals("water")) {
                     currentRoom.getInventory().removeFromInventory(item);
@@ -227,6 +235,10 @@ public class Game
                     System.out.println("You don't have a bucket in your inventory");
                     break;
                 }
+            } else if (!command.getSecondWord().equals("water")) {
+                System.out.println(command.getSecondWord() + " isn't in this room");
+                System.out.println(currentRoom.getInventory());
+                break;
             }
         }
     }
@@ -238,22 +250,26 @@ public class Game
         }
 
         // For each item in player inventory check if the command word is in the inventory.
-        for (Item item : playerInventory.getArrayList()) {
-            if (command.getSecondWord().equals(item.getName())) {
-                currentRoom.getInventory().addToInventory(item);
-                playerInventory.removeFromInventory(item);
-                System.out.println("You dropped: " + item);
-                System.out.println(currentRoom.getInventory());
-                break;
-            } else if (command.getSecondWord().equals(water.getName()) && playerInventory.contains(bucket) && bucket.hasWater()) {
-                bucket.setHasWater();
-                System.out.println("You dropped water");
-                System.out.println(currentRoom.getInventory());
+        if (playerInventory.getArrayList().size() != 0) {
+            for (Item item : playerInventory.getArrayList()) {
+                if (command.getSecondWord().equals(item.getName()) || command.getSecondWord().equals("bucket")) {
+                    currentRoom.getInventory().addToInventory(item);
+                    playerInventory.removeFromInventory(item);
+                    System.out.println("You dropped: " + item);
+                    System.out.println(currentRoom.getInventory());
+                    break;
+                } else if (command.getSecondWord().equals(water.getName()) && playerInventory.contains(bucket) && bucket.hasWater()) {
+                    bucket.setHasWater();
+                    System.out.println("You dropped water");
+                    System.out.println(currentRoom.getInventory());
+                }
             }
+        } else {
+            System.out.println("You have nothing to drop");
         }
     }
 
-    private void printHelp() 
+    private void printHelp()
     {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
@@ -262,7 +278,7 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command) 
+    private void goRoom(Command command)
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -282,7 +298,7 @@ public class Game
         }
     }
 
-    private boolean quit(Command command) 
+    private boolean quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");

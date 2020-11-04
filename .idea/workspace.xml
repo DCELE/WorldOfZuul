@@ -21,12 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Bucket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Bucket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/CommandWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/CommandWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Inventory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
