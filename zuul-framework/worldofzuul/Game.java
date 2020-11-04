@@ -32,13 +32,16 @@ public class Game
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
         colorFactoryInventory = new Inventory();
+        FabricMachines processMachine = new FabricMachines("process-machine", 9);
+        FabricMachines sewingMachine = new FabricMachines("sewing-machine",10);
+
 
         // Initializing rooms
         mainRoom = new Room("in the main room and can go to the other rooms from here.",mainRoomInventory);
         materials = new Room("in the material room. Here you can pick a material you want to work with.",materialsInventory);
         well = new Room("in the water reservoir. If you have a bucket then you can pick up some water.",wellInventory);
         farm = new Room("in the farm. You can plant your chosen seed and grow them here.",farmInventory);
-        factory = new Room("in the factory. You can process your product here.",factoryInventory);
+        factory = new Room("in the factory. You can process your product here with the " + processMachine + " and " + sewingMachine,factoryInventory, processMachine, sewingMachine);
         colorFactory = new Room("in the coloring room of the factory. You can color your fabric here.",colorFactoryInventory);
 
         // Initializing items
@@ -50,6 +53,7 @@ public class Game
 
         bucket = new Bucket("bucket",7);
         water = new Water();
+
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -285,4 +289,20 @@ public class Game
             return true;
         }
     }
+
+  /*
+    private void produceFabric(Command command)
+    {
+        if(command.hasSecondWord()) {
+            System.out.println("Use what");
+            return;
+        }
+    private void useMachine (Command command)
+        {
+            if (currentRoom.equals(factory) && )
+
+        }
+    }
+    */
+
 }

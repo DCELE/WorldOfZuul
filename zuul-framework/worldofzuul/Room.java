@@ -17,6 +17,13 @@ public class Room
         this.inventory = inventory;
     }
 
+    public Room(String description, Inventory inventory, FabricMachines processMachine, FabricMachines sewingMachine)
+    {
+        this.description = description;
+        exits = new HashMap<String, Room>();
+        this.inventory = inventory;
+    }
+
     public void setExit(String direction, Room neighbor)
     {
         exits.put(direction, neighbor);
