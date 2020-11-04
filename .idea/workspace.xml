@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -122,27 +125,31 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604322619500" />
-    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1604420384832">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="115" key="GridCell.Tab.0.bottom" timestamp="1604492435782">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
+    <state width="1237" height="115" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1604492435782" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603988026766" />
     <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604420384832" />
     <state width="1398" height="128" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1604401834432" />
-    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1604420384831">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="115" key="GridCell.Tab.0.center" timestamp="1604492435781">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
+    <state width="1237" height="115" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1604492435781" />
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603988026764" />
     <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604420384831" />
     <state width="1398" height="128" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
-    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1604420384831">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="115" key="GridCell.Tab.0.left" timestamp="1604492435779">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
+    <state width="1237" height="115" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1604492435779" />
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603988026763" />
     <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604420384831" />
     <state width="1398" height="128" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1604401834430" />
-    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1604420384831">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="115" key="GridCell.Tab.0.right" timestamp="1604492435781">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
+    <state width="1237" height="115" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1604492435781" />
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603988026765" />
     <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604420384831" />
     <state width="1398" height="128" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
