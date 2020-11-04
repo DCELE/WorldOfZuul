@@ -14,12 +14,12 @@ public class Materials extends Item {
     public Materials(String name, int id)
     {
         super(name, id);
-        this.state = 1;
+        this.state = 0;
     }
 
     public Materials(String name, int id, Room[] roomsToUseItem, int waterAmountNeeded) {
         super(name, id);
-        this.state = 1;
+        this.state = 0;
         this.roomsToUseItem = roomsToUseItem;
         this.planted = false;
         this.waterAmountNeeded = waterAmountNeeded;
@@ -28,7 +28,7 @@ public class Materials extends Item {
 
     public Materials(String name, int id, Room[] roomsToUseItem){
         super(name, id);
-        this.state = 5;
+        this.state = 3;
         this.roomsToUseItem = roomsToUseItem;
     }
 
@@ -64,4 +64,15 @@ public class Materials extends Item {
         this.color = color;
     }
 
+    public int getWaterAmountNeeded() {
+        return waterAmountNeeded;
+    }
+
+    public void setWaterAmountNeeded(int waterAmountNeeded) {
+        this.waterAmountNeeded = waterAmountNeeded;
+    }
+
+    public void decrementWaterAmountNeeded() {
+        this.waterAmountNeeded -= 1;
+    }
 }
