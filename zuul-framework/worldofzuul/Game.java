@@ -12,7 +12,7 @@ public class Game
 
 
 
-    public Game() 
+    public Game()
     {
         createRooms();
         parser = new Parser();
@@ -80,11 +80,11 @@ public class Game
         currentRoom = mainRoom;
     }
 
-    public void play() 
-    {            
+    public void play()
+    {
         printWelcome();
 
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -269,7 +269,7 @@ public class Game
         }
     }
 
-    private void printHelp() 
+    private void printHelp()
     {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
@@ -278,7 +278,7 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command) 
+    private void goRoom(Command command)
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -298,7 +298,7 @@ public class Game
         }
     }
 
-    private boolean quit(Command command) 
+    private boolean quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
