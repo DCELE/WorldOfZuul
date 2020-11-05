@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Materials extends Item {
     // State is either seed, plant, fabric or t-shirt.
     private int state;
-    private int waterAmountNeeded;
+    private int[] waterAmountNeeded;
     private boolean planted;
     // The rooms in order, where you can use (interact with) the item
     private Room[] roomsToUseItem;
@@ -17,7 +17,7 @@ public class Materials extends Item {
         this.state = 0;
     }
 
-    public Materials(String name, int id, Room[] roomsToUseItem, int waterAmountNeeded) {
+    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded) {
         super(name, id);
         this.state = 0;
         this.roomsToUseItem = roomsToUseItem;
@@ -64,15 +64,15 @@ public class Materials extends Item {
         this.color = color;
     }
 
-    public int getWaterAmountNeeded() {
+    public int[] getWaterAmountNeeded() {
         return waterAmountNeeded;
     }
 
-    public void setWaterAmountNeeded(int waterAmountNeeded) {
+    public void setWaterAmountNeeded(int[] waterAmountNeeded) {
         this.waterAmountNeeded = waterAmountNeeded;
     }
 
-    public void decrementWaterAmountNeeded() {
-        this.waterAmountNeeded -= 1;
+    public void decrementWaterAmountNeeded(int i) {
+        this.waterAmountNeeded[i] -= 1;
     }
 }

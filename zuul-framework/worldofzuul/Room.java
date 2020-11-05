@@ -10,6 +10,7 @@ public class Room
     private HashMap<String, Room> exits;
     private Inventory inventory;
     private String name;
+    private int waterNeededInMachine;
 
     public Room(String name, String description, Inventory inventory)
     {
@@ -17,6 +18,14 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
         this.inventory = inventory;
+    }
+
+    public Room(String name, String description, Inventory inventory, int waterNeededInMachine) {
+        this.name = name;
+        this.description = description;
+        exits = new HashMap<String, Room>();
+        this.inventory = inventory;
+        this.waterNeededInMachine = waterNeededInMachine;
     }
 
     public void setExit(String direction, Room neighbor)

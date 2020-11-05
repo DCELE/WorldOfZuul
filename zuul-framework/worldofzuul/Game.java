@@ -36,14 +36,14 @@ public class Game {
         materials = new Room("materials", "in the material room. Here you can pick a material you want to work with.", materialsInventory);
         well = new Room("water", "in the water reservoir. If you have a bucket then you can pick up some water.", wellInventory);
         farm = new Room("farm", "in the farm. You can plant your chosen seed and grow them here.", farmInventory);
-        factory = new Room("factory", "in the factory. You can process your product here.", factoryInventory);
-        colorFactory = new Room("colorfactory", "in the coloring room of the factory. You can color your fabric here.", colorFactoryInventory);
+        factory = new Room("factory", "in the factory. You can process your product here.", factoryInventory, 1);
+        colorFactory = new Room("colorfactory", "in the coloring room of the factory. You can color your fabric here.", colorFactoryInventory, 1);
 
         // Initializing items
-        hemp = new Materials("hemp", 1, new Room[]{farm, factory, colorFactory, factory}, 1);
-        linen = new Materials("linen", 2, new Room[]{farm, factory, colorFactory, factory}, 3);
-        bamboo = new Materials("bamboo", 3, new Room[]{farm, factory, colorFactory, factory}, 4);
-        cotton = new Materials("cotton", 4, new Room[]{farm, factory, colorFactory, factory}, 5);
+        hemp = new Materials("hemp", 1, new Room[]{farm, factory, colorFactory, factory}, new int[] {1, 2});
+        linen = new Materials("linen", 2, new Room[]{farm, factory, colorFactory, factory}, new int[] {2, 3});
+        bamboo = new Materials("bamboo", 3, new Room[]{farm, factory, colorFactory, factory}, new int[] {2, 3});
+        cotton = new Materials("cotton", 4, new Room[]{farm, factory, colorFactory, factory}, new int[] {2, 3});
         polyester = new Materials("polyester", 5, new Room[]{factory, colorFactory, factory});
 
         bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
@@ -164,7 +164,7 @@ public class Game {
                                         playerInventory.removeFromInventory(item);
                                         material.setPlanted();
                                         System.out.println(currentRoom.getInventory());
-                                        System.out.println("It needs water: " + material.getWaterAmountNeeded() + " time(s)");
+                                        System.out.println("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
                                     } else {
                                         System.out.println("A seed is already planted: " + currentRoom.getInventory());
                                     }
@@ -173,6 +173,7 @@ public class Game {
                                     // Make fabric
                                     System.out.println("You use machines to make fabric of " + material);
                                     material.upgradeState();
+                                    System.out.println("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
                                     currentRoom.getInventory().addToInventory(item);
                                     playerInventory.removeFromInventory(item);
                                     System.out.println(currentRoom.getInventory());
@@ -210,12 +211,12 @@ public class Game {
                             if (currentRoom == bucket.getRoomsToUseBucket()[0]) {
                                 for (Materials mats : materialsArray) {
                                     if (mats.isPlanted()) {
-                                        if (mats.getWaterAmountNeeded() > 0) {
+                                        if (mats.getWaterAmountNeeded()[0] > 0) {
                                             // Watering plants
                                             bucket.setHasWater();
-                                            mats.decrementWaterAmountNeeded();
-                                            System.out.println("You water " + mats.getName() + ", it needs water: " + mats.getWaterAmountNeeded() + " time(s) more");
-                                            if (mats.getWaterAmountNeeded() == 0) {
+                                            mats.decrementWaterAmountNeeded(0);
+                                            System.out.println("You water " + mats.getName() + ", it needs water: " + mats.getWaterAmountNeeded()[0] + " time(s) more");
+                                            if (mats.getWaterAmountNeeded()[0] == 0) {
                                                 mats.upgradeState();
                                                 mats.setPlanted();
                                                 System.out.println(mats.getName() + " is fully grown, you can pick it up");
@@ -231,6 +232,8 @@ public class Game {
                             } else if (currentRoom == bucket.getRoomsToUseBucket()[1]) {
                                 // Pouring water in the machines/filling them up.
                                 System.out.println("You pour water in the machinery");
+                                System.out.println();
+                                return;
                             } else {
                                 System.out.println("You cannot use that item in " + currentRoom.getName() + " try going to: " + bucket.getRoomsToUseBucket()[0].getName() + " or " + bucket.getRoomsToUseBucket()[1].getName());
                                 return;
