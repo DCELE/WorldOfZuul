@@ -302,31 +302,17 @@ public class Game
         }
     }
 
-    private void processPlant(Command command)
+   /* private void processPlant(Command command)
     {
         FabricMachines recip = new FabricMachines("bucket, bucket, bucket");
         Inventory invv = processings.getInventory();
         System.out.println("Missing " + Arrays.toString(missing_Words(recip, invv )));
+    } */
+
+    private void processCheckConditions (Command command)
+    {
+
     }
 
-    public static String[] missing_Words(String t, String s) {
-
-        String[] s1 = t.split(" ");
-        String[] s2 = s.split(" ");
-        int sz = s1.length - s2.length;
-        String[] missing_str = new String[sz];
-        int c = 0;
-        for (int i = 0; i < s1.length; i++) {
-            int flag = 0;
-            for (int j = 0; j < s2.length; j++) {
-                if (s1[i].equals(s2[j]))
-                    flag = 1;
-            }
-            if (flag == 0) {
-                missing_str[c++] = s1[i];
-            }
-        }
-        return missing_str;
-    }
 
 }
