@@ -164,6 +164,7 @@ public class Game {
                                         playerInventory.removeFromInventory(item);
                                         material.setPlanted();
                                         System.out.println(currentRoom.getInventory());
+                                        System.out.println("It needs water: " + material.getWaterAmountNeeded() + " time(s)");
                                     } else {
                                         System.out.println("A seed is already planted: " + currentRoom.getInventory());
                                     }
@@ -171,6 +172,7 @@ public class Game {
                                 } else if (material.getState() == 1) {
                                     // Make fabric
                                     System.out.println("You use machines to make fabric of " + material);
+                                    material.upgradeState();
                                     currentRoom.getInventory().addToInventory(item);
                                     playerInventory.removeFromInventory(item);
                                     System.out.println(currentRoom.getInventory());
@@ -178,6 +180,7 @@ public class Game {
                                 } else if (material.getState() == 2) {
                                     // Dye fabric
                                     System.out.println("You dye " + material + " into the color " + material.getColor());
+                                    material.upgradeState();
                                     currentRoom.getInventory().addToInventory(item);
                                     playerInventory.removeFromInventory(item);
                                     System.out.println(currentRoom.getInventory());
@@ -188,6 +191,7 @@ public class Game {
                                     currentRoom.getInventory().addToInventory(item);
                                     playerInventory.removeFromInventory(item);
                                     System.out.println(currentRoom.getInventory());
+                                    System.out.println("You've finished making a T-shirt, Type: \"quit\" to exit the game.");
                                     return;
                                 }
                             } else {
