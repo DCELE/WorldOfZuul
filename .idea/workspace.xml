@@ -22,12 +22,7 @@
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Materials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Materials.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Materials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/PesticidesAndChemicals.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Chemicals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
