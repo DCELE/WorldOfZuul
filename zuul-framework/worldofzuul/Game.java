@@ -152,7 +152,7 @@ public class Game {
                 break;
             }
         }
-
+        // If item is not in player's inventory
         if (!isItemInInventory) {
             System.out.println("You don't have that in your inventory");
             return;
@@ -169,7 +169,7 @@ public class Game {
                 break;
             }
         }
-
+        // Block of code for usage of materials
         for (Materials material : materialsArray) {
             // Check if command is a material
             if (!command.getSecondWord().equals(material.getName())) {
@@ -229,6 +229,7 @@ public class Game {
                 return;
             }
         }
+
         // Check if the command is the bucket
         if (command.getSecondWord().equals(bucket.getName())) {
             // Check if inventory contains bucket
@@ -256,6 +257,7 @@ public class Game {
                 // Watering seed
                 plantedMaterial.decrementWaterAmountNeeded(0);
                 System.out.println("You water " + plantedMaterial.getName());
+                bucket.setHasWater();
 
                 // Check if seed has fully grown
                 if (plantedMaterial.getWaterAmountNeeded()[0] == 0) {
@@ -275,8 +277,6 @@ public class Game {
 
             }
         }
-
-
     }
 
     private void showInventory(Command command) {
@@ -297,63 +297,68 @@ public class Game {
             System.out.println("Get what?");
             return;
         }
-        // For each item in the room check if the command is the same as an item in the room
+
+        if (currentRoom.getInventory().getArrayList().size() == 0) {
+            System.out.println(currentRoom.getName() + " has no items to pick up");
+            return;
+        }
+
+        boolean isItemInRoom = false;
+        Item getThisItem = null;
         for (Item item : currentRoom.getInventory().getArrayList()) {
+            // Check if item is in Room
             if (command.getSecondWord().equals(item.getName())) {
-                // Check materials for isPlanted
-                Materials[] materialsArray = {hemp, linen, bamboo, cotton, polyester};
-                for (Materials material : materialsArray) {
-                    if (command.getSecondWord().equals(material.getName())) {
-                        if (material.isPlanted()) {
-                            Scanner s = new Scanner(System.in);
-                            System.out.println(material.getName() + " is planted, do you wish to continue?");
-                            String nextLine = s.nextLine();
-                            if (nextLine.equals("yes")) {
-                                material.setPlanted();
-                                currentRoom.getInventory().removeFromInventory(item);
-                                playerInventory.addToInventory(item);
-                                System.out.println("You picked up: " + item);
-                                return;
-                                // Reset plants amount of water needed
-                            } else if (nextLine.equals("no")) {
-                                System.out.println("You change your mind");
-                                return;
-                            } else {
-                                System.out.println("Try again");
-                                return;
-                            }
-                        } else {
-                            // If material not planted just get it
-                            currentRoom.getInventory().removeFromInventory(item);
-                            playerInventory.addToInventory(item);
-                            System.out.println("You picked up: " + item);
-                            return;
-                        }
-                    }
-                } // If you try picking up water, then check if player has a bucket
-                if (command.getSecondWord().equals("water")) {
-                    if (playerInventory.contains(bucket)) {
-                        if (bucket.hasWater()) {
-                            System.out.println("You've already filled your bucket with water");
-                        } else {
-                            // Set bucket's hasWater boolean to true.
-                            bucket.setHasWater();
-                            System.out.println("You filled your bucket with water");
-                        }
-                    } else {
-                        // If player does not have a bucket and tries to get water
-                        System.out.println("You don't have a bucket in your inventory");
-                    }
-                    return;
-                } else {
-                    currentRoom.getInventory().removeFromInventory(item);
-                    playerInventory.addToInventory(item);
-                    System.out.println("You picked up: " + item);
-                    return;
-                }
+                isItemInRoom = true;
+                getThisItem = item;
+                break;
             }
         }
-        System.out.println(command.getSecondWord() + " isn't in this room: " + currentRoom.getInventory());
+        // If item is not in current room
+        if (!isItemInRoom) {
+            System.out.println(currentRoom.getInventory());
+            System.out.println(currentRoom.getName() + " does not contain " + command.getSecondWord());
+            return;
+        }
+
+        Materials[] materialsArray = {hemp, linen, bamboo, cotton, polyester};
+        for (Materials material : materialsArray) {
+            if (!command.getSecondWord().equals(material.getName())) {
+                continue;
+            }
+
+            if (material.isPlanted()) {
+                Scanner s = new Scanner(System.in);
+                System.out.println(material.getName() + " is planted, do you wish to continue?");
+                String nextLine = s.nextLine();
+                if (nextLine.equals("no")) {
+                    System.out.println("You change your mind");
+                    return;
+                }
+                if (!nextLine.equals("yes")) {
+                    System.out.println("Try again, next time answer \"yes\" or \"no\"");
+                    return;
+                }
+                material.setPlanted();
+            }
+        }
+        // Water is a special item, which can only be picked up in a bucket
+        if (command.getSecondWord().equals(water.getName())) {
+            if (!playerInventory.contains(bucket)) {
+                System.out.println("You need a bucket in your inventory to get water");
+                return;
+            }
+            if (bucket.hasWater()) {
+                System.out.println("You've already filled your bucket with water");
+                return;
+            }
+            bucket.setHasWater();
+            System.out.println("You fill your bucket with water");
+            return;
+        }
+        // If material is planted, material is not planted or its just an ordinary item pick it up
+        currentRoom.getInventory().removeFromInventory(getThisItem);
+        playerInventory.addToInventory(getThisItem);
+        System.out.println("You pick up: " + getThisItem);
     }
 
     // Drop item method
@@ -364,22 +369,22 @@ public class Game {
         }
 
         // For each item in player inventory check if the command word is in the inventory.
-        if (playerInventory.getArrayList().size() != 0) {
-            for (Item item : playerInventory.getArrayList()) {
-                if (command.getSecondWord().equals(item.getName()) || command.getSecondWord().equals("bucket")) {
-                    currentRoom.getInventory().addToInventory(item);
-                    playerInventory.removeFromInventory(item);
-                    System.out.println("You dropped: " + item);
-                    System.out.println(currentRoom.getInventory());
-                    return;
-                } else if (command.getSecondWord().equals(water.getName()) && playerInventory.contains(bucket) && bucket.hasWater()) {
-                    bucket.setHasWater();
-                    System.out.println("You dropped water");
-                    System.out.println(currentRoom.getInventory());
-                }
-            }
-        } else {
+        if (playerInventory.getArrayList().size() == 0) {
             System.out.println("You have nothing to drop");
+            return;
+        }
+        for (Item item : playerInventory.getArrayList()) {
+            if (command.getSecondWord().equals(item.getName())) {
+                currentRoom.getInventory().addToInventory(item);
+                playerInventory.removeFromInventory(item);
+                System.out.println(currentRoom.getInventory());
+                System.out.println("You dropped: " + item);
+                return;
+            } else if (command.getSecondWord().equals(water.getName()) && playerInventory.contains(bucket) && bucket.hasWater()) {
+                bucket.setHasWater();
+                System.out.println("You dropped water");
+                System.out.println(currentRoom.getInventory());
+            }
         }
     }
 
