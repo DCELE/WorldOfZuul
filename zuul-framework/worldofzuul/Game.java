@@ -139,6 +139,10 @@ public class Game {
             System.out.println("Your inventory is empty");
             return;
         }
+        // Check if special case of use water, now you can write "use water"
+        if (command.getSecondWord().equals(water.getName())) {
+            command.setSecondWord(bucket.getName());
+        }
 
         boolean isItemInInventory = false;
         for (Item item : playerInventory.getArrayList()) {
@@ -156,10 +160,12 @@ public class Game {
 
         Materials[] materialsArray = {hemp, linen, bamboo, cotton, polyester};
         boolean nothingPlanted = true;
+        Materials plantedMaterial = null;
         // Check if something is planted already in farm
         for (Materials material : materialsArray) {
             if (material.isPlanted()) {
                 nothingPlanted = false;
+                plantedMaterial = material;
                 break;
             }
         }
@@ -190,7 +196,6 @@ public class Game {
                 System.out.println(currentRoom.getInventory());
                 System.out.println("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
                 return;
-
             }
             // Check the materials stage
             if (material.getState() == 1) {
@@ -224,9 +229,51 @@ public class Game {
                 return;
             }
         }
+        // Check if the command is the bucket
+        if (command.getSecondWord().equals(bucket.getName())) {
+            // Check if inventory contains bucket
+            if (!playerInventory.contains(bucket)) {
+                System.out.println("You need a " + bucket.getName() + " to do that");
+                return;
+            }
+            // Check if bucket is filled with water
+            if (!bucket.hasWater()) {
+                System.out.println("You need to get " + water.getName() + " first");
+                return;
+            }
+            // Check if the room is a room you can use water in
+            if (!(currentRoom == bucket.getRoomsToUseBucket()[0] || currentRoom == bucket.getRoomsToUseBucket()[1])) {
+                System.out.println("You cannot use " + bucket.getName() + " in " + currentRoom.getName());
+                return;
+            }
+            // Check if the room is the farm
+            if (currentRoom == bucket.getRoomsToUseBucket()[0]) {
+                // Check if something is planted
+                if (plantedMaterial == null) {
+                    System.out.println("You need to plant something before watering it");
+                    return;
+                }
+                // Watering seed
+                plantedMaterial.decrementWaterAmountNeeded(0);
+                System.out.println("You water " + plantedMaterial.getName());
 
-        if (command.getSecondWord().equals(bucket.getName()) || command.getSecondWord().equals(water.getName())) {
+                // Check if seed has fully grown
+                if (plantedMaterial.getWaterAmountNeeded()[0] == 0) {
+                    // Material is no longer planted
+                    plantedMaterial.setPlanted();
+                    // Seed becomes plant
+                    plantedMaterial.upgradeState();
+                    System.out.println(plantedMaterial.getName() + " is fully grown, you can pick it up");
+                    return;
+                }
+                System.out.println("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                return;
+            }
+            // Check if the room is the factory
+            if (currentRoom == bucket.getRoomsToUseBucket()[1]) {
+                // Pour water in the machines/filling them up.
 
+            }
         }
 
 

@@ -40,6 +40,10 @@ public class Command
         return secondWord;
     }
 
+    public void setSecondWord(String secondWord) {
+        this.secondWord = secondWord;
+    }
+
     public boolean isUnknown()
     {
         return (commandWord == CommandWord.UNKNOWN);
