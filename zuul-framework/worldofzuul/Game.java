@@ -48,7 +48,7 @@ public class Game {
         linen = new Materials("linen", 2, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
         bamboo = new Materials("bamboo", 3, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
         cotton = new Materials("cotton", 4, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
-        polyester = new Materials("polyester", 5, new Room[]{factory, colorFactory, factory});
+        polyester = new Materials("polyester", 5, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{0,3});
 
         bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
         water = new Water();
@@ -191,6 +191,8 @@ public class Game {
                 System.out.println("Try going to " + material.getRoomsToUseItem()[material.getState()].getName());
                 return;
             }
+
+
             // Check the materials stage
             if (material.getState() == 0) {
                 // If something is planted
@@ -374,7 +376,7 @@ public class Game {
     // Drop item method
     private void dropItem(Command command) {
         if (!command.hasSecondWord()) {
-            System.out.println("Get what?");
+            System.out.println("Drop what?");
             return;
         }
 

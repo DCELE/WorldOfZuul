@@ -24,11 +24,17 @@ public class Materials extends Item {
         this.planted = false;
         this.waterAmountNeeded = waterAmountNeeded;
         this.color = "natural";
+        if (this.id == 5)
+        {
+            this.state = 1;
+        }
+
+
     }
 
     public Materials(String name, int id, Room[] roomsToUseItem){
         super(name, id);
-        this.state = 3;
+        this.state = 1;
         this.roomsToUseItem = roomsToUseItem;
     }
 
