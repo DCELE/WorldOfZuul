@@ -21,7 +21,7 @@ public class Game {
 
     private void createRooms() {
 
-        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorFactoryInventory, sewingFactoryInventory, fabricFactoryInventory;
+        Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorInventory, sewingInventory, fabricInventory;
 
         // Creating inventories
         mainRoomInventory = new Inventory();
@@ -29,9 +29,9 @@ public class Game {
         wellInventory = new Inventory();
         farmInventory = new Inventory();
         factoryInventory = new Inventory();
-        colorFactoryInventory = new Inventory();
-        sewingFactoryInventory = new Inventory();
-        fabricFactoryInventory = new Inventory();
+        colorInventory = new Inventory();
+        sewingInventory = new Inventory();
+        fabricInventory = new Inventory();
 
         // Initializing rooms
         mainRoom = new Room("mainroom", "in the main room and can go to the other rooms from here.", mainRoomInventory);
@@ -39,16 +39,17 @@ public class Game {
         well = new Room("water", "in the water reservoir. If you have a bucket then you can pick up some water.", wellInventory);
         farm = new Room("farm", "in the farm. You can plant your chosen seed and grow them here.", farmInventory);
         factory = new Room("factory", "in the factory. You can process your product here.", factoryInventory, 1);
-        colorFactory = new Room("color", "in the coloring room of the factory. You can color your fabric here.", colorFactoryInventory, 1);
-        sewingFactory = new Room("sewing", "in the sewing room of the factory. You can sew your fabric here.", sewingFactoryInventory);
-        fabricFactory = new Room("fabric", "in the fabric room of the factory. You can make your T-shirt here.", factoryInventory);
+        colorFactory = new Room("color", "in the coloring room of the factory. You can color your fabric here.", colorInventory, 1);
+        sewingFactory = new Room("sewing", "in the sewing room of the factory. You can sew your fabric here.", sewingInventory);
+        fabricFactory = new Room("fabric", "in the fabric room of the factory. You can make your T-shirt here.", fabricInventory);
 
         // Initializing items
-        hemp = new Materials("hemp", 1, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{1, 2});
-        linen = new Materials("linen", 2, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
-        bamboo = new Materials("bamboo", 3, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
-        cotton = new Materials("cotton", 4, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
-        polyester = new Materials("polyester", 5, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{0,3});
+        Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
+        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2});
+        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3});
+        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3});
+        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3});
+        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3});
 
         bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
         water = new Water();
