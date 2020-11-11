@@ -44,10 +44,10 @@ public class Game {
         fabricFactory = new Room("fabric", "in the fabric room of the factory. You can make your T-shirt here.", factoryInventory);
 
         // Initializing items
-        hemp = new Materials("hemp", 1, new Room[]{farm, factory, colorFactory, factory}, new int[]{1, 2});
-        linen = new Materials("linen", 2, new Room[]{farm, factory, colorFactory, factory}, new int[]{2, 3});
-        bamboo = new Materials("bamboo", 3, new Room[]{farm, factory, colorFactory, factory}, new int[]{2, 3});
-        cotton = new Materials("cotton", 4, new Room[]{farm, factory, colorFactory, factory}, new int[]{2, 3});
+        hemp = new Materials("hemp", 1, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{1, 2});
+        linen = new Materials("linen", 2, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
+        bamboo = new Materials("bamboo", 3, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
+        cotton = new Materials("cotton", 4, new Room[]{farm, fabricFactory, colorFactory, sewingFactory}, new int[]{2, 3});
         polyester = new Materials("polyester", 5, new Room[]{factory, colorFactory, factory});
 
         bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
