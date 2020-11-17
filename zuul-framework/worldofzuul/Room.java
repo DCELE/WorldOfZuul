@@ -52,11 +52,7 @@ public class Room {
     }
 
     public Room[] getExits() {
-        return exits.get(this);
-    }
-
-    public Room getExitIndex(int n) {
-        return exits.get(this)[n];
+        return exits.get();
     }
 
     public Inventory getInventory() {

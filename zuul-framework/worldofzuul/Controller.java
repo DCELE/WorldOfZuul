@@ -25,7 +25,7 @@ public class Controller {
         Button button = (Button) mouseEvent.getSource();
         String labelText = button.getText();
 
-
+        //System.out.println(getRoom(labelText).getName());
         loadRoom(getRoom(labelText));
         button.setText(labelText);
     }
@@ -38,10 +38,11 @@ public class Controller {
         // Set room text label
         roomID.setText(room.getName());
 
-        //System.out.println(room.getExit()[2].getName());
+        System.out.println(room.getName());
+        System.out.println(room.getExits()[0].getName());
         // Set button text labels
-        //setButtons(Button1, room.getExit()[0]);
-
+        //setButtons(Button1, room.getExits()[0]);
+        /*
         if (room.getExits().length > 1) {
             setButtons(Button2, room.getExitIndex(1));
         }
@@ -51,6 +52,7 @@ public class Controller {
         else if (room.getExits().length > 3) {
             setButtons(Button4, room.getExitIndex(3));
         }
+         */
         // Set room inventory
 
         // Set room welcome text
