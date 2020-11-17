@@ -3,19 +3,19 @@ package worldofzuul;
 import java.util.Scanner;
 
 public class Game {
-    private Parser parser;
     private Room currentRoom;
     private Inventory playerInventory;
     private Materials hemp, linen, bamboo, cotton, polyester;
     private Water water;
     private Bucket bucket;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
+    private Controller c1;
 
 
     public Game() {
         createRooms();
-        parser = new Parser();
         playerInventory = new Inventory();
+        c1 = new Controller();
 
     }
 
@@ -64,81 +64,72 @@ public class Game {
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
 
-        mainRoom.setExit("materials", materials);
-        mainRoom.setExit("water", well);
-        mainRoom.setExit("farm", farm);
-        mainRoom.setExit("factory", factory);
+        mainRoom.setExit(materials.getName(), materials);
+        mainRoom.setExit(well.getName(), well);
+        mainRoom.setExit(farm.getName(), farm);
+        mainRoom.setExit(factory.getName(), factory);
 
-        materials.setExit("mainroom", mainRoom);
+        materials.setExit(mainRoom.getName(), mainRoom);
 
-        well.setExit("mainroom", mainRoom);
+        well.setExit(mainRoom.getName(), mainRoom);
 
-        farm.setExit("mainroom", mainRoom);
+        farm.setExit(mainRoom.getName(), mainRoom);
 
-        factory.setExit("mainroom", mainRoom);
-        factory.setExit("color", colorFactory);
-        factory.setExit("sewing", sewingFactory);
-        factory.setExit("fabric", fabricFactory);
+        factory.setExit(mainRoom.getName(), mainRoom);
+        factory.setExit(colorFactory.getName(), colorFactory);
+        factory.setExit(sewingFactory.getName(), sewingFactory);
+        factory.setExit(fabricFactory.getName(), fabricFactory);
 
-        colorFactory.setExit("factory", factory);
+        colorFactory.setExit(factory.getName(), factory);
 
-        sewingFactory.setExit("factory", factory);
+        sewingFactory.setExit(factory.getName(), factory);
 
-        fabricFactory.setExit("factory", factory);
+        fabricFactory.setExit(factory.getName(), factory);
 
         currentRoom = mainRoom;
     }
 
-    public void play() {
-        printWelcome();
+    private void loadRoom(String labelText) {
+        // Set room text label
+
+        // Set button text labels
+        c1.Button2.setText(labelText);
 
 
-        boolean finished = false;
-        while (!finished) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
+        /*
+        Room[] allRooms = new Room[]{mainRoom, materials, factory, farm, well, sewingFactory, fabricFactory, colorFactory};
+        Room theRoom = null;
+        for (Room room: allRooms) {
+            if (room.getRoom(labelText) != null) {
+                theRoom = room;
+            }
         }
-        System.out.println("Thank you for playing. Good bye.");
-    }
-
-    private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the World of Wool!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
-    }
-
-    private boolean processCommand(Command command) {
-        boolean wantToQuit = false;
-
-        CommandWord commandWord = command.getCommandWord();
-
-        if (commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
-            return false;
+        Room[] neighbors = neighborRooms.get(theRoom);
+        int neighborsInt = 0;
+        for (Room room : neighbors) {
+            neighborsInt++;
         }
-
-        if (commandWord == CommandWord.HELP) {
-            printHelp();
-        } else if (commandWord == CommandWord.GO) {
-            goRoom(command);
-        } else if (commandWord == CommandWord.GET) {
-            getItem(command);
-        } else if (commandWord == CommandWord.DROP) {
-            dropItem(command);
-        } else if (commandWord == CommandWord.USE) {
-            useItem(command);
-        } else if (commandWord == CommandWord.INVENTORY) {
-            showInventory(command);
-        } else if (commandWord == CommandWord.QUIT) {
-            wantToQuit = quit(command);
+        if (neighborsInt >= 1) {
+            Button1.setText(neighbors[0].getName());
         }
-        return wantToQuit;
+        if (neighborsInt >= 2) {
+            Button2.setText(neighbors[1].getName());
+        }
+        if (neighborsInt >= 3) {
+            Button3.setText(neighbors[2].getName());
+        }
+        if (neighborsInt >= 4) {
+            Button3.setText(neighbors[3].getName());
+        }
+         */
+        // Set room inventory
+
+        // Set room welcome text
+
     }
 
     // Use materials in farm
+    /*
     private void useItem(Command command) {
         // Check if there is a second word
         if (!command.hasSecondWord()) {
@@ -401,38 +392,5 @@ public class Game {
         }
     }
 
-    private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your command words are:");
-        parser.showCommands();
-    }
-
-    private void goRoom(Command command) {
-        if (!command.hasSecondWord()) {
-            System.out.println("Go where?");
-            return;
-        }
-
-        String direction = command.getSecondWord();
-
-        Room nextRoom = currentRoom.getExit(direction);
-
-        if (nextRoom == null) {
-            System.out.println("There is no door!");
-        } else {
-            currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
-        }
-    }
-
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true;
-        }
-    }
+     */
 }

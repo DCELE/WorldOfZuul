@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2abbc929-8c9b-4bc4-bdf1-7275f5b2a1ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/WorldOfZuul/worldofzuul/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/WorldOfZuul/worldofzuul/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worldofzuul/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/worldofzuul/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/worldofzuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldofzuul/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/worldofzuul/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worldofzuul/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/worldofzuul/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GitIntroduktion" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
+      <module name="zuul-framework" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Gorm Krings\Desktop\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,9 +85,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604316785533">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605101120373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605101120373" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604316785533" />
+    <state width="1877" height="24" key="GridCell.Tab.0.bottom" timestamp="1605087435211">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605018741074" />
+    <state width="1877" height="24" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605087435211" />
+    <state width="1877" height="24" key="GridCell.Tab.0.center" timestamp="1605087435211">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="104" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605018741074" />
+    <state width="1877" height="24" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605087435211" />
+    <state width="1877" height="24" key="GridCell.Tab.0.left" timestamp="1605087435203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="104" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605018741074" />
+    <state width="1877" height="24" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605087435203" />
+    <state width="1877" height="24" key="GridCell.Tab.0.right" timestamp="1605087435211">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="104" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605018741074" />
+    <state width="1877" height="24" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605087435211" />
   </component>
 </project>
