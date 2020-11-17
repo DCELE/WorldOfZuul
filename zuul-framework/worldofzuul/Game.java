@@ -16,7 +16,6 @@ public class Game {
         createRooms();
         playerInventory = new Inventory();
         c1 = new Controller();
-
     }
 
     private void createRooms() {
@@ -64,68 +63,23 @@ public class Game {
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
 
-        mainRoom.setExit(materials.getName(), materials);
-        mainRoom.setExit(well.getName(), well);
-        mainRoom.setExit(farm.getName(), farm);
-        mainRoom.setExit(factory.getName(), factory);
+        mainRoom.setExit(materials, new Room[]{materials, well, farm, factory});
 
-        materials.setExit(mainRoom.getName(), mainRoom);
+        materials.setExit(mainRoom, new Room[]{mainRoom});
 
-        well.setExit(mainRoom.getName(), mainRoom);
+        well.setExit(mainRoom, new Room[]{mainRoom});
 
-        farm.setExit(mainRoom.getName(), mainRoom);
+        farm.setExit(mainRoom, new Room[]{mainRoom});
 
-        factory.setExit(mainRoom.getName(), mainRoom);
-        factory.setExit(colorFactory.getName(), colorFactory);
-        factory.setExit(sewingFactory.getName(), sewingFactory);
-        factory.setExit(fabricFactory.getName(), fabricFactory);
+        factory.setExit(mainRoom, new Room[]{mainRoom, colorFactory, sewingFactory, fabricFactory});
 
-        colorFactory.setExit(factory.getName(), factory);
+        colorFactory.setExit(factory, new Room[]{factory});
 
-        sewingFactory.setExit(factory.getName(), factory);
+        sewingFactory.setExit(factory, new Room[]{factory});
 
-        fabricFactory.setExit(factory.getName(), factory);
+        fabricFactory.setExit(factory, new Room[]{factory});
 
         currentRoom = mainRoom;
-    }
-
-    private void loadRoom(String labelText) {
-        // Set room text label
-
-        // Set button text labels
-        c1.Button2.setText(labelText);
-
-
-        /*
-        Room[] allRooms = new Room[]{mainRoom, materials, factory, farm, well, sewingFactory, fabricFactory, colorFactory};
-        Room theRoom = null;
-        for (Room room: allRooms) {
-            if (room.getRoom(labelText) != null) {
-                theRoom = room;
-            }
-        }
-        Room[] neighbors = neighborRooms.get(theRoom);
-        int neighborsInt = 0;
-        for (Room room : neighbors) {
-            neighborsInt++;
-        }
-        if (neighborsInt >= 1) {
-            Button1.setText(neighbors[0].getName());
-        }
-        if (neighborsInt >= 2) {
-            Button2.setText(neighbors[1].getName());
-        }
-        if (neighborsInt >= 3) {
-            Button3.setText(neighbors[2].getName());
-        }
-        if (neighborsInt >= 4) {
-            Button3.setText(neighbors[3].getName());
-        }
-         */
-        // Set room inventory
-
-        // Set room welcome text
-
     }
 
     // Use materials in farm

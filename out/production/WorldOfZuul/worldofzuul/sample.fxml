@@ -32,7 +32,7 @@
                         <RowConstraints maxHeight="214.0" minHeight="0.0" prefHeight="125.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button fx:id="Button1" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Materials" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <Button fx:id="Button1" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="materials" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -40,7 +40,7 @@
                                 <Insets />
                             </GridPane.margin>
                         </Button>
-                        <Button fx:id="Button2" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Factory" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                        <Button fx:id="Button2" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="factory" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -48,7 +48,7 @@
                                 <Insets />
                             </GridPane.margin>
                         </Button>
-                        <Button fx:id="Button3" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Water Reservoir" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <Button fx:id="Button3" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="water" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -56,7 +56,7 @@
                                 <Insets />
                             </GridPane.margin>
                         </Button>
-                        <Button fx:id="Button4" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Farm" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                        <Button fx:id="Button4" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="farm" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -64,7 +64,7 @@
                                 <Insets />
                             </GridPane.margin>
                         </Button>
-                        <Label fx:id="roomID" text="Main room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Label fx:id="roomID" text="mainroom" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
