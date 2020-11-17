@@ -63,21 +63,20 @@ public class Game {
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
 
-        mainRoom.setExit(materials, new Room[]{materials, well, farm, factory});
-
-        materials.setExit(mainRoom, new Room[]{mainRoom});
-
-        well.setExit(mainRoom, new Room[]{mainRoom});
-
-        farm.setExit(mainRoom, new Room[]{mainRoom});
-
-        factory.setExit(mainRoom, new Room[]{mainRoom, colorFactory, sewingFactory, fabricFactory});
-
-        colorFactory.setExit(factory, new Room[]{factory});
-
-        sewingFactory.setExit(factory, new Room[]{factory});
-
-        fabricFactory.setExit(factory, new Room[]{factory});
+        mainRoom.setExit(materials, materials);
+        mainRoom.setExit(well, well);
+        mainRoom.setExit(farm, farm);
+        mainRoom.setExit(factory, factory);
+        materials.setExit(mainRoom, mainRoom);
+        well.setExit(mainRoom, mainRoom);
+        farm.setExit(mainRoom, mainRoom);
+        factory.setExit(mainRoom, mainRoom);
+        factory.setExit(colorFactory, colorFactory);
+        factory.setExit(sewingFactory, sewingFactory);
+        factory.setExit(fabricFactory, fabricFactory);
+        colorFactory.setExit(factory, factory);
+        sewingFactory.setExit(factory, factory);
+        fabricFactory.setExit(factory, factory);
 
         currentRoom = mainRoom;
     }

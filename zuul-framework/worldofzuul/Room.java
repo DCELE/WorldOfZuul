@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Room {
     private String description;
-    private HashMap<Room, Room[]> exits;
+    private HashMap<Room, Room> exits;
     private Inventory inventory;
     private String name;
     private int waterNeededInMachine;
@@ -16,7 +16,7 @@ public class Room {
     public Room(String name, String description, Inventory inventory) {
         this.name = name;
         this.description = description;
-        exits = new HashMap<Room, Room[]>();
+        exits = new HashMap<Room, Room>();
         this.inventory = inventory;
         allRooms.add(this);
     }
@@ -24,13 +24,13 @@ public class Room {
     public Room(String name, String description, Inventory inventory, int waterNeededInMachine) {
         this.name = name;
         this.description = description;
-        exits = new HashMap<Room, Room[]>();
+        exits = new HashMap<Room, Room>();
         this.inventory = inventory;
         this.waterNeededInMachine = waterNeededInMachine;
         allRooms.add(this);
     }
 
-    public void setExit(Room direction, Room[] neighbor) {
+    public void setExit(Room direction, Room neighbor) {
         exits.put(direction, neighbor);
     }
 
@@ -51,8 +51,10 @@ public class Room {
         return returnString;
     }
 
-    public Room[] getExits() {
-        return exits.get();
+    public ArrayList<Room> getExits() {
+        Set<Room> keys = this.exits.keySet();
+        ArrayList<Room> roomExits = new ArrayList<>(keys);
+        return roomExits;
     }
 
     public Inventory getInventory() {

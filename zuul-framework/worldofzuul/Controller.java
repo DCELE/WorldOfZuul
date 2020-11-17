@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Set;
+
 
 public class Controller {
     @FXML
@@ -30,7 +32,7 @@ public class Controller {
         button.setText(labelText);
     }
 
-    public void setButtons(Button button, Room exitRoom) {
+    public void setButton(Button button, Room exitRoom) {
         button.setText(exitRoom.getName());
     }
 
@@ -39,23 +41,25 @@ public class Controller {
         roomID.setText(room.getName());
 
         System.out.println(room.getName());
-        System.out.println(room.getExits()[0].getName());
         // Set button text labels
-        //setButtons(Button1, room.getExits()[0]);
-        /*
-        if (room.getExits().length > 1) {
-            setButtons(Button2, room.getExitIndex(1));
-        }
-        else if (room.getExits().length > 2) {
-            setButtons(Button3, room.getExitIndex(2));
-        }
-        else if (room.getExits().length > 3) {
-            setButtons(Button4, room.getExitIndex(3));
-        }
-         */
+        setAllRoomButtons(room);
         // Set room inventory
 
         // Set room welcome text
+    }
+
+    public void setAllRoomButtons(Room room) {
+        setButton(Button1, room.getExits().get(0));
+
+        if (room.getExits().size() > 1) {
+            setButton(Button2, room.getExits().get(1));
+        }
+        else if (room.getExits().size() > 2) {
+            setButton(Button3, room.getExits().get(2));
+        }
+        else if (room.getExits().size() > 3) {
+            setButton(Button4, room.getExits().get(3));
+        }
     }
 
     public Room getRoom(String roomName) {
