@@ -30,8 +30,8 @@ public class Room {
         allRooms.add(this);
     }
 
-    public void setExit(Room direction, Room neighbor) {
-        exits.put(direction, neighbor);
+    public void setExit(Room neighbor) {
+        exits.put(neighbor, this);
     }
 
     public String getShortDescription() {
@@ -52,9 +52,8 @@ public class Room {
     }
 
     public ArrayList<Room> getExits() {
-        Set<Room> keys = this.exits.keySet();
-        ArrayList<Room> roomExits = new ArrayList<>(keys);
-        return roomExits;
+        Set<Room> keys = exits.keySet();
+        return new ArrayList<>(keys);
     }
 
     public Inventory getInventory() {

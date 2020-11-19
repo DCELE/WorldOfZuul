@@ -9,13 +9,13 @@ public class Game {
     private Water water;
     private Bucket bucket;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
-    private Controller c1;
+    private Controller controller;
 
 
     public Game() {
         createRooms();
         playerInventory = new Inventory();
-        c1 = new Controller();
+        controller = new Controller();
     }
 
     private void createRooms() {
@@ -33,14 +33,14 @@ public class Game {
         fabricInventory = new Inventory();
 
         // Initializing rooms
-        mainRoom = new Room("mainroom", "in the main room and can go to the other rooms from here.", mainRoomInventory);
-        materials = new Room("materials", "in the material room. Here you can pick a material you want to work with.", materialsInventory);
-        well = new Room("water", "in the water reservoir. If you have a bucket then you can pick up some water.", wellInventory);
-        farm = new Room("farm", "in the farm. You can plant your chosen seed and grow them here.", farmInventory);
-        factory = new Room("factory", "in the factory. You can process your product here.", factoryInventory);
-        colorFactory = new Room("color", "in the coloring room of the factory. You can color your fabric here.", colorInventory, 1);
-        sewingFactory = new Room("sewing", "in the sewing room of the factory. You can sew your fabric here.", sewingInventory);
-        fabricFactory = new Room("fabric", "in the fabric room of the factory. You can make your T-shirt here.", fabricInventory);
+        mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here.", mainRoomInventory);
+        materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with.", materialsInventory);
+        well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water.", wellInventory);
+        farm = new Room("Farm", "in the farm. You can plant your chosen seed and grow them here.", farmInventory);
+        factory = new Room("Factory", "in the factory. You can process your product here.", factoryInventory);
+        colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here.", colorInventory, 1);
+        sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here.", sewingInventory);
+        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here.", fabricInventory);
 
         // Initializing items
         Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
@@ -59,26 +59,29 @@ public class Game {
         materialsInventory.addToInventory(bamboo);
         materialsInventory.addToInventory(cotton);
         materialsInventory.addToInventory(polyester);
-
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
 
-        mainRoom.setExit(materials, materials);
-        mainRoom.setExit(well, well);
-        mainRoom.setExit(farm, farm);
-        mainRoom.setExit(factory, factory);
-        materials.setExit(mainRoom, mainRoom);
-        well.setExit(mainRoom, mainRoom);
-        farm.setExit(mainRoom, mainRoom);
-        factory.setExit(mainRoom, mainRoom);
-        factory.setExit(colorFactory, colorFactory);
-        factory.setExit(sewingFactory, sewingFactory);
-        factory.setExit(fabricFactory, fabricFactory);
-        colorFactory.setExit(factory, factory);
-        sewingFactory.setExit(factory, factory);
-        fabricFactory.setExit(factory, factory);
+        mainRoom.setExit(well);
+        mainRoom.setExit(farm);
+        mainRoom.setExit(factory);
+        mainRoom.setExit(materials);
+        materials.setExit(mainRoom);
+        well.setExit(mainRoom);
+        farm.setExit(mainRoom);
+        factory.setExit(colorFactory);
+        factory.setExit(mainRoom);
+        factory.setExit(sewingFactory);
+        factory.setExit(fabricFactory);
+        colorFactory.setExit(factory);
+        sewingFactory.setExit(factory);
+        fabricFactory.setExit(factory);
 
         currentRoom = mainRoom;
+    }
+
+    public Controller getController() {
+        return this.controller;
     }
 
     // Use materials in farm
