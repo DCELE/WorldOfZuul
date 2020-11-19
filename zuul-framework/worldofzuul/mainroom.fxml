@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #dedfe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
    <children>
       <Button fx:id="wellButton" layoutX="282.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: linear-gradient(to bottom, #a73f2d 5%,  #b34332 100%);" text="Well">

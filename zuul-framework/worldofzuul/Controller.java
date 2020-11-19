@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Controller implements Initializable {
@@ -20,7 +21,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Button startButton,beginButton,wellButton,farmButton, materialsButton,
-            factoryButton,mainroomButton,coloringButton,sewingButton;
+            factoryButton,mainroomButton,coloringButton,sewingButton,scoresButton,
+            helpButton, quitButton;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception{
