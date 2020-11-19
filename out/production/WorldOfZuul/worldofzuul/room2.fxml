@@ -3,10 +3,35 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="237.0" prefWidth="448.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="worldofzuul.Controller">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #dedfe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
     <children>
-        <Button fx:id="btn2" layoutX="159.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Click to go to scene 1" />
-        <Label layoutX="179.0" layoutY="71.0" text="You re in scene 2" />
+        <Button fx:id="beginButton" layoutX="159.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="83.0" style="-fx-background-color: linear-gradient(to bottom, #a73f2d 5%,  #b34332 100%);" text="BEGIN">
+         <font>
+            <Font name="DejaVu Serif Bold" size="15.0" />
+         </font></Button>
+        <Label layoutX="101.0" layoutY="29.0" prefHeight="59.0" prefWidth="243.0" text="World of Zuul">
+         <font>
+            <Font name="DejaVu Serif Bold" size="21.0" />
+         </font></Label>
+      <Label layoutX="39.0" layoutY="96.0" prefHeight="161.0" prefWidth="322.0" text="Welcome to World of Zuul where sustainability is in the focus. You will have to make a T-Shirt and you will get points from the choices you make. Your goal is to get a high score. You will start in the mainroom from where you will be able to go to other rooms. Your first task is to go to the Materials room to pick a seed that you want to work with." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb8a36" height="8.0" layoutX="39.0" layoutY="77.0" strokeType="INSIDE" width="322.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#eb8a36" />
+                  <Stop color="#eb8a36" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
     </children>
 </AnchorPane>

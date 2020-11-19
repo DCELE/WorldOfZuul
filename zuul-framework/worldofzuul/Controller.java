@@ -1,6 +1,7 @@
 package worldofzuul;
 
 import java.net.URL;
+import java.security.spec.ECField;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,28 +19,60 @@ public class Controller implements Initializable {
     private Label lbl1,lbl2;
 
     @FXML
-    private Button btn1,btn2;
+    private Button startButton,beginButton,wellButton,farmButton, materialsButton,
+            factoryButton,mainroomButton,coloringButton,sewingButton;
 
     @FXML
-    private void handleButtonAction (ActionEvent event) throws Exception {
+    private void handleButtonAction(ActionEvent event) throws Exception{
         Stage stage;
         Parent root;
 
-        if(event.getSource()==btn1){
-            stage = (Stage) btn1.getScene().getWindow();
+        if(event.getSource()==startButton){
+            stage = (Stage) startButton.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("room2.fxml"));
         }
+        else if(event.getSource()==beginButton){
+            stage = (Stage) beginButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("mainroom.fxml"));
+        }
+        else if(event.getSource()==wellButton){
+            stage = (Stage) wellButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("well.fxml"));
+        }
+        else if(event.getSource()==farmButton){
+            stage = (Stage) farmButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("farm.fxml"));
+        }
+        else if(event.getSource()==materialsButton){
+            stage = (Stage) materialsButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("materials.fxml"));
+        }
+        else if(event.getSource()==factoryButton){
+            stage = (Stage) factoryButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("factory.fxml"));
+        }
+        else if(event.getSource()==coloringButton){
+            stage = (Stage) coloringButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("coloring.fxml"));
+        }
+        else if(event.getSource()==sewingButton){
+            stage = (Stage) sewingButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("sewing.fxml"));
+        }
         else{
-            stage = (Stage) btn2.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("room1.fxml"));
+            stage = (Stage) mainroomButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("mainroom.fxml"));
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+
+
 }

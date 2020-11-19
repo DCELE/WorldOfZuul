@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #dedfe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
+   <children>
+      <Button fx:id="mainroomButton" layoutX="30.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: linear-gradient(to bottom, #a73f2d 5%,  #b34332 100%);" text="Mainroom">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
