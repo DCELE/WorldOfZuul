@@ -20,7 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorldOfZuul.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WorldOfZuul.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +36,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,9 +51,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -56,8 +68,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="WorldOfZuul" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="worldofzuul.*" />
@@ -98,6 +113,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="311" y="23" width="1024" height="836" key="#Project_Structure" timestamp="1605787928469">
+      <screen x="0" y="23" width="1440" height="836" />
+    </state>
+    <state x="311" y="23" width="1024" height="836" key="#Project_Structure/0.23.1440.836@0.23.1440.836" timestamp="1605787928469" />
+    <state x="369" y="102" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605789345977">
+      <screen x="0" y="23" width="1440" height="837" />
+    </state>
+    <state x="369" y="102" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.836@0.23.1440.836" timestamp="1605788575648" />
+    <state x="369" y="102" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.837@0.23.1440.837" timestamp="1605789345977" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1605040028879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -111,8 +135,8 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604322619500" />
-    <state width="1877" height="215" key="GridCell.Tab.0.bottom" timestamp="1605105752301">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1111" height="121" key="GridCell.Tab.0.bottom" timestamp="1605789560113">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state width="1877" height="162" key="GridCell.Tab.0.bottom/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605046837404" />
     <state width="1237" height="229" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605105298300" />
@@ -120,8 +144,10 @@
     <state width="1877" height="215" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605105752301" />
     <state width="1877" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604579640098" />
     <state width="1398" height="128" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1604401834432" />
-    <state width="1877" height="215" key="GridCell.Tab.0.center" timestamp="1605105752301">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1111" height="121" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1605789560113" />
+    <state width="1111" height="121" key="GridCell.Tab.0.bottom/0.23.1440.837@0.23.1440.837" timestamp="1605789323452" />
+    <state width="1111" height="121" key="GridCell.Tab.0.center" timestamp="1605789560112">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state width="1877" height="162" key="GridCell.Tab.0.center/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605046837404" />
     <state width="1237" height="229" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1605105298300" />
@@ -129,8 +155,10 @@
     <state width="1877" height="215" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605105752301" />
     <state width="1877" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604579640098" />
     <state width="1398" height="128" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
-    <state width="1877" height="215" key="GridCell.Tab.0.left" timestamp="1605105752300">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1111" height="121" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1605789560112" />
+    <state width="1111" height="121" key="GridCell.Tab.0.center/0.23.1440.837@0.23.1440.837" timestamp="1605789323452" />
+    <state width="1111" height="121" key="GridCell.Tab.0.left" timestamp="1605789560112">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state width="1877" height="162" key="GridCell.Tab.0.left/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605046837404" />
     <state width="1237" height="229" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1605105298300" />
@@ -138,8 +166,10 @@
     <state width="1877" height="215" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605105752300" />
     <state width="1877" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604579640098" />
     <state width="1398" height="128" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1604401834430" />
-    <state width="1877" height="215" key="GridCell.Tab.0.right" timestamp="1605105752301">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1111" height="121" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1605789560112" />
+    <state width="1111" height="121" key="GridCell.Tab.0.left/0.23.1440.837@0.23.1440.837" timestamp="1605789323451" />
+    <state width="1111" height="121" key="GridCell.Tab.0.right" timestamp="1605789560113">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state width="1877" height="162" key="GridCell.Tab.0.right/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605046837404" />
     <state width="1237" height="229" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1605105298300" />
@@ -147,6 +177,8 @@
     <state width="1877" height="215" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605105752301" />
     <state width="1877" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604579640098" />
     <state width="1398" height="128" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1604401834431" />
+    <state width="1111" height="121" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1605789560113" />
+    <state width="1111" height="121" key="GridCell.Tab.0.right/0.23.1440.837@0.23.1440.837" timestamp="1605789323452" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604521050088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -167,6 +199,11 @@
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604521050088" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
+    <state x="311" y="23" width="1024" height="836" key="SettingsEditor" timestamp="1605789606878">
+      <screen x="0" y="23" width="1440" height="837" />
+    </state>
+    <state x="311" y="23" width="1024" height="836" key="SettingsEditor/0.23.1440.836@0.23.1440.836" timestamp="1605789212759" />
+    <state x="311" y="23" key="SettingsEditor/0.23.1440.837@0.23.1440.837" timestamp="1605789606878" />
     <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1604319326678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
