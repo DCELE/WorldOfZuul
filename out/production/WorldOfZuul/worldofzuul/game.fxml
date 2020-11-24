@@ -29,12 +29,12 @@
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="4" GridPane.rowSpan="3">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Player inventory" />
-            <ListView prefHeight="258.0" prefWidth="200.0" />
+            <ListView fx:id="playerInventory" prefHeight="258.0" prefWidth="200.0" />
             <Label text="Label" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" text="Use" />
-                  <Button mnemonicParsing="false" text="Drop" />
+                  <Button fx:id="useButton" mnemonicParsing="false" onMouseClicked="#onUseButtonClicked" text="Use" />
+                  <Button fx:id="dropButton" mnemonicParsing="false" onMouseClicked="#onDropButtonClicked" text="Drop" />
                </children>
             </HBox>
          </children>
@@ -42,8 +42,8 @@
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
          <children>
             <Label text="Room inventory" />
-            <ListView prefHeight="200.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" text="Pick up" />
+            <ListView fx:id="roomInventory" prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="pickUpButton" mnemonicParsing="false" onMouseClicked="#onPickUpButtonClicked" text="Pick up" />
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
@@ -54,10 +54,10 @@
       </HBox>
       <VBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="148.0" spacing="5.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
          <children>
-            <Button fx:id="button1" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="button2" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
+            <Button fx:id="button1" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
+            <Button fx:id="button2" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
+            <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
+            <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
          </children>
       </VBox>
       <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" GridPane.columnIndex="2" />

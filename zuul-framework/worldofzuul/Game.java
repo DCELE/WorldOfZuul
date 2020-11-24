@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Game {
     private Room currentRoom;
-    private Inventory playerInventory;
     private Materials hemp, linen, bamboo, cotton, polyester;
     private Water water;
     private Bucket bucket;
@@ -13,7 +12,7 @@ public class Game {
 
     public Game() {
         createRooms();
-        playerInventory = new Inventory();
+        new Player();
 
     }
 
