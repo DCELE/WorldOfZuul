@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="" />
+    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.intellij.sdk.settings.AppSettingsConfigurable" />
   </component>
@@ -61,7 +64,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="WorldOfZuul" />
-      <option name="VM_PARAMETERS" value=" --module-path &quot;C:\Users\Gorm Krings\Desktop\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="worldofzuul.*" />
@@ -102,10 +105,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606216607790">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="311" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606218620598">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606216607790" />
+    <state x="311" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.841@0.23.1440.841" timestamp="1606218620598" />
     <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1606216212440">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -185,10 +189,11 @@
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604521050088" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604501478076" />
-    <state x="2360" y="94" key="SettingsEditor" timestamp="1606216051737">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="330" y="27" key="SettingsEditor" timestamp="1606218612281">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state x="2360" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606216051737" />
+    <state x="330" y="27" key="SettingsEditor/0.23.1440.841@0.23.1440.841" timestamp="1606218612281" />
     <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1604319326678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
