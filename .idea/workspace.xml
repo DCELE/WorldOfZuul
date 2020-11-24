@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorldOfZuul.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WorldOfZuul.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Chemicals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Chemicals.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Chemicals.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Chemicals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" afterDir="false" />
     </list>
@@ -33,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,6 +61,9 @@
     <property name="settings.editor.selected.configurable" value="org.intellij.sdk.settings.AppSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="worldofzuul" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Gorm Krings\Documents\GitHub\WorldOfZuul\zuul-framework\worldofzuul" />
       <recent name="C:\Users\Gorm Krings\Documents\GitHub\WorldOfZuul\zuul-framework\out\production\zuul-framework" />
@@ -63,16 +71,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="WorldOfZuul" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\hey-s\OneDrive\Skrivebord\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="worldofzuul.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../JavaFX/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,31 +114,44 @@
     </state>
     <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1606222859729" />
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219298398" />
+    <state x="535" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1606246730459">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="535" y="118" key="#com.intellij.ide.util.MemberChooser/0.23.1440.833@0.23.1440.833" timestamp="1606246730459" />
+    <state x="535" y="118" key="#com.intellij.ide.util.MemberChooser/0.23.1440.834@0.23.1440.834" timestamp="1606246334357" />
     <state x="474" y="141" key="FileChooserDialogImpl" timestamp="1606222824887">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="474" y="141" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1606222824887" />
     <state x="593" y="176" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1606219568183" />
-    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1606220538455">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="192" key="GridCell.Tab.0.bottom" timestamp="1606247118951">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606220538455" />
     <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219261254" />
-    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1606220538454">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="192" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1606247118951" />
+    <state width="1216" height="192" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1606246304184" />
+    <state width="1216" height="192" key="GridCell.Tab.0.center" timestamp="1606247118950">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606220538454" />
     <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219261254" />
-    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1606220538454">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="192" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1606247118950" />
+    <state width="1216" height="192" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1606246304183" />
+    <state width="1216" height="192" key="GridCell.Tab.0.left" timestamp="1606247118950">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606220538454" />
     <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219261253" />
-    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1606220538454">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="192" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1606247118950" />
+    <state width="1216" height="192" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1606246304183" />
+    <state width="1216" height="192" key="GridCell.Tab.0.right" timestamp="1606247118951">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606220538454" />
     <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219261254" />
+    <state width="1216" height="192" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1606247118951" />
+    <state width="1216" height="192" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1606246304184" />
     <state x="242" y="0" key="SettingsEditor" timestamp="1606222832850">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
