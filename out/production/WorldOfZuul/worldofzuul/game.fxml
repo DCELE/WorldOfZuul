@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -60,9 +61,20 @@
          </children>
       </VBox>
       <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" GridPane.columnIndex="2" />
-      <Label fx:id="textBox" alignment="CENTER" contentDisplay="CENTER" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
+         <children>
+            <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="57.0" layoutY="36.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" wrapText="true">
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </Pane>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </GridPane>
