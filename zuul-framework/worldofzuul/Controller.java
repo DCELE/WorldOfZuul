@@ -3,6 +3,7 @@ package worldofzuul;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -10,7 +11,9 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    Button Button1, Button2, Button3, Button4;
+    Button button1, button2, button3, button4;
+    @FXML
+    Label textBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,7 +30,7 @@ public class Controller implements Initializable {
         // Set room text label
 
         // Set room welcome description
-
+        setTextBox(room);
 
         // Set button text labels
         setNavigationButtons(room);
@@ -36,8 +39,12 @@ public class Controller implements Initializable {
         // Set room welcome text
     }
 
+    public void setTextBox(Room room) {
+        textBox.setText(room.getLongDescription());
+    }
+
     public void setNavigationButtons(Room room) {
-        Button[] buttons = new Button[] {Button1, Button2, Button3, Button4};
+        Button[] buttons = new Button[] {button1, button2, button3, button4};
         for (Button button : buttons) {
             button.setVisible(false);
         }

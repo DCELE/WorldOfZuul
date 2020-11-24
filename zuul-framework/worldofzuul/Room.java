@@ -46,7 +46,7 @@ public class Room {
         String returnString = "Exits:";
         Set<Room> keys = exits.keySet();
         for (Room exit : keys) {
-            returnString += " " + exit;
+            returnString += " " + exit.getName();
         }
         return returnString;
     }

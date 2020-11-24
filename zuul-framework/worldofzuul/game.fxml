@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -53,14 +53,14 @@
       </HBox>
       <VBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="148.0" spacing="5.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
          <children>
-            <Button fx:id="Button1" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="Button2" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="Button3" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
-            <Button fx:id="Button4" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
+            <Button fx:id="button1" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
+            <Button fx:id="button2" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
+            <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
+            <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onButtonClicked" text="Button" />
          </children>
       </VBox>
-      <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Textbox" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" GridPane.columnIndex="2" />
+      <Label fx:id="textBox" alignment="CENTER" contentDisplay="CENTER" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
