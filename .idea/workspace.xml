@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gorm_lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorldOfZuul.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WorldOfZuul.iml" afterDir="false" />
-    </list>
+    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -111,6 +106,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219298398" />
+    <state x="593" y="176" key="FileChooserDialogImpl" timestamp="1606219568183">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="593" y="176" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1606219568183" />
     <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1606219261254">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -127,9 +126,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219261254" />
-    <state x="2360" y="94" key="SettingsEditor" timestamp="1606219179762">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="367" y="9" key="SettingsEditor" timestamp="1606219655385">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state x="367" y="9" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1606219655385" />
     <state x="2360" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219179762" />
   </component>
 </project>
