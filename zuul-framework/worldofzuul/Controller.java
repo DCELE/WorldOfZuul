@@ -26,14 +26,17 @@ public class Controller implements Initializable {
     public void loadRoom(Room room) {
         // Set room text label
 
+        // Set room welcome description
+
+
         // Set button text labels
-        setAllRoomButtons(room);
+        setNavigationButtons(room);
         // Set room inventory
 
         // Set room welcome text
     }
 
-    public void setAllRoomButtons(Room room) {
+    public void setNavigationButtons(Room room) {
         Button[] buttons = new Button[] {Button1, Button2, Button3, Button4};
         for (Button button : buttons) {
             button.setVisible(false);
