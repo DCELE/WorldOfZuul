@@ -1,65 +1,62 @@
 package worldofzuul;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Set;
 
 
-public class Room 
-{
+public class Room {
     private String description;
-    private HashMap<String, Room> exits;
+    private HashMap<Room, Room> exits;
     private Inventory inventory;
     private String name;
     private int waterNeededInMachine;
+    private static ArrayList<Room> allRooms = new ArrayList<>();
 
-    public Room(String name, String description, Inventory inventory)
-    {
+    public Room(String name, String description, Inventory inventory) {
         this.name = name;
         this.description = description;
-        exits = new HashMap<String, Room>();
+        exits = new HashMap<Room, Room>();
         this.inventory = inventory;
+        allRooms.add(this);
     }
 
     public Room(String name, String description, Inventory inventory, int waterNeededInMachine) {
         this.name = name;
         this.description = description;
-        exits = new HashMap<String, Room>();
+        exits = new HashMap<Room, Room>();
         this.inventory = inventory;
         this.waterNeededInMachine = waterNeededInMachine;
+        allRooms.add(this);
     }
 
-    public void setExit(String direction, Room neighbor)
-    {
-        exits.put(direction, neighbor);
+    public void setExit(Room neighbor) {
+        exits.put(neighbor, this);
     }
 
-    public String getShortDescription()
-    {
+    public String getShortDescription() {
         return description;
     }
 
-    public String getLongDescription()
-    {
-        return "You are " + description + ".\n"+ inventory.toString() + ".\n" + getExitString();
+    public String getLongDescription() {
+        return "You are " + description + ".\n" + inventory.toString() + ".\n" + getExitString();
     }
 
-    private String getExitString()
-    {
+    private String getExitString() {
         String returnString = "Exits:";
-        Set<String> keys = exits.keySet();
-        for(String exit : keys) {
+        Set<Room> keys = exits.keySet();
+        for (Room exit : keys) {
             returnString += " " + exit;
         }
         return returnString;
     }
 
-    public Room getExit(String direction) 
-    {
-        return exits.get(direction);
+    public ArrayList<Room> getExits() {
+        Set<Room> keys = exits.keySet();
+        return new ArrayList<>(keys);
     }
 
-    public Inventory getInventory()
-    {
+    public Inventory getInventory() {
         return this.inventory;
     }
 
@@ -67,5 +64,8 @@ public class Room
         return name;
     }
 
+    public static ArrayList<Room> getAllRooms() {
+        return allRooms;
+    }
 }
 
