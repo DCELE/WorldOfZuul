@@ -108,6 +108,7 @@ public class Controller implements Initializable {
         if (selectedItem == null) {
             return;
         }
+        Game.dropItem(selectedItem);
         dropItem(selectedItem);
     }
 

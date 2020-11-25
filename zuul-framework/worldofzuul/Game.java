@@ -110,7 +110,6 @@ public class Game {
                 return false;
             }
 
-
             // Check the materials stage
             if (material.getState() == 0) {
                 // If something is planted
@@ -234,11 +233,8 @@ public class Game {
 
 
     // Drop item method
-    private static void dropItem(Item item) {
-        if (item.equals(water) && Player.getInventory().contains(bucket) && bucket.hasWater()) {
-            bucket.setHasWater();
-            System.out.println("You dropped water");
-        }
+    public static void dropItem(Item item) {
+        Player.dropItem(item);
     }
 
 
