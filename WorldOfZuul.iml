@@ -13,5 +13,6 @@
     <orderEntry type="library" name="Christoffer" level="project" />
     <orderEntry type="library" name="kaplib" level="project" />
     <orderEntry type="library" name="Nithu" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
   </component>
 </module>

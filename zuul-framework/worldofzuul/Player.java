@@ -10,4 +10,14 @@ public class Player {
     public static Inventory getInventory() {
         return playerInventory;
     }
+
+    public static void pickUpItem(Item item) {
+        Game.getCurrentRoom().getInventory().removeFromInventory(item);
+        playerInventory.addToInventory(item);
+    }
+
+    public static void dropItem(Item item) {
+        Game.getCurrentRoom().getInventory().addToInventory(item);
+        playerInventory.removeFromInventory(item);
+    }
 }

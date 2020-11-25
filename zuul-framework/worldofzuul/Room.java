@@ -67,5 +67,18 @@ public class Room {
     public static ArrayList<Room> getAllRooms() {
         return allRooms;
     }
+
+    public static Room getRoom(String roomName) {
+        Room currentRoom = null;
+        for (Room room : Room.getAllRooms()) {
+            if (!room.getName().equals(roomName)) {
+                continue;
+            }
+            currentRoom = room;
+            break;
+        }
+        return currentRoom;
+    }
+
 }
 

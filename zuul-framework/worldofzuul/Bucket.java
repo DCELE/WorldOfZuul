@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import java.util.HashMap;
+
 public class Bucket extends Item {
     private boolean hasWater;
     private Room[] roomsToUseBucket;
@@ -16,11 +18,16 @@ public class Bucket extends Item {
     }
 
     public void setHasWater() {
-        this.hasWater = !hasWater;
+        if (!hasWater) {
+            this.hasWater = true;
+            setName((getName() + " with water"));
+        } else {
+            this.hasWater = false;
+            setName((getName().split(" "))[0]);
+        }
     }
 
     public Room[] getRoomsToUseBucket() {
         return roomsToUseBucket;
     }
-
 }

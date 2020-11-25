@@ -10,11 +10,14 @@ public class Materials extends Item {
     // The rooms in order, where you can use (interact with) the item
     private Room[] roomsToUseItem;
     private String color;
+    private String[] stateNames;
+    private static ArrayList<Materials> allMaterials = new ArrayList<>();
 
     public Materials(String name, int id)
     {
         super(name, id);
         this.state = 0;
+        allMaterials.add(this);
     }
 
     public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded) {
@@ -24,23 +27,37 @@ public class Materials extends Item {
         this.planted = false;
         this.waterAmountNeeded = waterAmountNeeded;
         this.color = "natural";
-        if (this.id == 5)
+        allMaterials.add(this);
+        stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
+        if (super.getId() == 5)
         {
             this.state = 1;
+            stateNames = new String[]{" chemicals", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
+            setNameForState();
+            return;
         }
-
-
+        setNameForState();
     }
 
     public Materials(String name, int id, Room[] roomsToUseItem){
         super(name, id);
         this.state = 1;
         this.roomsToUseItem = roomsToUseItem;
+        allMaterials.add(this);
     }
 
     public void upgradeState()
     {
         this.state += 1;
+        setNameForState();
+    }
+
+    public void setNameForState() {
+        int stateNameInt = getState();
+        if (getId() == 5) {
+            stateNameInt = getState()-1;
+        }
+        this.setName(getName().split(" ")[0] + stateNames[stateNameInt]);
     }
 
     public int getState()
@@ -59,7 +76,14 @@ public class Materials extends Item {
     }
 
     public void setPlanted() {
-        this.planted = !planted;
+        if (!isPlanted()) {
+            this.planted = true;
+            this.setName(getName() + " (planted)");
+        } else {
+            this.planted = false;
+            this.setName(getName().split(" ")[0]);
+        }
+
     }
 
     public String getColor() {
@@ -80,5 +104,9 @@ public class Materials extends Item {
 
     public void decrementWaterAmountNeeded(int i) {
         this.waterAmountNeeded[i] -= 1;
+    }
+
+    public static ArrayList<Materials> getAllMaterials() {
+        return allMaterials;
     }
 }

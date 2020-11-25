@@ -13,7 +13,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    Room currentRoom = null;
 
     @FXML
     private Button button1, button2, button3, button4;
@@ -32,15 +31,14 @@ public class Controller implements Initializable {
         loadRoom(Room.getAllRooms().get(0));
 
         // Initialize playerInventory
-        observPlayerInventory = FXCollections.observableArrayList();
-        observPlayerInventory.addAll(Player.getInventory().getArrayList());
+        observPlayerInventory = FXCollections.observableArrayList(Player.getInventory().getArrayList());
         playerInventory.setItems(observPlayerInventory);
     }
 
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
         Button button = (Button) mouseEvent.getSource();
         String labelText = button.getText();
-        loadRoom(getRoom(labelText));
+        loadRoom(Room.getRoom(labelText));
     }
 
     // Load room everytime NavigationButton is clicked
@@ -54,7 +52,8 @@ public class Controller implements Initializable {
         setNavigationButtons(room);
         // Set room inventory
         setRoomInventory(room);
-        // Set room welcome text
+        // Set currentRoom
+        Game.setCurrentRoom(room);
     }
 
     private void setRoomInventory(Room room) {
@@ -82,15 +81,14 @@ public class Controller implements Initializable {
         button.setText(exitRoom.getName());
     }
 
-    public Room getRoom(String roomName) {
-        for (Room room : Room.getAllRooms()) {
-            if (!room.getName().equals(roomName)) {
-                continue;
-            }
-            currentRoom = room;
-            break;
-        }
-        return currentRoom;
+    public void pickUpItem(Item item) {
+        observRoomInventory.remove(item);
+        observPlayerInventory.add(item);
+    }
+
+    public void dropItem(Item item) {
+        observPlayerInventory.remove(item);
+        observRoomInventory.add(item);
     }
 
     public void onPickUpButtonClicked(MouseEvent mouseEvent) {
@@ -98,10 +96,11 @@ public class Controller implements Initializable {
         if (selectedItem == null) {
             return;
         }
-        currentRoom.getInventory().removeFromInventory(selectedItem);
-        observRoomInventory.remove(selectedItem);
-        observPlayerInventory.add(selectedItem);
-        Player.getInventory().addToInventory(selectedItem);
+        if (!Game.getItem(selectedItem)) {
+            playerInventory.refresh();
+            return;
+        }
+        pickUpItem(selectedItem);
     }
 
     public void onDropButtonClicked(MouseEvent mouseEvent) {
@@ -109,13 +108,20 @@ public class Controller implements Initializable {
         if (selectedItem == null) {
             return;
         }
-        Player.getInventory().removeFromInventory(selectedItem);
-        observPlayerInventory.remove(selectedItem);
-        observRoomInventory.add(selectedItem);
-        currentRoom.getInventory().addToInventory(selectedItem);
+        dropItem(selectedItem);
     }
 
     public void onUseButtonClicked(MouseEvent mouseEvent) {
+        Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            return;
+        }
 
+        if (!Game.useItem(selectedItem)) {
+            playerInventory.refresh();
+            roomInventory.refresh();
+            return;
+        }
+        dropItem(selectedItem);
     }
 }

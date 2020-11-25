@@ -1,8 +1,10 @@
 package worldofzuul;
 
+import java.util.HashMap;
+
 public abstract class Item {
     private String name;
-    int id;
+    private int id;
 
     public Item() {
     }
@@ -11,6 +13,7 @@ public abstract class Item {
         this.name = name;
         this.id = id;
     }
+
 
     @Override
     public String toString() {
@@ -27,5 +30,8 @@ public abstract class Item {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
 
 }
