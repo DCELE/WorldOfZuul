@@ -19,22 +19,12 @@ public class Controller implements Initializable {
     private Button button1, button2, button3, button4;
     @FXML
     private Label textBox;
-    @FXML
-    private ListView<Item> roomInventory;
-    private ObservableList<Item> observRoomInventory;
-    @FXML
-    private ListView<Item> playerInventory;
-    private ObservableList<Item> observPlayerInventory;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRoom(Room.getAllRooms().get(0));
 
-        // Initialize playerInventory
-        observPlayerInventory = FXCollections.observableArrayList();
-        observPlayerInventory.addAll(Player.getInventory().getArrayList());
-        playerInventory.setItems(observPlayerInventory);
     }
 
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
@@ -53,15 +43,9 @@ public class Controller implements Initializable {
         // Set button text labels
         setNavigationButtons(room);
         // Set room inventory
-        setRoomInventory(room);
         // Set room welcome text
     }
 
-    private void setRoomInventory(Room room) {
-        observRoomInventory = FXCollections.observableArrayList();
-        observRoomInventory.addAll(room.getInventory().getArrayList());
-        roomInventory.setItems(observRoomInventory);
-    }
 
     public void setTextBox(Room room) {
         textBox.setText(room.getLongDescription());
@@ -93,27 +77,7 @@ public class Controller implements Initializable {
         return currentRoom;
     }
 
-    public void onPickUpButtonClicked(MouseEvent mouseEvent) {
-        Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
-            return;
-        }
-        currentRoom.getInventory().removeFromInventory(selectedItem);
-        observRoomInventory.remove(selectedItem);
-        observPlayerInventory.add(selectedItem);
-        Player.getInventory().addToInventory(selectedItem);
-    }
 
-    public void onDropButtonClicked(MouseEvent mouseEvent) {
-        Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
-            return;
-        }
-        Player.getInventory().removeFromInventory(selectedItem);
-        observPlayerInventory.remove(selectedItem);
-        observRoomInventory.add(selectedItem);
-        currentRoom.getInventory().addToInventory(selectedItem);
-    }
 
     public void onUseButtonClicked(MouseEvent mouseEvent) {
 
