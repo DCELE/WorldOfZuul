@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +61,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="WorldOfZuul" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../JavaFX/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -100,11 +96,12 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="215" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606308495181">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state x="215" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606310945571">
+      <screen x="0" y="23" width="1440" height="838" />
     </state>
     <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1606222859729" />
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606219298398" />
+    <state x="215" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.838@0.23.1440.838" timestamp="1606310945571" />
     <state x="215" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.839@0.23.1440.839" timestamp="1606308495181" />
     <state x="474" y="141" key="FileChooserDialogImpl" timestamp="1606222824887">
       <screen x="0" y="0" width="1280" height="689" />
