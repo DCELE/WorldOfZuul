@@ -19,6 +19,8 @@ public class Controller implements Initializable {
     private Button button1, button2, button3, button4;
     @FXML
     private Label textBox;
+    @FXML
+    private 
 
 
     @Override
@@ -77,9 +79,12 @@ public class Controller implements Initializable {
         return currentRoom;
     }
 
-
-
     public void onUseButtonClicked(MouseEvent mouseEvent) {
+
+    }
+
+    public void roomInventoryClicked(MouseEvent mouseEvent)
+    {
 
     }
 }
