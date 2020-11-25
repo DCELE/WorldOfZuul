@@ -14,8 +14,9 @@ public class Controller {
     ListView<Item> inventoryList;
     @FXML
     ObservableList<Item> playerInventory;
-    
-    
+
+
+
     //Remove item from playerInventory
     public void removeItem (ActionEvent actionEvent)
     {
@@ -31,7 +32,7 @@ public class Controller {
     }
 
 
-    @Override
+    //@Override
     public void initialize (URL url, ResourceBundle resourceBundle)
    {
        playerInventory = FXCollections.observableArrayList();

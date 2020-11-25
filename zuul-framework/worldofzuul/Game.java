@@ -62,6 +62,9 @@ public class Game {
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
 
+        //
+        playerInventory.addToInventory(bucket);
+
         mainRoom.setExit("materials", materials);
         mainRoom.setExit("water", well);
         mainRoom.setExit("farm", farm);
