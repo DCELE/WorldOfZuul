@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d1685e85-e956-48b4-8179-49314c7405e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WorldOfZuul/worldofzuul/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorldOfZuul.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WorldOfZuul.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-framework/worldofzuul/game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,16 +62,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="WorldOfZuul" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\hey-s\OneDrive\Skrivebord\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="worldofzuul.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../JavaFX/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
