@@ -8,9 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-
+import java.util.ArrayList;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.awt.event.ActionEvent;
+
 
 public class Controller implements Initializable {
     Room currentRoom = null;
@@ -20,7 +22,13 @@ public class Controller implements Initializable {
     @FXML
     private Label textBox;
     @FXML
-    private 
+    private
+
+
+    //Arraylist eksempel
+    ArrayList<String> str = new ArrayList<String>();
+
+    @FXML ListView listView;
 
 
     @Override
@@ -87,4 +95,19 @@ public class Controller implements Initializable {
     {
 
     }
+
+/*
+
+    str.clear();
+    String a = "1";
+    String b = "2";
+    String c = "3";
+    String d = "4";
+    str.add(a);
+    str.add(b);
+    str.add(c);
+    str.add(d);
+    listView.getItems().addAll(str);
+    */
+
 }
