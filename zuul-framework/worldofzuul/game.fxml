@@ -29,7 +29,7 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Player inventory" />
             <ListView fx:id="playerInventory" prefHeight="510.0" prefWidth="118.0" />
-            <Label text="Label" />
+            <Button mnemonicParsing="false" onAction="#itemDescription" text="Item description" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
                   <Button mnemonicParsing="false" text="Use" />

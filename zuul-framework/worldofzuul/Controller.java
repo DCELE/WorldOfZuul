@@ -16,11 +16,18 @@ public class Controller {
     ObservableList<Item> playerInventory;
     
     
-    //Remove items from playerInventory
+    //Remove item from playerInventory
     public void removeItem (ActionEvent actionEvent)
     {
         Item item = inventoryList.getSelectionModel().getSelectedItem();
         playerInventory.remove(item);
+    }
+
+    //Get item description
+    public void itemDescription (ActionEvent actionEvent)
+    {
+        Item item = inventoryList.getSelectionModel().getSelectedItem();
+        System.out.println(/*description of the item*/);
     }
 
 
