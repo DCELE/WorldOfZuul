@@ -7,6 +7,7 @@ public class Materials extends Item {
     private int state;
     private int[] waterAmountNeeded;
     private boolean planted;
+    private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
     private Room[] roomsToUseItem;
     private String color;
@@ -83,7 +84,21 @@ public class Materials extends Item {
             this.planted = false;
             this.setName(getName().split(" ")[0]);
         }
+    }
 
+    public boolean isInProcess()
+    {
+        return inProcess;
+    }
+
+    public void setInProcess() {
+        if (!isInProcess()) {
+            this.inProcess = true;
+            this.setName(getName() + " (in process)");
+        } else {
+            this.inProcess = false;
+            this.setName(getName().split(" ")[0]);
+        }
     }
 
     public String getColor() {

@@ -10,7 +10,7 @@ public class Room {
     private HashMap<Room, Room> exits;
     private Inventory inventory;
     private String name;
-    private int waterNeededInMachine;
+    private int waterAmountInMachine;
     private static ArrayList<Room> allRooms = new ArrayList<>();
 
     public Room(String name, String description, Inventory inventory) {
@@ -21,12 +21,12 @@ public class Room {
         allRooms.add(this);
     }
 
-    public Room(String name, String description, Inventory inventory, int waterNeededInMachine) {
+    public Room(String name, String description, Inventory inventory, int waterAmountInMachine) {
         this.name = name;
         this.description = description;
         exits = new HashMap<Room, Room>();
         this.inventory = inventory;
-        this.waterNeededInMachine = waterNeededInMachine;
+        this.waterAmountInMachine = waterAmountInMachine;
         allRooms.add(this);
     }
 

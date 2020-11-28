@@ -8,12 +8,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
+    @FXML
+    private Button useButton;
+    @FXML
+    private Button dropButton;
+    @FXML
+    private VBox vBoxPlayerInventory, vBoxRoomInventory;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
@@ -124,5 +131,11 @@ public class Controller implements Initializable {
             return;
         }
         dropItem(selectedItem);
+    }
+
+    public void openInventory(MouseEvent mouseEvent) {
+        boolean setVisibility = !vBoxPlayerInventory.isVisible();
+        vBoxPlayerInventory.setVisible(setVisibility);
+        vBoxRoomInventory.setVisible(setVisibility);
     }
 }

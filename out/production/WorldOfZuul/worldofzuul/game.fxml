@@ -26,11 +26,10 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="4" GridPane.rowSpan="3">
+      <VBox fx:id="vBoxPlayerInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="4" GridPane.rowSpan="3">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Player inventory" />
-            <ListView fx:id="playerInventory" prefHeight="258.0" prefWidth="200.0" />
-            <Label text="Label" />
+            <ListView fx:id="playerInventory" prefHeight="500.0" prefWidth="238.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
                   <Button fx:id="useButton" mnemonicParsing="false" onMouseClicked="#onUseButtonClicked" text="Use" />
@@ -39,16 +38,20 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
+      <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
          <children>
             <Label text="Room inventory" />
-            <ListView fx:id="roomInventory" prefHeight="200.0" prefWidth="200.0" />
-            <Button fx:id="pickUpButton" mnemonicParsing="false" onMouseClicked="#onPickUpButtonClicked" text="Pick up" />
+            <ListView fx:id="roomInventory" prefHeight="350.0" prefWidth="238.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="pickUpButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#onPickUpButtonClicked" text="Pick up" />
+               </children>
+            </HBox>
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <children>
-            <Button mnemonicParsing="false" text="Inventory" />
+            <Button fx:id="inventoryButton" mnemonicParsing="false" onMouseClicked="#openInventory" text="Inventory" />
             <Button mnemonicParsing="false" text="Help" />
          </children>
       </HBox>

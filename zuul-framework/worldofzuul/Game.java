@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import com.sun.prism.Material;
+
 public class Game {
     private static Room currentRoom;
     private Materials hemp, linen, bamboo, cotton, polyester;
@@ -42,14 +44,14 @@ public class Game {
 
         // Initializing items
         Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
-        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2});
-        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3});
-        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3});
-        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3});
-        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3});
+        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2, 2});
+        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3});
+        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3});
+        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3});
+        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3});
 
         water = new Water();
-        bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
+        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
 
         chemicals = new Chemicals("chemicals", 8);
         pesticides = new Pesticides("pesticides", 9);
@@ -134,19 +136,19 @@ public class Game {
             }
             // Check the materials stage
             if (material.getState() == 1) {
+                // If something is already being processed.
                 // Make fabric
-                System.out.println("You use machines to make fabric of " + material);
-                material.upgradeState();
-                System.out.println("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
+                material.setInProcess();
                 Player.dropItem(item);
+                System.out.println("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
                 return true;
             }
             // Check the materials stage
             if (material.getState() == 2) {
                 // Dye fabric
-                System.out.println("You dye " + material + " into the color " + material.getColor());
-                material.upgradeState();
+                material.setInProcess();
                 Player.dropItem(item);
+                System.out.println("It needs water: " + material.getWaterAmountNeeded()[2] + " time(s)");
                 return true;
             }
             // Check the materials stage
@@ -168,7 +170,14 @@ public class Game {
                 return false;
             }
             // Check if the room is a room you can use water in
-            if (!(currentRoom == bucket.getRoomsToUseBucket()[0] || currentRoom == bucket.getRoomsToUseBucket()[1])) {
+            boolean canUseBucket = false;
+            for (Room room : bucket.getRoomsToUseBucket()) {
+                if (currentRoom == room) {
+                    canUseBucket = true;
+                    break;
+                }
+            }
+            if (!canUseBucket) {
                 System.out.println("You cannot use " + bucket.getName() + " in " + currentRoom.getName());
                 return false;
             }
@@ -198,8 +207,58 @@ public class Game {
             }
             // Check if the room is the factory
             if (currentRoom == bucket.getRoomsToUseBucket()[1]) {
-                // Pour water in the machines/filling them up.
+                // Pour water in the machines/filling them up in fabricFactory.
+                Materials materialInProcess = null;
+                for (Materials material : Materials.getAllMaterials()) {
+                    if (material.isInProcess()) {
+                        materialInProcess = material;
+                        break;
+                    }
+                }
+                if (materialInProcess == null) return false;
+                materialInProcess.decrementWaterAmountNeeded(1);
+                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                bucket.setHasWater();
 
+                if (materialInProcess.getWaterAmountNeeded()[1] == 0) {
+                    // Material is no longer in process
+                    materialInProcess.setInProcess();
+                    // Plant becomes fabric
+                    System.out.println("You use machines to make fabric of " + materialInProcess);
+                    materialInProcess.upgradeState();
+                    System.out.println(materialInProcess.getName() + " is done, you can pick it up");
+                    return false;
+                }
+                System.out.println("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) more");
+                return false;
+            }
+
+            if (currentRoom == bucket.getRoomsToUseBucket()[2]) {
+                // Pour water in the machines/filling them up in colorFactory.
+                Materials materialInProcess = null;
+                for (Materials material : Materials.getAllMaterials()) {
+                    if (material.isInProcess()) {
+                        materialInProcess = material;
+                        break;
+                    }
+                }
+                if (materialInProcess == null) return false;
+                materialInProcess.decrementWaterAmountNeeded(2);
+                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                bucket.setHasWater();
+
+                if (materialInProcess.getWaterAmountNeeded()[2] == 0) {
+                    // Material is no longer in process
+                    materialInProcess.setInProcess();
+                    // fabric becomes dyed fabric
+                    System.out.println("You dye " + materialInProcess + " into the color " + materialInProcess.getColor());
+                    materialInProcess.upgradeState();
+                    System.out.println(materialInProcess.getName() + " is done, you can pick it up");
+                    return false;
+                }
+
+                System.out.println("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) more");
+                return false;
             }
         }
 
