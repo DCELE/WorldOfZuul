@@ -5,6 +5,8 @@ public class Game {
     private Materials hemp, linen, bamboo, cotton, polyester;
     private static Water water;
     private static Bucket bucket;
+    private static Chemicals chemicals;
+    private static Pesticides pesticides;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
 
 
@@ -46,8 +48,11 @@ public class Game {
         cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3});
         polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3});
 
-        bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
         water = new Water();
+        bucket = new Bucket("bucket", 7, new Room[]{farm, factory});
+
+        chemicals = new Chemicals("chemicals", 8);
+        pesticides = new Pesticides("pesticides", 9);
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -58,6 +63,9 @@ public class Game {
 
         wellInventory.addToInventory(bucket);
         wellInventory.addToInventory(water);
+
+        farmInventory.addToInventory(pesticides);
+        factoryInventory.addToInventory(chemicals);
 
         mainRoom.setExit(well);
         mainRoom.setExit(farm);

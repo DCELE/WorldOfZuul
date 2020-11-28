@@ -6,3 +6,4 @@ public class Chemicals extends Item {
         super(name, id);
     }
 }
+
