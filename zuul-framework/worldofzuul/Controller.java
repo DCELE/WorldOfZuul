@@ -16,10 +16,6 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    private Button useButton;
-    @FXML
-    private Button dropButton;
-    @FXML
     private VBox vBoxPlayerInventory, vBoxRoomInventory;
     @FXML
     private Button button1, button2, button3, button4;
