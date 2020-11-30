@@ -48,7 +48,7 @@ public class Game {
         linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3});
         bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3});
         cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3});
-        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3});
+        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{0, 3, 3});
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
