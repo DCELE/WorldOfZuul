@@ -6,6 +6,7 @@ public class Materials extends Item {
     // State is either seed, plant, fabric or t-shirt.
     private int state;
     private int[] waterAmountNeeded;
+    private int[] chemicalsAmountNeeded;
     private boolean planted;
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
@@ -21,12 +22,13 @@ public class Materials extends Item {
         allMaterials.add(this);
     }
 
-    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded) {
+    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded, int[] chemicalsAmountNeeded) {
         super(name, id);
         this.state = 0;
         this.roomsToUseItem = roomsToUseItem;
         this.planted = false;
         this.waterAmountNeeded = waterAmountNeeded;
+        this.chemicalsAmountNeeded = chemicalsAmountNeeded;
         this.color = "natural";
         allMaterials.add(this);
         stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
@@ -113,13 +115,22 @@ public class Materials extends Item {
         return waterAmountNeeded;
     }
 
+    public int[] getChemicalsAmountNeeded()
+    {
+        return chemicalsAmountNeeded;
+    }
+
     public void setWaterAmountNeeded(int[] waterAmountNeeded) {
         this.waterAmountNeeded = waterAmountNeeded;
     }
 
-    public void decrementWaterAmountNeeded(int i) {
-        this.waterAmountNeeded[i] -= 1;
+    public void decrementAmountNeeded(int[] whichArray, int index) {
+        whichArray[index] -= 1;
     }
+
+    public void setChemicalsAmountNeeded(int[] chemicalsAmountNeeded) { this.chemicalsAmountNeeded = chemicalsAmountNeeded;}
+
+    public void decrementChemicalsAmountNeeded(int i) { this.chemicalsAmountNeeded[i] -= 1;}
 
     public static ArrayList<Materials> getAllMaterials() {
         return allMaterials;
