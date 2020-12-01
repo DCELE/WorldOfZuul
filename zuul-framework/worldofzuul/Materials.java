@@ -82,7 +82,7 @@ public class Materials extends Item {
             this.setName(getName() + " (planted)");
         } else {
             this.planted = false;
-            this.setName(getName().split(" ")[0]);
+            this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
         }
     }
 
@@ -97,7 +97,7 @@ public class Materials extends Item {
             this.setName(getName() + " (in process)");
         } else {
             this.inProcess = false;
-            this.setName(getName().split(" ")[0]);
+            this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
         }
     }
 

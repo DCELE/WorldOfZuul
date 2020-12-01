@@ -97,36 +97,44 @@ public class Controller implements Initializable {
     public void onPickUpButtonClicked(MouseEvent mouseEvent) {
         Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
+            setTextBox(Game.getCurrentRoom());
             return;
         }
         if (!Game.getItem(selectedItem)) {
             playerInventory.refresh();
+            setTextBox(Game.getCurrentRoom());
             return;
         }
         pickUpItem(selectedItem);
+        setTextBox(Game.getCurrentRoom());
     }
 
     public void onDropButtonClicked(MouseEvent mouseEvent) {
         Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
+            setTextBox(Game.getCurrentRoom());
             return;
         }
         Game.dropItem(selectedItem);
         dropItem(selectedItem);
+        setTextBox(Game.getCurrentRoom());
     }
 
     public void onUseButtonClicked(MouseEvent mouseEvent) {
         Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
+            setTextBox(Game.getCurrentRoom());
             return;
         }
 
         if (!Game.useItem(selectedItem)) {
             playerInventory.refresh();
             roomInventory.refresh();
+            setTextBox(Game.getCurrentRoom());
             return;
         }
         dropItem(selectedItem);
+        setTextBox(Game.getCurrentRoom());
     }
 
     public void openInventory(MouseEvent mouseEvent) {

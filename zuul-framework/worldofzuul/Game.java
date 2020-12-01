@@ -1,7 +1,5 @@
 package worldofzuul;
 
-import com.sun.prism.Material;
-
 public class Game {
     private static Room currentRoom;
     private Materials hemp, linen, bamboo, cotton, polyester;
@@ -10,6 +8,7 @@ public class Game {
     private static Chemicals chemicals;
     private static Pesticides pesticides;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
+    private static String gameGuides;
 
 
     public Game() {
@@ -115,8 +114,8 @@ public class Game {
             }
             // Check if the room and the material's state correspond
             if (!(currentRoom == material.getRoomsToUseItem()[material.getState()])) {
-                System.out.println("You cannot use " + material.getName() + " in here");
-                System.out.println("Try going to " + material.getRoomsToUseItem()[material.getState()].getName());
+                gameGuides = ("You cannot use " + material.getName() + " in here");
+                Player.setPlayerThinks("I should try going to " + material.getRoomsToUseItem()[material.getState()].getName());
                 return false;
             }
 
@@ -124,14 +123,14 @@ public class Game {
             if (material.getState() == 0) {
                 // If something is planted
                 if (!nothingPlanted) {
-                    System.out.println("A seed is already planted: " + currentRoom.getInventory());
+                    Player.setPlayerThinks("It seems like a seed is already planted: " + currentRoom.getInventory());
                     return false;
                 }
                 // Plant material
-                System.out.println("You plant " + material);
+                gameGuides = ("You plant " + material);
                 Player.dropItem(item);
                 material.setPlanted();
-                System.out.println("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
                 return true;
             }
             // Check the materials stage
@@ -140,7 +139,7 @@ public class Game {
                 // Make fabric
                 material.setInProcess();
                 Player.dropItem(item);
-                System.out.println("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
                 return true;
             }
             // Check the materials stage
@@ -148,16 +147,16 @@ public class Game {
                 // Dye fabric
                 material.setInProcess();
                 Player.dropItem(item);
-                System.out.println("It needs water: " + material.getWaterAmountNeeded()[2] + " time(s)");
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[2] + " time(s)");
                 return true;
             }
             // Check the materials stage
             if (material.getState() == 3) {
                 // Make T-shirt
-                System.out.println("You're sewing " + material + " into a T-shirt with the color " + material.getColor());
+                gameGuides = ("You're sewing " + material + " into a T-shirt with the color " + material.getColor());
                 material.upgradeState();
                 Player.dropItem(item);
-                System.out.println("You've finished making a T-shirt, Type: \"quit\" to exit the game.");
+                gameGuides = ("You've finished making a T-shirt, Type: \"quit\" to exit the game.");
                 return true;
             }
         }
@@ -166,7 +165,7 @@ public class Game {
         if (item.equals(bucket)) {
             // Check if bucket is filled with water
             if (!bucket.hasWater()) {
-                System.out.println("You need to get " + water.getName() + " first");
+                Player.setPlayerThinks("I need to get " + water.getName() + " first");
                 return false;
             }
             // Check if the room is a room you can use water in
@@ -178,31 +177,32 @@ public class Game {
                 }
             }
             if (!canUseBucket) {
-                System.out.println("You cannot use " + bucket.getName() + " in " + currentRoom.getName());
+                Player.setPlayerThinks("I cannot use " + bucket.getName() + " in " + currentRoom.getName());
                 return false;
             }
             // Check if the room is the farm
             if (currentRoom == bucket.getRoomsToUseBucket()[0]) {
                 // Check if something is planted
                 if (plantedMaterial == null) {
-                    System.out.println("You need to plant something before watering it");
+                    Player.setPlayerThinks("I need to plant something before watering it");
                     return false;
                 }
                 // Watering seed
                 plantedMaterial.decrementWaterAmountNeeded(0);
-                System.out.println("You water " + plantedMaterial.getName());
+                gameGuides = ("You water " + plantedMaterial.getName());
                 bucket.setHasWater();
 
                 // Check if seed has fully grown
                 if (plantedMaterial.getWaterAmountNeeded()[0] == 0) {
+                    Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
                     // Material is no longer planted
                     plantedMaterial.setPlanted();
                     // Seed becomes plant
                     plantedMaterial.upgradeState();
-                    System.out.println(plantedMaterial.getName() + " is fully grown, you can pick it up");
+                    gameGuides = (plantedMaterial.getName() + " is fully grown, you can pick it up");
                     return false;
                 }
-                System.out.println("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
                 return false;
             }
             // Check if the room is the factory
@@ -217,19 +217,19 @@ public class Game {
                 }
                 if (materialInProcess == null) return false;
                 materialInProcess.decrementWaterAmountNeeded(1);
-                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                gameGuides = ("You pour water into the machine with " + materialInProcess.getName() + " in it");
                 bucket.setHasWater();
 
                 if (materialInProcess.getWaterAmountNeeded()[1] == 0) {
                     // Material is no longer in process
                     materialInProcess.setInProcess();
                     // Plant becomes fabric
-                    System.out.println("You use machines to make fabric of " + materialInProcess);
+                    gameGuides = ("You use machines to make fabric of " + materialInProcess);
                     materialInProcess.upgradeState();
-                    System.out.println(materialInProcess.getName() + " is done, you can pick it up");
+                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
                     return false;
                 }
-                System.out.println("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) more");
+                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) more");
                 return false;
             }
 
@@ -244,20 +244,20 @@ public class Game {
                 }
                 if (materialInProcess == null) return false;
                 materialInProcess.decrementWaterAmountNeeded(2);
-                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                gameGuides = ("You pour water into the machine with " + materialInProcess.getName() + " in it");
                 bucket.setHasWater();
 
                 if (materialInProcess.getWaterAmountNeeded()[2] == 0) {
                     // Material is no longer in process
                     materialInProcess.setInProcess();
                     // fabric becomes dyed fabric
-                    System.out.println("You dye " + materialInProcess + " into the color " + materialInProcess.getColor());
+                    gameGuides = ("You dye " + materialInProcess + " into the color " + materialInProcess.getColor());
                     materialInProcess.upgradeState();
-                    System.out.println(materialInProcess.getName() + " is done, you can pick it up");
+                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
                     return false;
                 }
 
-                System.out.println("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) more");
+                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) more");
                 return false;
             }
         }
@@ -276,25 +276,29 @@ public class Game {
             if (material.isPlanted()) {
                 material.setPlanted();
             }
+
+            if (material.isInProcess()) {
+                material.setInProcess();
+            }
         }
 
         // Water is a special item, which can only be picked up in a bucket
         if (item.equals(water)) {
             if (!Player.getInventory().contains(bucket)) {
-                System.out.println("You need a bucket in your inventory to get water");
+                Player.setPlayerThinks("I need a bucket in my inventory to get water");
                 return false;
             }
             if (bucket.hasWater()) {
-                System.out.println("You've already filled your bucket with water");
+                Player.setPlayerThinks("I've already filled the bucket with water");
                 return false;
             }
             bucket.setHasWater();
-            System.out.println("You fill your bucket with water");
+            gameGuides = ("You fill your bucket with water");
             return false;
         }
         // If material is planted, material is not planted or its just an ordinary item pick it up
         Player.pickUpItem(item);
-        System.out.println("You pick up: " + item);
+        gameGuides = ("You pick up: " + item);
         return true;
     }
 
@@ -304,9 +308,7 @@ public class Game {
         Player.dropItem(item);
     }
 
-
-    public static void adjustItemName(Item item) {
-
+    public static String getGameGuides() {
+        return gameGuides;
     }
-
 }

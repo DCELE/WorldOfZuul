@@ -39,7 +39,15 @@ public class Room {
     }
 
     public String getLongDescription() {
-        return "You are " + description + ".\n" + inventory.toString() + ".\n" + getExitString();
+        String textBox = "You are " + description + ".\n";
+
+        if (Game.getGameGuides() != null) {
+            textBox += Game.getGameGuides() + ".\n";
+        }
+        if (Player.getPlayerThinks() != null) {
+            textBox += Player.getPlayerThinks();
+        }
+        return textBox;
     }
 
     private String getExitString() {
