@@ -63,6 +63,10 @@ public class Materials extends Item {
         this.setName(getName().split(" ")[0] + stateNames[stateNameInt]);
     }
 
+    public String[] getStateNames() {
+        return stateNames;
+    }
+
     public int getState()
     {
         return state;
@@ -127,10 +131,6 @@ public class Materials extends Item {
     public void decrementAmountNeeded(int[] whichArray, int index) {
         whichArray[index] -= 1;
     }
-
-    public void setChemicalsAmountNeeded(int[] chemicalsAmountNeeded) { this.chemicalsAmountNeeded = chemicalsAmountNeeded;}
-
-    public void decrementChemicalsAmountNeeded(int i) { this.chemicalsAmountNeeded[i] -= 1;}
 
     public static ArrayList<Materials> getAllMaterials() {
         return allMaterials;

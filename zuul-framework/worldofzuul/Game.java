@@ -43,7 +43,7 @@ public class Game {
 
         // Initializing items
         Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
-        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2, 2}, new int[]{1,1});
+        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 1, 1}, new int[]{1,1});
         linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
         bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
         cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
@@ -158,7 +158,7 @@ public class Game {
                 gameGuides = ("You're sewing " + material + " into a T-shirt with the color " + material.getColor());
                 material.upgradeState();
                 Player.dropItem(item);
-                gameGuides = ("You've finished making a T-shirt, Type: \"quit\" to exit the game.");
+                gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
                 return true;
             }
         }
@@ -218,17 +218,16 @@ public class Game {
                     }
                 }
                 if (materialInProcess == null) return false;
+                if (materialInProcess.getWaterAmountNeeded()[1] <= 0) {
+                    return false;
+                }
                 materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(),1);
                 System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
                 bucket.setHasWater();
 
                 if (materialInProcess.getWaterAmountNeeded()[1] == 0) {
-                    // Material is no longer in process
-                    materialInProcess.setInProcess();
-                    // Plant becomes fabric
-                    gameGuides = ("You use machines to make fabric of " + materialInProcess);
-                    materialInProcess.upgradeState();
-                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
+                    enoughOfEverything(materialInProcess, 1);
+                    Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) more");
                     return false;
                 }
                 Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) more");
@@ -250,12 +249,7 @@ public class Game {
                 bucket.setHasWater();
 
                 if (materialInProcess.getWaterAmountNeeded()[2] == 0) {
-                    // Material is no longer in process
-                    materialInProcess.setInProcess();
-                    // fabric becomes dyed fabric
-                    gameGuides = ("You dye " + materialInProcess + " into the color " + materialInProcess.getColor());
-                    materialInProcess.upgradeState();
-                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
+                   enoughOfEverything(materialInProcess, 2);
                     return false;
                 }
 
@@ -267,18 +261,18 @@ public class Game {
         //Use chemicals on fabric and color machine
         if (item.equals(chemicals))
         {
-            Materials materialInProcessChemical = null;
+            Materials materialInProcess = null;
             for (Materials material : Materials.getAllMaterials()) {
                 if (material.isInProcess()) {
-                    materialInProcessChemical = material;
+                    materialInProcess = material;
                     break;
                 }
             }
-            if (materialInProcessChemical == null) return false;
+            if (materialInProcess == null) return false;
             if (currentRoom == chemicals.getRoomsToUseChemicals()[0])
             {
-                materialInProcessChemical.decrementAmountNeeded(materialInProcessChemical.getChemicalsAmountNeeded(),0);
-                System.out.println("You pour chemicals into the fabric machine, you need " + materialInProcessChemical.getChemicalsAmountNeeded()[0] + " chemical(s)");
+                materialInProcess.decrementAmountNeeded(materialInProcess.getChemicalsAmountNeeded(),0);
+                System.out.println("You pour chemicals into the fabric machine, you need " + materialInProcess.getChemicalsAmountNeeded()[0] + " chemical(s)");
 
 
 
@@ -286,20 +280,38 @@ public class Game {
 
             if (currentRoom == chemicals.getRoomsToUseChemicals()[1])
             {
-                materialInProcessChemical.decrementAmountNeeded(materialInProcessChemical.getChemicalsAmountNeeded(),0);
-                System.out.println("Your pour chemicals into the color machine, you need " + materialInProcessChemical.getChemicalsAmountNeeded()[0] + " chemical(s)");
+                materialInProcess.decrementAmountNeeded(materialInProcess.getChemicalsAmountNeeded(),1);
+                System.out.println("Your pour chemicals into the color machine, you need " + materialInProcess.getChemicalsAmountNeeded()[1] + " chemical(s)");
 
             }
 
-            if (!(currentRoom == chemicals.getRoomsToUseChemicals()[0]||currentRoom == chemicals.getRoomsToUseChemicals()[1]))
+            if (!(currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1]))
             {
                 System.out.println("You can't use chemicals in this room");
+            }
+
+            if (materialInProcess.getChemicalsAmountNeeded()[0] == 0) {
+                enoughOfEverything(materialInProcess, 1);
+            }
+
+            if (materialInProcess.getChemicalsAmountNeeded()[1] == 0) {
+                enoughOfEverything(materialInProcess, 2);
             }
 
 
         }
 
         return false;
+    }
+
+    private static void enoughOfEverything(Materials materialInProcess, int indexOfAmountNeeded) {
+        if (materialInProcess.getWaterAmountNeeded()[indexOfAmountNeeded] == 0 && materialInProcess.getChemicalsAmountNeeded()[indexOfAmountNeeded-1] == 0) {
+            // Material is no longer in process
+            materialInProcess.setInProcess();
+            // Plant becomes fabric
+            materialInProcess.upgradeState();
+            gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
+        }
     }
 
 
