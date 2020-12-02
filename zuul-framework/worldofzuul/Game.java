@@ -8,16 +8,17 @@ public class Game {
     private static Chemicals chemicals;
     private static Pesticides pesticides;
     private static Object currentRecipe;
+    private static Materials chosenMaterial;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
 
 
     public Game() {
-        createRooms();
+        setupGame();
         new Player();
     }
 
-    private void createRooms() {
+    private void setupGame() {
 
         Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorInventory, sewingInventory, fabricInventory;
 
@@ -54,6 +55,11 @@ public class Game {
         pesticides = new Pesticides("pesticides", 8);
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory});
 
+        // Declaring and initializing recipes
+        hemp.setRecipe(new Recipe(1, 1));
+        hemp.setRecipe(new Recipe(1, 1));
+        hemp.setRecipe(new Recipe(1, 1));
+        hemp.setRecipe(new Recipe(0, 0));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -87,7 +93,7 @@ public class Game {
 
         currentRecipe = "Go choose your material \nin " + materials.getName();
 
-        setCurrentRecipe(new Recipe("Plant", 1, 1));
+        chosenMaterial = null;
     }
 
     public static Room getCurrentRoom() {
@@ -330,6 +336,11 @@ public class Game {
                 continue;
             }
 
+
+            if (chosenMaterial == null) {
+                chosenMaterial = material;
+            }
+
             if (material.isPlanted()) {
                 material.setPlanted();
             }
@@ -373,7 +384,13 @@ public class Game {
         return currentRecipe;
     }
 
-    public static void setCurrentRecipe(Recipe currentRecipe) {
-        Game.currentRecipe = currentRecipe;
+    public static void setCurrentRecipe(Materials material) {
+         for (Recipe recipe : material.getRecipes()) {
+             if (currentRecipe == recipe && chosenMaterial != null) {
+                 currentRecipe = material.getRecipes().get(material.getRecipes().indexOf(recipe)+1);
+                 return;
+             }
+         }
+         currentRecipe = material.getRecipes().get(0);
     }
 }

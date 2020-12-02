@@ -109,6 +109,7 @@ public class Controller implements Initializable {
         }
         pickUpItem(selectedItem);
         setTextBox(Game.getCurrentRoom());
+        setHintLabel();
     }
 
     public void onDropButtonClicked(MouseEvent mouseEvent) {
@@ -133,6 +134,7 @@ public class Controller implements Initializable {
             playerInventory.refresh();
             roomInventory.refresh();
             setTextBox(Game.getCurrentRoom());
+            setHintLabel();
             return;
         }
         dropItem(selectedItem);
@@ -152,7 +154,7 @@ public class Controller implements Initializable {
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();
         hintLabel.setVisible(!labelVisibility);
-        hintLabel.setText(Game.getCurrentRecipe().toString());
+        setHintLabel();
     }
 
 }

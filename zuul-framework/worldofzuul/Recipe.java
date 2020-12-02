@@ -7,8 +7,7 @@ public class Recipe {
     private int water;
     private int other; // Either pesticides or chemicals never both
 
-    public Recipe (String name, int water, int other) {
-        this.name = name;
+    public Recipe (int water, int other) {
         this.water = water;
         this.other = other;
     }
@@ -17,15 +16,10 @@ public class Recipe {
     public String toString() {
         String water = "Water needed: " + this.water + "\n";
         String other = "Other needed: " + this.other;
-
-        if (this.water == 0 && this.other == 0) {
-
-        }
-
-
-        return "Recipe: \n" +
+        String returnString = "Recipe: \n" +
                 name + "\n" +
                 water + other;
+        return returnString;
     }
 
     public String getName() {
@@ -40,7 +34,7 @@ public class Recipe {
         return other;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String now, String toBecome) {
+        this.name = now + " --> " + toBecome;
     }
 }

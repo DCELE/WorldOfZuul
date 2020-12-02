@@ -7,6 +7,7 @@ public class Materials extends Item {
     private int state;
     private int[] waterAmountNeeded;
     private int[] chemicalsAmountNeeded;
+    private ArrayList<Recipe> recipes;
     private boolean planted;
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
@@ -24,19 +25,28 @@ public class Materials extends Item {
         this.chemicalsAmountNeeded = chemicalsAmountNeeded;
         this.color = "natural";
         allMaterials.add(this);
+
         stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
-        if (super.getId() == 5)
-        {
+        if (super.getId() == 5) {
             this.state = 1;
             stateNames = new String[]{" chemicals", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
-            setNameForState();
-            return;
+
         }
+        this.recipes = new ArrayList<>();
         setNameForState();
     }
 
-    public void upgradeState()
-    {
+    public void setRecipe(Recipe recipe) {
+        recipe.setName(stateNames[this.recipes.size()], stateNames[this.recipes.size()+1]);
+        this.recipes.add(recipe);
+    }
+
+    public ArrayList<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void upgradeState() {
+        Game.setCurrentRecipe(this);
         this.state += 1;
         setNameForState();
     }
@@ -44,7 +54,7 @@ public class Materials extends Item {
     public void setNameForState() {
         int stateNameInt = getState();
         if (getId() == 5) {
-            stateNameInt = getState()-1;
+            stateNameInt = getState() - 1;
         }
         this.setName(getName().split(" ")[0] + stateNames[stateNameInt]);
     }
@@ -53,18 +63,15 @@ public class Materials extends Item {
         return stateNames;
     }
 
-    public int getState()
-    {
+    public int getState() {
         return state;
     }
 
-    public Room[] getRoomsToUseItem()
-    {
+    public Room[] getRoomsToUseItem() {
         return this.roomsToUseItem;
     }
 
-    public boolean isPlanted()
-    {
+    public boolean isPlanted() {
         return planted;
     }
 
@@ -78,8 +85,7 @@ public class Materials extends Item {
         }
     }
 
-    public boolean isInProcess()
-    {
+    public boolean isInProcess() {
         return inProcess;
     }
 
@@ -105,8 +111,7 @@ public class Materials extends Item {
         return waterAmountNeeded;
     }
 
-    public int[] getChemicalsAmountNeeded()
-    {
+    public int[] getChemicalsAmountNeeded() {
         return chemicalsAmountNeeded;
     }
 
