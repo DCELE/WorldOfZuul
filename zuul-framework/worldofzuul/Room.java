@@ -21,15 +21,6 @@ public class Room {
         allRooms.add(this);
     }
 
-    public Room(String name, String description, Inventory inventory, int waterAmountInMachine) {
-        this.name = name;
-        this.description = description;
-        exits = new HashMap<Room, Room>();
-        this.inventory = inventory;
-        this.waterAmountInMachine = waterAmountInMachine;
-        allRooms.add(this);
-    }
-
     public void setExit(Room neighbor) {
         exits.put(neighbor, this);
     }
