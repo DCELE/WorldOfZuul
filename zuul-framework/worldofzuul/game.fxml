@@ -52,6 +52,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <children>
             <Button fx:id="inventoryButton" mnemonicParsing="false" onMouseClicked="#openInventory" text="Inventory" />
+            <Button fx:id="hintButton" mnemonicParsing="false" onMouseClicked="#onHintClicked" text="Hint" />
             <Button mnemonicParsing="false" text="Help" />
          </children>
       </HBox>
@@ -63,7 +64,6 @@
             <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
          </children>
       </VBox>
-      <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" GridPane.columnIndex="2" />
       <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
          <children>
             <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="57.0" layoutY="36.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" wrapText="true">
@@ -73,6 +73,26 @@
             </Label>
          </children>
       </Pane>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="hintLabel" style="-fx-border-color: black; -fx-border-style: dotted; -fx-border-width: 2;" text="Label">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+         <children>
+            <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

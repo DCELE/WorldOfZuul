@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
+    private Label hintLabel;
+    @FXML
     private VBox vBoxPlayerInventory, vBoxRoomInventory;
     @FXML
     private Button button1, button2, button3, button4;
@@ -142,4 +144,14 @@ public class Controller implements Initializable {
         vBoxPlayerInventory.setVisible(setVisibility);
         vBoxRoomInventory.setVisible(setVisibility);
     }
+
+    public void setHintLabel() {
+        hintLabel.setText(Game.getCurrentRecipe().toString());
+    }
+
+    public void onHintClicked(MouseEvent mouseEvent) {
+        boolean labelVisibility = hintLabel.isVisible();
+        hintLabel.setVisible(!labelVisibility);
+    }
+
 }

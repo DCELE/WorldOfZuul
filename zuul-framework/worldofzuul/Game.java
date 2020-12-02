@@ -7,6 +7,7 @@ public class Game {
     private static Bucket bucket;
     private static Chemicals chemicals;
     private static Pesticides pesticides;
+    private static Recipe currentRecipe;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
 
@@ -363,5 +364,13 @@ public class Game {
 
     public static String getGameGuides() {
         return gameGuides;
+    }
+
+    public static Recipe getCurrentRecipe() {
+        return currentRecipe;
+    }
+
+    public static void setCurrentRecipe(Recipe currentRecipe) {
+        Game.currentRecipe = currentRecipe;
     }
 }
