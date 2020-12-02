@@ -37,7 +37,7 @@ public class Game {
         well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water", wellInventory);
         farm = new Room("Farm", "in the farm. You can plant your chosen seed and grow them here", farmInventory);
         factory = new Room("Factory", "in the factory. You can process your product here", factoryInventory);
-        colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory, 1);
+        colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory);
         sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here", sewingInventory);
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here", fabricInventory);
 
