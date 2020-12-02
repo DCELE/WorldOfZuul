@@ -7,7 +7,7 @@ public class Game {
     private static Bucket bucket;
     private static Chemicals chemicals;
     private static Pesticides pesticides;
-    private static Recipe currentRecipe;
+    private static Object currentRecipe;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
 
@@ -15,7 +15,6 @@ public class Game {
     public Game() {
         createRooms();
         new Player();
-
     }
 
     private void createRooms() {
@@ -85,6 +84,10 @@ public class Game {
         fabricFactory.setExit(factory);
 
         currentRoom = mainRoom;
+
+        currentRecipe = "Go choose your material \nin " + materials.getName();
+
+        setCurrentRecipe(new Recipe("Plant", 1, 1));
     }
 
     public static Room getCurrentRoom() {
@@ -366,7 +369,7 @@ public class Game {
         return gameGuides;
     }
 
-    public static Recipe getCurrentRecipe() {
+    public static Object getCurrentRecipe() {
         return currentRecipe;
     }
 

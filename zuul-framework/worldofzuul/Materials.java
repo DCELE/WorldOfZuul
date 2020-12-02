@@ -15,13 +15,6 @@ public class Materials extends Item {
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
 
-    public Materials(String name, int id)
-    {
-        super(name, id);
-        this.state = 0;
-        allMaterials.add(this);
-    }
-
     public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded, int[] chemicalsAmountNeeded) {
         super(name, id);
         this.state = 0;
@@ -40,13 +33,6 @@ public class Materials extends Item {
             return;
         }
         setNameForState();
-    }
-
-    public Materials(String name, int id, Room[] roomsToUseItem){
-        super(name, id);
-        this.state = 1;
-        this.roomsToUseItem = roomsToUseItem;
-        allMaterials.add(this);
     }
 
     public void upgradeState()

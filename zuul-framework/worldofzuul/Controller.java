@@ -152,6 +152,7 @@ public class Controller implements Initializable {
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();
         hintLabel.setVisible(!labelVisibility);
+        hintLabel.setText(Game.getCurrentRecipe().toString());
     }
 
 }
