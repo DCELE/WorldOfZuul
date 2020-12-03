@@ -4,10 +4,12 @@ import com.sun.prism.Material;
 
 public class Recipe {
     private String name;
+    private Room usableIn;
     private int water;
     private int other; // Either pesticides or chemicals never both
 
-    public Recipe (int water, int other) {
+    public Recipe (Room usableIn, int water, int other) {
+        this.usableIn = usableIn;
         this.water = water;
         this.other = other;
     }
@@ -44,5 +46,9 @@ public class Recipe {
 
     public void setName(String now, String toBecome) {
         this.name = now + " -->" + toBecome;
+    }
+
+    public Room getUsableIn() {
+        return usableIn;
     }
 }

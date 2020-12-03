@@ -112,21 +112,6 @@ public class Materials extends Item {
     public void setColor(String color) {
         this.color = color;
     }
-    /*
-
-    public int[] getWaterAmountNeeded() {
-        return waterAmountNeeded;
-    }
-
-    public int[] getChemicalsAmountNeeded() {
-        return chemicalsAmountNeeded;
-    }
-
-    public void setWaterAmountNeeded(int[] waterAmountNeeded) {
-        this.waterAmountNeeded = waterAmountNeeded;
-    }
-
-     */
 
     public static Recipe getActiveRecipe() {
         return activeRecipe;
@@ -140,12 +125,14 @@ public class Materials extends Item {
         if (activeRecipe.getWater() > 0) {
             activeRecipe.setWater(activeRecipe.getWater()-1);
         }
+        setActiveRecipe(this);
     }
 
     public void decrementOther() {
         if (activeRecipe.getOther() > 0) {
             activeRecipe.setOther(activeRecipe.getOther()-1);
         }
+        setActiveRecipe(this);
     }
 
     public static ArrayList<Materials> getAllMaterials() {
