@@ -9,14 +9,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
     private VBox vBoxPlayerInventory, vBoxRoomInventory;
+    @FXML
+    public Pane PaneShowHelp;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
@@ -70,7 +74,7 @@ public class Controller implements Initializable {
     }
 
     public void setNavigationButtons(Room room) {
-        Button[] buttons = new Button[] {button1, button2, button3, button4};
+        Button[] buttons = new Button[]{button1, button2, button3, button4};
         for (Button button : buttons) {
             button.setVisible(false);
         }
@@ -142,4 +146,9 @@ public class Controller implements Initializable {
         vBoxPlayerInventory.setVisible(setVisibility);
         vBoxRoomInventory.setVisible(setVisibility);
     }
-}
+
+    public void showHelp(MouseEvent mouseEvent) {
+        boolean setVisibility = !PaneShowHelp.isVisible();
+        PaneShowHelp.setVisible(setVisibility);
+    }
+    }
