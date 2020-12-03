@@ -54,10 +54,10 @@ public class Game {
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory});
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
-        hemp.setRecipe(new Recipe(farm,2, 2));
-        hemp.setRecipe(new Recipe(fabricFactory,1, 1));
-        hemp.setRecipe(new Recipe(colorFactory,2, 2));
-        hemp.setRecipe(new Recipe(sewingFactory,0, 0));
+        hemp.setRecipe(new Recipe(farm, 2, 2));
+        hemp.setRecipe(new Recipe(fabricFactory, 1, 1));
+        hemp.setRecipe(new Recipe(colorFactory, 2, 2));
+        hemp.setRecipe(new Recipe(sewingFactory, 0, 0));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -173,6 +173,7 @@ public class Game {
                 Player.setPlayerThinks("I cannot use " + bucket.getName() + " in " + currentRoom.getName());
                 return false;
             }
+
             // Check if the room is the farm
             if (currentRoom == bucket.getRoomsToUseBucket()[0]) {
                 // Check if something is planted
@@ -180,53 +181,45 @@ public class Game {
                     Player.setPlayerThinks("I need to plant something before watering it");
                     return false;
                 }
-                // Watering seed
-                chosenMaterial.decrementWater();
-                System.out.println("You water " + chosenMaterial.getName());
-                bucket.setHasWater();
-
-                // Check if seed has fully grown
-                if (Materials.getActiveRecipe().getWater() == 0) {
-                    // Seed becomes plant
-                    enoughOfEverything();
-                    return false;
-                }
-                return false;
             }
+
             // Check if the room is the factory
-            if (currentRoom == bucket.getRoomsToUseBucket()[1]) {
+            if (currentRoom == bucket.getRoomsToUseBucket()[1] || currentRoom == bucket.getRoomsToUseBucket()[2]) {
                 // Pour water in the machines/filling them up in fabricFactory.
                 if (!chosenMaterial.isInProcess()) {
                     return false;
                 }
-                if (Materials.getActiveRecipe().getWater() <= 0) {
-                    return false;
-                }
-                chosenMaterial.decrementWater();
-                bucket.setHasWater();
+            }
 
-                if (Materials.getActiveRecipe().getWater() == 0) {
-                    enoughOfEverything();
-                }
+            if (Materials.getActiveRecipe().getWater() <= 0) {
+                return false;
+            }
+            chosenMaterial.decrementWater();
+            System.out.println("You use " + chosenMaterial.getName());
+            bucket.setHasWater();
+            enoughOfEverything();
+            return false;
+        }
+
+        if (item.equals(pesticides)) {
+            if (currentRoom != pesticides.getRoomToUsePesticides()) {
+                System.out.println("You can't use " + item + " in this room");
                 return false;
             }
 
-            if (currentRoom == bucket.getRoomsToUseBucket()[2]) {
-                // Pour water in the machines/filling them up in colorFactory.
-                if (!chosenMaterial.isInProcess()) {
-                    return false;
-                }
-                if (Materials.getActiveRecipe().getWater() <= 0) {
-                    return false;
-                }
-                chosenMaterial.decrementWater();
-                bucket.setHasWater();
-
-                if (Materials.getActiveRecipe().getWater() == 0) {
-                    enoughOfEverything();
-                }
+            if (!chosenMaterial.isPlanted()) {
                 return false;
             }
+
+            if (Materials.getActiveRecipe().getOther() <= 0) {
+                return false;
+            }
+
+            chosenMaterial.decrementOther();
+            if (Materials.getActiveRecipe().getOther() == 0) {
+                enoughOfEverything();
+            }
+
         }
 
         //Use chemicals on fabric and color machine
@@ -251,27 +244,6 @@ public class Game {
             }
 
             if (currentRoom == chemicals.getRoomsToUseChemicals()[1]) {
-                if (Materials.getActiveRecipe().getOther() <= 0) {
-                    return false;
-                }
-                chosenMaterial.decrementOther();
-
-                if (Materials.getActiveRecipe().getOther() == 0) {
-                    enoughOfEverything();
-                }
-            }
-        }
-
-        if (item.equals(pesticides)) {
-            if(currentRoom != pesticides.getRoomToUsePesticides()) {
-                System.out.println("You can't use " + item + " in this room");
-            }
-
-            if (!chosenMaterial.isPlanted()) {
-                return false;
-            }
-
-            if (currentRoom == pesticides.getRoomToUsePesticides()) {
                 if (Materials.getActiveRecipe().getOther() <= 0) {
                     return false;
                 }
