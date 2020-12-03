@@ -34,7 +34,15 @@ public class Recipe {
         return other;
     }
 
+    public void setWater(int water) {
+        this.water = water;
+    }
+
+    public void setOther(int other) {
+        this.other = other;
+    }
+
     public void setName(String now, String toBecome) {
-        this.name = now + " --> " + toBecome;
+        this.name = now + " -->" + toBecome;
     }
 }

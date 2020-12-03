@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import com.sun.prism.Material;
+
 import java.util.ArrayList;
 
 public class Materials extends Item {
@@ -8,6 +10,7 @@ public class Materials extends Item {
     private int[] waterAmountNeeded;
     private int[] chemicalsAmountNeeded;
     private ArrayList<Recipe> recipes;
+    private static Recipe activeRecipe;
     private boolean planted;
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
@@ -16,14 +19,15 @@ public class Materials extends Item {
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
 
-    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded, int[] chemicalsAmountNeeded) {
+    //, int[] waterAmountNeeded, int[] chemicalsAmountNeeded
+    public Materials(String name, int id, Room[] roomsToUseItem) {
         super(name, id);
         this.state = 0;
         this.roomsToUseItem = roomsToUseItem;
         this.planted = false;
-        this.waterAmountNeeded = waterAmountNeeded;
-        this.chemicalsAmountNeeded = chemicalsAmountNeeded;
-        this.color = "natural";
+        //this.waterAmountNeeded = waterAmountNeeded;
+        //this.chemicalsAmountNeeded = chemicalsAmountNeeded;
+        this.color = "colored";
         allMaterials.add(this);
 
         stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
@@ -37,8 +41,10 @@ public class Materials extends Item {
     }
 
     public void setRecipe(Recipe recipe) {
-        recipe.setName(stateNames[this.recipes.size()], stateNames[this.recipes.size()+1]);
-        this.recipes.add(recipe);
+        if (this.recipes.size() < stateNames.length) {
+            recipe.setName(stateNames[this.recipes.size()], stateNames[this.recipes.size() + 1]);
+            this.recipes.add(recipe);
+        }
     }
 
     public ArrayList<Recipe> getRecipes() {
@@ -46,7 +52,7 @@ public class Materials extends Item {
     }
 
     public void upgradeState() {
-        Game.setCurrentRecipe(this);
+        setActiveRecipe(this);
         this.state += 1;
         setNameForState();
     }
@@ -106,6 +112,7 @@ public class Materials extends Item {
     public void setColor(String color) {
         this.color = color;
     }
+    /*
 
     public int[] getWaterAmountNeeded() {
         return waterAmountNeeded;
@@ -119,8 +126,26 @@ public class Materials extends Item {
         this.waterAmountNeeded = waterAmountNeeded;
     }
 
-    public void decrementAmountNeeded(int[] whichArray, int index) {
-        whichArray[index] -= 1;
+     */
+
+    public static Recipe getActiveRecipe() {
+        return activeRecipe;
+    }
+
+    public static void setActiveRecipe(Materials material) {
+        activeRecipe = material.getRecipes().get(material.getState());
+    }
+
+    public void decrementWater() {
+        if (activeRecipe.getWater() > 0) {
+            activeRecipe.setWater(activeRecipe.getWater()-1);
+        }
+    }
+
+    public void decrementOther() {
+        if (activeRecipe.getOther() > 0) {
+            activeRecipe.setOther(activeRecipe.getOther()-1);
+        }
     }
 
     public static ArrayList<Materials> getAllMaterials() {

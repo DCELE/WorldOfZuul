@@ -7,11 +7,9 @@ public class Game {
     private static Bucket bucket;
     private static Chemicals chemicals;
     private static Pesticides pesticides;
-    private static Object currentRecipe;
     private static Materials chosenMaterial;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
-
 
     public Game() {
         setupGame();
@@ -44,21 +42,21 @@ public class Game {
 
         // Initializing items
         Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
-        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 1, 1}, new int[]{1, 1});
-        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1, 1});
-        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1, 1});
-        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1, 1});
-        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1, 1});
+        hemp = new Materials("hemp", 1, roomsToUseItem);
+        linen = new Materials("linen", 2, roomsToUseItem);
+        bamboo = new Materials("bamboo", 3, roomsToUseItem);
+        cotton = new Materials("cotton", 4, roomsToUseItem);
+        polyester = new Materials("polyester", 5, roomsToUseItem);
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
         pesticides = new Pesticides("pesticides", 8);
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory});
 
-        // Declaring and initializing recipes
+        // Declaring and initializing recipes (4 per material and 3 for polyester)
+        hemp.setRecipe(new Recipe(2, 2));
         hemp.setRecipe(new Recipe(1, 1));
-        hemp.setRecipe(new Recipe(1, 1));
-        hemp.setRecipe(new Recipe(1, 1));
+        hemp.setRecipe(new Recipe(2, 2));
         hemp.setRecipe(new Recipe(0, 0));
 
         // Placing items
@@ -90,8 +88,6 @@ public class Game {
         fabricFactory.setExit(factory);
 
         currentRoom = mainRoom;
-
-        currentRecipe = "Go choose your material \nin " + materials.getName();
 
         chosenMaterial = null;
     }
@@ -140,7 +136,7 @@ public class Game {
                 gameGuides = ("You plant " + material);
                 Player.dropItem(item);
                 material.setPlanted();
-                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
+                Materials.setActiveRecipe(chosenMaterial);
                 return true;
             }
             // Check the materials stage
@@ -149,8 +145,7 @@ public class Game {
                 // Make fabric
                 material.setInProcess();
                 Player.dropItem(item);
-                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s) \n" +
-                        "It needs chemicals: " + material.getChemicalsAmountNeeded()[0] + " time(s)");
+                Materials.setActiveRecipe(chosenMaterial);
                 return true;
             }
             // Check the materials stage
@@ -158,8 +153,7 @@ public class Game {
                 // Dye fabric
                 material.setInProcess();
                 Player.dropItem(item);
-                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[2] + " time(s) \n" +
-                        "It needs chemicals: " + material.getChemicalsAmountNeeded()[1] + " time(s)");
+                Materials.setActiveRecipe(chosenMaterial);
                 return true;
             }
             // Check the materials stage
@@ -200,13 +194,13 @@ public class Game {
                     return false;
                 }
                 // Watering seed
-                plantedMaterial.decrementAmountNeeded(plantedMaterial.getWaterAmountNeeded(), 0);
+                plantedMaterial.decrementWater();
                 System.out.println("You water " + plantedMaterial.getName());
                 bucket.setHasWater();
 
                 // Check if seed has fully grown
-                if (plantedMaterial.getWaterAmountNeeded()[0] == 0) {
-                    Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                if (plantedMaterial.getActiveRecipe().getWater() == 0) {
+                    Materials.setActiveRecipe(chosenMaterial);
                     // Material is no longer planted
                     plantedMaterial.setPlanted();
                     // Seed becomes plant
@@ -214,7 +208,7 @@ public class Game {
                     gameGuides = (plantedMaterial.getName() + " is fully grown, you can pick it up");
                     return false;
                 }
-                Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                Materials.setActiveRecipe(chosenMaterial);
                 return false;
             }
             // Check if the room is the factory
@@ -230,17 +224,16 @@ public class Game {
                 if (materialInProcess == null) {
                     return false;
                 }
-                if (materialInProcess.getWaterAmountNeeded()[1] <= 0) {
+                if (materialInProcess.getActiveRecipe().getWater() <= 0) {
                     return false;
                 }
-                materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(), 1);
+                materialInProcess.decrementWater();
                 bucket.setHasWater();
 
-                if (materialInProcess.getWaterAmountNeeded()[1] == 0) {
+                if (materialInProcess.getActiveRecipe().getWater() == 0) {
                     enoughOfEverything(materialInProcess, 1);
                 }
-                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) \n" +
-                        "It needs chemicals: " + materialInProcess.getChemicalsAmountNeeded()[0] + " time(s)");
+                Materials.setActiveRecipe(chosenMaterial);
                 return false;
             }
 
@@ -256,20 +249,20 @@ public class Game {
                 if (materialInProcess == null) {
                     return false;
                 }
-                if (materialInProcess.getWaterAmountNeeded()[2] <= 0) {
+                if (materialInProcess.getActiveRecipe().getWater() <= 0) {
                     return false;
                 }
-                materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(), 2);
+                materialInProcess.decrementWater();
                 bucket.setHasWater();
 
-                if (materialInProcess.getWaterAmountNeeded()[2] == 0) {
+                if (materialInProcess.getActiveRecipe().getWater() == 0) {
                     enoughOfEverything(materialInProcess, 2);
                 }
-                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) \n" +
-                        "It needs chemicals: " + materialInProcess.getChemicalsAmountNeeded()[1] + " time(s)");
+                Materials.setActiveRecipe(chosenMaterial);
                 return false;
             }
         }
+
 
         //Use chemicals on fabric and color machine
         if (item.equals(chemicals)) {
@@ -290,27 +283,25 @@ public class Game {
             }
 
             if (currentRoom == chemicals.getRoomsToUseChemicals()[0]) {
-                if (materialInProcess.getChemicalsAmountNeeded()[0] <= 0) {
+                if (materialInProcess.getActiveRecipe().getOther() <= 0) {
                     return false;
                 }
-                materialInProcess.decrementAmountNeeded(materialInProcess.getChemicalsAmountNeeded(), 0);
-                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[1] + " time(s) \n" +
-                        "It needs chemicals: " + materialInProcess.getChemicalsAmountNeeded()[0] + " time(s)");
+                materialInProcess.decrementOther();
+                Materials.setActiveRecipe(chosenMaterial);
 
-                if (materialInProcess.getChemicalsAmountNeeded()[0] == 0) {
+                if (materialInProcess.getActiveRecipe().getOther() == 0) {
                     enoughOfEverything(materialInProcess, 1);
                 }
             }
 
             if (currentRoom == chemicals.getRoomsToUseChemicals()[1]) {
-                if (materialInProcess.getChemicalsAmountNeeded()[1] <= 0) {
+                if (materialInProcess.getActiveRecipe().getOther() <= 0) {
                     return false;
                 }
-                materialInProcess.decrementAmountNeeded(materialInProcess.getChemicalsAmountNeeded(), 1);
-                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) \n" +
-                        "It needs chemicals: " + materialInProcess.getChemicalsAmountNeeded()[1] + " time(s)");
+                materialInProcess.decrementOther();
+                Materials.setActiveRecipe(chosenMaterial);
 
-                if (materialInProcess.getChemicalsAmountNeeded()[1] == 0) {
+                if (materialInProcess.getActiveRecipe().getOther() == 0) {
                     enoughOfEverything(materialInProcess, 2);
                 }
             }
@@ -319,7 +310,7 @@ public class Game {
     }
 
     private static void enoughOfEverything(Materials materialInProcess, int indexOfAmountNeeded) {
-        if (materialInProcess.getWaterAmountNeeded()[indexOfAmountNeeded] == 0 && materialInProcess.getChemicalsAmountNeeded()[indexOfAmountNeeded - 1] == 0) {
+        if (materialInProcess.getActiveRecipe().getWater() == 0 && materialInProcess.getActiveRecipe().getOther() == 0) {
             // Material is no longer in process
             materialInProcess.setInProcess();
             // Plant becomes fabric
@@ -339,6 +330,11 @@ public class Game {
 
             if (chosenMaterial == null) {
                 chosenMaterial = material;
+                Materials.setActiveRecipe(chosenMaterial);
+
+                // Remove all other materials from room
+                currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
+
             }
 
             if (material.isPlanted()) {
@@ -380,17 +376,7 @@ public class Game {
         return gameGuides;
     }
 
-    public static Object getCurrentRecipe() {
-        return currentRecipe;
-    }
-
-    public static void setCurrentRecipe(Materials material) {
-         for (Recipe recipe : material.getRecipes()) {
-             if (currentRecipe == recipe && chosenMaterial != null) {
-                 currentRecipe = material.getRecipes().get(material.getRecipes().indexOf(recipe)+1);
-                 return;
-             }
-         }
-         currentRecipe = material.getRecipes().get(0);
+    public static Materials getChosenMaterial() {
+        return chosenMaterial;
     }
 }

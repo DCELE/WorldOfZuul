@@ -89,6 +89,7 @@ public class Controller implements Initializable {
     public void pickUpItem(Item item) {
         observRoomInventory.remove(item);
         observPlayerInventory.add(item);
+        setRoomInventory(Game.getCurrentRoom());
     }
 
     public void dropItem(Item item) {
@@ -148,7 +149,13 @@ public class Controller implements Initializable {
     }
 
     public void setHintLabel() {
-        hintLabel.setText(Game.getCurrentRecipe().toString());
+        if (Game.getChosenMaterial() != null) {
+            Materials.setActiveRecipe(Game.getChosenMaterial());
+        }
+        hintLabel.setText("Pick up a material \nto begin your journey");
+        if (Materials.getActiveRecipe() != null) {
+            hintLabel.setText(Materials.getActiveRecipe().toString());
+        }
     }
 
     public void onHintClicked(MouseEvent mouseEvent) {
