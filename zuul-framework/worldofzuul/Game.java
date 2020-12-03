@@ -41,12 +41,11 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here", fabricInventory);
 
         // Initializing items
-        Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
-        hemp = new Materials("hemp", 1, roomsToUseItem);
-        linen = new Materials("linen", 2, roomsToUseItem);
-        bamboo = new Materials("bamboo", 3, roomsToUseItem);
-        cotton = new Materials("cotton", 4, roomsToUseItem);
-        polyester = new Materials("polyester", 5, roomsToUseItem);
+        hemp = new Materials("hemp", 1);
+        linen = new Materials("linen", 2);
+        bamboo = new Materials("bamboo", 3);
+        cotton = new Materials("cotton", 4);
+        polyester = new Materials("polyester", 5);
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
@@ -54,10 +53,29 @@ public class Game {
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory});
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
-        hemp.setRecipe(new Recipe(farm, 2, 2));
-        hemp.setRecipe(new Recipe(fabricFactory, 1, 1));
-        hemp.setRecipe(new Recipe(colorFactory, 2, 2));
-        hemp.setRecipe(new Recipe(sewingFactory, 0, 0));
+        hemp.addRecipe(new Recipe(farm, 0, 0));
+        hemp.addRecipe(new Recipe(fabricFactory, 0, 0));
+        hemp.addRecipe(new Recipe(colorFactory, 0, 0));
+        hemp.addRecipe(new Recipe(sewingFactory, 0, 0));
+
+        linen.addRecipe(new Recipe(farm, 2, 2));
+        linen.addRecipe(new Recipe(fabricFactory, 1, 1));
+        linen.addRecipe(new Recipe(colorFactory, 2, 2));
+        linen.addRecipe(new Recipe(sewingFactory, 0, 0));
+
+        bamboo.addRecipe(new Recipe(farm, 2, 2));
+        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1));
+        bamboo.addRecipe(new Recipe(colorFactory, 2, 2));
+        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0));
+
+        cotton.addRecipe(new Recipe(farm, 2, 2));
+        cotton.addRecipe(new Recipe(fabricFactory, 1, 1));
+        cotton.addRecipe(new Recipe(colorFactory, 2, 2));
+        cotton.addRecipe(new Recipe(sewingFactory, 0, 0));
+
+        polyester.addRecipe(new Recipe(fabricFactory, 1, 1));
+        polyester.addRecipe(new Recipe(colorFactory, 2, 2));
+        polyester.addRecipe(new Recipe(sewingFactory, 0, 0));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -109,9 +127,9 @@ public class Game {
                 continue;
             }
             // Check if the room and the material's state correspond
-            if (!(currentRoom == chosenMaterial.getRoomsToUseItem()[chosenMaterial.getState()])) {
+            if (!(currentRoom == chosenMaterial.getRoomToUseItem())) {
                 gameGuides = ("You cannot use " + chosenMaterial.getName() + " in here");
-                Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomsToUseItem()[chosenMaterial.getState()].getName());
+                Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUseItem().getName());
                 return false;
             }
 
@@ -123,32 +141,24 @@ public class Game {
                     return false;
                 }
                 // Plant material
-                gameGuides = ("You plant " + chosenMaterial);
                 Player.dropItem(item);
                 chosenMaterial.setPlanted();
+                enoughOfEverything();
                 return true;
             }
             // Check the materials stage
-            if (chosenMaterial.getState() == 1) {
-                // If something is already being processed.
-                // Make fabric
-                chosenMaterial.setInProcess();
+            if (chosenMaterial.getState() == 1 || chosenMaterial.getState() == 2) {
+                // Make fabric or dye fabric
                 Player.dropItem(item);
-                return true;
-            }
-            // Check the materials stage
-            if (chosenMaterial.getState() == 2) {
-                // Dye fabric
                 chosenMaterial.setInProcess();
-                Player.dropItem(item);
+                enoughOfEverything();
                 return true;
             }
             // Check the materials stage
             if (chosenMaterial.getState() == 3) {
                 // Make T-shirt
-                gameGuides = ("You're sewing " + chosenMaterial + " into a T-shirt with the color " + chosenMaterial.getColor());
-                chosenMaterial.upgradeState();
                 Player.dropItem(item);
+                enoughOfEverything();
                 gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
                 return true;
             }
@@ -195,7 +205,6 @@ public class Game {
                 return false;
             }
             chosenMaterial.decrementWater();
-            System.out.println("You use " + chosenMaterial.getName());
             bucket.setHasWater();
             enoughOfEverything();
             return false;
@@ -281,7 +290,7 @@ public class Game {
 
             if (chosenMaterial == null) {
                 chosenMaterial = material;
-
+                Materials.setActiveRecipe(chosenMaterial);
                 // Remove all other materials from room
                 currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
             }
@@ -327,5 +336,13 @@ public class Game {
 
     public static Materials getChosenMaterial() {
         return chosenMaterial;
+    }
+
+    public static Chemicals getChemicals() {
+        return chemicals;
+    }
+
+    public static Pesticides getPesticides() {
+        return pesticides;
     }
 }

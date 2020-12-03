@@ -1,32 +1,23 @@
 package worldofzuul;
 
-import com.sun.prism.Material;
-
 import java.util.ArrayList;
 
 public class Materials extends Item {
     // State is either seed, plant, fabric or t-shirt.
     private int state;
-    private int[] waterAmountNeeded;
-    private int[] chemicalsAmountNeeded;
     private ArrayList<Recipe> recipes;
     private static Recipe activeRecipe;
     private boolean planted;
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
-    private Room[] roomsToUseItem;
     private String color;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
 
-    //, int[] waterAmountNeeded, int[] chemicalsAmountNeeded
-    public Materials(String name, int id, Room[] roomsToUseItem) {
+    public Materials(String name, int id) {
         super(name, id);
         this.state = 0;
-        this.roomsToUseItem = roomsToUseItem;
         this.planted = false;
-        //this.waterAmountNeeded = waterAmountNeeded;
-        //this.chemicalsAmountNeeded = chemicalsAmountNeeded;
         this.color = "colored";
         allMaterials.add(this);
 
@@ -40,7 +31,7 @@ public class Materials extends Item {
         setNameForState();
     }
 
-    public void setRecipe(Recipe recipe) {
+    public void addRecipe(Recipe recipe) {
         if (this.recipes.size() < stateNames.length) {
             recipe.setName(stateNames[this.recipes.size()], stateNames[this.recipes.size() + 1]);
             this.recipes.add(recipe);
@@ -52,9 +43,11 @@ public class Materials extends Item {
     }
 
     public void upgradeState() {
-        setActiveRecipe(this);
         this.state += 1;
         setNameForState();
+        if (recipes.size() > state) {
+            setActiveRecipe(this);
+        }
     }
 
     public void setNameForState() {
@@ -73,8 +66,8 @@ public class Materials extends Item {
         return state;
     }
 
-    public Room[] getRoomsToUseItem() {
-        return this.roomsToUseItem;
+    public Room getRoomToUseItem() {
+        return activeRecipe.getUsableIn();
     }
 
     public boolean isPlanted() {
@@ -102,6 +95,9 @@ public class Materials extends Item {
         } else {
             this.inProcess = false;
             this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
+            if (state == 3) {
+                this.setName(getName() + " " + getName().split(" ")[2]);
+            }
         }
     }
 

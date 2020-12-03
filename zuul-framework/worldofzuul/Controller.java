@@ -149,12 +149,14 @@ public class Controller implements Initializable {
     }
 
     public void setHintLabel() {
-        if (Game.getChosenMaterial() != null) {
-            Materials.setActiveRecipe(Game.getChosenMaterial());
-        }
         hintLabel.setText("Pick up a material \nto begin your journey");
-        if (Materials.getActiveRecipe() != null) {
-            hintLabel.setText(Materials.getActiveRecipe().toString());
+        if (Game.getChosenMaterial() == null ) {
+            return;
+        }
+        hintLabel.setText(Materials.getActiveRecipe().toString());
+
+        if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
+            hintLabel.setText("You've come to \nthe end of your journey. \nThank you for playing \nour game \n- T6-1");
         }
     }
 

@@ -1,7 +1,5 @@
 package worldofzuul;
 
-import com.sun.prism.Material;
-
 public class Recipe {
     private String name;
     private Room usableIn;
@@ -16,12 +14,20 @@ public class Recipe {
 
     @Override
     public String toString() {
-        String water = "Water needed: " + this.water + "\n";
-        String other = "Other needed: " + this.other;
-        String returnString = "Recipe: \n" +
+        String usableIn = "1. Go to " + this.usableIn.getName() + ":\n";
+        String use = "2. Use " + Game.getChosenMaterial().getName() + "\n";
+        String water = "3. Water " + this.water + " time(s)\n";
+        String other;
+
+        if (Materials.getActiveRecipe().getUsableIn() == Game.getPesticides().getRoomToUsePesticides()) {
+            other = "4. Pesticides " + this.other + " time(s)";
+        } else {
+            other = "4. Chemical " + this.other + " time(s)";
+        }
+
+        return "Recipe: " +
                 name + "\n" +
-                water + other;
-        return returnString;
+                usableIn + use + water + other;
     }
 
     public String getName() {
