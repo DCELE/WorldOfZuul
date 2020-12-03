@@ -230,12 +230,12 @@ public class Game {
         }
 
         //Use chemicals on fabric and color machine
-        if (item.equals(chemicals) || item.equals(pesticides)) {
-            if (!(currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1] || currentRoom == pesticides.getRoomToUsePesticides())) {
+        if (item.equals(chemicals)) {
+            if (!(currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1])) {
                 System.out.println("You can't use " + item + " in this room");
             }
 
-            if (!chosenMaterial.isInProcess() || !chosenMaterial.isPlanted()) {
+            if (!chosenMaterial.isInProcess()) {
                 return false;
             }
 
@@ -259,6 +259,16 @@ public class Game {
                 if (Materials.getActiveRecipe().getOther() == 0) {
                     enoughOfEverything();
                 }
+            }
+        }
+
+        if (item.equals(pesticides)) {
+            if(currentRoom != pesticides.getRoomToUsePesticides()) {
+                System.out.println("You can't use " + item + " in this room");
+            }
+
+            if (!chosenMaterial.isPlanted()) {
+                return false;
             }
 
             if (currentRoom == pesticides.getRoomToUsePesticides()) {
