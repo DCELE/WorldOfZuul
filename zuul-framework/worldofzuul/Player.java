@@ -30,3 +30,6 @@ public class Player {
         Player.playerThinks = playerThinks;
     }
 }
+
+
+

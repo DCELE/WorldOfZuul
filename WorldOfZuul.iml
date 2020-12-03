@@ -14,5 +14,6 @@
     <orderEntry type="library" name="kaplib" level="project" />
     <orderEntry type="library" name="Nithu" level="project" />
     <orderEntry type="library" name="javafx" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

@@ -17,6 +17,7 @@ public class Game {
 
     }
 
+
     private void createRooms() {
 
         Inventory mainRoomInventory, materialsInventory, wellInventory, farmInventory, factoryInventory, colorInventory, sewingInventory, fabricInventory;
@@ -344,6 +345,7 @@ public class Game {
     public static void dropItem(Item item) {
         Player.dropItem(item);
     }
+
 
     public static String getGameGuides() {
         return gameGuides;
