@@ -6,7 +6,7 @@ public class Recipe {
     private int water;
     private int other; // Either pesticides or chemicals never both
 
-    public Recipe (Room usableIn, int water, int other) {
+    public Recipe(Room usableIn, int water, int other) {
         this.usableIn = usableIn;
         this.water = water;
         this.other = other;
@@ -14,20 +14,31 @@ public class Recipe {
 
     @Override
     public String toString() {
-        String usableIn = "1. Go to " + this.usableIn.getName() + ":\n";
-        String use = "2. Use " + Game.getChosenMaterial().getName() + "\n";
-        String water = "3. Water " + this.water + " time(s)\n";
+        String pickUpMaterial = "Pick up " + Game.getChosenMaterial() + "\n";
+        String usableIn = "Go to " + this.usableIn.getName() + ":\n";
+        String use = "Use " + Game.getChosenMaterial().getName() + "\n";
+        String water = "Water " + this.water + " time(s)\n";
         String other;
 
         if (Materials.getActiveRecipe().getUsableIn() == Game.getPesticides().getRoomToUsePesticides()) {
-            other = "4. Pesticides " + this.other + " time(s)";
+            other = "Pesticides " + this.other + " time(s)";
         } else {
-            other = "4. Chemical " + this.other + " time(s)";
+            other = "Chemical " + this.other + " time(s)";
         }
 
-        return "Recipe: " +
-                name + "\n" +
-                usableIn + use + water + other;
+        return "Recipe: " + this.name + "\n"
+                + checkIfDone(pickUpMaterial, Player.getInventory().contains(Game.getChosenMaterial()) || Game.getChosenMaterial().isPlanted() || Game.getChosenMaterial().isInProcess())
+                + checkIfDone(usableIn, Game.getCurrentRoom() == this.usableIn)
+                + checkIfDone(use, Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted())
+                + checkIfDone(water, this.water == 0)
+                + checkIfDone(other, this.other == 0);
+    }
+
+    private String checkIfDone(String string, boolean done) {
+        if (done) {
+            return string = "";
+        }
+        return string;
     }
 
     public String getName() {

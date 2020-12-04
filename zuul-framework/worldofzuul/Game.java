@@ -120,6 +120,10 @@ public class Game {
 
     // Use materials in farm
     public static boolean useItem(Item item) {
+        // You cannot use anything before picking up an item
+        if (chosenMaterial == null) {
+            return false;
+        }
         // Block of code for usage of materials
         for (Materials material : Materials.getAllMaterials()) {
             // Check if command is a material
@@ -128,40 +132,30 @@ public class Game {
             }
             // Check if the room and the material's state correspond
             if (!(currentRoom == chosenMaterial.getRoomToUseItem())) {
-                gameGuides = ("You cannot use " + chosenMaterial.getName() + " in here");
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUseItem().getName());
                 return false;
             }
 
             // Check the materials stage
             if (chosenMaterial.getState() == 0) {
-                // If something is planted
-                if (chosenMaterial.isPlanted()) {
-                    Player.setPlayerThinks("It seems like a seed is already planted: " + currentRoom.getInventory());
-                    return false;
-                }
                 // Plant material
-                Player.dropItem(item);
                 chosenMaterial.setPlanted();
-                enoughOfEverything();
-                return true;
             }
             // Check the materials stage
             if (chosenMaterial.getState() == 1 || chosenMaterial.getState() == 2) {
                 // Make fabric or dye fabric
-                Player.dropItem(item);
                 chosenMaterial.setInProcess();
-                enoughOfEverything();
-                return true;
             }
-            // Check the materials stage
-            if (chosenMaterial.getState() == 3) {
-                // Make T-shirt
-                Player.dropItem(item);
-                enoughOfEverything();
+            // Use material
+            Player.dropItem(item);
+            // Check if the material should be upgraded
+            enoughOfEverything();
+
+            if (chosenMaterial.getState() == 4) {
+                // Player has made a T-shirt
                 gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
-                return true;
             }
+            return true;
         }
 
         // Check if the command is the bucket
@@ -172,14 +166,14 @@ public class Game {
                 return false;
             }
             // Check if the room is a room you can use water in
-            boolean canUseBucket = false;
+            boolean canUse = false;
             for (Room room : bucket.getRoomsToUseBucket()) {
                 if (currentRoom == room) {
-                    canUseBucket = true;
+                    canUse = true;
                     break;
                 }
             }
-            if (!canUseBucket) {
+            if (!canUse) {
                 Player.setPlayerThinks("I cannot use " + bucket.getName() + " in " + currentRoom.getName());
                 return false;
             }
@@ -206,13 +200,10 @@ public class Game {
             }
             chosenMaterial.decrementWater();
             bucket.setHasWater();
-            enoughOfEverything();
-            return false;
         }
 
         if (item.equals(pesticides)) {
             if (currentRoom != pesticides.getRoomToUsePesticides()) {
-                System.out.println("You can't use " + item + " in this room");
                 return false;
             }
 
@@ -223,46 +214,23 @@ public class Game {
             if (Materials.getActiveRecipe().getOther() <= 0) {
                 return false;
             }
-
             chosenMaterial.decrementOther();
-            if (Materials.getActiveRecipe().getOther() == 0) {
-                enoughOfEverything();
-            }
-
         }
 
         //Use chemicals on fabric and color machine
         if (item.equals(chemicals)) {
-            if (!(currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1])) {
-                System.out.println("You can't use " + item + " in this room");
-            }
-
             if (!chosenMaterial.isInProcess()) {
                 return false;
             }
 
-            if (currentRoom == chemicals.getRoomsToUseChemicals()[0]) {
+            if (currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1]) {
                 if (Materials.getActiveRecipe().getOther() <= 0) {
                     return false;
                 }
                 chosenMaterial.decrementOther();
-
-                if (Materials.getActiveRecipe().getOther() == 0) {
-                    enoughOfEverything();
-                }
-            }
-
-            if (currentRoom == chemicals.getRoomsToUseChemicals()[1]) {
-                if (Materials.getActiveRecipe().getOther() <= 0) {
-                    return false;
-                }
-                chosenMaterial.decrementOther();
-
-                if (Materials.getActiveRecipe().getOther() == 0) {
-                    enoughOfEverything();
-                }
             }
         }
+        enoughOfEverything();
         return false;
     }
 
@@ -315,12 +283,10 @@ public class Game {
                 return false;
             }
             bucket.setHasWater();
-            gameGuides = ("You fill your bucket with water");
             return false;
         }
-        // If material is planted, material is not planted or its just an ordinary item pick it up
+        // Pick item up
         Player.pickUpItem(item);
-        gameGuides = ("You pick up: " + item);
         return true;
     }
 
@@ -345,4 +311,5 @@ public class Game {
     public static Pesticides getPesticides() {
         return pesticides;
     }
+
 }

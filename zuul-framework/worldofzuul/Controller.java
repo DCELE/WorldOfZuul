@@ -59,6 +59,8 @@ public class Controller implements Initializable {
         setRoomInventory(room);
         // Set currentRoom
         Game.setCurrentRoom(room);
+        // Set hintBox
+        setHintLabel();
     }
 
     private void setRoomInventory(Room room) {
@@ -90,11 +92,13 @@ public class Controller implements Initializable {
         observRoomInventory.remove(item);
         observPlayerInventory.add(item);
         setRoomInventory(Game.getCurrentRoom());
+        setHintLabel();
     }
 
     public void dropItem(Item item) {
         observPlayerInventory.remove(item);
         observRoomInventory.add(item);
+        setHintLabel();
     }
 
     public void onPickUpButtonClicked(MouseEvent mouseEvent) {

@@ -115,6 +115,9 @@ public class Materials extends Item {
 
     public static void setActiveRecipe(Materials material) {
         activeRecipe = material.getRecipes().get(material.getState());
+        if (material.getId() == 5) {
+            activeRecipe = material.getRecipes().get(material.getState()-1);
+        }
     }
 
     public void decrementWater() {
