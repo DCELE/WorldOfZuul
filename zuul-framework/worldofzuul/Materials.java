@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import com.sun.prism.Material;
+
 import java.util.ArrayList;
 
 public class Materials extends Item {
@@ -14,6 +16,7 @@ public class Materials extends Item {
     private String color;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
+   private static int points;
 
     public Materials(String name, int id)
     {
@@ -22,7 +25,7 @@ public class Materials extends Item {
         allMaterials.add(this);
     }
 
-    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded, int[] chemicalsAmountNeeded) {
+    public Materials(String name, int id, Room[] roomsToUseItem, int[] waterAmountNeeded, int[] chemicalsAmountNeeded,int points) {
         super(name, id);
         this.state = 0;
         this.roomsToUseItem = roomsToUseItem;
@@ -30,6 +33,7 @@ public class Materials extends Item {
         this.waterAmountNeeded = waterAmountNeeded;
         this.chemicalsAmountNeeded = chemicalsAmountNeeded;
         this.color = "natural";
+        this.points = points;
         allMaterials.add(this);
         stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
         if (super.getId() == 5)
@@ -48,6 +52,11 @@ public class Materials extends Item {
         this.roomsToUseItem = roomsToUseItem;
         allMaterials.add(this);
     }
+    /* getPoints for material. Didnt work bc materials change name throughout the game
+    public int getPoints(){
+        return points;
+    }*/
+
 
     public void upgradeState()
     {
@@ -76,7 +85,9 @@ public class Materials extends Item {
     public boolean isPlanted()
     {
         return planted;
+
     }
+
 
     public void setPlanted() {
         if (!isPlanted()) {
@@ -135,4 +146,5 @@ public class Materials extends Item {
     public static ArrayList<Materials> getAllMaterials() {
         return allMaterials;
     }
+
 }

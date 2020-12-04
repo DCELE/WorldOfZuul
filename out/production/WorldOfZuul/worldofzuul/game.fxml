@@ -63,7 +63,7 @@
             <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
          </children>
       </VBox>
-      <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" GridPane.columnIndex="2" />
+      <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" GridPane.columnIndex="2" />
       <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
          <children>
             <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="57.0" layoutY="36.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" wrapText="true">

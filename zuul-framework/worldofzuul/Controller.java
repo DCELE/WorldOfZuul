@@ -22,11 +22,14 @@ public class Controller implements Initializable {
     @FXML
     private Label textBox;
     @FXML
+    private Label scoreboard;
+    @FXML
     private ListView<Item> roomInventory;
     private ObservableList<Item> observRoomInventory;
     @FXML
     private ListView<Item> playerInventory;
     private ObservableList<Item> observPlayerInventory;
+
 
 
     @Override
@@ -51,6 +54,7 @@ public class Controller implements Initializable {
         // Set room welcome description
         setTextBox(room);
 
+        setScoreboard(room);
         // Set button text labels
         setNavigationButtons(room);
         // Set room inventory
@@ -142,4 +146,6 @@ public class Controller implements Initializable {
         vBoxPlayerInventory.setVisible(setVisibility);
         vBoxRoomInventory.setVisible(setVisibility);
     }
+
+    public void setScoreboard(Room room){ scoreboard.setText(String.valueOf("Current score: " + Player.playerScore.getScore()));}
 }

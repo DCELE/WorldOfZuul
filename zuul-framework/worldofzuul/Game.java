@@ -9,7 +9,7 @@ public class Game {
     private static Pesticides pesticides;
     private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
-
+    private static ScoreSystem playerScore;
 
     public Game() {
         createRooms();
@@ -31,6 +31,9 @@ public class Game {
         sewingInventory = new Inventory();
         fabricInventory = new Inventory();
 
+        //Creating scoresystem
+        ScoreSystem playerScore = new ScoreSystem(100);
+
         // Initializing rooms
         mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory);
         materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory);
@@ -43,11 +46,11 @@ public class Game {
 
         // Initializing items
         Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
-        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2, 2}, new int[]{1,1});
-        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
-        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
-        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
-        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1});
+        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2, 2}, new int[]{1,1}, -5);
+        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-15);
+        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-20);
+        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-25);
+        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-10);
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
@@ -116,6 +119,7 @@ public class Game {
             if (!(currentRoom == material.getRoomsToUseItem()[material.getState()])) {
                 gameGuides = ("You cannot use " + material.getName() + " in here");
                 Player.setPlayerThinks("I should try going to " + material.getRoomsToUseItem()[material.getState()].getName());
+
                 return false;
             }
 
@@ -128,6 +132,10 @@ public class Game {
                 }
                 // Plant material
                 gameGuides = ("You plant " + material);
+                if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
+                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-10);}
+                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-15);}
+                else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
                 Player.dropItem(item);
                 material.setPlanted();
                 Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
@@ -192,6 +200,7 @@ public class Game {
                 // Watering seed
                 plantedMaterial.decrementAmountNeeded(plantedMaterial.getWaterAmountNeeded(), 0);
                 System.out.println("You water " + plantedMaterial.getName());
+                Player.playerScore.addToScore(-5);
                 bucket.setHasWater();
 
                 // Check if seed has fully grown
@@ -219,6 +228,7 @@ public class Game {
                 }
                 if (materialInProcess == null) return false;
                 materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(),1);
+                Player.playerScore.addToScore(-5);
                 System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
                 bucket.setHasWater();
 
@@ -246,6 +256,7 @@ public class Game {
                 }
                 if (materialInProcess == null) return false;
                 materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(),2);
+                Player.playerScore.addToScore(-5);
                 System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
                 bucket.setHasWater();
 
