@@ -8,7 +8,7 @@ public class Pesticides extends Item {
         this.roomToUsePesticides = roomToUsePesticides;
     }
 
-    public Room getRoomToUsePesticides() {
+    public Room getRoomToUse() {
         return roomToUsePesticides;
     }
 }

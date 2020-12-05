@@ -20,7 +20,7 @@ public class Recipe {
         String water = "Water " + this.water + " time(s)\n";
         String other;
 
-        if (Materials.getActiveRecipe().getUsableIn() == Game.getPesticides().getRoomToUsePesticides()) {
+        if (Materials.getActiveRecipe().getUsableIn() == Game.getPesticides().getRoomToUse()) {
             other = "Pesticides " + this.other + " time(s)";
         } else {
             other = "Chemical " + this.other + " time(s)";
@@ -36,7 +36,7 @@ public class Recipe {
 
     private String checkIfDone(String string, boolean done) {
         if (done) {
-            return string = "";
+            return "";
         }
         return string;
     }

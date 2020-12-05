@@ -1,15 +1,13 @@
 package worldofzuul;
 
-import java.util.HashMap;
-
 public class Bucket extends Item {
     private boolean hasWater;
-    private Room[] roomsToUseBucket;
+    private Room[] roomsToUse;
 
     public Bucket(String name, int id, Room[] roomsToUseBucket) {
         super(name, id);
         hasWater = false;
-        this.roomsToUseBucket = roomsToUseBucket;
+        this.roomsToUse = roomsToUseBucket;
     }
 
     public boolean hasWater()
@@ -27,7 +25,7 @@ public class Bucket extends Item {
         }
     }
 
-    public Room[] getRoomsToUseBucket() {
-        return roomsToUseBucket;
+    public Room[] getRoomsToUse() {
+        return roomsToUse;
     }
 }

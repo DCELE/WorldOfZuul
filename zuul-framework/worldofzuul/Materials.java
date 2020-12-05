@@ -94,9 +94,10 @@ public class Materials extends Item {
             this.setName(getName() + " (in process)");
         } else {
             this.inProcess = false;
-            this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
             if (state == 3) {
                 this.setName(getName() + " " + getName().split(" ")[2]);
+            } else {
+                this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
             }
         }
     }

@@ -130,31 +130,31 @@ public class Game {
             if (!item.equals(material)) {
                 continue;
             }
+            // If the material is in its final state then return
+            if (chosenMaterial.getState() >= chosenMaterial.getStateNames().length-1) {
+                // Player has made a T-shirt
+                gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
+                return false;
+            }
             // Check if the room and the material's state correspond
             if (!(currentRoom == chosenMaterial.getRoomToUseItem())) {
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUseItem().getName());
                 return false;
             }
-
             // Check the materials stage
             if (chosenMaterial.getState() == 0) {
                 // Plant material
                 chosenMaterial.setPlanted();
             }
             // Check the materials stage
-            if (chosenMaterial.getState() == 1 || chosenMaterial.getState() == 2) {
+            if (chosenMaterial.getState() == 1 || chosenMaterial.getState() == 2 || chosenMaterial.getState() == 3) {
                 // Make fabric or dye fabric
                 chosenMaterial.setInProcess();
             }
             // Use material
             Player.dropItem(item);
             // Check if the material should be upgraded
-            enoughOfEverything();
-
-            if (chosenMaterial.getState() == 4) {
-                // Player has made a T-shirt
-                gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
-            }
+            enoughOfEverything(chosenMaterial.isInProcess() || chosenMaterial.isPlanted());
             return true;
         }
 
@@ -167,7 +167,7 @@ public class Game {
             }
             // Check if the room is a room you can use water in
             boolean canUse = false;
-            for (Room room : bucket.getRoomsToUseBucket()) {
+            for (Room room : bucket.getRoomsToUse()) {
                 if (currentRoom == room) {
                     canUse = true;
                     break;
@@ -179,7 +179,7 @@ public class Game {
             }
 
             // Check if the room is the farm
-            if (currentRoom == bucket.getRoomsToUseBucket()[0]) {
+            if (currentRoom == bucket.getRoomsToUse()[0]) {
                 // Check if something is planted
                 if (!chosenMaterial.isPlanted()) {
                     Player.setPlayerThinks("I need to plant something before watering it");
@@ -188,7 +188,7 @@ public class Game {
             }
 
             // Check if the room is the factory
-            if (currentRoom == bucket.getRoomsToUseBucket()[1] || currentRoom == bucket.getRoomsToUseBucket()[2]) {
+            if (currentRoom == bucket.getRoomsToUse()[1] || currentRoom == bucket.getRoomsToUse()[2]) {
                 // Pour water in the machines/filling them up in fabricFactory.
                 if (!chosenMaterial.isInProcess()) {
                     return false;
@@ -202,40 +202,38 @@ public class Game {
             bucket.setHasWater();
         }
 
-        if (item.equals(pesticides)) {
-            if (currentRoom != pesticides.getRoomToUsePesticides()) {
-                return false;
-            }
-
-            if (!chosenMaterial.isPlanted()) {
-                return false;
-            }
-
-            if (Materials.getActiveRecipe().getOther() <= 0) {
-                return false;
-            }
-            chosenMaterial.decrementOther();
-        }
-
-        //Use chemicals on fabric and color machine
         if (item.equals(chemicals)) {
-            if (!chosenMaterial.isInProcess()) {
-                return false;
-            }
-
-            if (currentRoom == chemicals.getRoomsToUseChemicals()[0] || currentRoom == chemicals.getRoomsToUseChemicals()[1]) {
-                if (Materials.getActiveRecipe().getOther() <= 0) {
-                    return false;
-                }
-                chosenMaterial.decrementOther();
+            for (Room room : chemicals.getRoomsToUse()) {
+                useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
             }
         }
-        enoughOfEverything();
+
+        if (item.equals(pesticides)) {
+            useChemicalsOrPesticides(chosenMaterial.isPlanted(), pesticides.getRoomToUse());
+        }
+
+        enoughOfEverything(chosenMaterial.isInProcess() || chosenMaterial.isPlanted());
         return false;
     }
 
-    private static void enoughOfEverything() {
+    private static void useChemicalsOrPesticides(boolean materialsIs, Room room) {
+        if (!materialsIs) {
+            return;
+        }
+        if (currentRoom != room) {
+            return;
+        }
+        if (Materials.getActiveRecipe().getOther() <= 0) {
+            return;
+        }
+        chosenMaterial.decrementOther();
+    }
+
+    private static void enoughOfEverything(boolean upgradeable) {
         if (Materials.getActiveRecipe().getWater() == 0 && Materials.getActiveRecipe().getOther() == 0) {
+            if (!upgradeable) {
+                return;
+            }
             if (chosenMaterial.isPlanted()) {
                 chosenMaterial.setPlanted();
             }
@@ -243,9 +241,12 @@ public class Game {
             if (chosenMaterial.isInProcess()) {
                 chosenMaterial.setInProcess();
             }
-            // Plant becomes fabric
-            chosenMaterial.upgradeState();
-            gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
+            // Material is upgraded from one state to another
+
+            if (chosenMaterial.getState() < chosenMaterial.getStateNames().length-1) {
+                chosenMaterial.upgradeState();
+                gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
+            }
         }
     }
 
