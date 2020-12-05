@@ -137,8 +137,8 @@ public class Game {
                 return false;
             }
             // Check if the room and the material's state correspond
-            if (!(currentRoom == chosenMaterial.getRoomToUseItem())) {
-                Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUseItem().getName());
+            if (!(currentRoom == chosenMaterial.getRoomToUse())) {
+                Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUse().getName());
                 return false;
             }
             // Check the materials stage
@@ -299,6 +299,10 @@ public class Game {
 
     public static String getGameGuides() {
         return gameGuides;
+    }
+
+    public static void setGameGuides(String string) {
+        gameGuides = string;
     }
 
     public static Materials getChosenMaterial() {

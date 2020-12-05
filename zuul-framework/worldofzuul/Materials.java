@@ -66,7 +66,7 @@ public class Materials extends Item {
         return state;
     }
 
-    public Room getRoomToUseItem() {
+    public Room getRoomToUse() {
         return activeRecipe.getUsableIn();
     }
 

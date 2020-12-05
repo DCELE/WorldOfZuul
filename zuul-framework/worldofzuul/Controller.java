@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -48,11 +47,11 @@ public class Controller implements Initializable {
 
     // Load room everytime NavigationButton is clicked
     public void loadRoom(Room room) {
-        // Set room text label
-
+        // Reset room description
+        Game.setGameGuides(null);
+        Player.setPlayerThinks(null);
         // Set room welcome description
         setTextBox(room);
-
         // Set button text labels
         setNavigationButtons(room);
         // Set room inventory
