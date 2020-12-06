@@ -11,6 +11,7 @@ public class Materials extends Item {
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
     private String color;
+    private String[] allColors;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
 
@@ -19,6 +20,7 @@ public class Materials extends Item {
         this.state = 0;
         this.planted = false;
         this.color = "colored";
+        this.allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
         allMaterials.add(this);
 
         stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
@@ -137,5 +139,9 @@ public class Materials extends Item {
 
     public static ArrayList<Materials> getAllMaterials() {
         return allMaterials;
+    }
+
+    public String[] getAllColors() {
+        return allColors;
     }
 }

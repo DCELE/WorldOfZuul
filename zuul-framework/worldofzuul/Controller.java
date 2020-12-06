@@ -4,9 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -14,6 +12,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    @FXML
+    private VBox pickMaterialColor;
+    private ToggleGroup pickColor;
     @FXML
     private Label hintLabel;
     @FXML
@@ -90,6 +91,7 @@ public class Controller implements Initializable {
     public void pickUpItem(Item item) {
         observRoomInventory.remove(item);
         observPlayerInventory.add(item);
+        Player.pickUpItem(item);
         setRoomInventory(Game.getCurrentRoom());
         setHintLabel();
     }
@@ -97,6 +99,7 @@ public class Controller implements Initializable {
     public void dropItem(Item item) {
         observPlayerInventory.remove(item);
         observRoomInventory.add(item);
+        Player.dropItem(item);
         setHintLabel();
     }
 
@@ -141,8 +144,33 @@ public class Controller implements Initializable {
             setHintLabel();
             return;
         }
+        if (Game.getChosenMaterial().getState() == 2 && Game.getChosenMaterial().isInProcess()) {
+            chooseColor();
+        }
         dropItem(selectedItem);
+        // Check if the material should be upgraded
+        Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
         setTextBox(Game.getCurrentRoom());
+    }
+
+    private void chooseColor() {
+        String chosenColor = null;
+        pickColor = new ToggleGroup();
+        for (String color : Game.getChosenMaterial().getAllColors()) {
+            RadioButton radioButton = new RadioButton(color);
+            radioButton.setToggleGroup(pickColor);
+            pickMaterialColor.getChildren().add(radioButton);
+        }
+        boolean visibility = pickMaterialColor.isVisible();
+        pickMaterialColor.setVisible(!visibility);
+    }
+
+    public void acceptChosenColor(MouseEvent mouseEvent) {
+        String color = pickColor.getSelectedToggle().toString();
+        Game.getChosenMaterial().setColor(color);
+
+        boolean visibility = pickMaterialColor.isVisible();
+        pickMaterialColor.setVisible(!visibility);
     }
 
     public void openInventory(MouseEvent mouseEvent) {
@@ -168,5 +196,4 @@ public class Controller implements Initializable {
         hintLabel.setVisible(!labelVisibility);
         setHintLabel();
     }
-
 }

@@ -147,14 +147,10 @@ public class Game {
                 chosenMaterial.setPlanted();
             }
             // Check the materials stage
-            if (chosenMaterial.getState() == 1 || chosenMaterial.getState() == 2 || chosenMaterial.getState() == 3) {
+            if (chosenMaterial.getState() >= 1) {
                 // Make fabric or dye fabric
                 chosenMaterial.setInProcess();
             }
-            // Use material
-            Player.dropItem(item);
-            // Check if the material should be upgraded
-            enoughOfEverything(chosenMaterial.isInProcess() || chosenMaterial.isPlanted());
             return true;
         }
 
@@ -229,7 +225,7 @@ public class Game {
         chosenMaterial.decrementOther();
     }
 
-    private static void enoughOfEverything(boolean upgradeable) {
+    public static void enoughOfEverything(boolean upgradeable) {
         if (Materials.getActiveRecipe().getWater() == 0 && Materials.getActiveRecipe().getOther() == 0) {
             if (!upgradeable) {
                 return;
@@ -286,8 +282,6 @@ public class Game {
             bucket.setHasWater();
             return false;
         }
-        // Pick item up
-        Player.pickUpItem(item);
         return true;
     }
 
