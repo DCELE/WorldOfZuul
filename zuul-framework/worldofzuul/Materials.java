@@ -53,6 +53,7 @@ public class Materials extends Item {
     }
 
     public void setNameForState() {
+        updateStateNames();
         int stateNameInt = getState();
         if (getId() == 5) {
             stateNameInt = getState() - 1;
@@ -62,6 +63,13 @@ public class Materials extends Item {
 
     public String[] getStateNames() {
         return stateNames;
+    }
+
+    public void updateStateNames() {
+        stateNames = new String[] {" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        if (getId() == 5) {
+            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        }
     }
 
     public int getState() {
@@ -110,11 +118,6 @@ public class Materials extends Item {
 
     public void setColor(String color) {
         this.color = color.toLowerCase();
-        stateNames = new String[] {" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
-        if (getId() == 5) {
-            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
-        }
-        setNameForState();
     }
 
     public static Recipe getActiveRecipe() {

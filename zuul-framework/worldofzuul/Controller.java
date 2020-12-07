@@ -10,13 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
     private VBox pickMaterialColor;
     private ToggleGroup pickColor;
     @FXML
@@ -157,30 +158,42 @@ public class Controller implements Initializable {
 
     private void chooseColor() {
         pickColor = new ToggleGroup();
-        //Stage stage = new Stage();
-        //Parent root = new FXMLLoader();
-        //Scene scene = new Scene();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Choose a color");
+        stage.initStyle(StageStyle.UNDECORATED);
 
+        pickMaterialColor = new VBox();
         Label label = new Label("Choose a color");
         pickMaterialColor.getChildren().add(label);
+        pickMaterialColor.setStyle("-fx-background-color: lightgrey");
+        pickMaterialColor.setSpacing(5);
+
         for (String color : Game.getChosenMaterial().getAllColors()) {
             RadioButton radioButton = new RadioButton(color);
             radioButton.setToggleGroup(pickColor);
             pickMaterialColor.getChildren().add(radioButton);
         }
+
         Button acceptButton = new Button("Accept");
         acceptButton.setOnMouseClicked(this::acceptChosenColor);
         pickMaterialColor.getChildren().add(acceptButton);
-        pickMaterialColor.setVisible(true);
+
+        Scene scene = new Scene(pickMaterialColor);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void acceptChosenColor(MouseEvent mouseEvent) {
         RadioButton radioButton = (RadioButton) pickColor.getSelectedToggle();
+        if (radioButton == null) {
+            return;
+        }
         String color = radioButton.getText();
         Game.getChosenMaterial().setColor(color);
 
-        pickMaterialColor.setVisible(false);
-        roomInventory.refresh();
+        Stage stage = (Stage) pickMaterialColor.getScene().getWindow();
+        stage.close();
     }
 
     public void openInventory(MouseEvent mouseEvent) {

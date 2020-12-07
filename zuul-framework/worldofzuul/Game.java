@@ -55,12 +55,12 @@ public class Game {
         // Declaring and initializing recipes (4 per material and 3 for polyester)
         hemp.addRecipe(new Recipe(farm, 0, 0));
         hemp.addRecipe(new Recipe(fabricFactory, 0, 0));
-        hemp.addRecipe(new Recipe(colorFactory, 0, 0));
+        hemp.addRecipe(new Recipe(colorFactory, 1, 1));
         hemp.addRecipe(new Recipe(sewingFactory, 0, 0));
 
-        linen.addRecipe(new Recipe(farm, 2, 2));
+        linen.addRecipe(new Recipe(farm, 1, 1));
         linen.addRecipe(new Recipe(fabricFactory, 1, 1));
-        linen.addRecipe(new Recipe(colorFactory, 2, 2));
+        linen.addRecipe(new Recipe(colorFactory, 1, 1));
         linen.addRecipe(new Recipe(sewingFactory, 0, 0));
 
         bamboo.addRecipe(new Recipe(farm, 2, 2));
