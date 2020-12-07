@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,7 +31,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox fx:id="vBoxPlayerInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="4" GridPane.rowSpan="3">
+      <VBox fx:id="vBoxPlayerInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" visible="false" GridPane.columnIndex="4" GridPane.rowSpan="3">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Player inventory" />
             <ListView fx:id="playerInventory" prefHeight="500.0" prefWidth="238.0" />
@@ -39,7 +43,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
+      <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" visible="false" GridPane.rowSpan="2">
          <children>
             <Label text="Room inventory" />
             <ListView fx:id="roomInventory" onMouseClicked="#materialClicked" prefHeight="350.0" prefWidth="238.0" />
@@ -53,7 +57,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <children>
             <Button fx:id="inventoryButton" mnemonicParsing="false" onMouseClicked="#openInventory" text="Inventory" />
-            <Button mnemonicParsing="false" text="Help" />
+            <Button fx:id="helpButton" mnemonicParsing="false" onMouseClicked="#showHelp" text="Help" />
          </children>
       </HBox>
       <VBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="148.0" spacing="5.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
@@ -67,7 +71,7 @@
       <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" GridPane.columnIndex="2" />
       <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
          <children>
-            <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="57.0" layoutY="36.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" wrapText="true">
+            <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="54.0" layoutY="34.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 2;" text="Label" wrapText="true">
                <padding>
                   <Insets left="10.0" top="5.0" />
                </padding>
@@ -98,6 +102,34 @@
                </font>
             </Label>
          </children>
+      <Pane fx:id="PaneShowHelp" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="3">
+         <children>
+            <TextArea fx:id="showHelp" cache="true" layoutX="-1.0" layoutY="33.0" prefHeight="577.0" prefWidth="762.0" text="WELCOME TO THE HELP FAQ.&#10;___________________________________________________________________________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;____________________________________________________________________________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;____________________________________________________________________________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;____________________________________________________________________________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;____________________________________________________________________________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;____________________________________________________________________________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font>
+            </TextArea>
+            <Label alignment="CENTER" layoutX="-2.0" layoutY="-3.0" prefHeight="39.0" prefWidth="762.0" style="-fx-background-color: green;" text="HELP" textFill="#ffd900">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="571.0" prefHeight="39.0" prefWidth="762.0" style="-fx-background-color: green;" text=" Press on the &quot;HELP&quot; button to close this window" textFill="#ffd800" wrapText="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <DropShadow color="#ffd800" height="173.21" radius="106.55250000000001" spread="0.23" width="255.0">
+               <input>
+                  <InnerShadow choke="0.78" color="#ffd40092" height="25.7" radius="12.594999999999999" width="26.68" />
+               </input>
+            </DropShadow>
+         </effect>
       </Pane>
    </children>
    <padding>
