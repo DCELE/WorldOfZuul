@@ -10,6 +10,7 @@ public class Game {
     private static Materials chosenMaterial;
     private static Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
+    private static ScoreSystem playerScore;
 
     public Game() {
         setupGame();
@@ -30,6 +31,9 @@ public class Game {
         sewingInventory = new Inventory();
         fabricInventory = new Inventory();
 
+        //Creating scoresystem
+        ScoreSystem playerScore = new ScoreSystem(100);
+
         // Initializing rooms
         mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory);
         materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory);
@@ -41,11 +45,20 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here", fabricInventory);
 
         // Initializing items
+<<<<<<< HEAD
         hemp = new Materials("hemp", 1);
         linen = new Materials("linen", 2);
         bamboo = new Materials("bamboo", 3);
         cotton = new Materials("cotton", 4);
         polyester = new Materials("polyester", 5);
+=======
+        Room[] roomsToUseItem = new Room[]{farm, fabricFactory, colorFactory, sewingFactory};
+        hemp = new Materials("hemp", 1, roomsToUseItem, new int[]{1, 2, 2}, new int[]{1,1}, -5);
+        linen = new Materials("linen", 2, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-15);
+        bamboo = new Materials("bamboo", 3, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-20);
+        cotton = new Materials("cotton", 4, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-25);
+        polyester = new Materials("polyester", 5, roomsToUseItem, new int[]{2, 3, 3}, new int[]{1,1},-10);
+>>>>>>> origin/Cons+point+heelp
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
@@ -116,6 +129,9 @@ public class Game {
 
     public static void setCurrentRoom(Room currentRoom) {
         Game.currentRoom = currentRoom;
+        if(Game.currentRoom == materials) {
+
+        }
     }
 
     // Use materials in farm
@@ -144,12 +160,53 @@ public class Game {
             // Check the materials stage
             if (chosenMaterial.getState() == 0) {
                 // Plant material
+<<<<<<< HEAD
                 chosenMaterial.setPlanted();
             }
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
                 // Make fabric or dye fabric
                 chosenMaterial.setInProcess();
+=======
+                gameGuides = ("You plant " + material);
+                if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
+                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
+                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
+                else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
+                Player.dropItem(item);
+                material.setPlanted();
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[0] + " time(s)");
+                return true;
+            }
+            // Check the materials stage
+            if (material.getState() == 1) {
+                // If something is already being processed.
+                // Make fabric
+                if (material.getName().equals("polyester chemicals")){Player.playerScore.addToScore(-35);}
+                material.setInProcess();
+                Player.dropItem(item);
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
+                System.out.println("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
+                System.out.println("It needs chemicals: " + material.getChemicalsAmountNeeded()[1] + " time(s)");
+                return true;
+            }
+            // Check the materials stage
+            if (material.getState() == 2) {
+                // Dye fabric
+                material.setInProcess();
+                Player.dropItem(item);
+                Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[2] + " time(s)");
+                return true;
+            }
+            // Check the materials stage
+            if (material.getState() == 3) {
+                // Make T-shirt
+                gameGuides = ("You're sewing " + material + " into a T-shirt with the color " + material.getColor());
+                material.upgradeState();
+                Player.dropItem(item);
+                gameGuides = ("You've finished making a T-shirt, Type: \"quit\" to exit the game.");
+                return true;
+>>>>>>> origin/Cons+point+heelp
             }
             return true;
         }
@@ -181,17 +238,90 @@ public class Game {
                     Player.setPlayerThinks("I need to plant something before watering it");
                     return false;
                 }
+<<<<<<< HEAD
+=======
+                // Watering seed
+                plantedMaterial.decrementAmountNeeded(plantedMaterial.getWaterAmountNeeded(), 0);
+                System.out.println("You water " + plantedMaterial.getName());
+                Player.playerScore.addToScore(-5);
+                bucket.setHasWater();
+
+                // Check if seed has fully grown
+                if (plantedMaterial.getWaterAmountNeeded()[0] == 0) {
+                    Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                    // Material is no longer planted
+                    plantedMaterial.setPlanted();
+                    // Seed becomes plant
+                    plantedMaterial.upgradeState();
+                    gameGuides = (plantedMaterial.getName() + " is fully grown, you can pick it up");
+                    return false;
+                }
+                Player.setPlayerThinks("It needs water: " + plantedMaterial.getWaterAmountNeeded()[0] + " time(s) more");
+                return false;
+>>>>>>> origin/Cons+point+heelp
             }
 
             // Check if the room is the factory
             if (currentRoom == bucket.getRoomsToUse()[1] || currentRoom == bucket.getRoomsToUse()[2]) {
                 // Pour water in the machines/filling them up in fabricFactory.
+<<<<<<< HEAD
                 if (!chosenMaterial.isInProcess()) {
+=======
+                Materials materialInProcess = null;
+                for (Materials material : Materials.getAllMaterials()) {
+                    if (material.isInProcess()) {
+                        materialInProcess = material;
+                        break;
+                    }
+                }
+                if (materialInProcess == null) return false;
+                materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(),1);
+                Player.playerScore.addToScore(-5);
+                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                bucket.setHasWater();
+
+                if (materialInProcess.getWaterAmountNeeded()[1] == 0) {
+                    // Material is no longer in process
+                    materialInProcess.setInProcess();
+                    // Plant becomes fabric
+                    gameGuides = ("You use machines to make fabric of " + materialInProcess);
+                    materialInProcess.upgradeState();
+                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
+>>>>>>> origin/Cons+point+heelp
                     return false;
                 }
             }
 
+<<<<<<< HEAD
             if (Materials.getActiveRecipe().getWater() <= 0) {
+=======
+            if (currentRoom == bucket.getRoomsToUseBucket()[2]) {
+                // Pour water in the machines/filling them up in colorFactory.
+                Materials materialInProcess = null;
+                for (Materials material : Materials.getAllMaterials()) {
+                    if (material.isInProcess()) {
+                        materialInProcess = material;
+                        break;
+                    }
+                }
+                if (materialInProcess == null) return false;
+                materialInProcess.decrementAmountNeeded(materialInProcess.getWaterAmountNeeded(),2);
+                Player.playerScore.addToScore(-5);
+                System.out.println("You pour water into the machine with " + materialInProcess.getName() + " in it");
+                bucket.setHasWater();
+
+                if (materialInProcess.getWaterAmountNeeded()[2] == 0) {
+                    // Material is no longer in process
+                    materialInProcess.setInProcess();
+                    // fabric becomes dyed fabric
+                    gameGuides = ("You dye " + materialInProcess + " into the color " + materialInProcess.getColor());
+                    materialInProcess.upgradeState();
+                    gameGuides = (materialInProcess.getName() + " is done, you can pick it up");
+                    return false;
+                }
+
+                Player.setPlayerThinks("It needs water: " + materialInProcess.getWaterAmountNeeded()[2] + " time(s) more");
+>>>>>>> origin/Cons+point+heelp
                 return false;
             }
             chosenMaterial.decrementWater();
@@ -303,5 +433,9 @@ public class Game {
 
     public static Pesticides getPesticides() {
         return pesticides;
+    }
+
+    public static Room getMaterials() {
+        return materials;
     }
 }

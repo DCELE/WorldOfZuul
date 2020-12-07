@@ -1,11 +1,16 @@
 package worldofzuul;
 
+import com.sun.prism.Material;
+import com.sun.prism.shader.Solid_TextureRGB_AlphaTest_Loader;
+
 public class Player {
     private static Inventory playerInventory;
     private static String playerThinks;
+    public static ScoreSystem playerScore;
 
     public Player() {
         playerInventory = new Inventory();
+        playerScore = new ScoreSystem(100);
     }
 
     public static Inventory getInventory() {
@@ -15,6 +20,7 @@ public class Player {
     public static void pickUpItem(Item item) {
         Game.getCurrentRoom().getInventory().removeFromInventory(item);
         playerInventory.addToInventory(item);
+
     }
 
     public static void dropItem(Item item) {
@@ -29,4 +35,5 @@ public class Player {
     public static void setPlayerThinks(String playerThinks) {
         Player.playerThinks = playerThinks;
     }
+
 }
