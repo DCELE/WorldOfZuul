@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
   <columnConstraints>
@@ -41,7 +42,7 @@
       <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
          <children>
             <Label text="Room inventory" />
-            <ListView fx:id="roomInventory" prefHeight="350.0" prefWidth="238.0" />
+            <ListView fx:id="roomInventory" onMouseClicked="#materialClicked" prefHeight="350.0" prefWidth="238.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="pickUpButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#onPickUpButtonClicked" text="Pick up" />
@@ -70,6 +71,31 @@
                <padding>
                   <Insets left="10.0" top="5.0" />
                </padding>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="prosConsPanel" prefHeight="380.0" prefWidth="238.0" GridPane.columnIndex="1">
+         <children>
+            <Label fx:id="textBox1" alignment="TOP_LEFT" layoutY="-4.0" prefHeight="36.0" prefWidth="238.0" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="textBox2" alignment="TOP_LEFT" layoutY="66.0" prefHeight="136.0" prefWidth="238.0" />
+            <Label fx:id="textBox4" layoutY="32.0" prefHeight="25.0" prefWidth="106.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="prosConsPanel1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="textBox3" alignment="TOP_LEFT" layoutY="34.0" prefHeight="120.0" prefWidth="285.0" />
+            <Label fx:id="textBox5" prefHeight="25.0" prefWidth="129.0" textAlignment="CENTER">
+               <font>
+                  <Font size="23.0" />
+               </font>
             </Label>
          </children>
       </Pane>

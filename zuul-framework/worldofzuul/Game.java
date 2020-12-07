@@ -7,7 +7,7 @@ public class Game {
     private static Bucket bucket;
     private static Chemicals chemicals;
     private static Pesticides pesticides;
-    private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
+    private static Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
     private static ScoreSystem playerScore;
 
@@ -95,6 +95,9 @@ public class Game {
 
     public static void setCurrentRoom(Room currentRoom) {
         Game.currentRoom = currentRoom;
+        if(Game.currentRoom == materials) {
+
+        }
     }
 
     // Use materials in farm
@@ -358,5 +361,9 @@ public class Game {
 
     public static String getGameGuides() {
         return gameGuides;
+    }
+
+    public static Room getMaterials() {
+        return materials;
     }
 }

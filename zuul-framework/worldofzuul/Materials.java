@@ -16,7 +16,7 @@ public class Materials extends Item {
     private String color;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
-   private static int points;
+    private static int points;
 
     public Materials(String name, int id)
     {
