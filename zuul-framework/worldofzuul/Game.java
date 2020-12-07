@@ -2,13 +2,13 @@ package worldofzuul;
 
 public class Game {
     private static Room currentRoom;
-    private Materials hemp, linen, bamboo, cotton, polyester;
+    private static Materials hemp, linen, bamboo, cotton, polyester;
     private static Water water;
     private static Bucket bucket;
     private static Chemicals chemicals;
     private static Pesticides pesticides;
     private static Materials chosenMaterial;
-    private Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
+    private static Room mainRoom, materials, well, farm, factory, colorFactory, sewingFactory, fabricFactory;
     private static String gameGuides;
 
     public Game() {
@@ -285,12 +285,6 @@ public class Game {
         return true;
     }
 
-
-    // Drop item method
-    public static void dropItem(Item item) {
-        Player.dropItem(item);
-    }
-
     public static String getGameGuides() {
         return gameGuides;
     }
@@ -310,5 +304,4 @@ public class Game {
     public static Pesticides getPesticides() {
         return pesticides;
     }
-
 }

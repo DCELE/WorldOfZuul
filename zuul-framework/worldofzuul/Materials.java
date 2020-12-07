@@ -23,10 +23,10 @@ public class Materials extends Item {
         this.allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
         allMaterials.add(this);
 
-        stateNames = new String[]{" seed", " plant", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
+        stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
         if (super.getId() == 5) {
             this.state = 1;
-            stateNames = new String[]{" chemicals", " fabric", " " + getColor() + " fabric", " " + getColor() + " t-shirt"};
+            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
 
         }
         this.recipes = new ArrayList<>();
@@ -109,7 +109,12 @@ public class Materials extends Item {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = color.toLowerCase();
+        stateNames = new String[] {" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        if (getId() == 5) {
+            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        }
+        setNameForState();
     }
 
     public static Recipe getActiveRecipe() {

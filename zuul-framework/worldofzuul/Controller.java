@@ -3,10 +3,14 @@ package worldofzuul;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -116,7 +120,6 @@ public class Controller implements Initializable {
         }
         pickUpItem(selectedItem);
         setTextBox(Game.getCurrentRoom());
-        setHintLabel();
     }
 
     public void onDropButtonClicked(MouseEvent mouseEvent) {
@@ -125,7 +128,6 @@ public class Controller implements Initializable {
             setTextBox(Game.getCurrentRoom());
             return;
         }
-        Game.dropItem(selectedItem);
         dropItem(selectedItem);
         setTextBox(Game.getCurrentRoom());
     }
@@ -154,23 +156,31 @@ public class Controller implements Initializable {
     }
 
     private void chooseColor() {
-        String chosenColor = null;
         pickColor = new ToggleGroup();
+        //Stage stage = new Stage();
+        //Parent root = new FXMLLoader();
+        //Scene scene = new Scene();
+
+        Label label = new Label("Choose a color");
+        pickMaterialColor.getChildren().add(label);
         for (String color : Game.getChosenMaterial().getAllColors()) {
             RadioButton radioButton = new RadioButton(color);
             radioButton.setToggleGroup(pickColor);
             pickMaterialColor.getChildren().add(radioButton);
         }
-        boolean visibility = pickMaterialColor.isVisible();
-        pickMaterialColor.setVisible(!visibility);
+        Button acceptButton = new Button("Accept");
+        acceptButton.setOnMouseClicked(this::acceptChosenColor);
+        pickMaterialColor.getChildren().add(acceptButton);
+        pickMaterialColor.setVisible(true);
     }
 
     public void acceptChosenColor(MouseEvent mouseEvent) {
-        String color = pickColor.getSelectedToggle().toString();
+        RadioButton radioButton = (RadioButton) pickColor.getSelectedToggle();
+        String color = radioButton.getText();
         Game.getChosenMaterial().setColor(color);
 
-        boolean visibility = pickMaterialColor.isVisible();
-        pickMaterialColor.setVisible(!visibility);
+        pickMaterialColor.setVisible(false);
+        roomInventory.refresh();
     }
 
     public void openInventory(MouseEvent mouseEvent) {
