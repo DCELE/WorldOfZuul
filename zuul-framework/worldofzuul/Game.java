@@ -136,8 +136,8 @@ public class Game {
                 // Plant material
                 gameGuides = ("You plant " + material);
                 if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
-                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-10);}
-                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-15);}
+                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
+                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
                 Player.dropItem(item);
                 material.setPlanted();
@@ -148,6 +148,7 @@ public class Game {
             if (material.getState() == 1) {
                 // If something is already being processed.
                 // Make fabric
+                if (material.getName().equals("polyester chemicals")){Player.playerScore.addToScore(-35);}
                 material.setInProcess();
                 Player.dropItem(item);
                 Player.setPlayerThinks("It needs water: " + material.getWaterAmountNeeded()[1] + " time(s)");
