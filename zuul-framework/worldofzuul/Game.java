@@ -45,11 +45,11 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here", fabricInventory);
 
         // Initializing items
-        hemp = new Materials("hemp", 1);
-        linen = new Materials("linen", 2);
-        bamboo = new Materials("bamboo", 3);
-        cotton = new Materials("cotton", 4);
-        polyester = new Materials("polyester", 5);
+        hemp = new Materials("hemp", 1, -5);
+        linen = new Materials("linen", 2, -15);
+        bamboo = new Materials("bamboo", 3, -20);
+        cotton = new Materials("cotton", 4, -25);
+        polyester = new Materials("polyester", 5, -10);
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
