@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -18,10 +19,14 @@ import javafx.stage.StageStyle;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    @FXML
+    private javafx.scene.image.ImageView ImageView;
     private VBox pickMaterialColor;
     private ToggleGroup pickColor;
     @FXML
@@ -92,11 +97,14 @@ public class Controller implements Initializable {
     }
 
     private void setBackgroundImage(Room room) {
-        //Image image = new Image("worldofzuul/WorldOfZuulPNG/Rooms/Mainroom.png");
-        //Image image = new Image(room.getBackgroundImage());
-
-        //GridPane gridPane = (GridPane) Main.getScene().getRoot();
-
+        Image image;
+        try {
+             image = new Image(new FileInputStream(room.getBackgroundImage()));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        }
+        ImageView.setImage(image);
     }
 
     private void setRoomInventory(Room room) {
