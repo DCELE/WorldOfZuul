@@ -30,7 +30,7 @@ public class Controller implements Initializable {
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
-    private Label textBox, textBox1, textBox2,textBox3,textBox4,textBox5;
+    private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5;
     @FXML
     private Label scoreboard;
     @FXML
@@ -41,7 +41,6 @@ public class Controller implements Initializable {
     private ObservableList<Item> observPlayerInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
-
 
 
     @Override
@@ -93,7 +92,8 @@ public class Controller implements Initializable {
     }
 
     public void setTextBox(Room room) {
-        textBox.setText(room.getLongDescription()); }
+        textBox.setText(room.getLongDescription());
+    }
 
     public void setNavigationButtons(Room room) {
         Button[] buttons = new Button[]{button1, button2, button3, button4};
@@ -208,6 +208,9 @@ public class Controller implements Initializable {
         }
         String color = radioButton.getText();
         Game.getChosenMaterial().setColor(color);
+        setHintLabel();
+        Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
+        roomInventory.refresh();
 
         Stage stage = (Stage) pickMaterialColor.getScene().getWindow();
         stage.close();
@@ -217,10 +220,14 @@ public class Controller implements Initializable {
 
         //if (room.getName().equals("materials")) {
 
-            Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
-            textBox1.setText(selectedItem.getName());
-            textBox4.setText("Pros");
-            textBox5.setText("Cons");
+
+        Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            return;
+        }
+        textBox1.setText(selectedItem.getName());
+        textBox4.setText("Pros");
+        textBox5.setText("Cons");
 
 
         if (selectedItem.getName().equals("hemp seed")) {
@@ -249,12 +256,11 @@ public class Controller implements Initializable {
     public void openInventory(MouseEvent mouseEvent) {
         boolean setVisibility = !vBoxPlayerInventory.isVisible();
         vBoxPlayerInventory.setVisible(setVisibility);
-        vBoxRoomInventory.setVisible(setVisibility);
     }
 
     public void setHintLabel() {
         hintLabel.setText("Pick up a material \nto begin your journey");
-        if (Game.getChosenMaterial() == null ) {
+        if (Game.getChosenMaterial() == null) {
             return;
         }
         hintLabel.setText(Materials.getActiveRecipe().toString());
@@ -269,10 +275,13 @@ public class Controller implements Initializable {
         hintLabel.setVisible(!labelVisibility);
         setHintLabel();
     }
-    public void setScoreboard(Room room){ scoreboard.setText(String.valueOf("Current score: " + Player.playerScore.getScore()));}
+
+    public void setScoreboard(Room room) {
+        scoreboard.setText(String.valueOf("Current score: " + Player.playerScore.getScore()));
+    }
 
     public void showHelp(MouseEvent mouseEvent) {
         boolean setVisibility = !PaneShowHelp.isVisible();
         PaneShowHelp.setVisible(setVisibility);
     }
-    }
+}

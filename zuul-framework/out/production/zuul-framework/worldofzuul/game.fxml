@@ -43,7 +43,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" visible="false" GridPane.rowSpan="2">
+      <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
          <children>
             <Label text="Room inventory" />
             <ListView fx:id="roomInventory" onMouseClicked="#materialClicked" prefHeight="350.0" prefWidth="238.0" />

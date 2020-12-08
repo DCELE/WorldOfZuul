@@ -11,7 +11,7 @@ public class Materials extends Item {
     private boolean inProcess;
     // The rooms in order, where you can use (interact with) the item
     private String color;
-    private String[] allColors;
+    private static String[] allColors;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
     private int points;
@@ -21,7 +21,7 @@ public class Materials extends Item {
         this.state = 0;
         this.planted = false;
         this.color = "colored";
-        this.allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
+        allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
         this.points = points;
         allMaterials.add(this);
 
@@ -127,6 +127,28 @@ public class Materials extends Item {
 
     public void setColor(String color) {
         this.color = color.toLowerCase();
+        if (color.equals(allColors[0])) {
+            activeRecipe.setWater(0);
+            activeRecipe.setOther(0);
+        } else if (color.equals(allColors[1])) {
+            activeRecipe.setWater(2);
+            activeRecipe.setOther(2);
+        } else if (color.equals(allColors[2])) {
+            activeRecipe.setWater(3);
+            activeRecipe.setOther(3);
+        } else if (color.equals(allColors[3])) {
+            activeRecipe.setWater(3);
+            activeRecipe.setOther(3);
+        } else if (color.equals(allColors[4])) {
+            activeRecipe.setWater(3);
+            activeRecipe.setOther(3);
+        } else if (color.equals(allColors[5])) {
+            activeRecipe.setWater(2);
+            activeRecipe.setOther(2);
+        } else if (color.equals(allColors[6])) {
+            activeRecipe.setWater(4);
+            activeRecipe.setOther(4);
+        }
     }
 
     public static Recipe getActiveRecipe() {
