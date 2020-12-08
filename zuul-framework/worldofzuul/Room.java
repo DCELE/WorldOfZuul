@@ -3,7 +3,6 @@ package worldofzuul;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Set;
-import javafx.scene.image.Image;
 
 
 public class Room {
