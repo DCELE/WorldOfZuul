@@ -120,9 +120,6 @@ public class Game {
 
     public static void setCurrentRoom(Room currentRoom) {
         Game.currentRoom = currentRoom;
-        if(Game.currentRoom == materials) {
-
-        }
     }
 
     // Use materials in farm
