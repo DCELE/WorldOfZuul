@@ -79,10 +79,11 @@ public class Controller implements Initializable {
         prosConsPanel.setVisible(false);
         prosConsPanel1.setVisible(false);
         if (Game.getCurrentRoom() == Game.getMaterials()) {
-            prosConsPanel.setVisible(true);
-            prosConsPanel1.setVisible(true);
+            if (Game.getChosenMaterial() == null) {
+                prosConsPanel.setVisible(true);
+                prosConsPanel1.setVisible(true);
+            }
         }
-
     }
 
     private void setRoomInventory(Room room) {
@@ -219,7 +220,7 @@ public class Controller implements Initializable {
     public void materialClicked(MouseEvent mouseEvent) {
 
         //if (room.getName().equals("materials")) {
-        
+
         Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             return;

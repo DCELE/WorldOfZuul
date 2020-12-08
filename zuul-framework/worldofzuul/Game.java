@@ -321,22 +321,22 @@ public class Game {
     }
 
     public static Materials getHemp() {
-        return hemp;
+        return Game.hemp;
     }
 
     public static Materials getLinen() {
-        return linen;
+        return Game.linen;
     }
 
     public static Materials getBamboo() {
-        return bamboo;
+        return Game.bamboo;
     }
 
     public static Materials getCotton() {
-        return cotton;
+        return Game.cotton;
     }
 
     public static Materials getPolyester() {
-        return polyester;
+        return Game.polyester;
     }
 }
