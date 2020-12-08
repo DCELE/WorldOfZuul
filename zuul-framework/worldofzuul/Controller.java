@@ -3,9 +3,7 @@ package worldofzuul;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -14,11 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -187,7 +183,7 @@ public class Controller implements Initializable {
         pickMaterialColor = new VBox();
         Label label = new Label("Choose a color");
         pickMaterialColor.getChildren().add(label);
-        pickMaterialColor.setStyle("-fx-background-color: lightgrey");
+        pickMaterialColor.setStyle("-fx-background-color: lightgrey; " + "-fx-border-color: black; " + "-fx-padding: 5");
         pickMaterialColor.setSpacing(5);
 
         for (String color : Game.getChosenMaterial().getAllColors()) {

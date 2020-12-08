@@ -5,7 +5,7 @@ public class ScoreSystem {
     private static int points;
 
     public ScoreSystem(int score){
-    this.score=score;
+    ScoreSystem.score = score;
 
     }
      public int getScore(){
@@ -13,7 +13,7 @@ public class ScoreSystem {
      }
 
     public void addToScore(int points){
-        this.points = points;
+        ScoreSystem.points = points;
         score = score + points;
     }
 }
