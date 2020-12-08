@@ -219,8 +219,7 @@ public class Controller implements Initializable {
     public void materialClicked(MouseEvent mouseEvent) {
 
         //if (room.getName().equals("materials")) {
-
-
+        
         Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             return;
@@ -230,23 +229,23 @@ public class Controller implements Initializable {
         textBox5.setText("Cons");
 
 
-        if (selectedItem.getName().equals("hemp seed")) {
+        if (selectedItem == Game.getHemp()) {
             textBox2.setText("Lavt forbrug af pesticider");
             textBox3.setText("Stort vandforbrug\n - 650L per t-shirt\nGennemgå kemisk proces");
         }
-        if (selectedItem.getName().equals("linen seed")) {
+        if (selectedItem == Game.getLinen()) {
             textBox2.setText("Let nedbrydeligt i naturen\nLavt vandforbrug \nLavt forbrug af pesticider\n - 6.4L per t-shirt");
             textBox3.setText("Krøller nemt\nGennemgå kemisk proces");
         }
-        if (selectedItem.getName().equals("bamboo seed")) {
+        if (selectedItem == Game.getBamboo()) {
             textBox2.setText("Hurtigtvoksende\nProducerer meget oxygen pr hektar\nAbsorberer op til 12 ton kuldioxid\n - 2 ton mere end gennemmsnittet pr hektar\nLavt vandforbrug");
             textBox3.setText("Primært dyrket i Kina\n - Lave krav ift. forurening\nGennemgå kemisk proces");
         }
-        if (selectedItem.getName().equals("cotton seed")) {
+        if (selectedItem == Game.getCotton()) {
             textBox2.setText("Let og blødt\n");
             textBox3.setText("Stort vandforbrug\n - 2700L per t-shirt\nGror bedst i regnfattige lande\nGennemgå kemisk proces");
         }
-        if (selectedItem.getName().equals("polyester chemicals")) {
+        if (selectedItem == Game.getPolyester()) {
             textBox2.setText("Slidtstærkt\nTørrer hurtigt\nKrøller ikke så nemt\nBilligt ");
             textBox3.setText("Produkt baseret på olie og naturgas\nBrug af Carcinogen\n - Kemikalie der findes i benzen og asbest\n - Kræftfremkaldende & skadeligt for miljøet\nProduceret i lande med lave krav til forunering\n - Eksempelvis Kina, Bangladesh og Indonesien");
         }

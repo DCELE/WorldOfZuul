@@ -319,4 +319,24 @@ public class Game {
     public static Room getMaterials() {
         return materials;
     }
+
+    public static Materials getHemp() {
+        return hemp;
+    }
+
+    public static Materials getLinen() {
+        return linen;
+    }
+
+    public static Materials getBamboo() {
+        return bamboo;
+    }
+
+    public static Materials getCotton() {
+        return cotton;
+    }
+
+    public static Materials getPolyester() {
+        return polyester;
+    }
 }
