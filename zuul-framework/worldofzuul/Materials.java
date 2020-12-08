@@ -1,7 +1,5 @@
 package worldofzuul;
 
-import com.sun.prism.Material;
-
 import java.util.ArrayList;
 
 public class Materials extends Item {
@@ -16,7 +14,7 @@ public class Materials extends Item {
     private String[] allColors;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
-    private static int points;
+    private int points;
 
     public Materials(String name, int id, int points) {
         super(name, id);

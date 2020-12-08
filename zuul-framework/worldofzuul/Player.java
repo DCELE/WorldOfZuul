@@ -1,7 +1,5 @@
 package worldofzuul;
 
-import com.sun.prism.Material;
-import com.sun.prism.shader.Solid_TextureRGB_AlphaTest_Loader;
 
 public class Player {
     private static Inventory playerInventory;
