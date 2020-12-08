@@ -4,11 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -75,6 +78,8 @@ public class Controller implements Initializable {
         Game.setCurrentRoom(room);
         // Set hintBox
         setHintLabel();
+        // Set background
+        setBackgroundImage(room);
 
         prosConsPanel.setVisible(false);
         prosConsPanel1.setVisible(false);
@@ -84,6 +89,14 @@ public class Controller implements Initializable {
                 prosConsPanel1.setVisible(true);
             }
         }
+    }
+
+    private void setBackgroundImage(Room room) {
+        //Image image = new Image("worldofzuul/WorldOfZuulPNG/Rooms/Mainroom.png");
+        //Image image = new Image(room.getBackgroundImage());
+
+        //GridPane gridPane = (GridPane) Main.getScene().getRoot();
+
     }
 
     private void setRoomInventory(Room room) {

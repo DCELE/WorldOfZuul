@@ -35,14 +35,14 @@ public class Game {
         ScoreSystem playerScore = new ScoreSystem(100);
 
         // Initializing rooms
-        mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory);
+        mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory, "@WorldOfZuulPNG/Rooms/Mainroom.png");
         materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory);
         well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water", wellInventory);
         farm = new Room("Farm", "in the farm. You can plant your chosen seed and grow them here", farmInventory);
         factory = new Room("Factory", "in the factory. You can process your product here", factoryInventory);
         colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory);
         sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here", sewingInventory);
-        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here", fabricInventory);
+        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here",fabricInventory);
 
         // Initializing items
         hemp = new Materials("hemp", 1, -5);

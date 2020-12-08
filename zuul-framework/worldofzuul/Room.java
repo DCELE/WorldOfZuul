@@ -3,6 +3,7 @@ package worldofzuul;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Set;
+import javafx.scene.image.Image;
 
 
 public class Room {
@@ -12,6 +13,7 @@ public class Room {
     private String name;
     private int waterAmountInMachine;
     private static ArrayList<Room> allRooms = new ArrayList<>();
+    private String backgroundImage;
 
     public Room(String name, String description, Inventory inventory) {
         this.name = name;
@@ -19,6 +21,15 @@ public class Room {
         exits = new HashMap<Room, Room>();
         this.inventory = inventory;
         allRooms.add(this);
+    }
+
+    public Room(String name, String description, Inventory inventory, String url) {
+        this.name = name;
+        this.description = description;
+        exits = new HashMap<Room, Room>();
+        this.inventory = inventory;
+        allRooms.add(this);
+        this.backgroundImage = url;
     }
 
     public void setExit(Room neighbor) {
@@ -79,5 +90,8 @@ public class Room {
         return currentRoom;
     }
 
+    public String getBackgroundImage() {
+        return backgroundImage;
+    }
 }
 
