@@ -27,7 +27,6 @@ public class Controller implements Initializable {
     private Pane playInvPane;
     @FXML
     private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
-    private ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -45,7 +44,6 @@ public class Controller implements Initializable {
     @FXML
     private ListView<Item> roomInventory;
     private ObservableList<Item> observRoomInventory;
-    private ObservableList<Item> observPlayerInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
 
@@ -54,14 +52,15 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRoom(Room.getAllRooms().get(0));
 
-        // Initialize playerInventory
-        //observPlayerInventory = FXCollections.observableArrayList(Player.getInventory().getArrayList());
+    }
+
+    public void setPlayerInventory() {
+        ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
         int i = 0;
         for (Item item : Player.getInventory().getArrayList()) {
             inventorySlots[i].setImage(getImage(item.getItemIcon()));
             i++;
         }
-
     }
 
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
@@ -142,14 +141,15 @@ public class Controller implements Initializable {
 
     public void pickUpItem(Item item) {
         observRoomInventory.remove(item);
-        observPlayerInventory.add(item);
+        //observPlayerInventory.add(item);
         Player.pickUpItem(item);
+        setPlayerInventory();
         setRoomInventory(Game.getCurrentRoom());
         setHintLabel();
     }
 
     public void dropItem(Item item) {
-        observPlayerInventory.remove(item);
+        //observPlayerInventory.remove(item);
         observRoomInventory.add(item);
         Player.dropItem(item);
         setHintLabel();
