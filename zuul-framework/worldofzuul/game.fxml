@@ -49,9 +49,30 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="inventoryButton" mnemonicParsing="false" onMouseClicked="#openInventory" text="Inventory" />
-                  <Button fx:id="hintButton" mnemonicParsing="false" onMouseClicked="#onHintClicked" text="Hint" />
-                  <Button fx:id="helpButton" mnemonicParsing="false" onMouseClicked="#showHelp" text="Help" />
+                  <ImageView fx:id="inventoryButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#openInventory" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/InventoryIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="hintButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#onHintClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/HintIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="helpButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#showHelp" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/HelpIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children>
             </HBox>
             <VBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="148.0" spacing="5.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
@@ -255,15 +276,21 @@
                   </Pane>
                </children>
             </GridPane>
-            <ImageView fx:id="useButton" fitWidth="150.0" layoutX="9.0" layoutY="310.0" onMouseClicked="#onUseButtonClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="useButton" fitHeight="20.0" fitWidth="144.0" layoutX="22.0" layoutY="316.0" onMouseClicked="#onUseButtonClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/UseButton.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fx:id="dropButton" fitWidth="150.0" layoutX="142.0" layoutY="309.0" onMouseClicked="#onDropButtonClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="dropButton" fitHeight="20.0" fitWidth="144.0" layoutX="154.0" layoutY="316.0" onMouseClicked="#onDropButtonClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/DropButton.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </Pane>
