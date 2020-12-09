@@ -46,6 +46,7 @@ public class Controller implements Initializable {
     private ObservableList<Item> observRoomInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
+    private worldofzuul.Item selectedItemPlayInv;
 
 
     @Override
@@ -56,9 +57,14 @@ public class Controller implements Initializable {
 
     public void setPlayerInventory() {
         ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
+        for (ImageView imageView : inventorySlots) {
+            imageView.setDisable(true);
+        }
+
         int i = 0;
         for (Item item : Player.getInventory().getArrayList()) {
             inventorySlots[i].setImage(getImage(item.getItemIcon()));
+            inventorySlots[i].setDisable(false);
             i++;
         }
     }
@@ -141,7 +147,6 @@ public class Controller implements Initializable {
 
     public void pickUpItem(Item item) {
         observRoomInventory.remove(item);
-        //observPlayerInventory.add(item);
         Player.pickUpItem(item);
         setPlayerInventory();
         setRoomInventory(Game.getCurrentRoom());
@@ -149,7 +154,6 @@ public class Controller implements Initializable {
     }
 
     public void dropItem(Item item) {
-        //observPlayerInventory.remove(item);
         observRoomInventory.add(item);
         Player.dropItem(item);
         setHintLabel();
@@ -169,25 +173,23 @@ public class Controller implements Initializable {
         pickUpItem(selectedItem);
         setTextBox(Game.getCurrentRoom());
     }
-    /*
+
     public void onDropButtonClicked(MouseEvent mouseEvent) {
-        Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
+        if (selectedItemPlayInv == null) {
             setTextBox(Game.getCurrentRoom());
             return;
         }
-        dropItem(selectedItem);
+        dropItem(selectedItemPlayInv);
         setTextBox(Game.getCurrentRoom());
     }
 
     public void onUseButtonClicked(MouseEvent mouseEvent) {
-        Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
+        if (selectedItemPlayInv == null) {
             setTextBox(Game.getCurrentRoom());
             return;
         }
 
-        if (!Game.useItem(selectedItem)) {
+        if (!Game.useItem(selectedItemPlayInv)) {
             //playerInventory.refresh();
             roomInventory.refresh();
             setTextBox(Game.getCurrentRoom());
@@ -197,13 +199,12 @@ public class Controller implements Initializable {
         if (Game.getChosenMaterial().getState() == 2 && Game.getChosenMaterial().isInProcess()) {
             chooseColor();
         }
-        dropItem(selectedItem);
+        dropItem(selectedItemPlayInv);
         // Check if the material should be upgraded
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
         setTextBox(Game.getCurrentRoom());
     }
 
-     */
 
     private void chooseColor() {
         pickColor = new ToggleGroup();
@@ -314,5 +315,37 @@ public class Controller implements Initializable {
     public void showHelp(MouseEvent mouseEvent) {
         boolean setVisibility = !PaneShowHelp.isVisible();
         PaneShowHelp.setVisible(setVisibility);
+    }
+
+    public void onItemInPlayInvClicked(MouseEvent mouseEvent) {
+        ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
+
+        for (ImageView imageView : inventorySlots) {
+            if (imageView == null) {
+                continue;
+            }
+            if (imageView.getImage() == null) {
+                continue;
+            }
+            System.out.println(imageView.imageProperty());
+            System.out.println();
+        }
+
+        /*
+
+        System.out.println(imageView.getImage().getUrl());
+
+        for (Item item : Player.getInventory().getArrayList()) {
+            System.out.println(item.getName());
+            System.out.println(item.getItemIcon());
+            if (imageView.getImage() == getImage(item.getItemIcon())) {
+                selectedItemPlayInv = item;
+            }
+        }
+
+         */
+
+
+
     }
 }
