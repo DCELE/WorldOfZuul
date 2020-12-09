@@ -36,16 +36,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <VBox fx:id="vBoxPlayerInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" visible="false" GridPane.columnIndex="4" GridPane.rowSpan="3">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                     <children>
-                        <Button fx:id="useButton" mnemonicParsing="false" text="Use" />
-                        <Button fx:id="dropButton" mnemonicParsing="false" text="Drop" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
             <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
                <children>
                   <Label text="Room inventory" />
@@ -265,12 +255,16 @@
                   </Pane>
                </children>
             </GridPane>
-            <ImageView fitHeight="46.0" fitWidth="238.0" layoutX="26.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="useButton" fitHeight="38.0" fitWidth="232.0" layoutX="20.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onUseButtonClicked">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/UseButton.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="210.0" layoutX="264.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dropButton" fitHeight="48.0" fitWidth="226.0" layoutX="250.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onDropButtonClicked">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/DropButton.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

@@ -1,9 +1,14 @@
 package worldofzuul;
 
+import javafx.scene.image.Image;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public abstract class Item {
     private String name;
     private int id;
-    private String itemIcon;
+    private Image itemIcon;
 
     public Item() {
     }
@@ -11,7 +16,13 @@ public abstract class Item {
     public Item(String name, int id, String itemIcon) {
         this.name = name;
         this.id = id;
-        this.itemIcon = itemIcon;
+        try {
+            this.itemIcon = new Image(new FileInputStream(itemIcon));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            this.itemIcon = null;
+        }
+
     }
 
     @Override
@@ -33,7 +44,16 @@ public abstract class Item {
         return id;
     }
 
-    public String getItemIcon() {
+    public Image getItemIcon() {
         return itemIcon;
+    }
+
+    public void setItemIcon(String itemIcon) {
+        try {
+            this.itemIcon = new Image(new FileInputStream(itemIcon));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            this.itemIcon = null;
+        }
     }
 }

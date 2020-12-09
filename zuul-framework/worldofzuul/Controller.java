@@ -59,11 +59,12 @@ public class Controller implements Initializable {
         ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
         for (ImageView imageView : inventorySlots) {
             imageView.setDisable(true);
+            imageView.setImage(null);
         }
 
         int i = 0;
         for (Item item : Player.getInventory().getArrayList()) {
-            inventorySlots[i].setImage(getImage(item.getItemIcon()));
+            inventorySlots[i].setImage(item.getItemIcon());
             inventorySlots[i].setDisable(false);
             i++;
         }
@@ -146,6 +147,9 @@ public class Controller implements Initializable {
     }
 
     public void pickUpItem(Item item) {
+        if (!Game.getCurrentRoom().getInventory().getArrayList().contains(item)){
+            return;
+        }
         observRoomInventory.remove(item);
         Player.pickUpItem(item);
         setPlayerInventory();
@@ -154,8 +158,12 @@ public class Controller implements Initializable {
     }
 
     public void dropItem(Item item) {
+        if (!Player.getInventory().getArrayList().contains(item)){
+            return;
+        }
         observRoomInventory.add(item);
         Player.dropItem(item);
+        setPlayerInventory();
         setHintLabel();
     }
 
@@ -318,34 +326,15 @@ public class Controller implements Initializable {
     }
 
     public void onItemInPlayInvClicked(MouseEvent mouseEvent) {
-        ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
-
-        for (ImageView imageView : inventorySlots) {
-            if (imageView == null) {
-                continue;
-            }
-            if (imageView.getImage() == null) {
-                continue;
-            }
-            System.out.println(imageView.imageProperty());
-            System.out.println();
-        }
-
-        /*
-
-        System.out.println(imageView.getImage().getUrl());
+        ImageView imageView = (ImageView) mouseEvent.getSource();
 
         for (Item item : Player.getInventory().getArrayList()) {
             System.out.println(item.getName());
             System.out.println(item.getItemIcon());
-            if (imageView.getImage() == getImage(item.getItemIcon())) {
+            if (imageView.getImage() == item.getItemIcon()) {
                 selectedItemPlayInv = item;
             }
         }
-
-         */
-
-
-
+        System.out.println(selectedItemPlayInv);
     }
 }

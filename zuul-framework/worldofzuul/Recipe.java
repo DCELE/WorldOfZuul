@@ -1,15 +1,22 @@
 package worldofzuul;
 
+import javafx.scene.image.Image;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class Recipe {
     private String name;
     private Room usableIn;
     private int water;
     private int other; // Either pesticides or chemicals never both
+    private String itemIcon;
 
-    public Recipe(Room usableIn, int water, int other) {
+    public Recipe(Room usableIn, int water, int other, String itemIcon) {
         this.usableIn = usableIn;
         this.water = water;
         this.other = other;
+        this.itemIcon = itemIcon;
     }
 
     @Override
@@ -67,5 +74,9 @@ public class Recipe {
 
     public Room getUsableIn() {
         return usableIn;
+    }
+
+    public String getImage() {
+        return itemIcon;
     }
 }

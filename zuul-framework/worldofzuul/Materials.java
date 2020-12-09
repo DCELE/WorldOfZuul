@@ -57,6 +57,7 @@ public class Materials extends Item {
         if (recipes.size() > state) {
             setActiveRecipe(this);
         }
+        this.setItemIcon(activeRecipe.getImage());
     }
 
     public void setNameForState() {
@@ -91,7 +92,6 @@ public class Materials extends Item {
         return planted;
 
     }
-
 
     public void setPlanted() {
         if (!isPlanted()) {
