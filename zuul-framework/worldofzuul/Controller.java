@@ -1,7 +1,5 @@
 package worldofzuul;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -11,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -24,9 +23,11 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
+    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6;
+    @FXML
     private Pane playInvPane;
     @FXML
-    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
+    private ImageView playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -42,11 +43,10 @@ public class Controller implements Initializable {
     @FXML
     private Label scoreboard;
     @FXML
-    private ListView<Item> roomInventory;
-    private ObservableList<Item> observRoomInventory;
+    private FlowPane roomInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
-    private worldofzuul.Item selectedItemPlayInv;
+    private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv;
 
 
     @Override
@@ -55,15 +55,20 @@ public class Controller implements Initializable {
 
     }
 
-    public void setPlayerInventory() {
-        ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
+    public void setInventory(Inventory inventory) {
+        ImageView[] inventorySlots = new ImageView[]{roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6};
+
+        if (inventory == Player.getInventory()) {
+            inventorySlots = new ImageView[]{playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
+        }
+
         for (ImageView imageView : inventorySlots) {
             imageView.setDisable(true);
             imageView.setImage(null);
         }
 
         int i = 0;
-        for (Item item : Player.getInventory().getArrayList()) {
+        for (Item item : inventory.getArrayList()) {
             inventorySlots[i].setImage(item.getItemIcon());
             inventorySlots[i].setDisable(false);
             i++;
@@ -122,9 +127,7 @@ public class Controller implements Initializable {
     }
 
     private void setRoomInventory(Room room) {
-        observRoomInventory = FXCollections.observableArrayList();
-        observRoomInventory.addAll(room.getInventory().getArrayList());
-        roomInventory.setItems(observRoomInventory);
+        setInventory(room.getInventory());
     }
 
     public void setTextBox(Room room) {
@@ -147,38 +150,37 @@ public class Controller implements Initializable {
     }
 
     public void pickUpItem(Item item) {
-        if (!Game.getCurrentRoom().getInventory().getArrayList().contains(item)){
+        if (!Game.getCurrentRoom().getInventory().getArrayList().contains(item)) {
             return;
         }
-        observRoomInventory.remove(item);
         Player.pickUpItem(item);
-        setPlayerInventory();
+        setInventory(Game.getCurrentRoom().getInventory());
+        setInventory(Player.getInventory());
         setRoomInventory(Game.getCurrentRoom());
         setHintLabel();
     }
 
     public void dropItem(Item item) {
-        if (!Player.getInventory().getArrayList().contains(item)){
+        if (!Player.getInventory().getArrayList().contains(item)) {
             return;
         }
-        observRoomInventory.add(item);
         Player.dropItem(item);
-        setPlayerInventory();
+        setInventory(Game.getCurrentRoom().getInventory());
+        setInventory(Player.getInventory());
         setHintLabel();
     }
 
     public void onPickUpButtonClicked(MouseEvent mouseEvent) {
-        Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
+        if (selectedItemRoomInv == null) {
             setTextBox(Game.getCurrentRoom());
             return;
         }
-        if (!Game.getItem(selectedItem)) {
-            setPlayerInventory();
+        if (!Game.getItem(selectedItemRoomInv)) {
+            setInventory(Player.getInventory());
             setTextBox(Game.getCurrentRoom());
             return;
         }
-        pickUpItem(selectedItem);
+        pickUpItem(selectedItemRoomInv);
         setTextBox(Game.getCurrentRoom());
     }
 
@@ -198,8 +200,7 @@ public class Controller implements Initializable {
         }
 
         if (!Game.useItem(selectedItemPlayInv)) {
-            setPlayerInventory();
-            roomInventory.refresh();
+            setInventory(Player.getInventory());
             setTextBox(Game.getCurrentRoom());
             setHintLabel();
             return;
@@ -251,7 +252,7 @@ public class Controller implements Initializable {
         Game.getChosenMaterial().setColor(color);
         setHintLabel();
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
-        roomInventory.refresh();
+        setInventory(Game.getCurrentRoom().getInventory());
 
         Stage stage = (Stage) pickMaterialColor.getScene().getWindow();
         stage.close();
@@ -260,32 +261,30 @@ public class Controller implements Initializable {
     public void materialClicked(MouseEvent mouseEvent) {
 
         //if (room.getName().equals("materials")) {
-
-        Item selectedItem = roomInventory.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
+        if (selectedItemRoomInv == null) {
             return;
         }
-        textBox1.setText(selectedItem.getName());
+        textBox1.setText(selectedItemRoomInv.getName());
         textBox4.setText("Pros");
         textBox5.setText("Cons");
 
-        if (selectedItem == Game.getHemp()) {
+        if (selectedItemRoomInv == Game.getHemp()) {
             textBox2.setText("Low use of pesticides");
             textBox3.setText("Large water consumption\n - 650L per t-shirt\nGo through chemical process");
         }
-        if (selectedItem == Game.getLinen()) {
+        if (selectedItemRoomInv == Game.getLinen()) {
             textBox2.setText("Easy degradable in the nature\nLow water consumption\n - 6.4L per t-shirt \nLow use of pesticides");
             textBox3.setText("Creases easily\nGo through chemical process");
         }
-        if (selectedItem == Game.getBamboo()) {
+        if (selectedItemRoomInv == Game.getBamboo()) {
             textBox2.setText("Fast-growing\nProduces a lot of oxygen per hectare\nAbsorbs up to 12 ton carbon dioxide\n - 2 tons more than the average per hectare\nLow water consumption");
             textBox3.setText("Primarily grown in China\n - Low requirements in proportion to pollution\nGo through chemical process");
         }
-        if (selectedItem == Game.getCotton()) {
+        if (selectedItemRoomInv == Game.getCotton()) {
             textBox2.setText("Lightweight and soft\n");
             textBox3.setText("Large water consumption\n - 2700L per t-shirt\nGrows best in countries with a low rainfall\nGo through chemical process");
         }
-        if (selectedItem == Game.getPolyester()) {
+        if (selectedItemRoomInv == Game.getPolyester()) {
             textBox2.setText("Hard-wearing\nDries fast\nCreases not easily\nCheap");
             textBox3.setText("Based on oil and natural gas\nUse of Carcinogen\n - Chemical in benzene and asbestos\n - Cancer-causing & harmful to the environment\nProduced in countries with low requirements to pollution\n - eg China, Bangladesh and Indonesia");
         }
@@ -326,14 +325,20 @@ public class Controller implements Initializable {
 
     public void onItemInPlayInvClicked(MouseEvent mouseEvent) {
         ImageView imageView = (ImageView) mouseEvent.getSource();
+        selectedItemPlayInv = selectItem(imageView.getImage(), Player.getInventory());
+    }
 
-        for (Item item : Player.getInventory().getArrayList()) {
-            System.out.println(item.getName());
-            System.out.println(item.getItemIcon());
-            if (imageView.getImage() == item.getItemIcon()) {
-                selectedItemPlayInv = item;
+    public void onItemInRoomInvClicked(MouseEvent mouseEvent) {
+        ImageView imageView = (ImageView) mouseEvent.getSource();
+        selectedItemRoomInv = selectItem(imageView.getImage(), Game.getCurrentRoom().getInventory());
+    }
+
+    public Item selectItem(Image image, Inventory inventory) {
+        for (Item item : inventory.getArrayList()) {
+            if (image == item.getItemIcon()) {
+                return item;
             }
         }
-        System.out.println(selectedItemPlayInv);
+        return null;
     }
 }
