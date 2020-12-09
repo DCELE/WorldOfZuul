@@ -1,10 +1,5 @@
 package worldofzuul;
 
-import javafx.scene.image.Image;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 public class Recipe {
     private String name;
     private Room usableIn;

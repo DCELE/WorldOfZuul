@@ -19,9 +19,11 @@ public class Bucket extends Item {
         if (!hasWater) {
             this.hasWater = true;
             setName((getName() + " with water"));
+            super.setItemIcon("worldofzuul/WorldOfZuulPNG/Items/BucketWithWater.png");
         } else {
             this.hasWater = false;
             setName((getName().split(" "))[0]);
+            super.setItemIcon("worldofzuul/WorldOfZuulPNG/Items/Bucket.png");
         }
     }
 
