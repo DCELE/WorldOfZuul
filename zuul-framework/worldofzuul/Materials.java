@@ -53,11 +53,11 @@ public class Materials extends Item {
 
     public void upgradeState() {
         this.state += 1;
+        this.setItemIcon(activeRecipe.getImage());
         setNameForState();
         if (recipes.size() > state) {
             setActiveRecipe(this);
         }
-        this.setItemIcon(activeRecipe.getImage());
     }
 
     public void setNameForState() {
