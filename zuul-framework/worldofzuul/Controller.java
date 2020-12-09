@@ -337,5 +337,4 @@ public class Controller implements Initializable {
         }
         System.out.println(selectedItemPlayInv);
     }
-    
 }
