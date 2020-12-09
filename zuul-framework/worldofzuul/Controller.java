@@ -252,24 +252,24 @@ public class Controller implements Initializable {
 
 
         if (selectedItem == Game.getHemp()) {
-            textBox2.setText("Lavt forbrug af pesticider");
-            textBox3.setText("Stort vandforbrug\n - 650L per t-shirt\nGennemgå kemisk proces");
+            textBox2.setText("Low use of pesticides");
+            textBox3.setText("Large water consumption\n - 650L per t-shirt\nGo through chemical process");
         }
         if (selectedItem == Game.getLinen()) {
-            textBox2.setText("Let nedbrydeligt i naturen\nLavt vandforbrug \nLavt forbrug af pesticider\n - 6.4L per t-shirt");
-            textBox3.setText("Krøller nemt\nGennemgå kemisk proces");
+            textBox2.setText("Easy degradable in the nature\nLow water consumption\n - 6.4L per t-shirt \nLow use of pesticides");
+            textBox3.setText("Creases easily\nGo through chemical process");
         }
         if (selectedItem == Game.getBamboo()) {
-            textBox2.setText("Hurtigtvoksende\nProducerer meget oxygen pr hektar\nAbsorberer op til 12 ton kuldioxid\n - 2 ton mere end gennemmsnittet pr hektar\nLavt vandforbrug");
-            textBox3.setText("Primært dyrket i Kina\n - Lave krav ift. forurening\nGennemgå kemisk proces");
+            textBox2.setText("Fast-growing\nProduces a lot of oxygen per hectare\nAbsorbs up to 12 ton carbon dioxide\n - 2 tons more than the average per hectare\nLow water consumption");
+            textBox3.setText("Primarily grown in China\n - Low requirements in proportion to pollution\nGo through chemical process");
         }
         if (selectedItem == Game.getCotton()) {
-            textBox2.setText("Let og blødt\n");
-            textBox3.setText("Stort vandforbrug\n - 2700L per t-shirt\nGror bedst i regnfattige lande\nGennemgå kemisk proces");
+            textBox2.setText("Lightweight and soft\n");
+            textBox3.setText("Large water consumption\n - 2700L per t-shirt\nGrows best in countries with a low rainfall\nGo through chemical process");
         }
         if (selectedItem == Game.getPolyester()) {
-            textBox2.setText("Slidtstærkt\nTørrer hurtigt\nKrøller ikke så nemt\nBilligt ");
-            textBox3.setText("Produkt baseret på olie og naturgas\nBrug af Carcinogen\n - Kemikalie der findes i benzen og asbest\n - Kræftfremkaldende & skadeligt for miljøet\nProduceret i lande med lave krav til forunering\n - Eksempelvis Kina, Bangladesh og Indonesien");
+            textBox2.setText("Hard-wearing\nDries fast\nCreases not easily\nCheap");
+            textBox3.setText("Based on oil and natural gas\nUse of Carcinogen\n - Chemical in benzene and asbestos\n - Cancer-causing & harmful to the environment\nProduced in countries with low requirements to pollution\n - eg China, Bangladesh and Indonesia");
         }
 
     }
@@ -299,6 +299,7 @@ public class Controller implements Initializable {
 
     public void setScoreboard(Room room) {
         scoreboard.setText(String.valueOf("Current score: " + Player.playerScore.getScore()));
+
     }
 
     public void showHelp(MouseEvent mouseEvent) {
