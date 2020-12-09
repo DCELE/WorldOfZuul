@@ -174,7 +174,7 @@ public class Controller implements Initializable {
             return;
         }
         if (!Game.getItem(selectedItem)) {
-            //playerInventory.refresh();
+            setPlayerInventory();
             setTextBox(Game.getCurrentRoom());
             return;
         }
@@ -198,7 +198,7 @@ public class Controller implements Initializable {
         }
 
         if (!Game.useItem(selectedItemPlayInv)) {
-            //playerInventory.refresh();
+            setPlayerInventory();
             roomInventory.refresh();
             setTextBox(Game.getCurrentRoom());
             setHintLabel();
