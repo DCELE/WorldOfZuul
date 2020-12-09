@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,15 +24,16 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    private javafx.scene.image.ImageView playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
+    private Pane playInvPane;
     @FXML
-    private javafx.scene.image.ImageView ImageView;
+    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
+    private ImageView[] inventorySlots = new ImageView[] {playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
+    @FXML
+    private ImageView backgroundImage;
     private VBox pickMaterialColor;
     private ToggleGroup pickColor;
     @FXML
     private Label hintLabel;
-    @FXML
-    private VBox vBoxPlayerInventory, vBoxRoomInventory;
     @FXML
     public Pane PaneShowHelp;
     @FXML
@@ -45,8 +45,6 @@ public class Controller implements Initializable {
     @FXML
     private ListView<Item> roomInventory;
     private ObservableList<Item> observRoomInventory;
-    @FXML
-    private ListView<Item> playerInventory;
     private ObservableList<Item> observPlayerInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
@@ -57,8 +55,13 @@ public class Controller implements Initializable {
         loadRoom(Room.getAllRooms().get(0));
 
         // Initialize playerInventory
-        observPlayerInventory = FXCollections.observableArrayList(Player.getInventory().getArrayList());
-        playerInventory.setItems(observPlayerInventory);
+        //observPlayerInventory = FXCollections.observableArrayList(Player.getInventory().getArrayList());
+        int i = 0;
+        for (Item item : Player.getInventory().getArrayList()) {
+            inventorySlots[i].setImage(getImage(item.getItemIcon()));
+            i++;
+        }
+
     }
 
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
@@ -97,15 +100,19 @@ public class Controller implements Initializable {
         }
     }
 
-    private void setBackgroundImage(Room room) {
+    private Image getImage(String url) {
         Image image;
         try {
-             image = new Image(new FileInputStream(room.getBackgroundImage()));
+            image = new Image(new FileInputStream(url));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return;
+            return null;
         }
-        ImageView.setImage(image);
+        return image;
+    }
+
+    private void setBackgroundImage(Room room) {
+        backgroundImage.setImage(getImage(room.getBackgroundImage()));
     }
 
     private void setRoomInventory(Room room) {
@@ -155,14 +162,14 @@ public class Controller implements Initializable {
             return;
         }
         if (!Game.getItem(selectedItem)) {
-            playerInventory.refresh();
+            //playerInventory.refresh();
             setTextBox(Game.getCurrentRoom());
             return;
         }
         pickUpItem(selectedItem);
         setTextBox(Game.getCurrentRoom());
     }
-
+    /*
     public void onDropButtonClicked(MouseEvent mouseEvent) {
         Item selectedItem = playerInventory.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
@@ -181,7 +188,7 @@ public class Controller implements Initializable {
         }
 
         if (!Game.useItem(selectedItem)) {
-            playerInventory.refresh();
+            //playerInventory.refresh();
             roomInventory.refresh();
             setTextBox(Game.getCurrentRoom());
             setHintLabel();
@@ -195,6 +202,8 @@ public class Controller implements Initializable {
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
         setTextBox(Game.getCurrentRoom());
     }
+
+     */
 
     private void chooseColor() {
         pickColor = new ToggleGroup();
@@ -276,8 +285,8 @@ public class Controller implements Initializable {
     }
 
     public void openInventory(MouseEvent mouseEvent) {
-        boolean setVisibility = !vBoxPlayerInventory.isVisible();
-        vBoxPlayerInventory.setVisible(setVisibility);
+        boolean setVisibility = !playInvPane.isVisible();
+        playInvPane.setVisible(setVisibility);
     }
 
     public void setHintLabel() {

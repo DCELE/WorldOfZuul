@@ -16,8 +16,8 @@ public class Materials extends Item {
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
     private int points;
 
-    public Materials(String name, int id, int points) {
-        super(name, id);
+    public Materials(String name, int id, int points, String itemIcon) {
+        super(name, id, itemIcon);
         this.state = 0;
         this.planted = false;
         this.color = "colored";

@@ -45,16 +45,16 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
 
         // Initializing items
-        hemp = new Materials("hemp", 1, -5);
-        linen = new Materials("linen", 2, -15);
-        bamboo = new Materials("bamboo", 3, -20);
-        cotton = new Materials("cotton", 4, -25);
-        polyester = new Materials("polyester", 5, -10);
+        hemp = new Materials("hemp", 1, -5,"worldofzuul/WorldOfZuulPNG/Objects/HempSeed.png");
+        linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Objects/LinenSeed.png");
+        bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Objects/BambooSeed.png");
+        cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Objects/CottonSeed.png");
+        polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Objects/Polyester.png");
 
         water = new Water();
-        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory});
-        pesticides = new Pesticides("pesticides", 8, farm);
-        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory});
+        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Objects/Bucket");
+        pesticides = new Pesticides("pesticides", 8, farm, "worldofzuul/WorldOfZuulPNG/Objects/Pesticides.png");
+        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Objects/Chemicals.png");
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
         hemp.addRecipe(new Recipe(farm, 0, 0));

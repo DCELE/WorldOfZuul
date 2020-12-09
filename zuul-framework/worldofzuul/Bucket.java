@@ -4,8 +4,8 @@ public class Bucket extends Item {
     private boolean hasWater;
     private Room[] roomsToUse;
 
-    public Bucket(String name, int id, Room[] roomsToUseBucket) {
-        super(name, id);
+    public Bucket(String name, int id, Room[] roomsToUseBucket, String itemIcon) {
+        super(name, id, itemIcon);
         hasWater = false;
         this.roomsToUse = roomsToUseBucket;
     }

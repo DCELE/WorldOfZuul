@@ -3,13 +3,15 @@ package worldofzuul;
 public abstract class Item {
     private String name;
     private int id;
+    private String itemIcon;
 
     public Item() {
     }
 
-    public Item(String name, int id) {
+    public Item(String name, int id, String itemIcon) {
         this.name = name;
         this.id = id;
+        this.itemIcon = itemIcon;
     }
 
     @Override
@@ -31,4 +33,7 @@ public abstract class Item {
         return id;
     }
 
+    public String getItemIcon() {
+        return itemIcon;
+    }
 }
