@@ -203,6 +203,7 @@ public class Game {
             if (currentRoom == bucket.getRoomsToUse()[1] || currentRoom == bucket.getRoomsToUse()[2]) {
                 // Pour water in the machines/filling them up in fabricFactory.
                 if (!chosenMaterial.isInProcess()) {
+                    Player.playerScore.addToScore(-5);
                     return false;
                 }
             }
@@ -219,10 +220,12 @@ public class Game {
             for (Room room : chemicals.getRoomsToUse()) {
                 useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
             }
+            Player.playerScore.addToScore(-5);
         }
 
         if (item.equals(pesticides)) {
             useChemicalsOrPesticides(chosenMaterial.isPlanted(), pesticides.getRoomToUse());
+            Player.playerScore.addToScore(-5);
         }
 
         enoughOfEverything(chosenMaterial.isInProcess() || chosenMaterial.isPlanted());

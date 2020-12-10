@@ -360,6 +360,7 @@ public class Controller implements Initializable {
             setInventory(Game.getCurrentRoom().getInventory());
             setTextBox(Game.getCurrentRoom());
             setHintLabel();
+            loadRoom(Game.getCurrentRoom());
             return;
         }
         if (Game.getChosenMaterial().getState() == 2 && Game.getChosenMaterial().isInProcess()) {
@@ -370,6 +371,7 @@ public class Controller implements Initializable {
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
         setInventory(Game.getCurrentRoom().getInventory());
         setTextBox(Game.getCurrentRoom());
+        loadRoom(Game.getCurrentRoom());
     }
 
 
