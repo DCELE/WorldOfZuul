@@ -36,13 +36,13 @@ public class Game {
 
         // Initializing rooms
         mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Mainroom.png");
-        materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Materials.png");
-        well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water", wellInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Well.png");
-        farm = new Room("Farm", "in the farm. You can plant your chosen seed and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
+        materials = new Room("Materials", "in the material room. Here you can pick a seed you want to work with", materialsInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Materials.png");
+        well = new Room("Water", "in the water reservoir. If you have a bucket, you can pick up some water", wellInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Well.png");
+        farm = new Room("Farm", "at the farm. You can plant your chosen seeds and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
         factory = new Room("Factory", "in the factory. You can process your product here", factoryInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Factory.png");
         colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Coloring.png");
         sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here", sewingInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Sewing.png");
-        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
+        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your t-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
 
         // Initializing items
         hemp = new Materials("hemp", 1, -5,"worldofzuul/WorldOfZuulPNG/Items/HempSeed.png");
