@@ -161,11 +161,24 @@ public class Controller implements Initializable {
         loadRoom(Room.getRoom(labelText));
     }
 
-    public void onNavigationImageClicked(MouseEvent mouseEvent)
-    {
-        String label = navMain1.getAccessibleText();
-        testlabel.setText(label);
-    }
+
+    public void factoryNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getFactory());}
+
+    public void wellNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getWell());}
+
+    public void farmNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getFarm());}
+
+    public void materialNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getMaterials());}
+
+    public void mainNavClicked(MouseEvent mouseEvent) {loadRoom(Game.getMainRoom());}
+
+    public void colorNavClicked(MouseEvent mouseEvent) {loadRoom(Game.getColorFactory());}
+
+    public void sewingNavClicked(MouseEvent mouseEvent) {loadRoom(Game.getSewingFactory());}
+
+    public void fabricNavClicked(MouseEvent mouseEvent) {loadRoom(Game.getFabricFactory());}
+
+
 
     // Load room everytime NavigationButton is clicked
     public void loadRoom(Room room) {
@@ -190,6 +203,8 @@ public class Controller implements Initializable {
         // Set background
         setBackgroundImage(room);
         //Set exitImages
+        setNavigationImages(room);
+        //Change room with images
         setNavigationImages(room);
 
 
@@ -310,6 +325,7 @@ public class Controller implements Initializable {
             buttons[i].setVisible(true);
         }
     }
+
 
     public void setButton(Button button, Room exitRoom) {
         button.setText(exitRoom.getName());
