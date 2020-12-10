@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cad7ae0d-887c-473b-bde6-a01119195299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/zuul-framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/zuul-framework/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2b74c8ea-2481-464d-9cb8-ae9e16aa0408" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,24 +10,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1lNVt4MUVrNdvjbPb96p5QctZVB" />
+  <component name="ProjectId" id="1lNoHev12cwYhBSXXPQ2Rcc72f6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Skrivebord/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="zuul-framework" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../JavaFX/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\hey-s\OneDrive\Skrivebord\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -56,54 +35,69 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cad7ae0d-887c-473b-bde6-a01119195299" name="Default Changelist" comment="" />
-      <created>1607437746853</created>
+      <changelist id="2b74c8ea-2481-464d-9cb8-ae9e16aa0408" name="Default Changelist" comment="" />
+      <created>1607446830198</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607437746853</updated>
+      <updated>1607446830198</updated>
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="171" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607508507576">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607557050045">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="171" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1607508507576" />
-    <state width="1216" height="193" key="GridCell.Tab.0.bottom" timestamp="1607614392111">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1607446898977" />
+    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557050045" />
+    <state x="418" y="104" key="FileChooserDialogImpl" timestamp="1607619084431">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1216" height="193" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1607614392111" />
-    <state width="1216" height="193" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607611107778" />
-    <state width="1216" height="193" key="GridCell.Tab.0.center" timestamp="1607614392110">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state x="348" y="86" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1607446882317" />
+    <state x="418" y="104" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1607619084431" />
+    <state width="1493" height="166" key="GridCell.Tab.0.bottom" timestamp="1607618982254">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1216" height="193" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1607614392110" />
-    <state width="1216" height="193" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607611107778" />
-    <state width="1216" height="193" key="GridCell.Tab.0.left" timestamp="1607614392109">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1607447715394" />
+    <state width="1493" height="166" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1607618982254" />
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
+    <state width="1493" height="166" key="GridCell.Tab.0.center" timestamp="1607618982253">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1216" height="193" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1607614392109" />
-    <state width="1216" height="193" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607611107777" />
-    <state width="1216" height="193" key="GridCell.Tab.0.right" timestamp="1607614392110">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1607447715393" />
+    <state width="1493" height="166" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1607618982253" />
+    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
+    <state width="1493" height="166" key="GridCell.Tab.0.left" timestamp="1607618982253">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1216" height="193" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1607614392110" />
-    <state width="1216" height="193" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607611107778" />
-    <state x="195" y="23" width="1024" height="831" key="SettingsEditor" timestamp="1607438033660">
-      <screen x="0" y="23" width="1440" height="831" />
+    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1607447715393" />
+    <state width="1493" height="166" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1607618982253" />
+    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759664" />
+    <state width="1493" height="166" key="GridCell.Tab.0.right" timestamp="1607618982253">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="195" y="23" width="1024" height="831" key="SettingsEditor/0.23.1440.831@0.23.1440.831" timestamp="1607438033660" />
+    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1607447715394" />
+    <state width="1493" height="166" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1607618982253" />
+    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
+    <state x="145" y="0" key="SettingsEditor" timestamp="1607619087790">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1607446885086" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1607619087790" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/worldofzuul/Game.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/worldofzuul/Controller.java</url>
+          <line>168</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
