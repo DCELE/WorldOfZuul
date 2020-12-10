@@ -20,11 +20,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
    <children>
-      <ImageView fx:id="backgroundImage" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@WorldOfZuulPNG/Rooms/Fabric.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="backgroundImage" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
       <Pane fx:id="navFabricPane" layoutX="327.0" layoutY="229.0" prefHeight="428.0" prefWidth="277.0" visible="false">
          <children>
             <ImageView fitHeight="398.0" fitWidth="375.0" layoutX="52.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +41,7 @@
       </Pane>
       <Pane fx:id="navSewingPane" layoutX="303.0" layoutY="88.0" prefHeight="443.0" prefWidth="277.0" visible="false">
          <children>
-            <ImageView fitHeight="398.0" fitWidth="375.0" layoutX="49.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="398.0" fitWidth="375.0" layoutX="49.0" layoutY="45.0" onMouseClicked="#onNavigationImageClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/DoorFront.png" />
                </image>
@@ -103,16 +99,8 @@
             </ImageView>
          </children>
       </Pane>
-      <ImageView fx:id="chemicalImageView" fitHeight="111.0" fitWidth="129.0" layoutX="897.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="bucketImageView" fitHeight="111.0" fitWidth="129.0" layoutX="819.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="pesticideImageView" fitHeight="111.0" fitWidth="140.0" layoutX="878.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
       <Pane fx:id="navMainPane" layoutX="317.0" layoutY="379.0" prefHeight="340.0" prefWidth="323.0" visible="false">
          <children>
-            <ImageView fx:id="navMain1" fitHeight="34.0" fitWidth="150.0" layoutX="87.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/FactorySign.png" />
-               </image>
-            </ImageView>
             <ImageView fx:id="navMain2" fitHeight="34.0" fitWidth="129.0" layoutX="74.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/WellSign.png" />
@@ -128,8 +116,20 @@
                   <Image url="@WorldOfZuulPNG/Navigation/MaterialSign.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="navMain1" fitHeight="34.0" fitWidth="150.0" layoutX="87.0" layoutY="69.0" onMouseClicked="#onNavigationImageClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/FactorySign.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label fx:id="testLabel" prefHeight="118.0" prefWidth="189.0" text="Label" />
          </children>
       </Pane>
+      <ImageView fx:id="chemicalImageView" fitHeight="111.0" fitWidth="129.0" layoutX="897.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bucketImageView" fitHeight="111.0" fitWidth="129.0" layoutX="819.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="pesticideImageView" fitHeight="111.0" fitWidth="140.0" layoutX="878.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane layoutX="241.0" layoutY="270.0" prefHeight="200.0" prefWidth="914.0">
          <children>
             <ImageView fx:id="materialImage1" fitHeight="60.0" fitWidth="60.0" layoutX="165.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
@@ -195,7 +195,8 @@
                   <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@WorldOfZuulPNG/Icons/TextConstructerHat.png" />
-                     </image></ImageView>
+                     </image>
+                  </ImageView>
                   <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="262.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
                      <padding>
                         <Insets left="10.0" top="5.0" />
@@ -241,7 +242,8 @@
                         <Label fx:id="scoreboard" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
                            <font>
                               <Font name="American Typewriter" size="13.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

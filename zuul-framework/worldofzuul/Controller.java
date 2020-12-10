@@ -30,7 +30,7 @@ public class Controller implements Initializable {
     @FXML
     private VBox pickUpQuestion;
     @FXML
-    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6;
+    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6, navMain1;
     @FXML
     private Pane playInvPane;
     @FXML
@@ -46,7 +46,7 @@ public class Controller implements Initializable {
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
-    private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5;
+    private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5, testlabel;
     @FXML
     private Label scoreboard;
     @FXML
@@ -87,6 +87,12 @@ public class Controller implements Initializable {
         Button button = (Button) mouseEvent.getSource();
         String labelText = button.getText();
         loadRoom(Room.getRoom(labelText));
+    }
+
+    public void onNavigationImageClicked(MouseEvent mouseEvent)
+    {
+        String label = navMain1.getAccessibleText();
+        testlabel.setText(label);
     }
 
     // Load room everytime NavigationButton is clicked
@@ -229,6 +235,7 @@ public class Controller implements Initializable {
     }
 
     public void setTextBox(Room room) {
+
         textBox.setText(room.getLongDescription());
     }
 
