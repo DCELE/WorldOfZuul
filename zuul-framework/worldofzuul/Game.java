@@ -36,50 +36,50 @@ public class Game {
 
         // Initializing rooms
         mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Mainroom.png");
-        materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Materials.png");
-        well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water", wellInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Well.png");
-        farm = new Room("Farm", "on the farm. You can plant your chosen seed and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
+        materials = new Room("Materials", "in the material room. Here you can pick a seed you want to work with", materialsInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Materials.png");
+        well = new Room("Water", "in the water reservoir. If you have a bucket, you can pick up some water", wellInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Well.png");
+        farm = new Room("Farm", "at the farm. You can plant your chosen seeds and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
         factory = new Room("Factory", "in the factory. You can process your product here", factoryInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Factory.png");
         colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Coloring.png");
         sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here", sewingInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Sewing.png");
-        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your T-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
+        fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your t-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
 
         // Initializing items
-        hemp = new Materials("hemp", 1, -5,"worldofzuul/WorldOfZuulPNG/Items/HempSeed.png");
-        linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Items/LinenSeed.png");
-        bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Items/BambooSeed.png");
-        cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Items/CottonSeed.png");
-        polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Items/Polyester.png");
+        hemp = new Materials("hemp", 1, -5, "worldofzuul/WorldOfZuulPNG/Items/HempSeed.png", "Hemp seed\n Pros\n Low use of pesticides\n Cons\n Large water consumption\n - 650L per t-shirt\nGo through chemical process");
+        linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Items/LinenSeed.png", "Linen seed\n Pros\n Easy degradable in the nature\nLow water consumption\n - 6.4L per t-shirt \nLow use of pesticides\n Cons\n Creases easily\nGo through chemical process");
+        bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Items/BambooSeed.png", "Bamboo seed\n Pros\n Fast-growing\nProduces a lot of oxygen per hectare\nAbsorbs up to 12 ton carbon dioxide\n - 2 tons more than the average per hectare\nLow water consumption\n Cons\n Primarily grown in China\n - Low requirements in proportion to pollution\nGo through chemical process");
+        cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Items/CottonSeed.png", "Cotton seed\n Pros\n Lightweight and soft\n Cons\n Large water consumption\n - 2700L per t-shirt\nGrows best in countries with a low rainfall\nGo through chemical process");
+        polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Items/Polyester.png", "Polyester\n Pros\n Hard-wearing\n Dries fast\n Creases not easily\n Cheap\n Cons\n Based on oil and natural gas\nUse of Carcinogen\n - Chemical in benzene and asbestos\n - Cancer-causing & harmful to the environment\nProduced in countries with low requirements to pollution\n - eg China, Bangladesh and Indonesia");
 
         water = new Water();
-        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Bucket.png");
-        pesticides = new Pesticides("pesticides", 8, farm, "worldofzuul/WorldOfZuulPNG/Items/Pesticides.png");
-        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png");
+        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Bucket.png", "Bucket");
+        pesticides = new Pesticides("pesticides", 8, farm, "worldofzuul/WorldOfZuulPNG/Items/Pesticides.png", "Pesticides");
+        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png", "Chemicals");
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
-        hemp.addRecipe(new Recipe(farm, 0, 0));
-        hemp.addRecipe(new Recipe(fabricFactory, 0, 0));
-        hemp.addRecipe(new Recipe(colorFactory, 1, 1));
-        hemp.addRecipe(new Recipe(sewingFactory, 0, 0));
+        hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png"));
+        hemp.addRecipe(new Recipe(fabricFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        hemp.addRecipe(new Recipe(colorFactory, 1, 1,"worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        hemp.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        linen.addRecipe(new Recipe(farm, 1, 1));
-        linen.addRecipe(new Recipe(fabricFactory, 1, 1));
-        linen.addRecipe(new Recipe(colorFactory, 1, 1));
-        linen.addRecipe(new Recipe(sewingFactory, 0, 0));
+        linen.addRecipe(new Recipe(farm, 1, 1, "worldofzuul/WorldOfZuulPNG/Items/LinenPlant.png"));
+        linen.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        linen.addRecipe(new Recipe(colorFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        bamboo.addRecipe(new Recipe(farm, 2, 2));
-        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1));
-        bamboo.addRecipe(new Recipe(colorFactory, 2, 2));
-        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0));
+        bamboo.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png"));
+        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        bamboo.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        cotton.addRecipe(new Recipe(farm, 2, 2));
-        cotton.addRecipe(new Recipe(fabricFactory, 1, 1));
-        cotton.addRecipe(new Recipe(colorFactory, 2, 2));
-        cotton.addRecipe(new Recipe(sewingFactory, 0, 0));
+        cotton.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/CottonPlant.png"));
+        cotton.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        cotton.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        polyester.addRecipe(new Recipe(fabricFactory, 1, 1));
-        polyester.addRecipe(new Recipe(colorFactory, 2, 2));
-        polyester.addRecipe(new Recipe(sewingFactory, 0, 0));
+        polyester.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        polyester.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -124,6 +124,9 @@ public class Game {
 
     // Use materials in farm
     public static boolean useItem(Item item) {
+        if (!Player.getInventory().getArrayList().contains(item)) {
+            return false;
+        }
         // You cannot use anything before picking up an item
         if (chosenMaterial == null) {
             return false;
@@ -147,13 +150,16 @@ public class Game {
             }
             // Check the materials stage
             if (chosenMaterial.getState() == 0) {
-                // Plant material
-                chosenMaterial.setPlanted();
+
                 if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
                 else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
                 else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
             }
+
+            // Plant material
+            chosenMaterial.setPlanted();
+
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
                 // Make fabric or dye fabric
@@ -269,6 +275,7 @@ public class Game {
                 Materials.setActiveRecipe(chosenMaterial);
                 // Remove all other materials from room
                 currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
+                currentRoom.getInventory().addToInventory(chosenMaterial);
             }
 
             if (material.isPlanted()) {

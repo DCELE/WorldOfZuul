@@ -5,14 +5,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -156,32 +154,32 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <VBox fx:id="vBoxPlayerInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" visible="false" GridPane.columnIndex="4" GridPane.rowSpan="3">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                     <children>
-                        <Button fx:id="useButton" mnemonicParsing="false" text="Use" />
-                        <Button fx:id="dropButton" mnemonicParsing="false" text="Drop" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox fx:id="vBoxRoomInventory" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: grey;" GridPane.rowSpan="2">
-               <children>
-                  <Label text="Room inventory" />
-                  <ListView fx:id="roomInventory" onMouseClicked="#materialClicked" prefHeight="350.0" prefWidth="238.0" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="pickUpButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#onPickUpButtonClicked" text="Pick up" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="inventoryButton" mnemonicParsing="false" onMouseClicked="#openInventory" text="Inventory" />
-                  <Button fx:id="hintButton" mnemonicParsing="false" onMouseClicked="#onHintClicked" text="Hint" />
-                  <Button fx:id="helpButton" mnemonicParsing="false" onMouseClicked="#showHelp" text="Help" />
+                  <ImageView fx:id="inventoryButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#openInventory" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/InventoryIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="hintButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#onHintClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/HintIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="helpButton" fitHeight="57.0" fitWidth="57.0" onMouseClicked="#showHelp" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Navigation/HelpIcon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children>
             </HBox>
             <VBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="148.0" spacing="5.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
@@ -192,7 +190,6 @@
                   <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
                </children>
             </VBox>
-            <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" GridPane.columnIndex="2" />
             <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
                   <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -204,30 +201,50 @@
                         <Insets left="10.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font size="16.0" />
+                        <Font name="American Typewriter" size="13.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <ImageView fx:id="hintImage" fitHeight="193.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Icons/Hint.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" maxHeight="193.0" maxWidth="230.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="hintLabel" style="-fx-border-color: black; -fx-border-style: dotted; -fx-border-width: 2;" text="Label" visible="false">
+                  <Label fx:id="hintLabel" blendMode="MULTIPLY" text="Label" visible="false">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
+                     <font>
+                        <Font name="American Typewriter" size="13.0" />
+                     </font>
                   </Label>
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
-               <children>
-                  <Label contentDisplay="TOP" style="-fx-border-color: grey;" text="Score" />
-               </children>
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
                <padding>
                   <Insets top="10.0" />
                </padding>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@WorldOfZuulPNG/Icons/Score.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="scoreboard" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
+                           <font>
+                              <Font name="American Typewriter" size="13.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+               </children>
             </VBox>
             <Pane fx:id="prosConsPanel" prefHeight="380.0" prefWidth="238.0" GridPane.columnIndex="1">
                <children>
@@ -254,34 +271,30 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="PaneShowHelp" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="3">
+            <Pane fx:id="PaneShowHelp" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="3">
                <children>
-                  <TextArea fx:id="showHelp" cache="true" layoutX="-1.0" layoutY="33.0" prefHeight="577.0" prefWidth="762.0" text="WELCOME TO THE HELP FAQ.&#10;___________________________________________________________________________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;____________________________________________________________________________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;____________________________________________________________________________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;____________________________________________________________________________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;____________________________________________________________________________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;____________________________________________________________________________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="11.0" />
-                     </font>
-                  </TextArea>
-                  <Label alignment="CENTER" layoutX="-2.0" layoutY="-3.0" prefHeight="39.0" prefWidth="762.0" style="-fx-background-color: green;" text="HELP" textFill="#ffd900">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="27.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="-1.0" layoutY="571.0" prefHeight="39.0" prefWidth="762.0" style="-fx-background-color: green;" text=" Press on the &quot;HELP&quot; button to close this window" textFill="#ffd800" wrapText="true">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="13.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="showHelp" fitHeight="489.0" fitWidth="548.0" layoutX="107.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Icons/Help.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="139.0" layoutY="135.0" prefHeight="408.0" prefWidth="485.0" style="-fx-background-color: transparent;">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="779.0" prefWidth="483.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <Label layoutX="5.0" layoutY="4.0" prefHeight="787.0" prefWidth="457.0" style="-fx-background-color: transparent;" text="WELCOME TO THE HELP FAQ.&#10;______________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;______________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;______________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;______________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;______________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;______________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
+                                 <font>
+                                    <Font name="American Typewriter" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <effect>
-                  <DropShadow color="#ffd800" height="173.21" radius="106.55250000000001" spread="0.23" width="255.0">
-                     <input>
-                        <InnerShadow choke="0.78" color="#ffd40092" height="25.7" radius="12.594999999999999" width="26.68" />
-                     </input>
-                  </DropShadow>
-               </effect>
             </Pane>
          </children>
          <opaqueInsets>
@@ -291,9 +304,9 @@
             <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </GridPane>
-      <Pane fx:id="playInvPane" layoutX="766.0" layoutY="14.0">
+      <Pane fx:id="playInvPane" layoutX="966.0" layoutY="14.0" prefHeight="355.0" prefWidth="300.0" visible="false">
          <children>
-            <ImageView fx:id="playerInventory" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerInventory" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Icons/Inventory.png" />
                </image>
@@ -301,7 +314,7 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <GridPane alignment="CENTER" layoutX="39.0" layoutY="39.0" prefHeight="428.0" prefWidth="422.0">
+            <GridPane alignment="CENTER" layoutX="20.0" layoutY="22.0" prefHeight="259.0" prefWidth="254.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -315,7 +328,7 @@
                <children>
                   <Pane prefWidth="114.0">
                      <children>
-                        <ImageView fx:id="playerInventoryItem1" disable="true" fitHeight="111.0" fitWidth="116.0" layoutX="12.0" layoutY="20.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem1" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="17.0" layoutY="13.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -324,7 +337,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="1">
                      <children>
-                        <ImageView fx:id="playerInventoryItem2" disable="true" fitHeight="118.0" fitWidth="106.0" layoutX="18.0" layoutY="17.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem2" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="17.0" layoutY="16.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -333,7 +346,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="2">
                      <children>
-                        <ImageView fx:id="playerInventoryItem3" disable="true" fitHeight="118.0" fitWidth="106.0" layoutX="17.0" layoutY="16.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem3" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="17.0" layoutY="16.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -342,7 +355,7 @@
                   </Pane>
                   <Pane GridPane.rowIndex="1">
                      <children>
-                        <ImageView fx:id="playerInventoryItem4" disable="true" fitHeight="120.0" fitWidth="116.0" layoutX="13.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem4" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="15.0" layoutY="11.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -351,7 +364,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fx:id="playerInventoryItem5" disable="true" fitHeight="120.0" fitWidth="116.0" layoutX="13.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem5" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="15.0" layoutY="11.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -360,7 +373,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fx:id="playerInventoryItem6" disable="true" fitHeight="118.0" fitWidth="106.0" layoutX="17.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem6" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="17.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -369,7 +382,7 @@
                   </Pane>
                   <Pane GridPane.rowIndex="2">
                      <children>
-                        <ImageView fx:id="playerInventoryItem7" disable="true" fitHeight="129.0" fitWidth="116.0" layoutX="15.0" layoutY="7.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem7" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="15.0" layoutY="13.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -378,7 +391,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fx:id="playerInventoryItem8" disable="true" fitHeight="118.0" fitWidth="106.0" layoutX="19.0" layoutY="11.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem8" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="19.0" layoutY="11.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -387,7 +400,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fx:id="playerInventoryItem9" disable="true" fitHeight="118.0" fitWidth="106.0" layoutX="17.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerInventoryItem9" disable="true" fitHeight="65.0" fitWidth="55.0" layoutX="17.0" layoutY="14.0" onMouseClicked="#onItemInPlayInvClicked" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -396,13 +409,63 @@
                   </Pane>
                </children>
             </GridPane>
-            <ImageView fitHeight="46.0" fitWidth="238.0" layoutX="26.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="useButton" fitHeight="20.0" fitWidth="144.0" layoutX="22.0" layoutY="316.0" onMouseClicked="#onUseButtonClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@WorldOfZuulPNG/Navigation/UseButton.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="210.0" layoutX="264.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dropButton" fitHeight="20.0" fitWidth="144.0" layoutX="154.0" layoutY="316.0" onMouseClicked="#onDropButtonClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/DropButton.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </Pane>
+      <FlowPane fx:id="roomInventory" layoutX="114.0" layoutY="106.0" onMouseClicked="#materialClicked" prefHeight="250.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="roomInventoryItem1" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="roomInventoryItem2" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="roomInventoryItem3" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="roomInventoryItem4" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="roomInventoryItem5" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="roomInventoryItem6" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+         </children>
+      </FlowPane>
+      <VBox fx:id="pickUpQuestion" alignment="CENTER" layoutX="465.0" layoutY="231.0" prefHeight="250.0" prefWidth="350.0" visible="false">
+         <children>
+            <Label fx:id="itemDescription" text="Label" />
+            <Label text="Do you wish to pick it up?" />
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button fx:id="acceptPickUp" mnemonicParsing="false" onMouseClicked="#onAcceptPickUp" text="Button" />
+                  <Button fx:id="denyPickUp" mnemonicParsing="false" onMouseClicked="#onDenyPickUp" text="Button" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </Pane>

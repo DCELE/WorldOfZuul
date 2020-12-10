@@ -5,11 +5,13 @@ public class Recipe {
     private Room usableIn;
     private int water;
     private int other; // Either pesticides or chemicals never both
+    private String itemIcon;
 
-    public Recipe(Room usableIn, int water, int other) {
+    public Recipe(Room usableIn, int water, int other, String itemIcon) {
         this.usableIn = usableIn;
         this.water = water;
         this.other = other;
+        this.itemIcon = itemIcon;
     }
 
     @Override
@@ -67,5 +69,9 @@ public class Recipe {
 
     public Room getUsableIn() {
         return usableIn;
+    }
+
+    public String getImage() {
+        return itemIcon;
     }
 }
