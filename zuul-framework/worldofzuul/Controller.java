@@ -277,31 +277,6 @@ public class Controller implements Initializable {
         if (selectedItemRoomInv == null) {
             return;
         }
-        textBox1.setText(selectedItemRoomInv.getName());
-        textBox4.setText("Pros");
-        textBox5.setText("Cons");
-
-        if (selectedItemRoomInv == Game.getHemp()) {
-            textBox2.setText("Low use of pesticides");
-            textBox3.setText("Large water consumption\n - 650L per t-shirt\nGo through chemical process");
-        }
-        if (selectedItemRoomInv == Game.getLinen()) {
-            textBox2.setText("Easy degradable in the nature\nLow water consumption\n - 6.4L per t-shirt \nLow use of pesticides");
-            textBox3.setText("Creases easily\nGo through chemical process");
-        }
-        if (selectedItemRoomInv == Game.getBamboo()) {
-            textBox2.setText("Fast-growing\nProduces a lot of oxygen per hectare\nAbsorbs up to 12 ton carbon dioxide\n - 2 tons more than the average per hectare\nLow water consumption");
-            textBox3.setText("Primarily grown in China\n - Low requirements in proportion to pollution\nGo through chemical process");
-        }
-        if (selectedItemRoomInv == Game.getCotton()) {
-            textBox2.setText("Lightweight and soft\n");
-            textBox3.setText("Large water consumption\n - 2700L per t-shirt\nGrows best in countries with a low rainfall\nGo through chemical process");
-        }
-        if (selectedItemRoomInv == Game.getPolyester()) {
-            textBox2.setText("Hard-wearing\nDries fast\nCreases not easily\nCheap");
-            textBox3.setText("Based on oil and natural gas\nUse of Carcinogen\n - Chemical in benzene and asbestos\n - Cancer-causing & harmful to the environment\nProduced in countries with low requirements to pollution\n - eg China, Bangladesh and Indonesia");
-        }
-
     }
 
     public void openInventory(MouseEvent mouseEvent) {
