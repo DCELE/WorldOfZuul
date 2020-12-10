@@ -6,9 +6,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.Light.Distant?>
+<<<<<<< HEAD
+=======
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+>>>>>>> 2a9522b7c871b50b936fd73f179b699913afc049
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -201,7 +203,7 @@
                         <Insets left="10.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font name="American Typewriter" size="13.0" />
+                        <Font name="American Typewriter" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -461,8 +463,11 @@
 
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
+      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0">
          <children>
+<<<<<<< HEAD
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="597.0" prefWidth="352.0">
+=======
             <Label fx:id="itemDescription" alignment="CENTER" blendMode="MULTIPLY" prefHeight="216.0" prefWidth="315.0" style="-fx-background-color: pink;" text="Label" textAlignment="CENTER">
                <effect>
                   <Lighting>
@@ -470,7 +475,6 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
                      </light>
                   </Lighting>
                </effect>
@@ -488,13 +492,33 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
                      </light>
                   </Lighting>
                </effect></Label>
             <HBox alignment="CENTER" spacing="20.0">
+>>>>>>> 2a9522b7c871b50b936fd73f179b699913afc049
                <children>
-                  <ImageView fx:id="acceptPickUp" fitHeight="29.0" fitWidth="106.0" onMouseClicked="#onAcceptPickUp" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="336.0" fitWidth="265.0" layoutX="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Icons/InfoBox.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="76.0" layoutY="43.0" prefHeight="220.0" prefWidth="210.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <Label fx:id="itemDescription" alignment="TOP_LEFT" blendMode="MULTIPLY" contentDisplay="CENTER" prefHeight="410.0" prefWidth="186.0" style="-fx-background-color: transparent;" text="Label">
+                           <font>
+                              <Font name="American Typewriter" size="13.0" />
+                           </font>
+                        </Label>
+                     </content>
+                  </ScrollPane>
+      
+                  <Label alignment="TOP_LEFT" blendMode="MULTIPLY" layoutX="104.0" layoutY="19.0" prefHeight="22.0" prefWidth="163.0" style="-fx-background-color: transparent;" text="Do you wish to pick it up?" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="acceptPickUp" fitHeight="29.0" fitWidth="106.0" layoutX="73.0" layoutY="298.0" onMouseClicked="#onAcceptPickUp" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@WorldOfZuulPNG/Navigation/YesButton.png" />
                      </image>
@@ -502,7 +526,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="denyPickUp" fitHeight="50.0" fitWidth="100.0" onMouseClicked="#onDenyPickUp" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="denyPickUp" fitHeight="50.0" fitWidth="100.0" layoutX="186.0" layoutY="298.0" onMouseClicked="#onDenyPickUp" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@WorldOfZuulPNG/Navigation/NoButton.png" />
                      </image>
@@ -511,7 +535,9 @@
                      </cursor>
                   </ImageView>
                </children>
-            </HBox>
+            </AnchorPane>
+            <HBox alignment="CENTER" spacing="20.0" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
          </children>
       </VBox>
    </children>

@@ -5,7 +5,7 @@ public class Water extends Item {
     private static int id;
 
     public Water() {
-        super("Water from the well. \nIt is somewhat clean.");
+        super("Water from the well. \nIt is somewhat clean.\nUse wisely and be careful not\nto spill it.");
         name  = "water";
         id = 6;
     }
