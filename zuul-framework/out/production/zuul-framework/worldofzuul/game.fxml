@@ -192,12 +192,11 @@
             </VBox>
             <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="78.0" fitWidth="548.0" layoutX="131.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@WorldOfZuulPNG/Icons/Text.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="textBox" alignment="TOP_LEFT" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="147.0" layoutY="117.0" prefHeight="43.0" prefWidth="468.0" style="-fx-border-color: transparent; -fx-border-width: 2;" text="Label" wrapText="true">
+                        <Image url="@WorldOfZuulPNG/Icons/TextConstructerHat.png" />
+                     </image></ImageView>
+                  <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="262.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
                      <padding>
                         <Insets left="10.0" top="5.0" />
                      </padding>

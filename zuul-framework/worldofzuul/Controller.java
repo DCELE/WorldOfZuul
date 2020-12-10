@@ -161,7 +161,7 @@ public class Controller implements Initializable {
 
         if (room == Game.getWell()) {
             if (item.getId() == 7) {
-                bucketImageView.setImage(getImage(item.getItemIcon()));
+                bucketImageView.setImage(item.getItemIcon());
             }
             Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
             talkingFace.setImage(image);
@@ -169,7 +169,7 @@ public class Controller implements Initializable {
 
         if (room == Game.getFarm()) {
             if (item.getId() == 8) {
-                pesticideImageView.setImage(getImage(item.getItemIcon()));
+                pesticideImageView.setImage(item.getItemIcon());
             }
             Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/farmRoomHead.png");
             talkingFace.setImage(image);
@@ -177,7 +177,7 @@ public class Controller implements Initializable {
 
             if (room == Game.getFactory() || room == Game.getSewingFactory() || room == Game.getColorFactory()) {
                 if (item.getId() == 9) {
-                    chemicalImageView.setImage(getImage(item.getItemIcon()));
+                    chemicalImageView.setImage(item.getItemIcon());
                 }
                 Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/factoryHead.png");
                 talkingFace.setImage(image);
@@ -186,19 +186,19 @@ public class Controller implements Initializable {
             if (room == Game.getMaterials()) {
                 switch(item.getId()) {
                     case 1:
-                        materialImage1.setImage(getImage(item.getItemIcon()));
+                        materialImage1.setImage(item.getItemIcon());
                     case 2:
-                        materialImage2.setImage(getImage(item.getItemIcon()));
+                        materialImage2.setImage(item.getItemIcon());
                     case 3:
-                        materialImage3.setImage(getImage(item.getItemIcon()));
+                        materialImage3.setImage(item.getItemIcon());
                     case 4:
-                        materialImage4.setImage(getImage(item.getItemIcon()));
+                        materialImage4.setImage(item.getItemIcon());
                     case 5:
-                        materialImage5.setImage(getImage(item.getItemIcon()));
+                        materialImage5.setImage(item.getItemIcon());
 
                 }
                 if (item.getId() == 9) {
-                    chemicalImageView.setImage(getImage(item.getItemIcon()));
+                    chemicalImageView.setImage(item.getItemIcon());
                 }
             }
 
@@ -289,10 +289,6 @@ public class Controller implements Initializable {
 
 
     }
-
-
-
-
 
     public void setNavigationButtons(Room room) {
         Button[] buttons = new Button[]{button1, button2, button3, button4};
