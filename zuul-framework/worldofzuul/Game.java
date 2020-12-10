@@ -52,9 +52,9 @@ public class Game {
         polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Items/Polyester.png", "Polyester");
 
         water = new Water();
-        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Bucket.png");
-        pesticides = new Pesticides("pesticides", 8, farm, "worldofzuul/WorldOfZuulPNG/Items/Pesticides.png");
-        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png");
+        bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Bucket.png", "Bucket");
+        pesticides = new Pesticides("pesticides", 8, farm, "worldofzuul/WorldOfZuulPNG/Items/Pesticides.png", "Pesticides");
+        chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png", "Chemicals");
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
         hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png"));
