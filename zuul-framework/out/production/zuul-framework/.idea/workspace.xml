@@ -19,49 +19,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f964336f-b50f-499c-839a-b363236976df" name="Default Changelist" comment="" />
+    <list default="true" id="cad7ae0d-887c-473b-bde6-a01119195299" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1kh6Ldqd6AG1nVLXgzFCkqx8NSE" />
+  <component name="ProjectId" id="1lNVt4MUVrNdvjbPb96p5QctZVB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worldofzuul/WorldOfZuulPNG" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GitHub\WorldOfZuul\zuul-framework\worldofzuul\WorldOfZuulPNG" />
-      <recent name="D:\GitHub\WorldOfZuul\zuul-framework\worldofzuul\WorldOfZuulPNG\Rooms" />
-      <recent name="D:\GitHub\WorldOfZuul\zuul-framework\worldofzuul" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GitHub\WorldOfZuul\zuul-framework\worldofzuul\WorldOfZuulPNG\Icons" />
-    </key>
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="zuul-framework" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Gorm\Downloads\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../../JavaFX/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -70,11 +54,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f964336f-b50f-499c-839a-b363236976df" name="Default Changelist" comment="" />
-      <created>1606140421605</created>
+      <changelist id="cad7ae0d-887c-473b-bde6-a01119195299" name="Default Changelist" comment="" />
+      <created>1607437746853</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606140421605</updated>
+      <updated>1607437746853</updated>
     </task>
     <servers />
   </component>
@@ -88,73 +72,36 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="198" key="#Inspections" timestamp="1607442932515">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="171" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607508507576">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="586" y="198" key="#Inspections/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607442932515" />
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607534189714">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="171" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.831@0.23.1440.831" timestamp="1607508507576" />
+    <state width="1216" height="193" key="GridCell.Tab.0.bottom" timestamp="1607597393739">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607534189714" />
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1607599972692">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="193" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1607597393739" />
+    <state width="1216" height="193" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607596751817" />
+    <state width="1216" height="193" key="GridCell.Tab.0.center" timestamp="1607597393738">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607599972692" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607511053265">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="193" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1607597393738" />
+    <state width="1216" height="193" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607596751816" />
+    <state width="1216" height="193" key="GridCell.Tab.0.left" timestamp="1607597393737">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607511053265" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607425173824">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="193" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1607597393737" />
+    <state width="1216" height="193" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607596751816" />
+    <state width="1216" height="193" key="GridCell.Tab.0.right" timestamp="1607597393738">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state x="-1180" y="377" key="FileChooserDialogImpl/-1920.102.1920.1040/0.0.1920.1040@-1920.102.1920.1040" timestamp="1606232389832" />
-    <state x="740" y="275" key="FileChooserDialogImpl/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607425173824" />
-    <state width="1877" height="220" key="GridCell.Tab.0.bottom" timestamp="1607602836986">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1216" height="193" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1607597393738" />
+    <state width="1216" height="193" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607596751817" />
+    <state x="195" y="23" width="1024" height="831" key="SettingsEditor" timestamp="1607438033660">
+      <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.bottom/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607602836986" />
-    <state width="1877" height="220" key="GridCell.Tab.0.center" timestamp="1607602836986">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.center/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607602836986" />
-    <state width="1877" height="220" key="GridCell.Tab.0.left" timestamp="1607602836986">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.left/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607602836986" />
-    <state width="1877" height="220" key="GridCell.Tab.0.right" timestamp="1607602836986">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.right/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607602836986" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1607451462893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607451462893" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1607451462893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607451462893" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1607451462893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607451462893" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1607451462893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607451462893" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1607534224850">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1480" y="196" key="SettingsEditor/-1920.102.1920.1040/0.0.1920.1040@-1920.102.1920.1040" timestamp="1606232379264" />
-    <state x="440" y="94" key="SettingsEditor/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607534224850" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607534015767">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607534015767" />
-    <state x="733" y="394" width="1018" height="551" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1607436718414">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="733" y="394" width="1018" height="551" key="org.intellij.images.editor.actions.BackgroundImageDialog/-1920.102.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607436718414" />
+    <state x="195" y="23" width="1024" height="831" key="SettingsEditor/0.23.1440.831@0.23.1440.831" timestamp="1607438033660" />
   </component>
 </project>

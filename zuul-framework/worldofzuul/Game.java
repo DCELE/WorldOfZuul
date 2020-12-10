@@ -150,13 +150,16 @@ public class Game {
             }
             // Check the materials stage
             if (chosenMaterial.getState() == 0) {
-                // Plant material
-                chosenMaterial.setPlanted();
+
                 if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
                 else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
                 else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
             }
+
+            // Plant material
+            chosenMaterial.setPlanted();
+
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
                 // Make fabric or dye fabric
