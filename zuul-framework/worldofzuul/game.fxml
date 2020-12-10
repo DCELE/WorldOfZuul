@@ -20,7 +20,10 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldofzuul.Controller">
    <children>
-      <ImageView fx:id="backgroundImage" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="backgroundImage" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@WorldOfZuulPNG/Rooms/Well.png" />
+         </image></ImageView>
       <GridPane layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -338,6 +341,10 @@
                </cursor></ImageView>
          </children>
       </FlowPane>
+      <ImageView fx:id="wellImageView" fitHeight="463.0" fitWidth="331.0" layoutX="440.0" layoutY="183.0" onMouseClicked="#onWellClicked" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></ImageView>
       <VBox fx:id="pickUpQuestion" alignment="CENTER" layoutX="465.0" layoutY="231.0" prefHeight="250.0" prefWidth="350.0" spacing="5.0" visible="false">
          <children>
             <Label fx:id="itemDescription" blendMode="MULTIPLY" text="Label" />

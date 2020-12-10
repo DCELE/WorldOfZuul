@@ -346,4 +346,12 @@ public class Game {
     public static Materials getPolyester() {
         return Game.polyester;
     }
+
+    public static Room getWell() {
+        return Game.well;
+    }
+
+    public static Water getWater() {
+        return Game.water;
+    }
 }

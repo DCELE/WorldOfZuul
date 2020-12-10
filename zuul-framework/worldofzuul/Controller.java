@@ -22,9 +22,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public ImageView hintImage;
     @FXML
-    private ImageView acceptPickUp, denyPickUp;
+    private ImageView hintImage;
     @FXML
     private Label itemDescription;
     @FXML
@@ -76,10 +75,15 @@ public class Controller implements Initializable {
 
         int i = 0;
         for (Item item : inventory.getArrayList()) {
+            if (inventory == Game.getWell().getInventory() && item == Game.getWater()) {
+                continue;
+            }
+
             inventorySlots[i].setImage(item.getItemIcon());
             inventorySlots[i].setDisable(false);
             i++;
         }
+
     }
 
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
@@ -358,4 +362,8 @@ public class Controller implements Initializable {
         pickUpQuestion.setVisible(false);
     }
 
+    public void onWellClicked(MouseEvent mouseEvent) {
+        onItemInRoomInvClicked(mouseEvent);
+
+    }
 }
