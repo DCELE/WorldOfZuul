@@ -341,9 +341,9 @@
                </cursor></ImageView>
          </children>
       </FlowPane>
-      <ImageView fx:id="wellImageView" fitHeight="463.0" fitWidth="331.0" layoutX="440.0" layoutY="183.0" onMouseClicked="#onWellClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wellImageView" fitHeight="463.0" fitWidth="331.0" layoutX="440.0" layoutY="183.0" onMouseClicked="#onWellClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <cursor>
-            <Cursor fx:constant="DEFAULT" />
+            <Cursor fx:constant="HAND" />
          </cursor></ImageView>
       <VBox fx:id="pickUpQuestion" alignment="CENTER" layoutX="465.0" layoutY="231.0" prefHeight="250.0" prefWidth="350.0" spacing="5.0" visible="false">
          <children>

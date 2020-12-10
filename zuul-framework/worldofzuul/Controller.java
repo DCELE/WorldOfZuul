@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    public ImageView wellImageView;
     @FXML
     private ImageView hintImage;
     @FXML
@@ -142,6 +143,11 @@ public class Controller implements Initializable {
 
     private void setRoomInventory(Room room) {
         setInventory(room.getInventory());
+        
+        wellImageView.setVisible(false);
+        if (room == Game.getWell()) {
+            wellImageView.setVisible(true);
+        }
     }
 
     public void setTextBox(Room room) {
