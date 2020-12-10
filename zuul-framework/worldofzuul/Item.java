@@ -14,6 +14,10 @@ public abstract class Item {
     public Item() {
     }
 
+    public Item(String description) {
+        this.description = description;
+    }
+
     public Item(String name, int id, String itemIcon) {
         this.name = name;
         this.id = id;
