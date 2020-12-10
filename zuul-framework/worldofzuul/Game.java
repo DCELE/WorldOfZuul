@@ -358,5 +358,7 @@ public class Game {
 
     public static Room getSewingFactory() {return Game.sewingFactory;}
 
+    public static Room getFabricFactory() {return Game.fabricFactory;}
+
 
 }

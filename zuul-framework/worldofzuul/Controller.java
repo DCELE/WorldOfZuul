@@ -34,7 +34,7 @@ public class Controller implements Initializable {
     @FXML
     private Label hintLabel;
     @FXML
-    public Pane PaneShowHelp;
+    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
@@ -95,7 +95,7 @@ public class Controller implements Initializable {
         // Set background
         setBackgroundImage(room);
         //Set exitImages
-        //setNavigationImages(room);
+        setNavigationImages(room);
 
 
 
@@ -218,11 +218,67 @@ public class Controller implements Initializable {
     }
 
 
-    /*public void setNavigationImages(Room room) {
-        if (Game.getMainRoom()) {
-
+    public void setNavigationImages(Room room) {
+        //Set visible true
+        if (room == Game.getMainRoom()) {
+            navMainPane.setVisible(true);
         }
-    } */
+        if (room == Game.getMaterials()) {
+            navMaterialPane.setVisible(true);
+        }
+        if (room == Game.getFarm()) {
+            navFarmPane.setVisible(true);
+        }
+        if (room == Game.getColorFactory()) {
+            navColorPane.setVisible(true);
+        }
+        if (room == Game.getFabricFactory()) {
+            navFabricPane.setVisible(true);
+        }
+        if (room == Game.getFactory()) {
+            navFactoryPane.setVisible(true);
+        }
+        if (room == Game.getSewingFactory()) {
+            navSewingPane.setVisible(true);
+        }
+        if (room == Game.getWell()) {
+            navWellPane.setVisible(true);
+        }
+
+
+        //set visible false
+        if (room != Game.getMainRoom()) {
+            navMainPane.setVisible(false);
+        }
+        if (room != Game.getMaterials()) {
+            navMaterialPane.setVisible(false);
+        }
+        if (room != Game.getFarm()) {
+            navFarmPane.setVisible(false);
+        }
+        if (room != Game.getColorFactory()) {
+            navColorPane.setVisible(false);
+        }
+        if (room != Game.getFabricFactory()) {
+            navFabricPane.setVisible(false);
+        }
+        if (room != Game.getFactory()) {
+            navFactoryPane.setVisible(false);
+        }
+        if (room != Game.getSewingFactory()) {
+            navSewingPane.setVisible(false);
+        }
+        if (room != Game.getWell()) {
+            navWellPane.setVisible(false);
+        }
+
+
+    }
+
+
+
+
+
     public void setNavigationButtons(Room room) {
         Button[] buttons = new Button[]{button1, button2, button3, button4};
         for (Button button : buttons) {
