@@ -6,8 +6,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -200,17 +198,17 @@
                         <Insets left="10.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font name="American Typewriter" size="13.0" />
+                        <Font name="American Typewriter" size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <ImageView fx:id="hintImage" fitHeight="193.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <ImageView fx:id="hintImage" fitHeight="193.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
                   <Image url="@WorldOfZuulPNG/Icons/Hint.png" />
                </image>
             </ImageView>
-            <VBox alignment="CENTER" maxHeight="193.0" maxWidth="230.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <VBox alignment="CENTER" maxHeight="193.0" maxWidth="230.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="hintLabel" blendMode="MULTIPLY" text="Label" visible="false">
                      <padding>
@@ -284,7 +282,7 @@
                            <children>
                               <Label layoutX="5.0" layoutY="4.0" prefHeight="787.0" prefWidth="457.0" style="-fx-background-color: transparent;" text="WELCOME TO THE HELP FAQ.&#10;______________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;______________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;______________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;______________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;______________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;______________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
                                  <font>
-                                    <Font name="American Typewriter" size="13.0" />
+                                    <Font name="American Typewriter" size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -460,38 +458,31 @@
 
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
+      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0">
          <children>
-            <Label fx:id="itemDescription" alignment="CENTER" blendMode="MULTIPLY" prefHeight="216.0" prefWidth="315.0" style="-fx-background-color: pink;" text="Label" textAlignment="CENTER">
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                     </light>
-                  </Lighting>
-               </effect>
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="13.0" />
-               </font></Label>
-
-            <Label alignment="CENTER" blendMode="MULTIPLY" prefHeight="22.0" prefWidth="163.0" style="-fx-background-color: pink;" text="Do you wish to pick it up?" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="13.0" />
-               </font>
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                     </light>
-                  </Lighting>
-               </effect></Label>
-            <HBox alignment="CENTER" spacing="20.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                <children>
-                  <ImageView fx:id="acceptPickUp" fitHeight="29.0" fitWidth="106.0" onMouseClicked="#onAcceptPickUp" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="354.0" fitWidth="261.0" layoutX="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WorldOfZuulPNG/Icons/InfoBox.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="70.0" layoutY="39.0" prefHeight="235.0" prefWidth="230.0" style="-fx-background-color: transparent;">
+                    <content>
+                      <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="209.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <Label fx:id="itemDescription" alignment="TOP_LEFT" blendMode="MULTIPLY" layoutX="5.0" layoutY="7.0" prefHeight="443.0" prefWidth="214.0" style="-fx-background-color: transparent;" text="Label">
+                                 <font>
+                                    <Font name="American Typewriter" size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                           </children></AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ImageView fx:id="acceptPickUp" fitHeight="26.0" fitWidth="102.0" layoutX="76.0" layoutY="309.0" onMouseClicked="#onAcceptPickUp" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@WorldOfZuulPNG/Navigation/YesButton.png" />
                      </image>
@@ -499,7 +490,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="denyPickUp" fitHeight="50.0" fitWidth="100.0" onMouseClicked="#onDenyPickUp" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="denyPickUp" fitHeight="34.0" fitWidth="102.0" layoutX="190.0" layoutY="309.0" onMouseClicked="#onDenyPickUp" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@WorldOfZuulPNG/Navigation/NoButton.png" />
                      </image>
@@ -507,8 +498,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
+      
+                  <Label alignment="CENTER" blendMode="MULTIPLY" layoutX="89.0" layoutY="22.0" prefHeight="17.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="Do you wish to pick it up?" textAlignment="CENTER">
+                     <font>
+                        <Font name="American Typewriter" size="14.0" />
+                     </font>
+                  </Label>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
       </VBox>
    </children>
