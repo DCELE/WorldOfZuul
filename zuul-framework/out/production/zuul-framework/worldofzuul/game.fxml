@@ -72,7 +72,6 @@
                   <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
                </children>
             </VBox>
-            <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
             <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
                   <ImageView fitHeight="78.0" fitWidth="548.0" layoutX="131.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
@@ -106,6 +105,18 @@
                <padding>
                   <Insets top="10.0" />
                </padding>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@WorldOfZuulPNG/Icons/Score.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="75.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
             </VBox>
             <Pane fx:id="prosConsPanel" prefHeight="380.0" prefWidth="238.0" GridPane.columnIndex="1">
                <children>
