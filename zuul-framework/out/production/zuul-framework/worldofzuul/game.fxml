@@ -23,7 +23,8 @@
       <ImageView fx:id="backgroundImage" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@WorldOfZuulPNG/Rooms/Mainroom.png" />
-         </image></ImageView>
+         </image>
+      </ImageView>
       <ImageView fx:id="chemicalImageView" fitHeight="111.0" fitWidth="129.0" layoutX="897.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="bucketImageView" fitHeight="111.0" fitWidth="129.0" layoutX="819.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="pesticideImageView" fitHeight="111.0" fitWidth="140.0" layoutX="878.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
@@ -87,19 +88,6 @@
                   <Button fx:id="button4" mnemonicParsing="false" onMouseClicked="#onNavigationButtonClicked" text="Button" />
                </children>
             </VBox>
-            <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
-               <children>
-                  <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="190.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="textBox" alignment="TOP_LEFT" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="280.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
-                     <padding>
-                        <Insets left="10.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font name="American Typewriter" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
             <ImageView fx:id="hintImage" fitHeight="193.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
                   <Image url="@WorldOfZuulPNG/Icons/Hint.png" />
@@ -127,14 +115,14 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@WorldOfZuulPNG/Icons/Score.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="scoreboard" alignment="CENTER_RIGHT" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
+                        <Label fx:id="scoreboard" alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="35.0" layoutY="17.0" prefHeight="51.0" prefWidth="200.0" text="Label" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="122.0" AnchorPane.leftAnchor="35.0">
                            <font>
-                              <Font name="American Typewriter" size="13.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -165,31 +153,6 @@
                      </font>
                   </Label>
                </children>
-            </Pane>
-            <Pane fx:id="PaneShowHelp" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="3">
-               <children>
-                  <ImageView fx:id="showHelp" fitHeight="489.0" fitWidth="548.0" layoutX="107.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@WorldOfZuulPNG/Icons/Help.png" />
-                     </image>
-                  </ImageView>
-                  <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="139.0" layoutY="135.0" prefHeight="408.0" prefWidth="485.0" style="-fx-background-color: transparent;">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="779.0" prefWidth="483.0" style="-fx-background-color: transparent;">
-                           <children>
-                              <Label layoutX="5.0" layoutY="4.0" prefHeight="787.0" prefWidth="457.0" style="-fx-background-color: transparent;" text="WELCOME TO THE HELP FAQ.&#10;______________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;______________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;______________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;______________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;______________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;______________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
-                                 <font>
-                                    <Font name="American Typewriter" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
             </Pane>
          </children>
          <opaqueInsets>
@@ -323,7 +286,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="navMainPane" layoutX="327.0" layoutY="382.0" prefHeight="340.0" prefWidth="323.0">
+      <Pane fx:id="navMainPane" layoutX="327.0" layoutY="382.0" prefHeight="340.0" prefWidth="323.0" visible="false">
          <children>
             <ImageView fx:id="navMain2" fitHeight="34.0" fitWidth="129.0" layoutX="74.0" layoutY="110.0" onMouseClicked="#wellNavClicked" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -499,21 +462,8 @@
 
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <Pane layoutX="347.0" layoutY="613.0" prefHeight="180.0" prefWidth="606.0">
-         <children>
-            <ImageView fx:id="talkingFace" fitHeight="146.0" fitWidth="375.0" layoutX="118.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                  </ImageView>
-            <Label fx:id="textBox" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="202.0" layoutY="40.0" prefHeight="102.0" prefWidth="267.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
-               <padding>
-                  <Insets left="10.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="American Typewriter" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0">
+      
+      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="467.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                <children>
@@ -563,5 +513,47 @@
             </AnchorPane>
          </children>
       </VBox>
+      <Pane fx:id="PaneShowHelp" layoutX="259.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" visible="false">
+         <children>
+            <ImageView fx:id="showHelp" fitHeight="489.0" fitWidth="548.0" layoutX="107.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Icons/Help.png" />
+               </image>
+            </ImageView>
+            <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="139.0" layoutY="135.0" prefHeight="408.0" prefWidth="485.0" style="-fx-background-color: transparent;">
+               <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="920.0" prefWidth="483.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="6.0" layoutY="6.0" prefHeight="921.0" prefWidth="457.0" style="-fx-background-color: transparent;" text="WELCOME TO THE HELP FAQ.&#10;______________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;______________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;______________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;______________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;______________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;______________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
+                           <font>
+                              <Font name="American Typewriter" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="430.0" layoutY="626.0" prefHeight="154.0" prefWidth="465.0">
+         <children>
+            <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Icons/factoryHead.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="textBox" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="121.0" layoutY="35.0" prefHeight="111.0" prefWidth="271.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="American Typewriter" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>

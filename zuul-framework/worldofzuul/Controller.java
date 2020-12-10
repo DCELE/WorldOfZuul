@@ -207,6 +207,8 @@ public class Controller implements Initializable {
         //Change room with images
         setNavigationImages(room);
 
+        placeItemsInRoom(room);
+
 
         if (room == Game.getMainRoom()) {
             Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/mainRoomHead.png");
