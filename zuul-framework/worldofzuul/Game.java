@@ -45,7 +45,7 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your t-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
 
         // Initializing items
-        hemp = new Materials("hemp", 1, -5,"worldofzuul/WorldOfZuulPNG/Items/HempSeed.png");
+        hemp = new Materials("hemp", 1, -5, "worldofzuul/WorldOfZuulPNG/Items/HempSeed.png", "This is a hemp seed");
         linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Items/LinenSeed.png");
         bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Items/BambooSeed.png");
         cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Items/CottonSeed.png");
@@ -124,6 +124,9 @@ public class Game {
 
     // Use materials in farm
     public static boolean useItem(Item item) {
+        if (!Player.getInventory().getArrayList().contains(item)) {
+            return false;
+        }
         // You cannot use anything before picking up an item
         if (chosenMaterial == null) {
             return false;

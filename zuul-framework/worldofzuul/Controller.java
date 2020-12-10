@@ -23,6 +23,12 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
+    private Button acceptPickUp, denyPickUp;
+    @FXML
+    private Label itemDescription;
+    @FXML
+    private VBox pickUpQuestion;
+    @FXML
     private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6;
     @FXML
     private Pane playInvPane;
@@ -47,6 +53,8 @@ public class Controller implements Initializable {
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
     private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv;
+    private Item itemSelectedOnce = null;
+
 
 
     @Override
@@ -201,6 +209,7 @@ public class Controller implements Initializable {
 
         if (!Game.useItem(selectedItemPlayInv)) {
             setInventory(Player.getInventory());
+            setInventory(Game.getCurrentRoom().getInventory());
             setTextBox(Game.getCurrentRoom());
             setHintLabel();
             return;
@@ -211,6 +220,7 @@ public class Controller implements Initializable {
         dropItem(selectedItemPlayInv);
         // Check if the material should be upgraded
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
+        setInventory(Game.getCurrentRoom().getInventory());
         setTextBox(Game.getCurrentRoom());
     }
 
@@ -331,6 +341,23 @@ public class Controller implements Initializable {
     public void onItemInRoomInvClicked(MouseEvent mouseEvent) {
         ImageView imageView = (ImageView) mouseEvent.getSource();
         selectedItemRoomInv = selectItem(imageView.getImage(), Game.getCurrentRoom().getInventory());
+        askToPickUp(selectedItemRoomInv);
+    }
+
+    private void askToPickUp(Item item) {
+        boolean itemAlreadySelected = (selectedItemRoomInv == itemSelectedOnce);
+        if (itemAlreadySelected && pickUpQuestion.isVisible()) {
+            pickUpQuestion.setVisible(false);
+        } else {
+            itemSelectedOnce = selectedItemRoomInv;
+            itemDescription.setText(item.getDescription());
+            acceptPickUp.setText("Yes");
+            acceptPickUp.setOnMouseClicked(this::onAcceptPickUp);
+            denyPickUp.setText("No");
+            denyPickUp.setOnMouseClicked(this::onDenyPickUp);
+
+            pickUpQuestion.setVisible(true);
+        }
     }
 
     public Item selectItem(Image image, Inventory inventory) {
@@ -341,4 +368,14 @@ public class Controller implements Initializable {
         }
         return null;
     }
+
+    public void onAcceptPickUp(MouseEvent mouseEvent) {
+        onPickUpButtonClicked(mouseEvent);
+        pickUpQuestion.setVisible(false);
+    }
+
+    public void onDenyPickUp(MouseEvent mouseEvent) {
+        pickUpQuestion.setVisible(false);
+    }
+
 }

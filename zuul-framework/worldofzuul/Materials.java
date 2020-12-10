@@ -35,6 +35,25 @@ public class Materials extends Item {
         setNameForState();
     }
 
+    public Materials(String name, int id, int points, String itemIcon, String description) {
+        super(name, id, itemIcon, description);
+        this.state = 0;
+        this.planted = false;
+        this.color = "colored";
+        allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
+        this.points = points;
+        allMaterials.add(this);
+
+        stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        if (super.getId() == 5) {
+            this.state = 1;
+            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+
+        }
+        this.recipes = new ArrayList<>();
+        setNameForState();
+    }
+
     public void addRecipe(Recipe recipe) {
         if (this.recipes.size() < stateNames.length) {
             recipe.setName(stateNames[this.recipes.size()], stateNames[this.recipes.size() + 1]);
