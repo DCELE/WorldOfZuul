@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     public ImageView hintImage;
     @FXML
-    private Button acceptPickUp, denyPickUp;
+    private ImageView acceptPickUp, denyPickUp;
     @FXML
     private Label itemDescription;
     @FXML
@@ -53,14 +53,12 @@ public class Controller implements Initializable {
     private FlowPane roomInventory;
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
-    private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv;
-    private Item itemSelectedOnce = null;
+    private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv, itemSelectedOnce = null;;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRoom(Room.getAllRooms().get(0));
-
     }
 
     public void setInventory(Inventory inventory) {
@@ -189,10 +187,14 @@ public class Controller implements Initializable {
         if (!Game.getItem(selectedItemRoomInv)) {
             setInventory(Player.getInventory());
             setTextBox(Game.getCurrentRoom());
+            selectedItemRoomInv = null;
+            askToPickUp(null);
             return;
         }
         pickUpItem(selectedItemRoomInv);
         setTextBox(Game.getCurrentRoom());
+        selectedItemRoomInv = null;
+        askToPickUp(null);
     }
 
     public void onDropButtonClicked(MouseEvent mouseEvent) {
@@ -359,10 +361,6 @@ public class Controller implements Initializable {
             return;
         }
         itemDescription.setText(item.getDescription());
-        acceptPickUp.setText("Yes");
-        acceptPickUp.setOnMouseClicked(this::onAcceptPickUp);
-        denyPickUp.setText("No");
-        denyPickUp.setOnMouseClicked(this::onDenyPickUp);
         pickUpQuestion.setVisible(true);
     }
 
