@@ -56,7 +56,6 @@ public class Controller implements Initializable {
     private Item itemSelectedOnce = null;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRoom(Room.getAllRooms().get(0));
@@ -94,6 +93,9 @@ public class Controller implements Initializable {
         // Reset room description
         Game.setGameGuides(null);
         Player.setPlayerThinks(null);
+        // Reset selected item
+        selectedItemRoomInv = null;
+        askToPickUp(null);
         // Set room welcome description
         setTextBox(room);
 
@@ -341,23 +343,25 @@ public class Controller implements Initializable {
     public void onItemInRoomInvClicked(MouseEvent mouseEvent) {
         ImageView imageView = (ImageView) mouseEvent.getSource();
         selectedItemRoomInv = selectItem(imageView.getImage(), Game.getCurrentRoom().getInventory());
+
+        if (selectedItemRoomInv == itemSelectedOnce) {
+            selectedItemRoomInv = null;
+        }
         askToPickUp(selectedItemRoomInv);
     }
 
     private void askToPickUp(Item item) {
-        boolean itemAlreadySelected = (selectedItemRoomInv == itemSelectedOnce);
-        if (itemAlreadySelected && pickUpQuestion.isVisible()) {
+        itemSelectedOnce = selectedItemRoomInv;
+        if (item == null) {
             pickUpQuestion.setVisible(false);
-        } else {
-            itemSelectedOnce = selectedItemRoomInv;
-            itemDescription.setText(item.getDescription());
-            acceptPickUp.setText("Yes");
-            acceptPickUp.setOnMouseClicked(this::onAcceptPickUp);
-            denyPickUp.setText("No");
-            denyPickUp.setOnMouseClicked(this::onDenyPickUp);
-
-            pickUpQuestion.setVisible(true);
+            return;
         }
+        itemDescription.setText(item.getDescription());
+        acceptPickUp.setText("Yes");
+        acceptPickUp.setOnMouseClicked(this::onAcceptPickUp);
+        denyPickUp.setText("No");
+        denyPickUp.setOnMouseClicked(this::onDenyPickUp);
+        pickUpQuestion.setVisible(true);
     }
 
     public Item selectItem(Image image, Inventory inventory) {
