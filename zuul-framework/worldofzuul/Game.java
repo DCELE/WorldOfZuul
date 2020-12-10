@@ -45,11 +45,11 @@ public class Game {
         fabricFactory = new Room("Fabric", "in the fabric room of the factory. You can make your t-shirt here",fabricInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Fabric.png");
 
         // Initializing items
-        hemp = new Materials("hemp", 1, -5, "worldofzuul/WorldOfZuulPNG/Items/HempSeed.png", "This is a hemp seed");
-        linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Items/LinenSeed.png");
-        bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Items/BambooSeed.png");
-        cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Items/CottonSeed.png");
-        polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Items/Polyester.png");
+        hemp = new Materials("hemp", 1, -5, "worldofzuul/WorldOfZuulPNG/Items/HempSeed.png", "Hemp seed");
+        linen = new Materials("linen", 2, -15, "worldofzuul/WorldOfZuulPNG/Items/LinenSeed.png", "Linen seed");
+        bamboo = new Materials("bamboo", 3, -20, "worldofzuul/WorldOfZuulPNG/Items/BambooSeed.png", "Bamboo seed");
+        cotton = new Materials("cotton", 4, -25, "worldofzuul/WorldOfZuulPNG/Items/CottonSeed.png", "Cotton seed");
+        polyester = new Materials("polyester", 5, -10, "worldofzuul/WorldOfZuulPNG/Items/Polyester.png", "Polyester");
 
         water = new Water();
         bucket = new Bucket("bucket", 7, new Room[]{farm, fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Bucket.png");
