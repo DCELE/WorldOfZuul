@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    public ImageView hintImage;
     @FXML
     private Button acceptPickUp, denyPickUp;
     @FXML
@@ -323,6 +324,7 @@ public class Controller implements Initializable {
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();
         hintLabel.setVisible(!labelVisibility);
+        hintImage.setVisible(!labelVisibility);
         setHintLabel();
     }
 
