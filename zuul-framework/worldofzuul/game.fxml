@@ -113,7 +113,10 @@
                               <Image url="@WorldOfZuulPNG/Icons/Score.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="scoreboard" contentDisplay="TOP" style="-fx-border-color: grey;" text="Label" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="75.0" />
+                        <Label fx:id="scoreboard" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
+                           <font>
+                              <Font name="American Typewriter" size="13.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
                </children>
