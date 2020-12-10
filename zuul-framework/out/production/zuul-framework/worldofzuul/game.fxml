@@ -127,9 +127,9 @@
                               <Image url="@WorldOfZuulPNG/Icons/Score.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="scoreboard" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
+                        <Label fx:id="scoreboard" alignment="CENTER_RIGHT" blendMode="MULTIPLY" contentDisplay="TOP" text="Label" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="70.0">
                            <font>
-                              <Font name="American Typewriter" size="13.0" />
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font></Label>
                      </children>
                   </AnchorPane>
