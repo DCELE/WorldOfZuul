@@ -351,7 +351,21 @@ public class Game {
         return Game.well;
     }
 
-    public static Water getWater() {
-        return Game.water;
+    public static Room getFarm() {
+        return Game.farm;
     }
+
+    public static Room getFactory() {
+        return Game.factory;
+    }
+
+    public static Room getMainRoom() {return Game.mainRoom;}
+
+    public static Room getColorFactory() {return Game.colorFactory;}
+
+    public static Room getSewingFactory() {return Game.sewingFactory;}
+
+    public static Room getFabricFactory() {return Game.fabricFactory;}
+
+
 }
