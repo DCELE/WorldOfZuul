@@ -26,7 +26,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane playInvPane;
     @FXML
-    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9;
+    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace;
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -94,6 +94,20 @@ public class Controller implements Initializable {
         setHintLabel();
         // Set background
         setBackgroundImage(room);
+        //Set exitImages
+        //setNavigationImages(room);
+
+
+
+
+
+        setItemImages(room);
+
+
+        if (room == Game.getMainRoom()) {
+            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/mainRoomHead.png");
+            talkingFace.setImage(image);
+        }
 
         prosConsPanel.setVisible(false);
         prosConsPanel1.setVisible(false);
@@ -116,8 +130,81 @@ public class Controller implements Initializable {
         return image;
     }
 
+
+
     private void setBackgroundImage(Room room) {
         backgroundImage.setImage(getImage(room.getBackgroundImage()));
+    }
+
+
+
+    private void setItemImages(Room room) {
+        for(Item item: room.getInventory().getArrayList()) {
+
+
+        if (room == Game.getWell()) {
+            if (item.getId() == 7) {
+                bucketImageView.setImage(getImage(item.getItemIcon()));
+            }
+            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
+            talkingFace.setImage(image);
+        }
+
+        if (room == Game.getFarm()) {
+            if (item.getId() == 8) {
+                pesticideImageView.setImage(getImage(item.getItemIcon()));
+            }
+            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/farmRoomHead.png");
+            talkingFace.setImage(image);
+        }
+
+            if (room == Game.getFactory() || room == Game.getSewingFactory() || room == Game.getColorFactory()) {
+                if (item.getId() == 9) {
+                    chemicalImageView.setImage(getImage(item.getItemIcon()));
+                }
+                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/factoryHead.png");
+                talkingFace.setImage(image);
+            }
+
+            if (room == Game.getMaterials()) {
+                switch(item.getId()) {
+                    case 1:
+                        materialImage1.setImage(getImage(item.getItemIcon()));
+                    case 2:
+                        materialImage2.setImage(getImage(item.getItemIcon()));
+                    case 3:
+                        materialImage3.setImage(getImage(item.getItemIcon()));
+                    case 4:
+                        materialImage4.setImage(getImage(item.getItemIcon()));
+                    case 5:
+                        materialImage5.setImage(getImage(item.getItemIcon()));
+
+                }
+                if (item.getId() == 9) {
+                    chemicalImageView.setImage(getImage(item.getItemIcon()));
+                }
+            }
+
+    }
+        if (room != Game.getWell()) {
+            bucketImageView.setImage(null);
+        }
+        if (room != Game.getFarm()) {
+            pesticideImageView.setImage(null);
+
+        }
+        if (room != Game.getFactory()) {
+            chemicalImageView.setImage(null);
+        }
+        if (room != Game.getMaterials()) {
+            materialImage1.setImage(null);
+            materialImage2.setImage(null);
+            materialImage3.setImage(null);
+            materialImage4.setImage(null);
+            materialImage5.setImage(null);
+        }
+
+
     }
 
     private void setRoomInventory(Room room) {
@@ -130,6 +217,12 @@ public class Controller implements Initializable {
         textBox.setText(room.getLongDescription());
     }
 
+
+    /*public void setNavigationImages(Room room) {
+        if (Game.getMainRoom()) {
+
+        }
+    } */
     public void setNavigationButtons(Room room) {
         Button[] buttons = new Button[]{button1, button2, button3, button4};
         for (Button button : buttons) {

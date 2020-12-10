@@ -38,7 +38,7 @@ public class Game {
         mainRoom = new Room("Mainroom", "in the main room and can go to the other rooms from here", mainRoomInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Mainroom.png");
         materials = new Room("Materials", "in the material room. Here you can pick a material you want to work with", materialsInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Materials.png");
         well = new Room("Water", "in the water reservoir. If you have a bucket then you can pick up some water", wellInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Well.png");
-        farm = new Room("Farm", "in the farm. You can plant your chosen seed and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
+        farm = new Room("Farm", "on the farm. You can plant your chosen seed and grow them here", farmInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Farm.png");
         factory = new Room("Factory", "in the factory. You can process your product here", factoryInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Factory.png");
         colorFactory = new Room("Color", "in the coloring room of the factory. You can color your fabric here", colorInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Coloring.png");
         sewingFactory = new Room("Sewing", "in the sewing room of the factory. You can sew your fabric here", sewingInventory, "worldofzuul/WorldOfZuulPNG/Rooms/Sewing.png");
@@ -339,4 +339,24 @@ public class Game {
     public static Materials getPolyester() {
         return Game.polyester;
     }
+
+    public static Room getWell() {
+        return Game.well;
+    }
+
+    public static Room getFarm() {
+        return Game.farm;
+    }
+
+    public static Room getFactory() {
+        return Game.factory;
+    }
+
+    public static Room getMainRoom() {return Game.mainRoom;}
+
+    public static Room getColorFactory() {return Game.colorFactory;}
+
+    public static Room getSewingFactory() {return Game.sewingFactory;}
+
+
 }
