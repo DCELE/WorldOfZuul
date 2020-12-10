@@ -218,11 +218,13 @@ public class Game {
         if (item.equals(chemicals)) {
             for (Room room : chemicals.getRoomsToUse()) {
                 useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
+                Player.playerScore.addToScore(-5);
             }
         }
 
         if (item.equals(pesticides)) {
             useChemicalsOrPesticides(chosenMaterial.isPlanted(), pesticides.getRoomToUse());
+            Player.playerScore.addToScore(-5);
         }
 
         enoughOfEverything(chosenMaterial.isInProcess() || chosenMaterial.isPlanted());
