@@ -367,5 +367,7 @@ public class Game {
 
     public static Room getFabricFactory() {return Game.fabricFactory;}
 
-
+    public static Water getWater() {
+        return water;
+    }
 }
