@@ -195,11 +195,7 @@
             </VBox>
             <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@WorldOfZuulPNG/Icons/TextConstructerHat.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="262.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
                      <padding>
                         <Insets left="10.0" top="5.0" />
