@@ -87,6 +87,74 @@ public class Controller implements Initializable {
 
     }
 
+    private void placeItemsInRoom(Room room) {
+        for(Item item: room.getInventory().getArrayList()) {
+            if (room == Game.getWell()) {
+                if (item.getId() == 7) {
+                    bucketImageView.setImage(item.getItemIcon());
+                    bucketImageView.setOnMouseClicked(this::onItemInRoomInvClicked);
+
+                }
+                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
+                talkingFace.setImage(image);
+
+            }
+
+            if (room == Game.getFarm()) {
+                if (item.getId() == 8) {
+                    pesticideImageView.setImage(item.getItemIcon());
+                }
+                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/farmRoomHead.png");
+                talkingFace.setImage(image);
+            }
+
+            if (room == Game.getFactory() || room == Game.getSewingFactory() || room == Game.getColorFactory()) {
+                if (item.getId() == 9) {
+                    chemicalImageView.setImage(item.getItemIcon());
+                }
+                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/factoryHead.png");
+                talkingFace.setImage(image);
+            }
+
+            if (room == Game.getMaterials()) {
+                switch(item.getId()) {
+                    case 1:
+                        materialImage1.setImage(item.getItemIcon());
+                    case 2:
+                        materialImage2.setImage(item.getItemIcon());
+                    case 3:
+                        materialImage3.setImage(item.getItemIcon());
+                    case 4:
+                        materialImage4.setImage(item.getItemIcon());
+                    case 5:
+                        materialImage5.setImage(item.getItemIcon());
+
+                }
+                if (item.getId() == 9) {
+                    chemicalImageView.setImage(item.getItemIcon());
+                }
+            }
+
+        }
+        if (room != Game.getWell()) {
+            bucketImageView.setImage(null);
+        }
+        if (room != Game.getFarm()) {
+            pesticideImageView.setImage(null);
+
+        }
+        if (room != Game.getFactory()) {
+            chemicalImageView.setImage(null);
+        }
+        if (room != Game.getMaterials()) {
+            materialImage1.setImage(null);
+            materialImage2.setImage(null);
+            materialImage3.setImage(null);
+            materialImage4.setImage(null);
+            materialImage5.setImage(null);
+        }
+    }
+
     public void onNavigationButtonClicked(MouseEvent mouseEvent) {
         Button button = (Button) mouseEvent.getSource();
         String labelText = button.getText();
@@ -125,12 +193,6 @@ public class Controller implements Initializable {
         setNavigationImages(room);
 
 
-
-
-
-        setItemImages(room);
-
-
         if (room == Game.getMainRoom()) {
             Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/mainRoomHead.png");
             talkingFace.setImage(image);
@@ -164,83 +226,15 @@ public class Controller implements Initializable {
     }
 
 
-
-    private void setItemImages(Room room) {
-        for(Item item: room.getInventory().getArrayList()) {
-
-
-        if (room == Game.getWell()) {
-            if (item.getId() == 7) {
-                bucketImageView.setImage(item.getItemIcon());
-            }
-            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
-            talkingFace.setImage(image);
-        }
-
-        if (room == Game.getFarm()) {
-            if (item.getId() == 8) {
-                pesticideImageView.setImage(item.getItemIcon());
-            }
-            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/farmRoomHead.png");
-            talkingFace.setImage(image);
-        }
-
-            if (room == Game.getFactory() || room == Game.getSewingFactory() || room == Game.getColorFactory()) {
-                if (item.getId() == 9) {
-                    chemicalImageView.setImage(item.getItemIcon());
-                }
-                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/factoryHead.png");
-                talkingFace.setImage(image);
-            }
-
-            if (room == Game.getMaterials()) {
-                switch(item.getId()) {
-                    case 1:
-                        materialImage1.setImage(item.getItemIcon());
-                    case 2:
-                        materialImage2.setImage(item.getItemIcon());
-                    case 3:
-                        materialImage3.setImage(item.getItemIcon());
-                    case 4:
-                        materialImage4.setImage(item.getItemIcon());
-                    case 5:
-                        materialImage5.setImage(item.getItemIcon());
-
-                }
-                if (item.getId() == 9) {
-                    chemicalImageView.setImage(item.getItemIcon());
-                }
-            }
-
-    }
-        if (room != Game.getWell()) {
-            bucketImageView.setImage(null);
-        }
-        if (room != Game.getFarm()) {
-            pesticideImageView.setImage(null);
-
-        }
-        if (room != Game.getFactory()) {
-            chemicalImageView.setImage(null);
-        }
-        if (room != Game.getMaterials()) {
-            materialImage1.setImage(null);
-            materialImage2.setImage(null);
-            materialImage3.setImage(null);
-            materialImage4.setImage(null);
-            materialImage5.setImage(null);
-        }
-
-
-    }
-
     private void setRoomInventory(Room room) {
         setInventory(room.getInventory());
         
         wellImageView.setVisible(false);
         if (room == Game.getWell()) {
             wellImageView.setVisible(true);
+
         }
+
     }
 
     public void setTextBox(Room room) {

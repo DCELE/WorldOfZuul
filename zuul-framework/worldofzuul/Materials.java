@@ -36,7 +36,7 @@ public class Materials extends Item {
     }
 
     public Materials(String name, int id, int points, String itemIcon, String description) {
-        super(name, id, itemIcon, description);
+        super(name, id, itemIcon, name.toUpperCase() + "\n" + description);
         this.state = 0;
         this.planted = false;
         this.color = "colored";
@@ -93,7 +93,7 @@ public class Materials extends Item {
     }
 
     public void updateStateNames() {
-        stateNames = new String[] {" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
+        stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
         if (getId() == 5) {
             stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
         }
@@ -132,11 +132,7 @@ public class Materials extends Item {
             this.setName(getName() + " (in process)");
         } else {
             this.inProcess = false;
-            if (state == 3) {
-                this.setName(getName() + " " + getName().split(" ")[2]);
-            } else {
-                this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
-            }
+            this.setName(getName().split(" ")[0] + " " + getName().split(" ")[1]);
         }
     }
 
@@ -177,20 +173,20 @@ public class Materials extends Item {
     public static void setActiveRecipe(Materials material) {
         activeRecipe = material.getRecipes().get(material.getState());
         if (material.getId() == 5) {
-            activeRecipe = material.getRecipes().get(material.getState()-1);
+            activeRecipe = material.getRecipes().get(material.getState() - 1);
         }
     }
 
     public void decrementWater() {
         if (activeRecipe.getWater() > 0) {
-            activeRecipe.setWater(activeRecipe.getWater()-1);
+            activeRecipe.setWater(activeRecipe.getWater() - 1);
         }
         setActiveRecipe(this);
     }
 
     public void decrementOther() {
         if (activeRecipe.getOther() > 0) {
-            activeRecipe.setOther(activeRecipe.getOther()-1);
+            activeRecipe.setOther(activeRecipe.getOther() - 1);
         }
         setActiveRecipe(this);
     }

@@ -196,7 +196,7 @@
             <Pane prefHeight="180.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
                   <ImageView fx:id="talkingFace" fitHeight="152.0" fitWidth="500.0" layoutX="177.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="textBox" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="262.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
+                  <Label fx:id="textBox" alignment="TOP_LEFT" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="262.0" layoutY="34.0" prefHeight="118.0" prefWidth="285.0" style="-fx-border-color: grey; -fx-border-width: 0;" text="Label" wrapText="true">
                      <padding>
                         <Insets left="10.0" top="5.0" />
                      </padding>
@@ -461,7 +461,7 @@
 
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0">
+      <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="465.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
          <children>
             <Label fx:id="itemDescription" alignment="CENTER" blendMode="MULTIPLY" prefHeight="216.0" prefWidth="315.0" style="-fx-background-color: pink;" text="Label" textAlignment="CENTER">
                <effect>
