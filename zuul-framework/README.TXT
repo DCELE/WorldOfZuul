@@ -3,9 +3,11 @@ Authors: Christoffer Knudsgaard, Dilara Celepli, Frederikke Lan, Gorm Krings,
 Kasper Schäffer and Nithurshan Mariyananthajesuthasan
 
 This project is an extension of the World Of Zuul code by Michael Kolling
-and David J. Barnes
+and David J. Barnes.
 
 This project is a framework for an adventure learning game.
+
+You have to add a JavaFX SDK15 library to run this application.
 
 The application will start by running the program.
 
@@ -24,6 +26,7 @@ inventory and then either click use or drop. Hints to what to do next are availa
 by clicking on the “!” icon.
 
 The game includes following commands:
+
 - Use
 - Drop
 - Yes
