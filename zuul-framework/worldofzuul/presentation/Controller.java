@@ -93,6 +93,8 @@ public class Controller implements Initializable {
         // Set playerHead
         setPlayerHead(room);
 
+        setFinalScore(room);
+
 
         prosConsPanel.setVisible(false);
         prosConsPanel1.setVisible(false);
@@ -324,7 +326,6 @@ public class Controller implements Initializable {
         wellImageView.setVisible(false);
         if (room == Game.getWell()) {
             wellImageView.setVisible(true);
-
         }
     }
 
@@ -537,15 +538,17 @@ public class Controller implements Initializable {
         if (Game.getChosenMaterial() == null) {
             return;
         }
+
             if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
                 endResultsPane.setVisible(true);
+
                 if (Player.playerScore.getScore() > 55) {
                     Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
                     Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
                     endResultImageView.setImage(image);
                     endResultPersonImageView.setImage(imagePerson);
                 }
-                if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56 ) {
+                if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
                     Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
                     Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
                     endResultImageView.setImage(image);
@@ -557,12 +560,13 @@ public class Controller implements Initializable {
                     endResultImageView.setImage(image);
                     endResultPersonImageView.setImage(imagePerson);
                 }
-                if (Player.playerScore.getScore() < 0 ) {
+                if (Player.playerScore.getScore() < 0) {
                     Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
                     endResultImageView.setImage(image);
                 }
             }
-    }
+        }
+
 
 
 

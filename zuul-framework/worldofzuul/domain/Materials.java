@@ -16,31 +16,12 @@ public class Materials extends Item {
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
     private int points;
 
-    public Materials(String name, int id, int points, String itemIcon) {
-        super(name, id, itemIcon);
-        this.state = 0;
-        this.planted = false;
-        this.color = "colored";
-        allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
-        this.points = points;
-        allMaterials.add(this);
-
-        stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
-        if (super.getId() == 5) {
-            this.state = 1;
-            stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
-
-        }
-        this.recipes = new ArrayList<>();
-        setNameForState();
-    }
-
     public Materials(String name, int id, int points, String itemIcon, String description) {
         super(name, id, itemIcon, name.toUpperCase() + "\n" + description);
         this.state = 0;
         this.planted = false;
         this.color = "colored";
-        allColors = new String[]{"Natural", "Blue", "Red", "Green", "Yellow", "Black", "White"};
+        allColors = new String[]{"Natural", "Blue"};
         this.points = points;
         allMaterials.add(this);
 
@@ -162,21 +143,6 @@ public class Materials extends Item {
         } else if (color.equals(allColors[1])) {
             activeRecipe.setWater(2);
             activeRecipe.setOther(2);
-        } else if (color.equals(allColors[2])) {
-            activeRecipe.setWater(3);
-            activeRecipe.setOther(3);
-        } else if (color.equals(allColors[3])) {
-            activeRecipe.setWater(3);
-            activeRecipe.setOther(3);
-        } else if (color.equals(allColors[4])) {
-            activeRecipe.setWater(3);
-            activeRecipe.setOther(3);
-        } else if (color.equals(allColors[5])) {
-            activeRecipe.setWater(2);
-            activeRecipe.setOther(2);
-        } else if (color.equals(allColors[6])) {
-            activeRecipe.setWater(4);
-            activeRecipe.setOther(4);
         }
     }
 
@@ -213,4 +179,5 @@ public class Materials extends Item {
     public String[] getAllColors() {
         return allColors;
     }
+
 }
