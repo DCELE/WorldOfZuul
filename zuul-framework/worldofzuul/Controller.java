@@ -34,7 +34,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane playInvPane;
     @FXML
-    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace, endResultImageView, endResultPersonImageView;
+    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace, endResultImageView, endResultPersonImageView, closeButton;
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -464,7 +464,6 @@ public class Controller implements Initializable {
                     Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
                     endResultImageView.setImage(image);
                     endResultPersonImageView.setImage(imagePerson);
-
                 }
                 if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56 ) {
                     Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
@@ -479,7 +478,7 @@ public class Controller implements Initializable {
                     endResultPersonImageView.setImage(imagePerson);
                 }
                 if (Player.playerScore.getScore() < 0 ) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinus.png");
+                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
                     endResultImageView.setImage(image);
                 }
             }
@@ -550,5 +549,11 @@ public class Controller implements Initializable {
     public void onWellClicked(MouseEvent mouseEvent) {
         onItemInRoomInvClicked(mouseEvent);
 
+    }
+
+
+    public void closeButton(MouseEvent mouseEvent) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 }
