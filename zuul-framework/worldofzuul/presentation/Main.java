@@ -5,6 +5,7 @@ import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import worldofzuul.domain.Game;
 
 public class Main extends Application {
@@ -12,8 +13,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         scene = new Scene(root);
+
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
     }
