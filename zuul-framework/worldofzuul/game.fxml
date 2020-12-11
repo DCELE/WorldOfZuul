@@ -286,54 +286,6 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="navMainPane" layoutX="327.0" layoutY="382.0" prefHeight="340.0" prefWidth="323.0" visible="false">
-         <children>
-            <ImageView fx:id="navMain2" fitHeight="34.0" fitWidth="129.0" layoutX="74.0" layoutY="110.0" onMouseClicked="#wellNavClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/WellSign.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="navSign3" fitHeight="31.0" fitWidth="106.0" layoutX="126.0" layoutY="164.0" onMouseClicked="#farmNavClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/FarmSign.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="navMain4" fitHeight="45.0" fitWidth="150.0" layoutX="74.0" layoutY="214.0" onMouseClicked="#materialNavClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/MaterialSign.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="navMain1" fitHeight="34.0" fitWidth="150.0" layoutX="87.0" layoutY="69.0" onMouseClicked="#factoryNavClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/FactorySign.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane fx:id="navFabricPane" layoutX="327.0" layoutY="229.0" prefHeight="428.0" prefWidth="277.0" visible="false">
-         <children>
-            <ImageView fitHeight="398.0" fitWidth="375.0" layoutX="52.0" layoutY="30.0" onMouseClicked="#factoryNavClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@WorldOfZuulPNG/Navigation/DoorFront.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane fx:id="playInvPane" layoutX="966.0" layoutY="14.0" prefHeight="355.0" prefWidth="300.0" visible="false">
          <children>
             <ImageView fx:id="playerInventory" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
@@ -457,12 +409,60 @@
             </ImageView>
          </children>
       </Pane>
+      <Pane fx:id="navMainPane" layoutX="327.0" layoutY="382.0" prefHeight="340.0" prefWidth="323.0" visible="false">
+         <children>
+            <ImageView fx:id="navMain2" fitHeight="34.0" fitWidth="129.0" layoutX="74.0" layoutY="110.0" onMouseClicked="#wellNavClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/WellSign.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="navSign3" fitHeight="31.0" fitWidth="106.0" layoutX="126.0" layoutY="164.0" onMouseClicked="#farmNavClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/FarmSign.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="navMain4" fitHeight="45.0" fitWidth="150.0" layoutX="74.0" layoutY="214.0" onMouseClicked="#materialNavClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/MaterialSign.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="navMain1" fitHeight="34.0" fitWidth="150.0" layoutX="87.0" layoutY="69.0" onMouseClicked="#factoryNavClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/FactorySign.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="navFabricPane" layoutX="327.0" layoutY="229.0" prefHeight="428.0" prefWidth="277.0" visible="false">
+         <children>
+            <ImageView fitHeight="398.0" fitWidth="375.0" layoutX="52.0" layoutY="30.0" onMouseClicked="#factoryNavClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/Navigation/DoorFront.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
       <ImageView fx:id="wellImageView" fitHeight="463.0" fitWidth="331.0" layoutX="440.0" layoutY="183.0" onMouseClicked="#onWellClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <cursor>
 
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      
+
       <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="467.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
@@ -503,7 +503,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-      
+
                   <Label alignment="CENTER" blendMode="MULTIPLY" layoutX="89.0" layoutY="22.0" prefHeight="17.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="Do you wish to pick it up?" textAlignment="CENTER">
                      <font>
                         <Font name="American Typewriter" size="14.0" />
@@ -553,6 +553,16 @@
                   <Font name="American Typewriter" size="14.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="startPane" layoutX="-1.0" layoutY="-2.0" prefHeight="800.0" prefWidth="1280.0">
+         <children>
+            <ImageView fx:id="startpic" fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@WorldOfZuulPNG/welcome/GameScreen.png" />
+               </image>
+            </ImageView>
+            <Button defaultButton="true" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#startGame" prefHeight="78.0" prefWidth="200.0" text="START GAME" />
          </children>
       </Pane>
    </children>

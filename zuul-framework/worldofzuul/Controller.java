@@ -34,7 +34,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane playInvPane;
     @FXML
-    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace;
+    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace, startpic;
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -42,7 +42,7 @@ public class Controller implements Initializable {
     @FXML
     private Label hintLabel;
     @FXML
-    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane;
+    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane, startPane;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
@@ -56,10 +56,10 @@ public class Controller implements Initializable {
     private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv, itemSelectedOnce = null;;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadRoom(Room.getAllRooms().get(0));
-
     }
 
     public void setInventory(Inventory inventory) {
@@ -239,6 +239,7 @@ public class Controller implements Initializable {
 
 
     private void setBackgroundImage(Room room) {
+        startPane.setVisible(true);
         backgroundImage.setImage(getImage(room.getBackgroundImage()));
     }
 
@@ -286,7 +287,6 @@ public class Controller implements Initializable {
         if (room == Game.getWell()) {
             navWellPane.setVisible(true);
         }
-
 
         //set visible false
         if (room != Game.getMainRoom()) {
@@ -461,6 +461,11 @@ public class Controller implements Initializable {
     public void openInventory(MouseEvent mouseEvent) {
         boolean setVisibility = !playInvPane.isVisible();
         playInvPane.setVisible(setVisibility);
+    }
+
+    public void startGame(MouseEvent mouseEvent) {
+        boolean setVisibility = !startPane.isVisible();
+        startPane.setVisible(setVisibility);
     }
 
     public void setHintLabel() {
