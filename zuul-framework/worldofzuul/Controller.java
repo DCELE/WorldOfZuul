@@ -155,13 +155,6 @@ public class Controller implements Initializable {
         }
     }
 
-    public void onNavigationButtonClicked(MouseEvent mouseEvent) {
-        Button button = (Button) mouseEvent.getSource();
-        String labelText = button.getText();
-        loadRoom(Room.getRoom(labelText));
-    }
-
-
     public void factoryNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getFactory());}
 
     public void wellNavClicked(MouseEvent mouseEvent) { loadRoom(Game.getWell());}
@@ -192,8 +185,6 @@ public class Controller implements Initializable {
         setTextBox(room);
 
         setScoreboard(room);
-        // Set button text labels
-        setNavigationButtons(room);
         // Set room inventory
         setRoomInventory(room);
         // Set currentRoom
@@ -203,8 +194,6 @@ public class Controller implements Initializable {
         // Set background
         setBackgroundImage(room);
         //Set exitImages
-        setNavigationImages(room);
-        //Change room with images
         setNavigationImages(room);
 
         placeItemsInRoom(room);
@@ -315,22 +304,6 @@ public class Controller implements Initializable {
         }
 
 
-    }
-
-    public void setNavigationButtons(Room room) {
-        Button[] buttons = new Button[]{button1, button2, button3, button4};
-        for (Button button : buttons) {
-            button.setVisible(false);
-        }
-        for (int i = 0; i < room.getExits().size(); i++) {
-            setButton(buttons[i], room.getExits().get(i));
-            buttons[i].setVisible(true);
-        }
-    }
-
-
-    public void setButton(Button button, Room exitRoom) {
-        button.setText(exitRoom.getName());
     }
 
     public void pickUpItem(Item item) {
