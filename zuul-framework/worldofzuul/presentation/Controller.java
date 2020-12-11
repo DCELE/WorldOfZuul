@@ -94,11 +94,6 @@ public class Controller implements Initializable {
         setPlayerHead(room);
 
 
-        if (room == Game.getMainRoom()) {
-            Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/mainRoomHead.png");
-            talkingFace.setImage(image);
-        }
-
         prosConsPanel.setVisible(false);
         prosConsPanel1.setVisible(false);
         if (Game.getCurrentRoom() == Game.getMaterials()) {
@@ -296,6 +291,15 @@ public class Controller implements Initializable {
             Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/factoryHead.png");
             talkingFace.setImage(image);
         }
+        if (room == Game.getMaterials()) {
+            Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/TextFruitHat.png");
+            talkingFace.setImage(image);
+        }
+        if (room == Game.getMainRoom()) {
+            Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/TextHelmet.png");
+            talkingFace.setImage(image);
+        }
+
     }
 
     private Image getImage(String url) {

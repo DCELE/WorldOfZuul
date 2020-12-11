@@ -6,14 +6,12 @@ public class Recipe {
     private int water;
     private int other; // Either pesticides or chemicals never both
     private String itemIcon;
-    private String itemIconColored;
 
-    public Recipe(Room usableIn, int water, int other, String itemIcon, String itemIconColored) {
+    public Recipe(Room usableIn, int water, int other, String itemIcon) {
         this.usableIn = usableIn;
         this.water = water;
         this.other = other;
         this.itemIcon = itemIcon;
-        this.itemIconColored = itemIconColored;
     }
 
 
@@ -76,17 +74,6 @@ public class Recipe {
 
     public String getImage() {return itemIcon;}
 
-    public String getImageColor() {return itemIconColored;}
 
-   /*
-
-   public String getImage(Materials materials) {
-        if (materials.getColor().equals("Blue")) {
-            return itemIconColored;
-        } else {
-            return itemIcon;
-        }
-    }
-*/
 
 }
