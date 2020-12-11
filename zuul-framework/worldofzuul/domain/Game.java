@@ -77,7 +77,7 @@ public class Game {
         cotton.addRecipe(new Recipe(colorFactory, 2, 1, "worldofzuul/WorldOfZuulPNG/Items/FabricBlue.png"));
         cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        polyester.addRecipe(new Recipe(fabricFactory, 6, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        polyester.addRecipe(new Recipe(fabricFactory, 6, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
         polyester.addRecipe(new Recipe(colorFactory, 2, 1, "worldofzuul/WorldOfZuulPNG/Items/FabricBlue.png"));
         polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
