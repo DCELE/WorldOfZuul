@@ -1,7 +1,9 @@
 package worldofzuul.domain;
 
 public class Bucket extends Item {
+    // A bucket can have water or not
     private boolean hasWater;
+    // A bucket is usable in certain rooms
     private Room[] roomsToUse;
 
     public Bucket(String name, int id, Room[] roomsToUseBucket, String itemIcon, String description) {

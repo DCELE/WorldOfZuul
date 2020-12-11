@@ -78,7 +78,7 @@ public class Controller implements Initializable {
         askToPickUp(null);
         // Set room welcome description
         setTextBox(room);
-
+        // Set the scoreboard
         setScoreboard(room);
         // Set room inventory
         setRoomInventory(room);
@@ -92,7 +92,7 @@ public class Controller implements Initializable {
         setNavigationImages(room);
         // Set playerHead
         setPlayerHead(room);
-
+        //
         setFinalScore(room);
 
 
@@ -243,7 +243,6 @@ public class Controller implements Initializable {
         }
         materialPane.setDisable(true);
     }
-
 
     public void factoryNavClicked(MouseEvent mouseEvent) {
         loadRoom(Game.getFactory());
@@ -566,10 +565,6 @@ public class Controller implements Initializable {
                 }
             }
         }
-
-
-
-
 
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();

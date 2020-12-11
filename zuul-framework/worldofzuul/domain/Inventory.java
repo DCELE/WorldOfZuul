@@ -3,6 +3,7 @@ package worldofzuul.domain;
 import java.util.ArrayList;
 
 public class Inventory {
+    // An inventory can contain Items
     private ArrayList<Item> inventory;
 
     public Inventory() {
@@ -29,6 +30,7 @@ public class Inventory {
         this.inventory.remove(item);
     }
 
+    // A method to check whether an item is or is not in the inventory
     public boolean contains(Item item) {
         for (Item it : this.inventory) {
             if (it.getName().equals(item.getName())) {
