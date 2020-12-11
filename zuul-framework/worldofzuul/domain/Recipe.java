@@ -74,6 +74,4 @@ public class Recipe {
 
     public String getImage() {return itemIcon;}
 
-
-
 }
