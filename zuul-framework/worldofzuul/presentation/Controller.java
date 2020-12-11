@@ -244,7 +244,7 @@ public class Controller implements Initializable {
         materialPane.setDisable(true);
     }
 
-
+    //Method that takes input from a on_mouse_clicked and loads a new room.
     public void factoryNavClicked(MouseEvent mouseEvent) {
         loadRoom(Game.getFactory());
     }
@@ -277,7 +277,7 @@ public class Controller implements Initializable {
         loadRoom(Game.getFabricFactory());
     }
 
-
+    //Informative ingame-head enabled based on room.
     private void setPlayerHead(Room room) {
         if (room == Game.getWell()) {
             Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
@@ -333,6 +333,7 @@ public class Controller implements Initializable {
 
         textBox.setText(room.getLongDescription());
     }
+
 
 
     public void setNavigationImages(Room room) {
@@ -489,6 +490,7 @@ public class Controller implements Initializable {
         acceptButton.setOnMouseClicked(this::acceptChosenColor);
         pickMaterialColor.getChildren().add(acceptButton);
 
+
         Scene scene = new Scene(pickMaterialColor);
         stage.setScene(scene);
         stage.show();
@@ -534,11 +536,13 @@ public class Controller implements Initializable {
         }
     }
 
+    //This method determines what pane is shown at the end of the game.
     public void setFinalScore(Room room) {
         if (Game.getChosenMaterial() == null) {
             return;
         }
 
+        //Requirements for a completion of the game.
         if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
             endResultsPane.setVisible(true);
 
@@ -548,6 +552,7 @@ public class Controller implements Initializable {
                 endResultImageView.setImage(image);
                 endResultPersonImageView.setImage(imagePerson);
 
+                //If statement that changes pane based on if you colored your shirt or not.
                 if (Game.getChosenMaterial().getColor().equals("blue")) {
                     Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceColored.png");
                     endResultPersonImageView.setImage(imagePersonColored);
@@ -557,7 +562,7 @@ public class Controller implements Initializable {
                 }
             }
             if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
-                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
+               Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
                 Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
                 endResultImageView.setImage(image);
                 endResultPersonImageView.setImage(imagePerson);
