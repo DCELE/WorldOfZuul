@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     @FXML
     private VBox pickUpQuestion;
     @FXML
-    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6, navMain1;
+    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6, navMain1, startImg;
     @FXML
     private Pane playInvPane;
     @FXML
@@ -49,7 +49,7 @@ public class Controller implements Initializable {
     @FXML
     private Label hintLabel;
     @FXML
-    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane, hintPane, endResultsPane;
+    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane, hintPane, endResultsPane, startPane;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
@@ -586,6 +586,10 @@ public class Controller implements Initializable {
     public void showHelp(MouseEvent mouseEvent) {
         boolean setVisibility = !PaneShowHelp.isVisible();
         PaneShowHelp.setVisible(setVisibility);
+    }
+
+    public void startGame(MouseEvent mouseEvent) {
+        startPane.setVisible(false);
     }
 
     public void onItemInPlayInvClicked(MouseEvent mouseEvent) {
