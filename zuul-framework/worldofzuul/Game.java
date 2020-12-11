@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import javafx.scene.control.Control;
+
 public class Game {
     private static Room currentRoom;
     private static Materials hemp, linen, bamboo, cotton, polyester;
@@ -57,29 +59,29 @@ public class Game {
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png", "Chemicals used in the\nproduction of clothes.\nNot environmentally friendly\nbut essential in the \nproduction.");
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
-        hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png"));
-        hemp.addRecipe(new Recipe(fabricFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        hemp.addRecipe(new Recipe(colorFactory, 1, 1,"worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        hemp.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png",""));
+        hemp.addRecipe(new Recipe(fabricFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        hemp.addRecipe(new Recipe(colorFactory, 1, 1,"worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        hemp.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        linen.addRecipe(new Recipe(farm, 1, 1, "worldofzuul/WorldOfZuulPNG/Items/LinenPlant.png"));
-        linen.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        linen.addRecipe(new Recipe(colorFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        linen.addRecipe(new Recipe(farm, 1, 1, "worldofzuul/WorldOfZuulPNG/Items/LinenPlant.png",""));
+        linen.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        linen.addRecipe(new Recipe(colorFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        bamboo.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png"));
-        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        bamboo.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        bamboo.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png",""));
+        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        bamboo.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        cotton.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/CottonPlant.png"));
-        cotton.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        cotton.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        cotton.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/CottonPlant.png",""));
+        cotton.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        cotton.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        polyester.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        polyester.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        polyester.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        polyester.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
@@ -142,13 +144,7 @@ public class Game {
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUse().getName());
                 return false;
             }
-            // Check the materials stage
             if (chosenMaterial.getState() == 0) {
-
-                if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
-                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
-                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
-                else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
                 // Plant material
                 chosenMaterial.setPlanted();
             }
@@ -189,7 +185,7 @@ public class Game {
                     Player.setPlayerThinks("I need to plant something before watering it");
                     return false;
                 }
-                Player.playerScore.addToScore(-5);
+
             }
 
             // Check if the room is the factory
@@ -203,7 +199,6 @@ public class Game {
             if (Materials.getActiveRecipe().getWater() <= 0) {
                 return false;
             }
-            Player.playerScore.addToScore(-5);
             chosenMaterial.decrementWater();
             bucket.setHasWater();
         }
@@ -211,8 +206,8 @@ public class Game {
         if (item.equals(chemicals)) {
             for (Room room : chemicals.getRoomsToUse()) {
                 useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
-                Player.playerScore.addToScore(-5);
             }
+            Player.playerScore.addToScore(-10);
         }
 
         if (item.equals(pesticides)) {
@@ -277,6 +272,11 @@ public class Game {
                 // Remove all other materials from room
                 currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
                 currentRoom.getInventory().addToInventory(chosenMaterial);
+                if  (material.getName().equals("hemp seed")){Player.playerScore.addToScore(-5);}
+                if  (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
+                if  (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
+                if  (material.getName().equals("polyester chemicals")){Player.playerScore.addToScore(-35);}
+                if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
             }
 
             if (material.isPlanted()) {
@@ -295,9 +295,11 @@ public class Game {
                 return false;
             }
             if (bucket.hasWater()) {
-                Player.setPlayerThinks("I've already filled the bucket with water");
+                Player.setPlayerThinks("You've just emptied your bucket to pick up some more water. Great idea!!");
+                Player.playerScore.addToScore(-5);
                 return false;
             }
+            Player.playerScore.addToScore(-5);
             bucket.setHasWater();
             return false;
         }
