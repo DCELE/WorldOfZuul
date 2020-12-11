@@ -51,8 +51,6 @@ public class Controller implements Initializable {
     @FXML
     public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane, hintPane, endResultsPane, startPane;
     @FXML
-    private Button button1, button2, button3, button4;
-    @FXML
     private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5;
     @FXML
     private Label scoreboard;
@@ -79,7 +77,7 @@ public class Controller implements Initializable {
         // Set room welcome description
         setTextBox(room);
         // Set the scoreboard
-        setScoreboard(room);
+        setScoreboard();
         // Set room inventory
         setRoomInventory(room);
         // Set currentRoom
@@ -93,7 +91,7 @@ public class Controller implements Initializable {
         // Set playerHead
         setPlayerHead(room);
         //
-        setFinalScore(room);
+        setFinalScore();
 
 
         prosConsPanel.setVisible(false);
@@ -113,6 +111,7 @@ public class Controller implements Initializable {
             inventorySlots = new ImageView[]{playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9};
         }
 
+        // Disable the unused inventory slots
         for (ImageView imageView : inventorySlots) {
             imageView.setDisable(true);
             imageView.setImage(null);
@@ -130,6 +129,7 @@ public class Controller implements Initializable {
             }
         }
 
+        // Placing items in a specific place in the room
         int i = 0;
         for (Item item : inventory.getArrayList()) {
             if (inventory == Game.getWell().getInventory() && item == Game.getWater()) {
@@ -173,6 +173,7 @@ public class Controller implements Initializable {
             }
         }
 
+        // Placing inventory in a specific place in the different rooms
         if (inventory == Game.getMainRoom().getInventory()) {
             width = 390;
             roomInventory.setLayoutX(50);
@@ -335,7 +336,7 @@ public class Controller implements Initializable {
 
 
     public void setNavigationImages(Room room) {
-        //Set visible true
+        // Setting the specific room's exits
         if (room == Game.getMainRoom()) {
             navMainPane.setVisible(true);
         }
@@ -391,6 +392,7 @@ public class Controller implements Initializable {
 
     }
 
+    // add item to player inventory in relation to the graphics
     public void pickUpItem(Item item) {
         if (!Game.getCurrentRoom().getInventory().getArrayList().contains(item)) {
             return;
@@ -403,6 +405,7 @@ public class Controller implements Initializable {
         setHintLabel();
     }
 
+    // remove item from player inventory in relation to the graphics
     public void dropItem(Item item) {
         if (!Player.getInventory().getArrayList().contains(item)) {
             return;
@@ -412,6 +415,7 @@ public class Controller implements Initializable {
         setInventory(Player.getInventory());
         setHintLabel();
     }
+
 
     public void onPickUpButtonClicked(MouseEvent mouseEvent) {
         if (selectedItemRoomInv == null) {
@@ -464,7 +468,7 @@ public class Controller implements Initializable {
         setTextBox(Game.getCurrentRoom());
     }
 
-
+    // Making a new window to be able to pick a color for the material
     private void chooseColor() {
         pickColor = new ToggleGroup();
         Stage stage = new Stage();
@@ -533,7 +537,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void setFinalScore(Room room) {
+    public void setFinalScore() {
         if (Game.getChosenMaterial() == null) {
             return;
         }
@@ -574,8 +578,8 @@ public class Controller implements Initializable {
         setHintLabel();
     }
 
-    public void setScoreboard(Room room) {
-        scoreboard.setText(String.valueOf("Current score: " + Player.playerScore.getScore()));
+    public void setScoreboard() {
+        scoreboard.setText("Current score: " + Player.playerScore.getScore());
     }
 
     public void showHelp(MouseEvent mouseEvent) {
@@ -637,8 +641,7 @@ public class Controller implements Initializable {
         onItemInRoomInvClicked(mouseEvent);
 
     }
-
-
+    
     public void closeButton(MouseEvent mouseEvent) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
