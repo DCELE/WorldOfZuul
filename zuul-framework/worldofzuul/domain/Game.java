@@ -67,8 +67,8 @@ public class Game {
         linen.addRecipe(new Recipe(colorFactory, 2, 1, "worldofzuul/WorldOfZuulPNG/Items/FabricBlue.png"));
         linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 
-        bamboo.addRecipe(new Recipe(farm, 1, 0, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png"));
-        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
+        bamboo.addRecipe(new Recipe(farm, 2, 1, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png"));
+        bamboo.addRecipe(new Recipe(fabricFactory, 1, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
         bamboo.addRecipe(new Recipe(colorFactory, 2, 1, "worldofzuul/WorldOfZuulPNG/Items/FabricBlue.png"));
         bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
 

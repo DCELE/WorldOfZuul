@@ -626,7 +626,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="endResultsPane" layoutX="1.0" layoutY="74.0" prefHeight="652.0" prefWidth="1280.0" visible="false">
+      <Pane fx:id="endResultsPane" layoutX="1.0" layoutY="74.0" prefHeight="652.0" prefWidth="1280.0">
          <children>
             <ImageView fx:id="endResultImageView" fitHeight="652.0" fitWidth="800.0" layoutX="276.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -635,7 +635,7 @@
             </ImageView>
             <ImageView fx:id="endResultPersonImageView" fitHeight="354.0" fitWidth="254.0" layoutX="367.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="152.0" prefHeight="348.0" prefWidth="230.0" />
-            <ImageView fx:id="closeButton" fitHeight="87.0" fitWidth="271.0" layoutX="330.0" layoutY="563.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="closeButton" fitHeight="87.0" fitWidth="271.0" layoutX="495.0" layoutY="563.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../WorldOfZuulPNG/Results/QuitButton.png" />
                </image>

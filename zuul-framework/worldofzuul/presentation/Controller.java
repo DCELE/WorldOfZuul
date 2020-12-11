@@ -549,7 +549,7 @@ public class Controller implements Initializable {
             i = Game.getChosenMaterial().getState() - 1;
         } else {
             i = Game.getChosenMaterial().getState();
-
+        }
         //Requirements for a completion of the game.
         if (Game.getChosenMaterial().getRecipes().size() == i) {
             endResultsPane.setVisible(true);
@@ -603,7 +603,7 @@ public class Controller implements Initializable {
                 }
             }
         }
-    }
+
 
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();
