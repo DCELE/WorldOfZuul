@@ -371,4 +371,8 @@ public class Game {
     public static Water getWater() {
         return water;
     }
+
+    public static Bucket getBucket() {
+        return bucket;
+    }
 }

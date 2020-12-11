@@ -72,7 +72,15 @@ public class Materials extends Item {
 
     public void upgradeState() {
         this.state += 1;
-        this.setItemIcon(activeRecipe.getImage());
+        if (!this.color.equals(allColors[0].toLowerCase()) || this.color.equals("colored")) {
+            this.setItemIcon(activeRecipe.getImage());
+        } else {
+            if (state == 3) {
+                this.setItemIcon("worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png");
+            } else {
+                this.setItemIcon("worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png");
+            }
+        }
         setNameForState();
         if (getId() == 5) {
             if (recipes.size() > state-1) {
