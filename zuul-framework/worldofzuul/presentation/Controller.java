@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     @FXML
     private VBox pickUpQuestion;
     @FXML
-    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6, navMain1, startImg;
+    private ImageView roomInventoryItem1, roomInventoryItem2, roomInventoryItem3, roomInventoryItem4, roomInventoryItem5, roomInventoryItem6, navMain1;
     @FXML
     private Pane playInvPane;
     @FXML
