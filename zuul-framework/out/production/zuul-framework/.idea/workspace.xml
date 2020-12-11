@@ -1,115 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b74c8ea-2481-464d-9cb8-ae9e16aa0408" name="Default Changelist" comment="" />
+    <list default="true" id="5a1b62e5-d360-43bb-b555-b2f91e9bd41e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1lNoHev12cwYhBSXXPQ2Rcc72f6" />
+  <component name="ProjectId" id="1lNW5ogjL5M3xURFLlcs7gMRezM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Skrivebord/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx-sdk-15.0.1/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="worldofzuul.Main" />
       <module name="zuul-framework" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\hey-s\OneDrive\Skrivebord\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\StigRossen\Downloads\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="worldofzuul.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2b74c8ea-2481-464d-9cb8-ae9e16aa0408" name="Default Changelist" comment="" />
-      <created>1607446830198</created>
+      <changelist id="5a1b62e5-d360-43bb-b555-b2f91e9bd41e" name="Default Changelist" comment="" />
+      <created>1607437848189</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607446830198</updated>
+      <updated>1607437848189</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607557050045">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607625371503">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1607446898977" />
-    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557050045" />
-    <state x="418" y="104" key="FileChooserDialogImpl" timestamp="1607655761972">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625371503" />
+    <state x="765" y="250" key="FileChooserDialogImpl" timestamp="1607518954563">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="348" y="86" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1607446882317" />
-    <state x="418" y="104" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1607655761972" />
-    <state width="1493" height="166" key="GridCell.Tab.0.bottom" timestamp="1607656379618">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="765" y="250" key="FileChooserDialogImpl/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607518954563" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1607703995948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1607447715394" />
-    <state width="1493" height="166" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1607656379618" />
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
-    <state width="1493" height="166" key="GridCell.Tab.0.center" timestamp="1607656379615">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607703995948" />
+    <state width="1237" height="282" key="GridCell.Tab.0.bottom/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@1920.204.1280.984" timestamp="1607634405442" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.331.1920.1040/1920.204.1280.984@0.0.1920.1040" timestamp="1607581765328" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1607703995948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1607447715393" />
-    <state width="1493" height="166" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1607656379615" />
-    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
-    <state width="1493" height="166" key="GridCell.Tab.0.left" timestamp="1607656379615">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607703995948" />
+    <state width="1237" height="282" key="GridCell.Tab.0.center/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@1920.204.1280.984" timestamp="1607634405442" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.331.1920.1040/1920.204.1280.984@0.0.1920.1040" timestamp="1607581765328" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1607703995948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1607447715393" />
-    <state width="1493" height="166" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1607656379615" />
-    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759664" />
-    <state width="1493" height="166" key="GridCell.Tab.0.right" timestamp="1607656379617">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607703995948" />
+    <state width="1237" height="282" key="GridCell.Tab.0.left/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@1920.204.1280.984" timestamp="1607634405442" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.331.1920.1040/1920.204.1280.984@0.0.1920.1040" timestamp="1607581765328" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1607703995948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1607447715394" />
-    <state width="1493" height="166" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1607656379617" />
-    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607447759665" />
-    <state x="145" y="0" key="SettingsEditor" timestamp="1607655766198">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607703995948" />
+    <state width="1237" height="282" key="GridCell.Tab.0.right/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@1920.204.1280.984" timestamp="1607634405442" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.331.1920.1040/1920.204.1280.984@0.0.1920.1040" timestamp="1607581765328" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1607625478700">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1607446885086" />
-    <state x="145" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1607655766198" />
-    <state x="46" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1607686322992">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625478700" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1607625478700">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="46" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1607686322992" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/worldofzuul/Game.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/worldofzuul/Controller.java</url>
-          <line>332</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625478700" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1607625478700">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625478700" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1607625478700">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625478700" />
+    <state x="539" y="83" key="SettingsEditor" timestamp="1607625378317">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="83" key="SettingsEditor/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607625378317" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1607683176832">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607683176832" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607523372573">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.331.1920.1040/1920.204.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1607523372573" />
   </component>
 </project>

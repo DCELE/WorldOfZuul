@@ -239,7 +239,6 @@ public class Controller implements Initializable {
 
 
     private void setBackgroundImage(Room room) {
-        startPane.setVisible(true);
         backgroundImage.setImage(getImage(room.getBackgroundImage()));
     }
 
@@ -464,8 +463,7 @@ public class Controller implements Initializable {
     }
 
     public void startGame(MouseEvent mouseEvent) {
-        boolean setVisibility = !startPane.isVisible();
-        startPane.setVisible(setVisibility);
+        startPane.setVisible(false);
     }
 
     public void setHintLabel() {
