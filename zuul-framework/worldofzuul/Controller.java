@@ -195,6 +195,7 @@ public class Controller implements Initializable {
         setBackgroundImage(room);
         //Set exitImages
         setNavigationImages(room);
+        // Set
 
         placeItemsInRoom(room);
 
@@ -225,8 +226,6 @@ public class Controller implements Initializable {
         return image;
     }
 
-
-
     private void setBackgroundImage(Room room) {
         backgroundImage.setImage(getImage(room.getBackgroundImage()));
     }
@@ -240,7 +239,6 @@ public class Controller implements Initializable {
             wellImageView.setVisible(true);
 
         }
-
     }
 
     public void setTextBox(Room room) {
@@ -376,7 +374,6 @@ public class Controller implements Initializable {
         Game.enoughOfEverything(Game.getChosenMaterial().isInProcess() || Game.getChosenMaterial().isPlanted());
         setInventory(Game.getCurrentRoom().getInventory());
         setTextBox(Game.getCurrentRoom());
-        loadRoom(Game.getCurrentRoom());
     }
 
 
@@ -423,14 +420,6 @@ public class Controller implements Initializable {
         stage.close();
     }
 
-    public void materialClicked(MouseEvent mouseEvent) {
-
-        //if (room.getName().equals("materials")) {
-        if (selectedItemRoomInv == null) {
-            return;
-        }
-    }
-
     public void openInventory(MouseEvent mouseEvent) {
         boolean setVisibility = !playInvPane.isVisible();
         playInvPane.setVisible(setVisibility);
@@ -442,6 +431,13 @@ public class Controller implements Initializable {
             return;
         }
         hintLabel.setText(Materials.getActiveRecipe().toString());
+
+        if (Game.getChosenMaterial().getId() == 5) {
+            if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()-1) {
+                hintLabel.setText("You've come to \nthe end of your journey. \nThank you for playing \nour game \n- T6-1");
+            }
+            return;
+        }
 
         if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
             hintLabel.setText("You've come to \nthe end of your journey. \nThank you for playing \nour game \n- T6-1");
@@ -505,6 +501,8 @@ public class Controller implements Initializable {
 
     public void onDenyPickUp(MouseEvent mouseEvent) {
         pickUpQuestion.setVisible(false);
+        selectedItemRoomInv = null;
+        askToPickUp(null);
     }
 
     public void onWellClicked(MouseEvent mouseEvent) {

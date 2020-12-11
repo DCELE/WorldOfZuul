@@ -136,7 +136,7 @@
             <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </GridPane>
-      <FlowPane fx:id="roomInventory" layoutX="114.0" layoutY="106.0" onMouseClicked="#materialClicked" prefHeight="250.0" prefWidth="400.0">
+      <FlowPane fx:id="roomInventory" layoutX="114.0" layoutY="106.0" prefHeight="250.0" prefWidth="400.0">
          <children>
             <ImageView fx:id="roomInventoryItem1" fitHeight="125.0" fitWidth="133.0" onMouseClicked="#onItemInRoomInvClicked" pickOnBounds="true" preserveRatio="true">
                <cursor>

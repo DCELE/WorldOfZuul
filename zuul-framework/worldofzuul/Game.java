@@ -137,12 +137,6 @@ public class Game {
             if (!item.equals(material)) {
                 continue;
             }
-            // If the material is in its final state then return
-            if (chosenMaterial.getState() >= chosenMaterial.getStateNames().length-1) {
-                // Player has made a T-shirt
-                gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
-                return false;
-            }
             // Check if the room and the material's state correspond
             if (!(currentRoom == chosenMaterial.getRoomToUse())) {
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUse().getName());
@@ -155,10 +149,9 @@ public class Game {
                 else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
                 else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
+                // Plant material
+                chosenMaterial.setPlanted();
             }
-
-            // Plant material
-            chosenMaterial.setPlanted();
 
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
@@ -257,7 +250,13 @@ public class Game {
                 chosenMaterial.setInProcess();
             }
             // Material is upgraded from one state to another
-
+            if (chosenMaterial.getId() == 5) {
+                if (chosenMaterial.getState() < chosenMaterial.getStateNames().length) {
+                    chosenMaterial.upgradeState();
+                    gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
+                }
+                return;
+            }
             if (chosenMaterial.getState() < chosenMaterial.getStateNames().length-1) {
                 chosenMaterial.upgradeState();
                 gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
