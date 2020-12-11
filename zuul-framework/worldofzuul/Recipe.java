@@ -6,13 +6,16 @@ public class Recipe {
     private int water;
     private int other; // Either pesticides or chemicals never both
     private String itemIcon;
+    private String itemIconColored;
 
-    public Recipe(Room usableIn, int water, int other, String itemIcon) {
+    public Recipe(Room usableIn, int water, int other, String itemIcon, String itemIconColored) {
         this.usableIn = usableIn;
         this.water = water;
         this.other = other;
         this.itemIcon = itemIcon;
+        this.itemIconColored = itemIconColored;
     }
+
 
     @Override
     public String toString() {
@@ -71,7 +74,19 @@ public class Recipe {
         return usableIn;
     }
 
-    public String getImage() {
-        return itemIcon;
+    public String getImage() {return itemIcon;}
+
+    public String getImageColor() {return itemIconColored;}
+
+   /*
+
+   public String getImage(Materials materials) {
+        if (materials.getColor().equals("Blue")) {
+            return itemIconColored;
+        } else {
+            return itemIcon;
+        }
     }
+*/
+
 }

@@ -34,7 +34,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane playInvPane;
     @FXML
-    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace;
+    private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6, playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5, talkingFace, endResultImageView, endResultPersonImageView;
     @FXML
     private ImageView backgroundImage;
     private VBox pickMaterialColor;
@@ -42,11 +42,11 @@ public class Controller implements Initializable {
     @FXML
     private Label hintLabel;
     @FXML
-    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane;
+    public Pane PaneShowHelp, navMainPane, navMaterialPane, navFarmPane, navWellPane, navFactoryPane, navColorPane, navSewingPane, navFabricPane, endResultsPane;
     @FXML
     private Button button1, button2, button3, button4;
     @FXML
-    private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5, testlabel;
+    private Label textBox, textBox1, textBox2, textBox3, textBox4, textBox5;
     @FXML
     private Label scoreboard;
     @FXML
@@ -79,12 +79,10 @@ public class Controller implements Initializable {
             if (inventory == Game.getWell().getInventory() && item == Game.getWater()) {
                 continue;
             }
-
             inventorySlots[i].setImage(item.getItemIcon());
             inventorySlots[i].setDisable(false);
             i++;
         }
-
     }
 
     private void placeItemsInRoom(Room room) {
@@ -97,7 +95,6 @@ public class Controller implements Initializable {
                 }
                 Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
                 talkingFace.setImage(image);
-
             }
 
             if (room == Game.getFarm()) {
@@ -197,6 +194,13 @@ public class Controller implements Initializable {
         setNavigationImages(room);
 
         placeItemsInRoom(room);
+
+        setFinalScore(room);
+
+
+
+
+
 
 
         if (room == Game.getMainRoom()) {
@@ -444,9 +448,45 @@ public class Controller implements Initializable {
         hintLabel.setText(Materials.getActiveRecipe().toString());
 
         if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
+
             hintLabel.setText("You've come to \nthe end of your journey. \nThank you for playing \nour game \n- T6-1");
         }
     }
+
+    public void setFinalScore(Room room) {
+        if (Game.getChosenMaterial() == null) {
+            return;
+        }
+            if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
+                endResultsPane.setVisible(true);
+                if (Player.playerScore.getScore() > 55) {
+                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
+                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
+                    endResultImageView.setImage(image);
+                    endResultPersonImageView.setImage(imagePerson);
+
+                }
+                if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56 ) {
+                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
+                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
+                    endResultImageView.setImage(image);
+                    endResultPersonImageView.setImage(imagePerson);
+                }
+                if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
+                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
+                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
+                    endResultImageView.setImage(image);
+                    endResultPersonImageView.setImage(imagePerson);
+                }
+                if (Player.playerScore.getScore() < 0 ) {
+                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinus.png");
+                    endResultImageView.setImage(image);
+                }
+            }
+    }
+
+
+
 
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();

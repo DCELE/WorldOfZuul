@@ -57,29 +57,29 @@ public class Game {
         chemicals = new Chemicals("chemical", 9, new Room[]{fabricFactory, colorFactory}, "worldofzuul/WorldOfZuulPNG/Items/Chemicals.png", "Chemicals used in the\nproduction of clothes.\nNot environmentally friendly\nbut essential in the \nproduction.");
 
         // Declaring and initializing recipes (4 per material and 3 for polyester)
-        hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png"));
-        hemp.addRecipe(new Recipe(fabricFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        hemp.addRecipe(new Recipe(colorFactory, 1, 1,"worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        hemp.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        hemp.addRecipe(new Recipe(farm, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/HempPlant.png",""));
+        hemp.addRecipe(new Recipe(fabricFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        hemp.addRecipe(new Recipe(colorFactory, 1, 1,"worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        hemp.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        linen.addRecipe(new Recipe(farm, 1, 1, "worldofzuul/WorldOfZuulPNG/Items/LinenPlant.png"));
-        linen.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        linen.addRecipe(new Recipe(colorFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        linen.addRecipe(new Recipe(farm, 1, 1, "worldofzuul/WorldOfZuulPNG/Items/LinenPlant.png",""));
+        linen.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        linen.addRecipe(new Recipe(colorFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        linen.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        bamboo.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png"));
-        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        bamboo.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        bamboo.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/BambooPlant.png",""));
+        bamboo.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        bamboo.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        bamboo.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        cotton.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/CottonPlant.png"));
-        cotton.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        cotton.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        cotton.addRecipe(new Recipe(farm, 2, 2, "worldofzuul/WorldOfZuulPNG/Items/CottonPlant.png",""));
+        cotton.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        cotton.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        cotton.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
-        polyester.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png"));
-        polyester.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
-        polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtBlue.png"));
+        polyester.addRecipe(new Recipe(fabricFactory, 1, 1, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png",""));
+        polyester.addRecipe(new Recipe(colorFactory, 2, 2, "worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png","worldofzuul/WorldOfZuulPNG/Icons/FabricBlueIcon.png"));
+        polyester.addRecipe(new Recipe(sewingFactory, 0, 0, "worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png",""));
 
         // Placing items
         materialsInventory.addToInventory(hemp);
