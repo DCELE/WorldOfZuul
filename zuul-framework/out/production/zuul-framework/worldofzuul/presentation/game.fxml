@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -389,7 +390,7 @@
       <ImageView fx:id="wellImageView" fitHeight="463.0" fitWidth="331.0" layoutX="440.0" layoutY="183.0" onMouseClicked="#onWellClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <cursor>
 
-                                          <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
       <Pane fx:id="playInvPane" layoutX="966.0" layoutY="14.0" prefHeight="355.0" prefWidth="300.0" visible="false">
@@ -515,7 +516,7 @@
             </ImageView>
          </children>
       </Pane>
-      
+
       <VBox fx:id="pickUpQuestion" alignment="CENTER" blendMode="SRC_ATOP" layoutX="467.0" layoutY="231.0" prefHeight="259.0" prefWidth="352.0" spacing="5.0" visible="false">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
@@ -526,8 +527,8 @@
                      </image>
                   </ImageView>
                   <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="70.0" layoutY="39.0" prefHeight="235.0" prefWidth="230.0" style="-fx-background-color: transparent;">
-                    <content>
-                      <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="209.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="209.0" style="-fx-background-color: transparent;">
                            <children>
                               <Label fx:id="itemDescription" alignment="TOP_LEFT" blendMode="MULTIPLY" layoutX="5.0" layoutY="7.0" prefHeight="471.0" prefWidth="214.0" style="-fx-background-color: transparent;" text="Label">
                                  <font>
@@ -538,7 +539,7 @@
                                  </opaqueInsets>
                               </Label>
                            </children></AnchorPane>
-                    </content>
+                     </content>
                   </ScrollPane>
                   <ImageView fx:id="acceptPickUp" fitHeight="26.0" fitWidth="102.0" layoutX="76.0" layoutY="309.0" onMouseClicked="#onAcceptPickUp" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -556,7 +557,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-      
+
                   <Label alignment="CENTER" blendMode="MULTIPLY" layoutX="89.0" layoutY="22.0" prefHeight="17.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="Do you wish to pick it up?" textAlignment="CENTER">
                      <font>
                         <Font name="American Typewriter" size="14.0" />
@@ -575,7 +576,7 @@
             </ImageView>
             <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="139.0" layoutY="135.0" prefHeight="408.0" prefWidth="485.0" style="-fx-background-color: transparent;">
                <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="920.0" prefWidth="483.0" style="-fx-background-color: transparent;">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="920.0" prefWidth="483.0" style="-fx-background-color: transparent;">
                      <children>
                         <Label alignment="TOP_LEFT" layoutX="6.0" layoutY="6.0" prefHeight="921.0" prefWidth="457.0" style="-fx-background-color: transparent;" text="WELCOME TO THE HELP FAQ.&#10;______________________________________________________________________&#10;&#10;On this Adventure you will have to produce a T-shirt!&#10;______________________________________________________________________&#10;(1)&#10;&#10;You will have to pick a material of your own choice and then throughout the whole game, you will be learning the production of a T-Shirt and the ressources neeed for each of the materials.&#10;&#10;When in Mainroom, go take a visit in the Materials Room. Here you will be able to pick a seed/material for your further production. &#10;Picking polyester will save you a lot of time, but you will be doomed.&#10;______________________________________________________________________&#10;(2)&#10;&#10;After that you will have to plant your seed, but before that you need to pick up some water. You can pick up water in at the well. But remember, to pick up water, you will need a bucket first.. &#10;&#10;So now that you have water in your inventory. You can now go further to the farm and finally plant your seed! Yaaaaaaaay.&#10;______________________________________________________________________&#10;(3)&#10;&#10;Plant your seed on the farm and you will get a infobox about how many times you will need to water the plant! &#10;(Repeat process 2 and remember you already have a bucket.)&#10;______________________________________________________________________&#10;(4)&#10;&#10;When your plant is fully grown, you can now pick it up and you can now head towards the factory! At the factory you will need to use some chemicals and by your choice color the fabric and at last, sew it to a T-shirt!&#10;______________________________________________________________________&#10;&#10;Score system:&#10;&#10;Your score depends on what your choices are. So choose wisely and see if you can find the best possible way to produce a T-shirt on a environmental way&#10;&#10;Good luck!&#10;&#10;" wrapText="true">
                            <font>
@@ -634,7 +635,7 @@
             </ImageView>
             <ImageView fx:id="endResultPersonImageView" fitHeight="354.0" fitWidth="254.0" layoutX="367.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="152.0" prefHeight="348.0" prefWidth="230.0" />
-            <ImageView fx:id="closeButton" fitHeight="87.0" fitWidth="271.0" layoutX="520.0" layoutY="563.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="closeButton" fitHeight="87.0" fitWidth="271.0" layoutX="330.0" layoutY="563.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../WorldOfZuulPNG/Results/QuitButton.png" />
                </image>
@@ -642,6 +643,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="startPane" prefHeight="800.0" prefWidth="1280.0">
+         <children>
+            <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../WorldOfZuulPNG/StartUp/GameScreen.png" />
+               </image>
+            </ImageView>
+            <Button defaultButton="true" layoutX="125.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#startGame" prefHeight="86.0" prefWidth="165.0" text="START GAME" />
          </children>
       </Pane>
    </children>
