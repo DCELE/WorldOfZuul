@@ -539,29 +539,53 @@ public class Controller implements Initializable {
             return;
         }
 
-            if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
-                endResultsPane.setVisible(true);
+        if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
+            endResultsPane.setVisible(true);
 
-                if (Player.playerScore.getScore() > 55) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
+            if (Player.playerScore.getScore() > 55) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson1 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson1);
                 }
-                if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
+            }
+            if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson2 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson2);
                 }
-                if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
+            }
+            if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson3 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson3);
                 }
-                if (Player.playerScore.getScore() < 0) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
+            }
+            if (Player.playerScore.getScore() < 0) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
                     endResultImageView.setImage(image);
                 }
             }
