@@ -72,8 +72,22 @@ public class Materials extends Item {
 
     public void upgradeState() {
         this.state += 1;
-        this.setItemIcon(activeRecipe.getImage());
+        if (!this.color.equals(allColors[0].toLowerCase()) || this.color.equals("colored")) {
+            this.setItemIcon(activeRecipe.getImage());
+        } else {
+            if (state == 3) {
+                this.setItemIcon("worldofzuul/WorldOfZuulPNG/Icons/FabricWhiteIcon.png");
+            } else {
+                this.setItemIcon("worldofzuul/WorldOfZuulPNG/Items/TShirtWhite.png");
+            }
+        }
         setNameForState();
+        if (getId() == 5) {
+            if (recipes.size() > state-1) {
+                setActiveRecipe(this);
+                return;
+            }
+        }
         if (recipes.size() > state) {
             setActiveRecipe(this);
         }
@@ -171,10 +185,11 @@ public class Materials extends Item {
     }
 
     public static void setActiveRecipe(Materials material) {
-        activeRecipe = material.getRecipes().get(material.getState());
         if (material.getId() == 5) {
             activeRecipe = material.getRecipes().get(material.getState() - 1);
+            return;
         }
+        activeRecipe = material.getRecipes().get(material.getState());
     }
 
     public void decrementWater() {

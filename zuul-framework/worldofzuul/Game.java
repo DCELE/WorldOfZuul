@@ -1,5 +1,10 @@
 package worldofzuul;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 public class Game {
     private static Room currentRoom;
     private static Materials hemp, linen, bamboo, cotton, polyester;
@@ -137,12 +142,6 @@ public class Game {
             if (!item.equals(material)) {
                 continue;
             }
-            // If the material is in its final state then return
-            if (chosenMaterial.getState() >= chosenMaterial.getStateNames().length-1) {
-                // Player has made a T-shirt
-                gameGuides = ("You've finished making a T-shirt, you can quit the game when you're ready.");
-                return false;
-            }
             // Check if the room and the material's state correspond
             if (!(currentRoom == chosenMaterial.getRoomToUse())) {
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUse().getName());
@@ -155,10 +154,9 @@ public class Game {
                 else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
                 else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
+                // Plant material
+                chosenMaterial.setPlanted();
             }
-
-            // Plant material
-            chosenMaterial.setPlanted();
 
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
@@ -257,7 +255,13 @@ public class Game {
                 chosenMaterial.setInProcess();
             }
             // Material is upgraded from one state to another
-
+            if (chosenMaterial.getId() == 5) {
+                if (chosenMaterial.getState() < chosenMaterial.getStateNames().length) {
+                    chosenMaterial.upgradeState();
+                    gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
+                }
+                return;
+            }
             if (chosenMaterial.getState() < chosenMaterial.getStateNames().length-1) {
                 chosenMaterial.upgradeState();
                 gameGuides = (chosenMaterial.getName() + " is done, you can pick it up");
@@ -372,4 +376,11 @@ public class Game {
     public static Water getWater() {
         return water;
     }
+
+<<<<<<< HEAD
+=======
+    public static Bucket getBucket() {
+        return bucket;
+    }
+>>>>>>> f3569877dae05404b7ea75139a144bee33bf8b12
 }
