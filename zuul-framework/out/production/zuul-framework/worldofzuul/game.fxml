@@ -474,9 +474,9 @@
                   </ImageView>
                   <ScrollPane blendMode="MULTIPLY" hbarPolicy="NEVER" hmax="0.0" layoutX="70.0" layoutY="39.0" prefHeight="235.0" prefWidth="230.0" style="-fx-background-color: transparent;">
                     <content>
-                      <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="209.0" style="-fx-background-color: transparent;">
+                      <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="209.0" style="-fx-background-color: transparent;">
                            <children>
-                              <Label fx:id="itemDescription" alignment="TOP_LEFT" blendMode="MULTIPLY" layoutX="5.0" layoutY="7.0" prefHeight="443.0" prefWidth="214.0" style="-fx-background-color: transparent;" text="Label">
+                              <Label fx:id="itemDescription" alignment="TOP_LEFT" blendMode="MULTIPLY" layoutX="5.0" layoutY="7.0" prefHeight="471.0" prefWidth="214.0" style="-fx-background-color: transparent;" text="Label">
                                  <font>
                                     <Font name="American Typewriter" size="14.0" />
                                  </font>
