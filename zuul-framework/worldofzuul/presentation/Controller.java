@@ -541,7 +541,7 @@ public class Controller implements Initializable {
     }
 
     //This method determines what pane is shown at the end of the game.
-    public void setFinalScore(Room room) {
+    public void setFinalScore() {
         if (Game.getChosenMaterial() == null) {
             return;
         }
