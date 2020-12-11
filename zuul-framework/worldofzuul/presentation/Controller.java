@@ -246,6 +246,7 @@ public class Controller implements Initializable {
         materialPane.setDisable(true);
     }
 
+    //Method that takes input from a on_mouse_clicked and loads a new room.
     public void factoryNavClicked(MouseEvent mouseEvent) {
         loadRoom(Game.getFactory());
     }
@@ -278,7 +279,7 @@ public class Controller implements Initializable {
         loadRoom(Game.getFabricFactory());
     }
 
-
+    //Informative ingame-head enabled based on room.
     private void setPlayerHead(Room room) {
         if (room == Game.getWell()) {
             Image image = new Image("worldofzuul/WorldOfZuulPNG/Icons/waterRoomHead.png");
@@ -334,6 +335,7 @@ public class Controller implements Initializable {
 
         textBox.setText(room.getLongDescription());
     }
+
 
 
     public void setNavigationImages(Room room) {
@@ -490,6 +492,7 @@ public class Controller implements Initializable {
         acceptButton.setOnMouseClicked(this::acceptChosenColor);
         pickMaterialColor.getChildren().add(acceptButton);
 
+
         Scene scene = new Scene(pickMaterialColor);
         stage.setScene(scene);
         stage.show();
@@ -535,17 +538,19 @@ public class Controller implements Initializable {
         }
     }
 
-    public void setFinalScore() {
+    //This method determines what pane is shown at the end of the game.
+    public void setFinalScore(Room room) {
         if (Game.getChosenMaterial() == null) {
             return;
         }
+
         int i;
         if (Game.getChosenMaterial().getId() == 5) {
             i = Game.getChosenMaterial().getState() - 1;
         } else {
             i = Game.getChosenMaterial().getState();
-        }
 
+        //Requirements for a completion of the game.
         if (Game.getChosenMaterial().getRecipes().size() == i) {
             endResultsPane.setVisible(true);
 
@@ -554,22 +559,48 @@ public class Controller implements Initializable {
                 Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
                 endResultImageView.setImage(image);
                 endResultPersonImageView.setImage(imagePerson);
+
+                //If statement that changes pane based on if you colored your shirt or not.
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson1 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson1);
+                }
             }
             if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
-                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
+               Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
                 Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
                 endResultImageView.setImage(image);
                 endResultPersonImageView.setImage(imagePerson);
+
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson2 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson2);
+                }
             }
             if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
                 Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
                 Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
                 endResultImageView.setImage(image);
                 endResultPersonImageView.setImage(imagePerson);
+
+                if (Game.getChosenMaterial().getColor().equals("blue")) {
+                    Image imagePersonColored = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceColored.png");
+                    endResultPersonImageView.setImage(imagePersonColored);
+                } else {
+                    Image imagePerson3 = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
+                    endResultPersonImageView.setImage(imagePerson3);
+                }
             }
             if (Player.playerScore.getScore() < 0) {
                 Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
-                endResultImageView.setImage(image);
+                    endResultImageView.setImage(image);
+                }
             }
         }
     }

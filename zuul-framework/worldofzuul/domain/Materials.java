@@ -45,7 +45,6 @@ public class Materials extends Item {
         }
     }
 
-
     public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
@@ -143,7 +142,7 @@ public class Materials extends Item {
             activeRecipe.setOther(0);
         } else if (color.equals(allColors[1])) {
             activeRecipe.setWater(2);
-            activeRecipe.setOther(2);
+            activeRecipe.setOther(1);
         }
     }
 
