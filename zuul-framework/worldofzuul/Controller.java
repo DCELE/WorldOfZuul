@@ -204,7 +204,7 @@ public class Controller implements Initializable {
 
 
         if (room == Game.getMainRoom()) {
-            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/mainRoomHead.png");
+            Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/TextHelmet.png");
             talkingFace.setImage(image);
         }
 
@@ -214,6 +214,8 @@ public class Controller implements Initializable {
             if (Game.getChosenMaterial() == null) {
                 prosConsPanel.setVisible(true);
                 prosConsPanel1.setVisible(true);
+                Image image = new Image ("worldofzuul/WorldOfZuulPNG/Icons/TextFruitHat.png");
+                talkingFace.setImage(image);
             }
         }
     }
