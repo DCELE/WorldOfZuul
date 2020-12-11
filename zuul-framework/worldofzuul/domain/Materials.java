@@ -14,15 +14,14 @@ public class Materials extends Item {
     private static String[] allColors;
     private String[] stateNames;
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
-    private int points;
 
-    public Materials(String name, int id, int points, String itemIcon, String description) {
+
+    public Materials(String name, int id, String itemIcon, String description) {
         super(name, id, itemIcon, name.toUpperCase() + "\n" + description);
         this.state = 0;
         this.planted = false;
         this.color = "colored";
         allColors = new String[]{"Natural", "Blue"};
-        this.points = points;
         allMaterials.add(this);
 
         stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
@@ -41,11 +40,6 @@ public class Materials extends Item {
             this.recipes.add(recipe);
         }
     }
-    /* getPoints for material. Didnt work bc materials change name throughout the game
-    public int getPoints(){
-        return points;
-    }*/
-
 
     public ArrayList<Recipe> getRecipes() {
         return recipes;
@@ -142,7 +136,7 @@ public class Materials extends Item {
             activeRecipe.setOther(0);
         } else if (color.equals(allColors[1])) {
             activeRecipe.setWater(2);
-            activeRecipe.setOther(2);
+            activeRecipe.setOther(1);
         }
     }
 
