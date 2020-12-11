@@ -23,7 +23,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public ImageView wellImageView;
+    @FXML
+    private ImageView wellImageView, wellTable, sewingTable, farmTable, factoryTable, fabricTable, coloringTable, materialsTable, mainroomTable;
     @FXML
     private ImageView hintImage;
     @FXML
@@ -59,7 +60,6 @@ public class Controller implements Initializable {
     @FXML
     private Pane prosConsPanel, prosConsPanel1;
     private worldofzuul.Item selectedItemPlayInv, selectedItemRoomInv, itemSelectedOnce = null;
-    ;
 
 
     @Override
@@ -119,10 +119,16 @@ public class Controller implements Initializable {
             imageView.setDisable(true);
             imageView.setImage(null);
         }
+
+        int width = 0;
         if (inventory != Player.getInventory()) {
             disableAllSpecialImageViews();
+            disableTables();
             if (inventory == Game.getMaterials().getInventory()) {
                 materialPane.setDisable(false);
+            }
+            for (ImageView imageView : inventorySlots) {
+                imageView.setFitWidth(width / 6.0);
             }
         }
 
@@ -133,42 +139,102 @@ public class Controller implements Initializable {
             } else if (inventory == Game.getWell().getInventory() && item == Game.getBucket()) {
                 bucketImageView.setImage(item.getItemIcon());
                 bucketImageView.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getFarm().getInventory() && item == Game.getPesticides()) {
                 pesticideImageView.setImage(item.getItemIcon());
                 pesticideImageView.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getFactory().getInventory() && item == Game.getChemicals()) {
                 chemicalImageView.setImage(item.getItemIcon());
                 chemicalImageView.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getMaterials().getInventory() && item == Game.getHemp()) {
                 materialImage1.setImage(item.getItemIcon());
                 materialImage1.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getMaterials().getInventory() && item == Game.getLinen()) {
                 materialImage2.setImage(item.getItemIcon());
                 materialImage2.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getMaterials().getInventory() && item == Game.getBamboo()) {
                 materialImage3.setImage(item.getItemIcon());
                 materialImage3.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getMaterials().getInventory() && item == Game.getCotton()) {
                 materialImage4.setImage(item.getItemIcon());
                 materialImage4.setDisable(false);
-                continue;
+
             } else if (inventory == Game.getMaterials().getInventory() && item == Game.getPolyester()) {
                 materialImage5.setImage(item.getItemIcon());
                 materialImage5.setDisable(false);
-                continue;
-            }
 
-            inventorySlots[i].setImage(item.getItemIcon());
-            inventorySlots[i].setDisable(false);
-            i++;
+            } else {
+                inventorySlots[i].setImage(item.getItemIcon());
+                inventorySlots[i].setDisable(false);
+                i++;
+            }
         }
 
+        if (inventory == Game.getMainRoom().getInventory()) {
+            width = 390;
+            roomInventory.setLayoutX(50);
+            roomInventory.setLayoutY(709-40);
+            roomInventory.setPrefWidth(width);
+            mainroomTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/SmallTable.png"));
+            mainroomTable.setVisible(true);
+        } else if (inventory == Game.getMaterials().getInventory()) {
+            width = 300;
+            roomInventory.setLayoutX(50);
+            roomInventory.setLayoutY(368-40);
+            roomInventory.setPrefWidth(width);
+        } else if (inventory == Game.getColorFactory().getInventory()) {
+            width = 427;
+            roomInventory.setLayoutX(610);
+            roomInventory.setLayoutY(131-40);
+            roomInventory.setPrefWidth(width);
+            coloringTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/ColorShelf.png"));
+            coloringTable.setVisible(true);
+        } else if (inventory == Game.getFabricFactory().getInventory()) {
+            width = 427;
+            roomInventory.setLayoutX(620);
+            roomInventory.setLayoutY(283-40);
+            roomInventory.setPrefWidth(width);
+            fabricTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/ColorShelf.png"));
+            fabricTable.setVisible(true);
+        } else if (inventory == Game.getFactory().getInventory()) {
+            width = 369;
+            roomInventory.setLayoutX(65);
+            roomInventory.setLayoutY(720);
+            roomInventory.setPrefWidth(width);
+        } else if (inventory == Game.getFarm().getInventory()) {
+            width = 403;
+            roomInventory.setLayoutX(50);
+            roomInventory.setLayoutY(394-40);
+            roomInventory.setPrefWidth(width);
+            farmTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/Table.png"));
+            farmTable.setVisible(true);
+        } else if (inventory == Game.getSewingFactory().getInventory()) {
+            width = 427;
+            roomInventory.setLayoutX(600);
+            roomInventory.setLayoutY(150);
+            roomInventory.setPrefWidth(width);
+            sewingTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/ColorShelf.png"));
+            sewingTable.setVisible(true);
+        } else if (inventory == Game.getWell().getInventory()) {
+            width = 443;
+            roomInventory.setLayoutX(60);
+            roomInventory.setLayoutY(485-40);
+            roomInventory.setPrefWidth(width);
+            wellTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/Table.png"));
+            wellTable.setVisible(true);
+        }
+    }
+
+    private void disableTables() {
+        ImageView[] allTables = new ImageView[] {wellTable, sewingTable, farmTable, factoryTable, fabricTable, coloringTable, materialsTable, mainroomTable};
+        for (ImageView imageView : allTables) {
+            imageView.setVisible(false);
+        }
     }
 
     private void disableAllSpecialImageViews() {
