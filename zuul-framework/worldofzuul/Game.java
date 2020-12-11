@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import javafx.scene.control.Control;
+
 public class Game {
     private static Room currentRoom;
     private static Materials hemp, linen, bamboo, cotton, polyester;
@@ -148,17 +150,12 @@ public class Game {
                 Player.setPlayerThinks("I should try going to " + chosenMaterial.getRoomToUse().getName());
                 return false;
             }
-            // Check the materials stage
             if (chosenMaterial.getState() == 0) {
-
-                if (material.getName().equals("hemp seed")){ Player.playerScore.addToScore(-5);}
-                else if (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
-                else if (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
-                else if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
+                // Plant material
+                chosenMaterial.setPlanted();
             }
 
-            // Plant material
-            chosenMaterial.setPlanted();
+            // Check the materials stage
 
             // Check the materials stage
             if (chosenMaterial.getState() >= 1) {
@@ -196,7 +193,7 @@ public class Game {
                     Player.setPlayerThinks("I need to plant something before watering it");
                     return false;
                 }
-                Player.playerScore.addToScore(-5);
+
             }
 
             // Check if the room is the factory
@@ -210,7 +207,6 @@ public class Game {
             if (Materials.getActiveRecipe().getWater() <= 0) {
                 return false;
             }
-            Player.playerScore.addToScore(-5);
             chosenMaterial.decrementWater();
             bucket.setHasWater();
         }
@@ -218,8 +214,8 @@ public class Game {
         if (item.equals(chemicals)) {
             for (Room room : chemicals.getRoomsToUse()) {
                 useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
-                Player.playerScore.addToScore(-5);
             }
+            Player.playerScore.addToScore(-5);
         }
 
         if (item.equals(pesticides)) {
@@ -278,6 +274,11 @@ public class Game {
                 // Remove all other materials from room
                 currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
                 currentRoom.getInventory().addToInventory(chosenMaterial);
+                if  (material.getName().equals("hemp seed")){Player.playerScore.addToScore(-5);}
+                if  (material.getName().equals("linen seed")){Player.playerScore.addToScore(-10);}
+                if  (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-15);}
+                if  (material.getName().equals("polyester chemicals")){Player.playerScore.addToScore(-35);}
+                if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-10);}
             }
 
             if (material.isPlanted()) {
@@ -296,9 +297,11 @@ public class Game {
                 return false;
             }
             if (bucket.hasWater()) {
-                Player.setPlayerThinks("I've already filled the bucket with water");
+                Player.setPlayerThinks("You've just emptied your bucket to pick up some more water. Great idea!!");
+                Player.playerScore.addToScore(-5);
                 return false;
             }
+            Player.playerScore.addToScore(-5);
             bucket.setHasWater();
             return false;
         }

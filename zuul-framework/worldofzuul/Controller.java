@@ -311,6 +311,7 @@ public class Controller implements Initializable {
             return;
         }
         Player.pickUpItem(item);
+        loadRoom(Game.getCurrentRoom());
         setInventory(Game.getCurrentRoom().getInventory());
         setInventory(Player.getInventory());
         setRoomInventory(Game.getCurrentRoom());
@@ -501,6 +502,7 @@ public class Controller implements Initializable {
     public void onAcceptPickUp(MouseEvent mouseEvent) {
         onPickUpButtonClicked(mouseEvent);
         pickUpQuestion.setVisible(false);
+        loadRoom(Game.getCurrentRoom());
     }
 
     public void onDenyPickUp(MouseEvent mouseEvent) {
