@@ -11,28 +11,15 @@ public abstract class Item {
     private Image itemIcon;
     private String description;
 
-    public Item() {
-    }
-
     public Item(String description) {
         this.description = description;
-    }
-
-    public Item(String name, int id, String itemIcon) {
-        this.name = name;
-        this.id = id;
-        try {
-            this.itemIcon = new Image(new FileInputStream(itemIcon));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            this.itemIcon = null;
-        }
     }
 
     public Item(String name, int id, String itemIcon, String description) {
         this.name = name;
         this.id = id;
         this.description = description;
+        // Try to find the image at the URL
         try {
             this.itemIcon = new Image(new FileInputStream(itemIcon));
         } catch (FileNotFoundException e) {
@@ -45,8 +32,6 @@ public abstract class Item {
     public String toString() {
         return name;
     }
-
-    //public int nextFreeId(){}
 
     public String getName() {
         return name;
@@ -72,6 +57,7 @@ public abstract class Item {
         this.description = description;
     }
 
+    // Used to set a new Image for the item by sending an URL with the method
     public void setItemIcon(String itemIcon) {
         try {
             this.itemIcon = new Image(new FileInputStream(itemIcon));

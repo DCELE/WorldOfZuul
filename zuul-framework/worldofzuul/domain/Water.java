@@ -1,7 +1,5 @@
 package worldofzuul.domain;
 
-import worldofzuul.domain.Item;
-
 public class Water extends Item {
     private static String name;
     private static int id;

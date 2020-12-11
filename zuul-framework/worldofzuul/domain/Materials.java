@@ -3,18 +3,21 @@ package worldofzuul.domain;
 import java.util.ArrayList;
 
 public class Materials extends Item {
-    // State is either seed, plant, fabric or t-shirt.
+    // State is either seed, plant, fabric, colored fabric or colored t-shirt
     private int state;
+    // Recipes are a list of what is needed to upgrade the material
     private ArrayList<Recipe> recipes;
+    // The active recipe is the recipe which the player is currently working on
     private static Recipe activeRecipe;
     private boolean planted;
     private boolean inProcess;
-    // The rooms in order, where you can use (interact with) the item
     private String color;
+    // All the available colors to select from when coloring a material
     private static String[] allColors;
+    // The name of each state in order
     private String[] stateNames;
+    // A list of all materials
     private static ArrayList<Materials> allMaterials = new ArrayList<>();
-
 
     public Materials(String name, int id, String itemIcon, String description) {
         super(name, id, itemIcon, name.toUpperCase() + "\n" + description);
@@ -26,6 +29,7 @@ public class Materials extends Item {
 
         stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
         if (super.getId() == 5) {
+            // Polyester is not a seed and has one less state
             this.state = 1;
             stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
 
@@ -69,6 +73,7 @@ public class Materials extends Item {
     }
 
     public void setNameForState() {
+        // Updating names if the color has changed and changing the name in relation to the state
         updateStateNames();
         int stateNameInt = getState();
         if (getId() == 5) {
@@ -82,6 +87,7 @@ public class Materials extends Item {
     }
 
     public void updateStateNames() {
+        // Set state name if the color has changed
         stateNames = new String[]{" seed", " plant", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
         if (getId() == 5) {
             stateNames = new String[]{" chemicals", " fabric", " " + this.color + " fabric", " " + this.color + " t-shirt"};
@@ -98,7 +104,6 @@ public class Materials extends Item {
 
     public boolean isPlanted() {
         return planted;
-
     }
 
     public void setPlanted() {
@@ -132,6 +137,7 @@ public class Materials extends Item {
     public void setColor(String color) {
         this.color = color.toLowerCase();
         if (color.equals(allColors[0])) {
+            // Changing the active recipe in relation to the chosen color
             activeRecipe.setWater(0);
             activeRecipe.setOther(0);
         } else if (color.equals(allColors[1])) {
