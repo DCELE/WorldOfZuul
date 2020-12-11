@@ -215,7 +215,7 @@ public class Game {
             for (Room room : chemicals.getRoomsToUse()) {
                 useChemicalsOrPesticides(chosenMaterial.isInProcess(), room);
             }
-            Player.playerScore.addToScore(-5);
+            Player.playerScore.addToScore(-10);
         }
 
         if (item.equals(pesticides)) {
@@ -275,10 +275,10 @@ public class Game {
                 currentRoom.getInventory().getArrayList().removeAll(currentRoom.getInventory().getArrayList());
                 currentRoom.getInventory().addToInventory(chosenMaterial);
                 if  (material.getName().equals("hemp seed")){Player.playerScore.addToScore(-5);}
-                if  (material.getName().equals("linen seed")){Player.playerScore.addToScore(-10);}
-                if  (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-15);}
+                if  (material.getName().equals("linen seed")){Player.playerScore.addToScore(-15);}
+                if  (material.getName().equals("bamboo seed")){Player.playerScore.addToScore(-10);}
                 if  (material.getName().equals("polyester chemicals")){Player.playerScore.addToScore(-35);}
-                if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-10);}
+                if (material.getName().equals("cotton seed")){Player.playerScore.addToScore(-20);}
             }
 
             if (material.isPlanted()) {
