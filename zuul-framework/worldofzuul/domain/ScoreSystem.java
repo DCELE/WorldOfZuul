@@ -1,6 +1,7 @@
 package worldofzuul.domain;
 
 public class ScoreSystem {
+
     private static int score;
     private static int points;
 

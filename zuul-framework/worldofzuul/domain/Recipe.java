@@ -2,6 +2,7 @@ package worldofzuul.domain;
 
 public class Recipe {
     private String name;
+    // A recipe is used in a specific room
     private Room usableIn;
     private int water;
     private int other; // Either pesticides or chemicals never both
@@ -17,12 +18,14 @@ public class Recipe {
 
     @Override
     public String toString() {
+        // A to do list which will be available in "hint" or "(!)"-box
         String pickUpMaterial = "Pick up " + Game.getChosenMaterial() + "\n";
         String usableIn = "Go to " + this.usableIn.getName() + ":\n";
         String use = "Use " + Game.getChosenMaterial().getName() + "\n";
         String water = "Water " + this.water + " time(s)\n";
         String other;
 
+        // Replace Chemicals with pesticides when the player should use pesticides
         if (Materials.getActiveRecipe().getUsableIn() == Game.getPesticides().getRoomToUse()) {
             other = "Pesticides " + this.other + " time(s)";
         } else {
@@ -37,6 +40,7 @@ public class Recipe {
                 + checkIfDone(other, this.other == 0);
     }
 
+    // If the step is done then delete it
     private String checkIfDone(String string, boolean done) {
         if (done) {
             return "";

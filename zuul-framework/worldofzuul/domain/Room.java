@@ -10,8 +10,6 @@ public class Room {
     private HashMap<Room, Room> exits;
     private Inventory inventory;
     private String name;
-    private int waterAmountInMachine;
-    private static ArrayList<Room> allRooms = new ArrayList<>();
     private String backgroundImage;
 
     public Room(String name, String description, Inventory inventory) {
@@ -19,7 +17,6 @@ public class Room {
         this.description = description;
         exits = new HashMap<Room, Room>();
         this.inventory = inventory;
-        allRooms.add(this);
     }
 
     public Room(String name, String description, Inventory inventory, String url) {
@@ -27,7 +24,6 @@ public class Room {
         this.description = description;
         exits = new HashMap<Room, Room>();
         this.inventory = inventory;
-        allRooms.add(this);
         this.backgroundImage = url;
     }
 
@@ -71,22 +67,6 @@ public class Room {
 
     public String getName() {
         return name;
-    }
-
-    public static ArrayList<Room> getAllRooms() {
-        return allRooms;
-    }
-
-    public static Room getRoom(String roomName) {
-        Room currentRoom = null;
-        for (Room room : Room.getAllRooms()) {
-            if (!room.getName().equals(roomName)) {
-                continue;
-            }
-            currentRoom = room;
-            break;
-        }
-        return currentRoom;
     }
 
     public String getBackgroundImage() {
