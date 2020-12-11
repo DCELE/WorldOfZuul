@@ -96,7 +96,7 @@
                         </ImageView>
                         <Label fx:id="scoreboard" alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="34.0" layoutY="-1.0" prefHeight="51.0" prefWidth="200.0" text="Label" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="34.0">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="American Typewriter" size="14.0" />
                            </font>
                         </Label>
                      </children>
