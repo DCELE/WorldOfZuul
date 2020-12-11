@@ -39,7 +39,8 @@ public class Controller implements Initializable {
     @FXML
     private ImageView playerInventory, playerInventoryItem1, playerInventoryItem2, playerInventoryItem3, playerInventoryItem4, playerInventoryItem5, playerInventoryItem6,
             playerInventoryItem7, playerInventoryItem8, playerInventoryItem9, bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3,
-            materialImage4, materialImage5, talkingFace, endResultImageView, endResultPersonImageView, closeButton;;
+            materialImage4, materialImage5, talkingFace, endResultImageView, endResultPersonImageView, closeButton;
+    ;
     @FXML
     private ImageView backgroundImage;
     @FXML
@@ -177,26 +178,26 @@ public class Controller implements Initializable {
         if (inventory == Game.getMainRoom().getInventory()) {
             width = 390;
             roomInventory.setLayoutX(50);
-            roomInventory.setLayoutY(709-40);
+            roomInventory.setLayoutY(709 - 40);
             roomInventory.setPrefWidth(width);
             mainroomTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/SmallTable.png"));
             mainroomTable.setVisible(true);
         } else if (inventory == Game.getMaterials().getInventory()) {
             width = 300;
             roomInventory.setLayoutX(50);
-            roomInventory.setLayoutY(368-40);
+            roomInventory.setLayoutY(368 - 40);
             roomInventory.setPrefWidth(width);
         } else if (inventory == Game.getColorFactory().getInventory()) {
             width = 427;
             roomInventory.setLayoutX(610);
-            roomInventory.setLayoutY(131-40);
+            roomInventory.setLayoutY(131 - 40);
             roomInventory.setPrefWidth(width);
             coloringTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/ColorShelf.png"));
             coloringTable.setVisible(true);
         } else if (inventory == Game.getFabricFactory().getInventory()) {
             width = 427;
             roomInventory.setLayoutX(620);
-            roomInventory.setLayoutY(283-40);
+            roomInventory.setLayoutY(283 - 40);
             roomInventory.setPrefWidth(width);
             fabricTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/ColorShelf.png"));
             fabricTable.setVisible(true);
@@ -208,7 +209,7 @@ public class Controller implements Initializable {
         } else if (inventory == Game.getFarm().getInventory()) {
             width = 403;
             roomInventory.setLayoutX(50);
-            roomInventory.setLayoutY(394-40);
+            roomInventory.setLayoutY(394 - 40);
             roomInventory.setPrefWidth(width);
             farmTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/Table.png"));
             farmTable.setVisible(true);
@@ -222,7 +223,7 @@ public class Controller implements Initializable {
         } else if (inventory == Game.getWell().getInventory()) {
             width = 443;
             roomInventory.setLayoutX(60);
-            roomInventory.setLayoutY(485-40);
+            roomInventory.setLayoutY(485 - 40);
             roomInventory.setPrefWidth(width);
             wellTable.setImage(getImage("worldofzuul/WorldOfZuulPNG/Icons/Table.png"));
             wellTable.setVisible(true);
@@ -230,14 +231,14 @@ public class Controller implements Initializable {
     }
 
     private void disableTables() {
-        ImageView[] allTables = new ImageView[] {wellTable, sewingTable, farmTable, factoryTable, fabricTable, coloringTable, materialsTable, mainroomTable};
+        ImageView[] allTables = new ImageView[]{wellTable, sewingTable, farmTable, factoryTable, fabricTable, coloringTable, materialsTable, mainroomTable};
         for (ImageView imageView : allTables) {
             imageView.setVisible(false);
         }
     }
 
     private void disableAllSpecialImageViews() {
-        ImageView[] specialImageView = new ImageView[] {bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5};
+        ImageView[] specialImageView = new ImageView[]{bucketImageView, pesticideImageView, chemicalImageView, materialImage1, materialImage2, materialImage3, materialImage4, materialImage5};
         for (ImageView imageView : specialImageView) {
             imageView.setImage(null);
             imageView.setDisable(true);
@@ -362,7 +363,6 @@ public class Controller implements Initializable {
             navWellPane.setVisible(true);
         }
 
-
         //set visible false
         if (room != Game.getMainRoom()) {
             navMainPane.setVisible(false);
@@ -388,8 +388,6 @@ public class Controller implements Initializable {
         if (room != Game.getWell()) {
             navWellPane.setVisible(false);
         }
-
-
     }
 
     // add item to player inventory in relation to the graphics
@@ -541,34 +539,40 @@ public class Controller implements Initializable {
         if (Game.getChosenMaterial() == null) {
             return;
         }
+        int i;
+        if (Game.getChosenMaterial().getId() == 5) {
+            i = Game.getChosenMaterial().getState() - 1;
+        } else {
+            i = Game.getChosenMaterial().getState();
+        }
 
-            if (Game.getChosenMaterial().getRecipes().size() == Game.getChosenMaterial().getState()) {
-                endResultsPane.setVisible(true);
+        if (Game.getChosenMaterial().getRecipes().size() == i) {
+            endResultsPane.setVisible(true);
 
-                if (Player.playerScore.getScore() > 55) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
-                }
-                if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
-                }
-                if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
-                    Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
-                    endResultImageView.setImage(image);
-                    endResultPersonImageView.setImage(imagePerson);
-                }
-                if (Player.playerScore.getScore() < 0) {
-                    Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
-                    endResultImageView.setImage(image);
-                }
+            if (Player.playerScore.getScore() > 55) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceFirst.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManFirstPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+            }
+            if (Player.playerScore.getScore() > 24 && Player.playerScore.getScore() < 56) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceSecond.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManSecondPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+            }
+            if (Player.playerScore.getScore() > -1 && Player.playerScore.getScore() < 25) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceThird.png");
+                Image imagePerson = new Image("worldofzuul/WorldOfZuulPNG/Results/ManThirdPlaceNatural.png");
+                endResultImageView.setImage(image);
+                endResultPersonImageView.setImage(imagePerson);
+            }
+            if (Player.playerScore.getScore() < 0) {
+                Image image = new Image("worldofzuul/WorldOfZuulPNG/Results/PlaceMinusTrump.png");
+                endResultImageView.setImage(image);
             }
         }
+    }
 
     public void onHintClicked(MouseEvent mouseEvent) {
         boolean labelVisibility = hintLabel.isVisible();
