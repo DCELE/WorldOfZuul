@@ -9,12 +9,11 @@ import javafx.stage.StageStyle;
 import worldofzuul.domain.Game;
 
 public class Main extends Application {
-    private static Scene scene;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
-        scene = new Scene(root);
+        Scene scene = new Scene(root);
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
@@ -26,11 +25,4 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static Scene getScene() {
-        return scene;
-    }
-
-    public static void setScene(Scene scene) {
-        Main.scene = scene;
-    }
 }

@@ -641,7 +641,7 @@ public class Controller implements Initializable {
         onItemInRoomInvClicked(mouseEvent);
 
     }
-    
+
     public void closeButton(MouseEvent mouseEvent) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
